@@ -3,6 +3,20 @@
     <string name="values_folder">values</string>
     <string name="username">نام کاربری</string>
     <string name="password">رمز عبور</string>
+    <string name="profile">پروفایل مشتری</string>
+    <string name="connectionReport">سوابق اتصال مشتری</string>
+    <string name="onlineSharj">شارژ آنلاین</string>
+    <string name="payReport">سوابق پرداخت</string>
+    <string name="consumثchart">نمودار مصرف</string>
+    <string name="consumechart">نمودار مصرف</string>
+    <string name="speedTest">تست سرعت</string>
+    <string name="tickets">تیکت ها</string>
+    <string name="inviteFriends">دعوت دوستان</string>
+    <string name="pointReports">سوابق امتیازها</string>
+    <string name="messages">پیغام ها</string>
+    <string name="games">بازی</string>
+    <string name="spesioansuggestion">پیشنهاد ویژه</string>
+    <string name="exit">خروج</string>
     <string-array name="sp_olaviat_items">
         <item>کم</item>
         <item>متوسط</item>

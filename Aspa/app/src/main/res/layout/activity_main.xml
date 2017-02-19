@@ -42,7 +42,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="@dimen/progress_bar_width"
-                        android:background="@drawable/circle" />
+                        android:background="@drawable/ic_circle" />
 
                     <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
                         android:id="@+id/txtRemainTraffic"
@@ -76,7 +76,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="@dimen/progress_bar_width"
-                        android:background="@drawable/circle" />
+                        android:background="@drawable/ic_circle" />
 
                     <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
                         android:id="@+id/txtRemainDay"
