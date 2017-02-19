@@ -38,7 +38,7 @@
                                 android:orientation="vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewNormal
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                     android:layout_width="match_parent"
                                     android:ellipsize="end"
                                     android:textSize="@dimen/size_font_very_very_small"
@@ -51,7 +51,7 @@
                                 android:orientation="vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                     android:layout_width="match_parent"
                                     android:ellipsize="end"
                                     android:textSize="@dimen/size_font_very_very_small"
@@ -67,7 +67,7 @@
                         <LinearLayout android:orientation="vertical"
                                       android:layout_width="wrap_content"
                                       android:layout_height="match_parent">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                       android:layout_width="wrap_content"
                                       android:layout_height="wrap_content"
                                       android:text="1393/01/01 22:38"

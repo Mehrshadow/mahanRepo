@@ -23,7 +23,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <ir.aspacrm.my.app.mahan.G.component.PersianTextViewNormal
+        <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                 android:layout_width="match_parent"
                 android:text="پیغام"
                 android:gravity="center"

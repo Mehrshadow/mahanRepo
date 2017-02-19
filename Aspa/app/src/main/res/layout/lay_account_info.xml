@@ -29,7 +29,7 @@
                 android:layout_width="fill_parent"
                 android:gravity="center"
                 android:layout_height="fill_parent">
-            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewBold
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
                     android:layout_width="match_parent"
                     android:gravity="center"
                     android:textColor="@color/white"

@@ -163,7 +163,7 @@
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:layout_height="wrap_content">
-                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"

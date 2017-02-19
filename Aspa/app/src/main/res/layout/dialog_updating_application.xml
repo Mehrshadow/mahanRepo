@@ -62,7 +62,7 @@
                 android:layout_marginBottom="3dp"
                 app:matProg_barColor="@color/white"
                 app:matProg_progressIndeterminate="false"/>
-        <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+        <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/size_font_very_very_small"
@@ -71,7 +71,7 @@
                 android:text="لطفا صبر کنید"
                 android:textColor="@color/white"/>
     </LinearLayout>
-    <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+    <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
             android:layout_width="match_parent"
             android:text=""
             android:gravity="right"

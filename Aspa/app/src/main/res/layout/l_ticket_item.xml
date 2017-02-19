@@ -49,7 +49,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                     android:layout_width="match_parent"
                                     android:singleLine="true"
                                     android:ellipsize="end"
@@ -82,7 +82,7 @@
                                       android:layout_width="0dp"
                                       android:layout_height="match_parent"
                                       android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/txtTicketDate"
@@ -112,7 +112,7 @@
                                       android:layout_width="0dp"
                                       android:layout_height="match_parent"
                                       android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/txtTicketStatus"
@@ -141,7 +141,7 @@
                                       android:layout_width="0dp"
                                       android:layout_height="match_parent"
                                       android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/txtTicketPriority"

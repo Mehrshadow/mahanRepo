@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtDialogDescription"/>
     </LinearLayout>
-    <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+    <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
             android:layout_width="match_parent"
             android:text=""
             android:gravity="right"

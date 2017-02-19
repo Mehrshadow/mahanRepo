@@ -48,7 +48,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewNormal
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/txtFactorCode"
@@ -79,7 +79,7 @@
                                       android:layout_width="0dp"
                                       android:layout_height="match_parent"
                                       android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewNormal
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/txtFactorDate"
@@ -109,7 +109,7 @@
                                       android:layout_width="0dp"
                                       android:layout_height="match_parent"
                                       android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewNormal
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/txtFactorStartDate"
@@ -139,7 +139,7 @@
                                       android:layout_width="0dp"
                                       android:layout_height="match_parent"
                                       android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewNormal
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/txtFactorEndDate"
@@ -330,7 +330,7 @@
                                 android:gravity="center"
                                 android:layout_gravity="center"
                                 android:layout_height="wrap_content">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"

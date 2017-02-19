@@ -13,8 +13,8 @@
         android:id="@+id/layBtnPositive"
         android:clickable="true"
         android:foreground="@drawable/ripple_list_item"
-        card_view:cardBackgroundColor="@color/colorPrimary"
-        card_view:cardCornerRadius="10dp"
+        card_view:cardBackgroundColor="@color/back_btn_login"
+        card_view:cardCornerRadius="1dp"
         card_view:cardElevation="5dp">
     <RelativeLayout
             android:layout_width="fill_parent"

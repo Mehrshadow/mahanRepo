@@ -45,7 +45,7 @@
                 android:textSize="@dimen/size_font_very_very_small"
                 android:textColor="@color/white"
                 android:layout_height="wrap_content"/>
-        <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+        <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                 android:layout_width="match_parent"
                 android:text="نسخه فعلی : نامشخص"
                 android:gravity="center"
@@ -54,7 +54,7 @@
                 android:textSize="@dimen/size_font_very_very_small"
                 android:textColor="@color/colorAccent"
                 android:layout_height="wrap_content"/>
-        <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+        <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                 android:layout_width="match_parent"
                 android:text="نسخه جدید : نامشخص"
                 android:gravity="center"

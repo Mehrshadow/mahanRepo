@@ -70,7 +70,7 @@
                                           android:layout_height="match_parent"
                                           android:orientation="horizontal"
                                           android:gravity="center">
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:id="@+id/txtFactorDes"
@@ -87,10 +87,10 @@
                             <LinearLayout android:layout_width="match_parent"
                                           android:layout_height="match_parent"
                                           android:gravity="right|center_vertical">
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         android:id="@+id/txtFactorCode"
                                         style="@style/txtFactorDetailValue"/>
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         style="@style/txtFactorDetailTitle"
                                         android:text="شماره فاکتور"/>
 
@@ -101,10 +101,10 @@
                             <LinearLayout android:layout_width="match_parent"
                                           android:layout_height="match_parent"
                                           android:gravity="right|center_vertical">
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         android:id="@+id/txtFactorStartDate"
                                         style="@style/txtFactorDetailValue"/>
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         style="@style/txtFactorDetailTitle"
                                         android:text="تاریخ شروع"/>
 
@@ -116,10 +116,10 @@
                             <LinearLayout android:layout_width="match_parent"
                                           android:layout_height="match_parent"
                                           android:gravity="right|center_vertical">
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         android:id="@+id/txtFactorGheymatPaye"
                                         style="@style/txtFactorDetailValue"/>
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         style="@style/txtFactorDetailTitle"
                                         android:text="قیمت پایه"/>
 
@@ -130,10 +130,10 @@
                             <LinearLayout android:layout_width="match_parent"
                                           android:layout_height="match_parent"
                                           android:gravity="right|center_vertical">
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         android:id="@+id/txtFactorGheymat"
                                         style="@style/txtFactorDetailValue"/>
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         style="@style/txtFactorDetailTitle"
                                         android:text="قیمت"/>
 
@@ -144,10 +144,10 @@
                             <LinearLayout android:layout_width="match_parent"
                                           android:layout_height="match_parent"
                                           android:gravity="right|center_vertical">
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         android:id="@+id/txtFactorMaliat"
                                         style="@style/txtFactorDetailValue"/>
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         style="@style/txtFactorDetailTitle"
                                         android:text="مالیات"/>
 
@@ -158,10 +158,10 @@
                             <LinearLayout android:layout_width="match_parent"
                                           android:layout_height="match_parent"
                                           android:gravity="right|center_vertical">
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         android:id="@+id/txtFactorTakhfif"
                                         style="@style/txtFactorDetailValue"/>
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         style="@style/txtFactorDetailTitle"
                                         android:text="تخفیف"/>
 
@@ -172,10 +172,10 @@
                             <LinearLayout android:layout_width="match_parent"
                                           android:layout_height="match_parent"
                                           android:gravity="right|center_vertical">
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         android:id="@+id/txtFactorMablaghePardakhti"
                                         style="@style/txtFactorDetailValue"/>
-                                <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                         style="@style/txtFactorDetailTitle"
                                         android:text="مبلغ پرداختی"/>
 
@@ -199,7 +199,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_height="match_parent"
                         android:gravity="center">
-                    <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                    <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="پرداخت"
@@ -231,7 +231,7 @@
                     android:layout_marginRight="5dp"
                     app:matProg_barColor="@color/white"
                     app:matProg_progressIndeterminate="true"/>
-            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/size_font_very_very_small"

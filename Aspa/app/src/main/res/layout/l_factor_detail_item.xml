@@ -48,7 +48,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewNormal
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/txtFactorDetailTitle"
@@ -81,7 +81,7 @@
                                       android:layout_width="0dp"
                                       android:layout_height="match_parent"
                                       android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewNormal
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/txtFactorDetailPrice"
@@ -112,7 +112,7 @@
                                       android:layout_height="wrap_content"
                                       android:layout_weight="1"
                                       android:gravity="right">
-                            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewNormal
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/txtFactorDetailDes"
