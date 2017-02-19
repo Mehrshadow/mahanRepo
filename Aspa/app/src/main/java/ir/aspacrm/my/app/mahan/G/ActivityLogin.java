@@ -60,6 +60,9 @@ import java.util.List;
  */
 public class ActivityLogin extends AppCompatActivity {
 
+    //
+    ///
+
     @Bind(ir.aspacrm.my.app.mahan.R.id.imgIspLogo) ImageView imgIspLogo;
     @Bind(ir.aspacrm.my.app.mahan.R.id.txtIspName) TextView txtIspName;
     @Bind(ir.aspacrm.my.app.mahan.R.id.edtUsername)
