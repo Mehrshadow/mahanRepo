@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ارتباطات آرسین</string>
+    <string name="values_folder">values</string>
+    <string name="username">نام کاربری</string>
+    <string name="password">رمز عبور</string>
+    <string-array name="sp_olaviat_items">
+        <item>کم</item>
+        <item>متوسط</item>
+        <item>زیاد</item>
+    </string-array>
+</resources>

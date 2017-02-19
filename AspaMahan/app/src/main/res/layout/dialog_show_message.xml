@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:id="@+id/layMainDialog"
+              android:background="@color/dialog_background"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:id="@+id/layCloseDialog"
+            android:layout_height="wrap_content">
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_gravity="center"
+                   android:id="@+id/imgCloseDialog"
+                   android:layout_margin="3dp"
+                   android:src="@drawable/ic_expand_more_black_24dp"
+                   android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+                android:layout_width="match_parent"
+                android:text="پیغام"
+                android:gravity="center"
+                android:id="@+id/txtMessageTitle"
+                android:textSize="@dimen/size_font_very_small"
+                android:typeface="serif"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content">
+        <net.kianoni.fontloader.TextView
+                android:layout_width="match_parent"
+                android:text=""
+                android:id="@+id/txtMessageDescription"
+                android:gravity="center"
+                app:fontFile="fonts/biran.ttf"
+                android:textSize="@dimen/size_font_small"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content" android:layout_marginBottom="35dp"/>
+    </LinearLayout>
+</LinearLayout>

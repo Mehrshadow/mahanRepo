@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:id="@+id/lagyItem">
+    <!--<ImageView-->
+            <!--android:layout_width="16dp"-->
+            <!--android:layout_height="16dp"-->
+            <!--android:id="@+id/imageView2"-->
+            <!--android:src="@drawable/ic_expand"/>-->
+    <net.kianoni.fontloader.TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtName"
+            android:layout_marginLeft="15dp"
+            app:fontFile="fonts/iransans_medium.ttf"
+            android:text="بدون نام"
+            android:layout_margin="3dp"
+            android:textSize="@dimen/size_font_very_very_small"
+            android:textColor="@color/black"/>
+
+</LinearLayout>

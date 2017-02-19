@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <FrameLayout android:layout_width="match_parent"
+                     android:background="@color/edit_text_back_color"
+                     android:layout_height="?actionBarSize">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="true"
+                    android:layout_marginLeft="5dp"
+                    android:padding="2dp"
+                    android:id="@+id/layBtnClose"
+                    android:background="@drawable/ripple_light_oval"
+                    android:layout_height="wrap_content">
+                <ImageView
+                        android:layout_width="@dimen/sv_image_size"
+                        android:layout_height="@dimen/sv_image_size"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sv_arrows_white"/>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content"
+                      android:text="جزییات فاکتور"
+                      android:layout_gravity="center"
+                      android:textColor="@color/white"
+                      android:typeface="sans"
+                      android:id="@+id/txtPageTitle"
+                      android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp"
+                      android:textSize="@dimen/size_font_very_small"
+                      android:layout_height="wrap_content"/>
+        </FrameLayout>
+    </LinearLayout>
+    <RelativeLayout
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+                      android:gravity="center"
+                      android:id="@+id/layShowFactor"
+                      android:orientation="vertical"
+                      android:layout_height="match_parent">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        <android.support.v7.widget.CardView
+                                style="@style/factorDetailBackCardVeiw"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp">
+                            <LinearLayout android:layout_width="match_parent"
+                                          android:layout_height="match_parent"
+                                          android:orientation="horizontal"
+                                          android:gravity="center">
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/txtFactorDes"
+                                        android:layout_marginLeft="3dp"
+                                        android:textSize="@dimen/size_font_default"
+                                        android:text="نامشخص"
+                                        android:textColor="@color/white"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="10dp"/>
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                        <android.support.v7.widget.CardView
+                                style="@style/factorDetailBackCardVeiw">
+                            <LinearLayout android:layout_width="match_parent"
+                                          android:layout_height="match_parent"
+                                          android:gravity="right|center_vertical">
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        android:id="@+id/txtFactorCode"
+                                        style="@style/txtFactorDetailValue"/>
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        style="@style/txtFactorDetailTitle"
+                                        android:text="شماره فاکتور"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                        <android.support.v7.widget.CardView
+                                style="@style/factorDetailBackCardVeiw">
+                            <LinearLayout android:layout_width="match_parent"
+                                          android:layout_height="match_parent"
+                                          android:gravity="right|center_vertical">
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        android:id="@+id/txtFactorStartDate"
+                                        style="@style/txtFactorDetailValue"/>
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        style="@style/txtFactorDetailTitle"
+                                        android:text="تاریخ شروع"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                        <android.support.v7.widget.CardView
+                                android:visibility="gone"
+                                style="@style/factorDetailBackCardVeiw">
+                            <LinearLayout android:layout_width="match_parent"
+                                          android:layout_height="match_parent"
+                                          android:gravity="right|center_vertical">
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        android:id="@+id/txtFactorGheymatPaye"
+                                        style="@style/txtFactorDetailValue"/>
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        style="@style/txtFactorDetailTitle"
+                                        android:text="قیمت پایه"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                        <android.support.v7.widget.CardView
+                                style="@style/factorDetailBackCardVeiw">
+                            <LinearLayout android:layout_width="match_parent"
+                                          android:layout_height="match_parent"
+                                          android:gravity="right|center_vertical">
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        android:id="@+id/txtFactorGheymat"
+                                        style="@style/txtFactorDetailValue"/>
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        style="@style/txtFactorDetailTitle"
+                                        android:text="قیمت"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                        <android.support.v7.widget.CardView
+                                style="@style/factorDetailBackCardVeiw">
+                            <LinearLayout android:layout_width="match_parent"
+                                          android:layout_height="match_parent"
+                                          android:gravity="right|center_vertical">
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        android:id="@+id/txtFactorMaliat"
+                                        style="@style/txtFactorDetailValue"/>
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        style="@style/txtFactorDetailTitle"
+                                        android:text="مالیات"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                        <android.support.v7.widget.CardView
+                                style="@style/factorDetailBackCardVeiw">
+                            <LinearLayout android:layout_width="match_parent"
+                                          android:layout_height="match_parent"
+                                          android:gravity="right|center_vertical">
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        android:id="@+id/txtFactorTakhfif"
+                                        style="@style/txtFactorDetailValue"/>
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        style="@style/txtFactorDetailTitle"
+                                        android:text="تخفیف"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                        <android.support.v7.widget.CardView
+                                style="@style/factorDetailBackCardVeiw">
+                            <LinearLayout android:layout_width="match_parent"
+                                          android:layout_height="match_parent"
+                                          android:gravity="right|center_vertical">
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        android:id="@+id/txtFactorMablaghePardakhti"
+                                        style="@style/txtFactorDetailValue"/>
+                                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                                        style="@style/txtFactorDetailTitle"
+                                        android:text="مبلغ پرداختی"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:id="@+id/layPay"
+                    android:background="@color/light_green"
+                    android:layout_gravity="center_horizontal"
+                    android:foreground="@drawable/ripple_list_item">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                    <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="پرداخت"
+
+                            android:textSize="@dimen/size_font_default"
+                            android:id="@+id/txtPay"
+                            android:textColor="@color/white"/>
+                    <ImageView
+                            android:layout_width="@dimen/size_image_small"
+                            android:layout_height="@dimen/size_image_small"
+                            android:src="@drawable/ic_pay"
+                            android:layout_margin="5dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layLoading"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="3dp"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal">
+            <com.pnikosis.materialishprogress.ProgressWheel
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="5dp"
+                    app:matProg_barColor="@color/white"
+                    app:matProg_progressIndeterminate="true"/>
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_font_very_very_small"
+                    android:layout_marginTop="5dp"
+                    android:text="لطفا صبر کنید"
+                    android:textColor="@color/white"
+                    android:layout_marginRight="5dp"/>
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_gravity="center"
+                  android:textColor="@color/white"
+                  android:typeface="sans"
+                  android:visibility="gone"
+                  android:id="@+id/txtShowMessage"
+                  android:layout_marginTop="8dp"
+                  android:layout_marginBottom="8dp"
+                  android:textSize="@dimen/size_font_very_small"
+                  android:layout_height="wrap_content"
+                  android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</LinearLayout>
