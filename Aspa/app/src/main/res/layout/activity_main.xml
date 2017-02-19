@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/edit_text_back_color"
+        tools:context=".ActivityMain"
+        android:orientation="vertical">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"
+            android:gravity="center">
+        <ir.aspacrm.my.app.mahan.G.component.SquareRelativeLayout
+                android:layout_width="0dp"
+                android:layout_margin="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:background="@drawable/circle"
+                          android:layout_margin="@dimen/progress_bar_width"/>
+            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewBold
+                    android:layout_width="match_parent"
+                    android:text="0 \n مگابایت"
+                    android:gravity="center"
+                    android:id="@+id/txtRemainTraffic"
+                    android:textSize="@dimen/size_font_big"
+                    android:textColor="@color/white"
+                    android:layout_height="match_parent"/>
+            <com.pnikosis.materialishprogress.ProgressWheel
+                    android:id="@+id/progressTraffic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    app:matProg_linearProgress="true"
+                    app:matProg_fillRadius="true"
+                    app:matProg_progressIndeterminate="false"
+                    app:matProg_barColor="@color/progressbar_color"
+                    app:matProg_barWidth="@dimen/progress_bar_width"/>
+        </ir.aspacrm.my.app.mahan.G.component.SquareRelativeLayout>
+        <ir.aspacrm.my.app.mahan.G.component.SquareRelativeLayout
+                android:layout_width="0dp"
+                android:layout_margin="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:background="@drawable/circle"
+                          android:layout_margin="@dimen/progress_bar_width"/>
+            <ir.aspacrm.my.app.mahan.G.component.PersianTextViewBold
+                    android:layout_width="match_parent"
+                    android:text="0 \n روز"
+                    android:gravity="center"
+                    android:textSize="@dimen/size_font_big"
+                    android:id="@+id/txtRemainDay"
+                    android:textColor="@color/white"
+                    android:layout_height="match_parent"/>
+            <com.pnikosis.materialishprogress.ProgressWheel
+                    android:id="@+id/progressDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    app:matProg_linearProgress="true"
+                    app:matProg_fillRadius="true"
+                    app:matProg_progressIndeterminate="false"
+                    app:matProg_barColor="@color/progressbar_color"
+                    app:matProg_barWidth="@dimen/progress_bar_width"/>
+        </ir.aspacrm.my.app.mahan.G.component.SquareRelativeLayout>
+    </LinearLayout>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <include layout="@layout/lay_btn_vasl_movaghat" android:id="@+id/layVaslMovaghat"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layAccountInfo">
+            <include layout="@layout/lay_account_info" android:id="@+id/layPackageName"/>
+            <include layout="@layout/lay_account_info" android:id="@+id/layGroupName"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.55" android:gravity="center">
+        <LinearLayout
+                android:layout_width="@dimen/size_back_image_main_menu"
+                android:layout_height="@dimen/size_back_image_main_menu"
+                android:background="@drawable/ic_background_main_menu"
+                android:gravity="center"
+                android:id="@+id/layChargeOnline"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+            <ImageView
+                    android:layout_width="@dimen/size_image_main_menu"
+                    android:layout_height="@dimen/size_image_main_menu"
+                    android:src="@drawable/ic_charge_online"/>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="@dimen/size_back_image_main_menu"
+                android:layout_height="@dimen/size_back_image_main_menu"
+                android:background="@drawable/ic_background_main_menu"
+                android:gravity="center"
+                android:id="@+id/laySuratHesab"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/layChargeOnline"
+                android:layout_toStartOf="@+id/layChargeOnline"
+                android:layout_marginTop="40dp" android:layout_marginBottom="10dp">
+            <ImageView
+                    android:layout_width="@dimen/size_image_main_menu"
+                    android:layout_height="@dimen/size_image_main_menu"
+                    android:src="@drawable/ic_factor"/>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="@dimen/size_back_image_main_menu"
+                android:layout_height="@dimen/size_back_image_main_menu"
+                android:background="@drawable/ic_background_main_menu"
+                android:gravity="center"
+                android:id="@+id/laySavabeghEtesal"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/layChargeOnline"
+                android:layout_toEndOf="@+id/layChargeOnline"
+                android:layout_marginTop="40dp" android:layout_marginBottom="10dp">
+            <ImageView
+                    android:layout_width="@dimen/size_image_main_menu"
+                    android:layout_height="@dimen/size_image_main_menu"
+                    android:src="@drawable/ic_connections"/>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="@dimen/size_back_image_main_menu"
+                android:layout_height="@dimen/size_back_image_main_menu"
+                android:background="@drawable/ic_background_main_menu"
+                android:gravity="center"
+                android:id="@+id/layNemudarMasraf"
+                android:layout_alignBottom="@+id/layTicket" android:layout_toRightOf="@+id/layTicket"
+                android:layout_toEndOf="@+id/layTicket" android:layout_marginBottom="38dp">
+            <ImageView
+                    android:layout_width="@dimen/size_image_main_menu"
+                    android:layout_height="@dimen/size_image_main_menu"
+                    android:src="@drawable/ic_graph"/>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="@dimen/size_back_image_main_menu"
+                android:layout_height="@dimen/size_back_image_main_menu"
+                android:background="@drawable/ic_background_main_menu"
+                android:gravity="center"
+                android:id="@+id/layPardakhtha"
+                android:layout_alignTop="@+id/layNemudarMasraf"
+                android:layout_toLeftOf="@+id/layFeshfesheBashgah"
+                android:layout_toStartOf="@+id/layFeshfesheBashgah">
+            <ImageView
+                    android:layout_width="@dimen/size_image_main_menu"
+                    android:layout_height="@dimen/size_image_main_menu"
+                    android:src="@drawable/ic_pays"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="@dimen/size_back_image_main_menu"
+                android:layout_height="@dimen/size_back_image_main_menu"
+                android:background="@drawable/ic_background_main_menu"
+                android:gravity="center"
+                android:id="@+id/layTicket"
+                android:layout_below="@+id/layFeshfesheBashgah"
+                android:layout_toLeftOf="@+id/laySavabeghEtesal"
+                android:layout_toStartOf="@+id/laySavabeghEtesal">
+            <ImageView
+                    android:layout_width="@dimen/size_image_main_menu"
+                    android:layout_height="@dimen/size_image_main_menu"
+                    android:src="@drawable/ic_tickets"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="@dimen/size_back_image_main_menu"
+                android:layout_height="@dimen/size_back_image_main_menu"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/layFeshfesheBashgah"
+                android:layout_below="@+id/layChargeOnline"
+                android:layout_centerHorizontal="true">
+            <ImageView
+                    android:layout_width="@dimen/size_image_main_menu"
+                    android:layout_height="@dimen/size_image_main_menu"
+                    android:id="@+id/imgFeshfeshe"
+                    android:scaleType="fitEnd"
+                    android:src="@drawable/ic_feshfeshe"/>
+            <ImageView
+                    android:layout_width="@dimen/size_image_main_menu"
+                    android:layout_height="@dimen/size_image_main_menu"
+                    android:src="@drawable/ic_club"
+                    android:scaleType="fitStart" android:id="@+id/imgClub"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.075">
+        <include layout="@layout/lay_menu_main_page"/>
+    </LinearLayout>
+</LinearLayout>

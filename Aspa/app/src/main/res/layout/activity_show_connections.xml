@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="@color/colorPrimary"
+              android:layout_height="match_parent">
+    <FrameLayout android:layout_width="match_parent"
+                 android:background="@color/edit_text_back_color"
+                 android:layout_height="?actionBarSize">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:clickable="true"
+                android:layout_marginLeft="5dp"
+                android:padding="2dp"
+                android:id="@+id/layBtnClose"
+                android:background="@drawable/ripple_light_oval"
+                android:layout_height="wrap_content">
+            <ImageView
+                    android:layout_width="@dimen/sv_image_size"
+                    android:layout_height="@dimen/sv_image_size"
+                    android:scaleType="fitXY"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/sv_arrows_white"/>
+        </LinearLayout>
+
+        <TextView android:layout_width="wrap_content"
+                  android:text="سوابق اتصال"
+                  android:layout_gravity="center"
+                  android:textColor="@color/white"
+                  android:typeface="sans"
+                  android:layout_marginTop="8dp"
+                  android:layout_marginBottom="8dp"
+                  android:textSize="@dimen/size_font_very_small"
+                  android:layout_height="wrap_content"/>
+    </FrameLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:layout_height="match_parent">
+        <android.support.v4.widget.SwipeRefreshLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:id="@+id/swipeRefreshLayout"
+                android:layout_height="match_parent"
+                android:gravity="center">
+            <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/lstConnection"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
+        <TextView android:layout_width="wrap_content"
+                  android:text=""
+                  android:textColor="@color/white"
+                  android:typeface="sans"
+                  android:layout_centerInParent="true"
+                  android:visibility="visible"
+                  android:id="@+id/txtShowMessage"
+                  android:layout_marginTop="8dp"
+                  android:layout_marginBottom="8dp"
+                  android:textSize="@dimen/size_font_very_small"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</LinearLayout>

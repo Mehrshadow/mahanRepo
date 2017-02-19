@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="@color/colorPrimary"
+              android:layout_height="match_parent">
+    <FrameLayout android:layout_width="match_parent"
+                 android:background="@color/edit_text_back_color"
+                 android:layout_height="?actionBarSize">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:clickable="true"
+                android:layout_marginLeft="5dp"
+                android:padding="2dp"
+                android:id="@+id/layBtnClose"
+                android:background="@drawable/ripple_light_oval"
+                android:layout_height="wrap_content">
+            <ImageView
+                    android:layout_width="@dimen/sv_image_size"
+                    android:layout_height="@dimen/sv_image_size"
+                    android:scaleType="fitXY"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/sv_arrows_white"/>
+        </LinearLayout>
+
+        <TextView android:layout_width="wrap_content"
+                  android:text="فشفشه"
+                  android:layout_gravity="center"
+                  android:textColor="@color/white"
+                  android:typeface="sans"
+                  android:layout_marginTop="8dp"
+                  android:layout_marginBottom="8dp"
+                  android:textSize="@dimen/size_font_very_small"
+                  android:layout_height="wrap_content"/>
+    </FrameLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:orientation="vertical"
+
+            android:layout_width="match_parent"
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_height="match_parent"
+            android:gravity="center">
+        <RelativeLayout android:layout_width="match_parent"
+                        android:background="@color/colorPrimary"
+                        android:layout_height="match_parent">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical">
+                <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:id="@+id/lstFeshfeshe"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:layout_height="0dp"/>
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="horizontal"
+                              android:id="@+id/layCurrentFeshfeshe"
+                              android:layout_alignParentBottom="true"
+                              android:gravity="right|center_vertical"
+                              android:background="@color/edit_text_back_color"
+                              android:layout_height="wrap_content">
+                    <LinearLayout android:layout_width="0dp"
+                                  android:layout_weight="1"
+                                  android:gravity="right"
+                                  android:orientation="vertical"
+                                  android:layout_height="wrap_content">
+                        <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="زمان پایان : "
+                                android:drawableRight="@drawable/ic_date_24px_white"
+                                android:drawablePadding="5dp"
+                                android:gravity="center"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:id="@+id/txtCurrentFeshfesheExpireDate"
+                                android:textColor="@color/white"/>
+                        <ir.aspacrm.my.app.mahan.G.component.PersianTextViewThin
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ترافیک باقیمانده : "
+                                android:gravity="center"
+                                android:drawableRight="@drawable/ic_traffic_24px_white"
+                                android:drawablePadding="5dp"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:id="@+id/txtCurrentFeshfesheTraffic"
+                                android:textColor="@color/white"/>
+                    </LinearLayout>
+                    <ImageView
+                            android:layout_width="@dimen/size_image_small"
+                            android:layout_height="@dimen/size_image_small"
+                            android:src="@drawable/ic_off_white_64px"
+                            android:clickable="true"
+                            android:id="@+id/imgEndCurrentFeshfesheRequest"
+                            android:background="@drawable/ripple_light_oval"
+                            android:layout_margin="5dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content"
+                      android:text=""
+                      android:layout_gravity="center"
+                      android:textColor="@color/white"
+                      android:typeface="sans"
+                      android:visibility="gone"
+                      android:layout_centerInParent="true"
+                      android:id="@+id/txtShowMessage"
+                      android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp"
+                      android:textSize="@dimen/size_font_very_small"
+                      android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>
