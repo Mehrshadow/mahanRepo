@@ -1,383 +1,473 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        app:cardBackgroundColor="@color/back_items">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:id="@+id/card_view"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            app:cardBackgroundColor="@color/dark_grey">
-        <LinearLayout android:layout_width="match_parent"
-                      android:orientation="vertical"
-                      android:layout_gravity="center"
-                      android:gravity="center_horizontal"
-                      android:layout_height="wrap_content">
-            <LinearLayout android:layout_width="match_parent"
-                          android:orientation="horizontal"
-                          android:layout_margin="10dp"
-                          android:layout_height="wrap_content">
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
                 <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="5dp"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp"/>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="5dp"
-                                  android:layout_marginBottom="2.5dp">
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="5dp">
 
                         <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtFactorCode"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:textColor="@color/white"
-                                    android:gravity="left|center_vertical"/>
-                        </LinearLayout>
-                        <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1">
-                            <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="شماره فاکتور"
-                                    android:typeface="sans"
-                                    android:textSize="@dimen/size_font_very_very_small"
-                                    android:textColor="@color/white"
-                                    android:gravity="center_vertical|right"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtFactorDate"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:textColor="@color/white"
-                                    android:gravity="left|center_vertical"
-                                    />
-                        </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="تاریخ"
-                                      android:typeface="sans"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtFactorStartDate"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:textColor="@color/white"
-                                    android:gravity="left|center_vertical"
-                                    />
-                        </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="تاریخ شروع"
-                                      android:typeface="sans"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtFactorEndDate"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:textColor="@color/white"
-                                    android:gravity="left|center_vertical"/>
-                        </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="تاریخ پایان"
-                                      android:typeface="sans"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <net.kianoni.fontloader.TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtFactorPrice"
-                                    app:fontFile="fonts/biran.ttf"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:gravity="left|center_vertical"/>
-                        </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="مبلغ"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:typeface="sans"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <net.kianoni.fontloader.TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtFactorDiscount"
-                                    android:textColor="@color/white"
-                                    app:fontFile="fonts/biran.ttf"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:gravity="left|center_vertical"/>
-                        </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="تخفیف"
-                                      android:typeface="sans"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <net.kianoni.fontloader.TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtFactorTax"
-                                    app:fontFile="fonts/biran.ttf"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:textColor="@color/white"
-                                    android:gravity="left|center_vertical"/>
-                        </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="مالیات"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:typeface="sans"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <net.kianoni.fontloader.TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtFactorAmount"
-                                    android:textColor="@color/white"
-                                    app:fontFile="fonts/biran.ttf"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:gravity="left|center_vertical"/>
-                        </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="مبلغ کل"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:typeface="sans"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:id="@+id/layFactorDescription"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <net.kianoni.fontloader.TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtFactorDes"
-                                    app:fontFile="fonts/biran.ttf"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:text=""
-                                    android:textColor="@color/white"
-                                    android:gravity="left"/>
-                        </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="wrap_content"
-                                      android:layout_marginLeft="10dp"
-                                      android:layout_height="match_parent">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="match_parent"
-                                      android:text="توضیحات"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:typeface="sans"
-                                      android:textColor="@color/white"
-                                      android:gravity="top|right"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <android.support.v7.widget.CardView
-                            android:layout_marginTop="2.5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:minWidth="120dp"
-                            android:layout_gravity="left"
-                            android:id="@+id/layBtnStartFactor"
-                            android:clickable="true"
-                            android:foreground="@drawable/ripple_list_item"
-                            app:cardBackgroundColor="@color/light_green"
-                            app:cardCornerRadius="10dp"
-                            app:cardElevation="5dp">
-                        <LinearLayout
+                                android:id="@+id/txtFactorCode"
                                 android:layout_width="match_parent"
-                                android:orientation="horizontal"
-                                android:gravity="center"
-                                android:layout_gravity="center"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="شماره فاکتور"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+                                android:id="@+id/txtFactorDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="تاریخ"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+                                android:id="@+id/txtFactorStartDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="تاریخ شروع"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+                                android:id="@+id/txtFactorEndDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="تاریخ پایان"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <net.kianoni.fontloader.TextView
+                                android:id="@+id/txtFactorPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small"
+                                app:fontFile="fonts/biran.ttf" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="مبلغ"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <net.kianoni.fontloader.TextView
+                                android:id="@+id/txtFactorDiscount"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small"
+                                app:fontFile="fonts/biran.ttf" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="تخفیف"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <net.kianoni.fontloader.TextView
+                                android:id="@+id/txtFactorTax"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small"
+                                app:fontFile="fonts/biran.ttf" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="مالیات"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <net.kianoni.fontloader.TextView
+                                android:id="@+id/txtFactorAmount"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small"
+                                app:fontFile="fonts/biran.ttf" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="مبلغ کل"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layFactorDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <net.kianoni.fontloader.TextView
+                                android:id="@+id/txtFactorDes"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:text=""
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small"
+                                app:fontFile="fonts/biran.ttf" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="top|right"
+                                android:text="توضیحات"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/layBtnStartFactor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="2.5dp"
+                        android:clickable="true"
+                        android:foreground="@drawable/ripple_list_item"
+                        android:minWidth="120dp"
+                        app:cardBackgroundColor="@color/light_green"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
                             <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:typeface="serif"
-                                    android:minHeight="36dp"
-                                    android:paddingLeft="5dp"
-                                    android:paddingRight="5dp"
-                                    android:singleLine="true"
-                                    android:text="شروع کردن"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:textColor="@color/white" android:id="@+id/txtPackagePrice"/>
-                            <ImageView android:layout_width="@dimen/size_image_very_small"
-                                       android:src="@drawable/ic_start_timer_white_64px"
-                                       android:layout_marginRight="3dp"
-                                       android:layout_height="@dimen/size_image_small"/>
+                                android:id="@+id/txtPackagePrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:minHeight="36dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:singleLine="true"
+                                android:text="شروع کردن"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/size_font_very_small"
+                                android:typeface="serif" />
+
+                            <ImageView
+                                android:layout_width="@dimen/size_image_very_small"
+                                android:layout_height="@dimen/size_image_small"
+                                android:layout_marginRight="3dp"
+                                android:src="@drawable/ic_start_timer_white_64px" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="5dp"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp"></LinearLayout>
                 </LinearLayout>
                 ///
             </LinearLayout>
 
             <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@color/light_grey"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp">
-            </LinearLayout>
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/light_grey"
+                android:orientation="vertical"></LinearLayout>
+
             <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:id="@+id/layMoreDetail">
+                android:id="@+id/layMoreDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <net.kianoni.fontloader.TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/size_font_very_small"
-                        android:textColor="@color/white"
-                        android:id="@+id/txtMoreDetail"
-                        app:fontFile="fonts/iransans_bold.ttf"
-                        android:layout_gravity="center"
-                        android:text="مشاهده جزییات"
-                        android:layout_margin="1dp"/>
+                    android:id="@+id/txtMoreDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:text="مشاهده جزییات"
+                    android:textColor="@color/text_color_items"
+                    android:textSize="@dimen/size_font_very_small"
+                    app:fontFile="fonts/iransans_bold.ttf" />
             </LinearLayout>
 
         </LinearLayout>

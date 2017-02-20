@@ -9,7 +9,7 @@
     <color name="black">#000</color>
     <color name="red">#F00</color>
     <color name="dark_grey">#2F2D2E</color>
-    <color name="back_items">#e6e7e8</color>
+    <color name="back_items">#cce6e7e8</color>
     <color name="back_toolbar">#e6e7e8</color>
     <color name="dark_dark_grey">#181717</color>
     <color name="semi_dark_grey">#882F2D2E</color>
