@@ -7,13 +7,13 @@ repositories {
 }
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 24
     buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "ir.aspacrm.my.app.mahan"
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 22
         versionCode 12
         versionName "2.1"
     }
@@ -43,5 +43,5 @@ dependencies {
     compile 'com.ctrlplusz.anytextview:library:1.2'
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.3'
     compile 'me.leolin:ShortcutBadger:1.1.8'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
 }
