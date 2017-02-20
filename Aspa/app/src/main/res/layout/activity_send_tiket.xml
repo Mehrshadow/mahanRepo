@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+
+    <FrameLayout
+        android:layout_margin="@dimen/size_toolbar_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_toolbar_height"
+        android:background="@color/back_toolbar">
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/layBtnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+
+            <ImageView
+                android:layout_width="@dimen/sv_image_size"
+                android:layout_height="@dimen/sv_image_size"
+                android:layout_margin="5dp"
+                android:src="@drawable/back_gray"
+                android:id="@+id/imageView3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_ticket" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:text="تیکت ها"
+                android:textColor="@color/text_color_items"
+                android:textSize="@dimen/size_font_very_small"
+                android:typeface="sans" />
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="تیکت جدید"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/size_font_big"
+                    android:typeface="sans" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/back_items"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <EditText
+                    android:id="@+id/edtTicketSubject"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/trans"
+                    android:hint="موضوع تیکت ارسالی"
+                    android:imeOptions="actionGo"
+                    android:minHeight="40dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_items"
+                    android:textColorHint="@color/text_color_items"
+                    android:textSize="@dimen/size_font_very_very_small"
+                    android:typeface="serif" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/back_items"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <EditText
+                    android:id="@+id/edtTicketDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/trans"
+                    android:gravity="top"
+                    android:hint="متن تیکت ارسالی"
+                    android:maxLines="10"
+                    android:minHeight="40dp"
+                    android:minLines="10"
+                    android:textColor="@color/text_color_items"
+                    android:textColorHint="@color/light_light_grey"
+                    android:textSize="@dimen/size_font_very_very_small"
+                    android:typeface="serif" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtShowErrorMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/size_font_very_very_small"
+                android:typeface="sans" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2.5dp"
+                    android:layout_weight="1"
+                    android:background="@color/back_items"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spVahed"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_spinner"
+                        tools:listitem="@layout/s_item_white" />
+                    <!--<net.kianoni.fontloader.TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:text="واحد ارجاع : "-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--app:fontFile="fonts/iransans_medium.ttf"-->
+                    <!--android:textSize="@dimen/size_font_very_very_small"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:layout_height="wrap_content"/>-->
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2.5dp"
+                    android:layout_weight="1"
+                    android:background="@color/back_items"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spOlaviat"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_spinner"
+                        android:entries="@array/sp_olaviat_items"
+                        android:gravity="right"
+                        tools:listitem="@layout/s_item_white" />
+
+                    <net.kianoni.fontloader.TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="اولویت : "
+                        android:textColor="@color/text_color_items"
+                        android:textSize="@dimen/size_font_very_very_small"
+                        app:fontFile="fonts/iransans_medium.ttf" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <include
+                android:id="@+id/layBtnSendTicket"
+                layout="@layout/lay_btn_login" />
+
+        </LinearLayout>
+
+
+</LinearLayout>
