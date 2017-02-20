@@ -8,8 +8,6 @@
     android:background="@drawable/background"
     android:orientation="vertical">
 
-    //
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -31,7 +29,6 @@
                 android:layout_width="@dimen/sv_image_size"
                 android:layout_height="@dimen/sv_image_size"
                 android:layout_margin="5dp"
-                android:scaleType="fitXY"
                 android:src="@drawable/back_gray"  />
         </LinearLayout>
 
@@ -44,7 +41,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_factor_detail_toolbar" />
+                android:src="@drawable/ic_factor_detail_toolbar" />
 
             <TextView
                 android:layout_width="wrap_content"

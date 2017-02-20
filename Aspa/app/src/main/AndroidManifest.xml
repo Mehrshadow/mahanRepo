@@ -11,14 +11,14 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:name="ir.aspacrm.my.app.mahan.G"
+        android:name=".G"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivitySplash"
+            android:name=".ActivitySplash"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
@@ -28,93 +28,92 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivitySearchISP"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-
-        <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityStarter"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityLogin"
+            android:name=".ActivitySearchISP"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityMain"
+            android:name=".ActivityStarter"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ActivityLogin"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ActivityMain0"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityPayments"
+            android:name=".ActivityPayments"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing|stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityShowFactors"
+            android:name=".ActivityShowFactors"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityShowConnections"
+            android:name=".ActivityShowConnections"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityShowTickets"
+            android:name=".ActivityShowTickets"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing|stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityShowTicketDetails"
+            android:name=".ActivityShowTicketDetails"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityShowGraph"
+            android:name=".ActivityShowGraph"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityShowUserInfo"
+            android:name=".ActivityShowUserInfo"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityShowNews"
+            android:name=".ActivityShowNews"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityShowNotify"
+            android:name=".ActivityShowNotify"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityChargeOnline"
+            android:name=".ActivityChargeOnline"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityShowFeshfeshe"
+            android:name=".ActivityShowFeshfeshe"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityShowClubScores"
+            android:name=".ActivityShowClubScores"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityShowFactorDetail"
+            android:name=".ActivityShowFactorDetail"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="ir.aspacrm.my.app.mahan.ActivityRegister"
+            android:name=".ActivityRegister"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <!-- Receiver -->
         <receiver
-            android:name="ir.aspacrm.my.app.mahan.classes.CheckNotification"
+            android:name=".classes.CheckNotification"
             android:enabled="true" />
         <receiver
-            android:name="ir.aspacrm.my.app.mahan.classes.NetworkChangeReceiver"
+            android:name=".classes.NetworkChangeReceiver"
             android:label="NetworkChangeReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="ir.aspacrm.my.app.mahan.classes.BootCompleteReceiver">
+        <receiver android:name=".classes.BootCompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
@@ -132,7 +131,7 @@
             android:name="AA_MODELS"
             android:value="                 .model.User,                 .model.Account,                 .model.ClubScore,                 .model.Connection,                 .model.Factor,                 .model.FactorDetail,                 .model.Feshfeshe,                 .model.Graph,                 .model.Info,                 .model.License,                 .model.News,                 .model.Notify,                 .model.Payment,                 .model.Ticket,                 .model.TicketDetail                 .model.Unit" />
 
-
+        <activity android:name=".ShowCurrentServiceActivity"></activity>
     </application>
 
 </manifest>
