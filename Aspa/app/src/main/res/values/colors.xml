@@ -9,6 +9,8 @@
     <color name="black">#000</color>
     <color name="red">#F00</color>
     <color name="dark_grey">#2F2D2E</color>
+    <color name="back_items">#e6e7e8</color>
+    <color name="back_toolbar">#e6e7e8</color>
     <color name="dark_dark_grey">#181717</color>
     <color name="semi_dark_grey">#882F2D2E</color>
     <color name="light_grey">#474345</color>
@@ -32,4 +34,6 @@
     <color name="back_blue">#1F4258</color>
     <color name="back_btn_login">#f16521</color>
     <color name="back_edt_login">#667c8a</color>
+    <color name="back_orange_btn">#f16521</color>
+    <color name="text_color_items">#0089cf</color>
 </resources>

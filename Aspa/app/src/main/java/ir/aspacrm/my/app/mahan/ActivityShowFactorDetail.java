@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ir.aspacrm.my.app.mahan.adapter.AdapterFactorDetail;
@@ -20,6 +22,8 @@ public class ActivityShowFactorDetail extends AppCompatActivity {
 
     @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
     @Bind(R.id.lstFactorDetail) RecyclerView lstFactorDetail;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
+
 
 
     LinearLayoutManager linearLayoutManager;
@@ -41,6 +45,12 @@ public class ActivityShowFactorDetail extends AppCompatActivity {
         adapterFactorDetail = new AdapterFactorDetail(factorDetails);
         lstFactorDetail.setLayoutManager(linearLayoutManager);
         lstFactorDetail.setAdapter(adapterFactorDetail);
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         layBtnClose.setOnClickListener(new View.OnClickListener() {
             @Override

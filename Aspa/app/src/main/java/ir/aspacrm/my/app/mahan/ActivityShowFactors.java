@@ -35,6 +35,7 @@ public class ActivityShowFactors extends AppCompatActivity{
 
     @Bind(R.id.lstFactor) RecyclerView lstFactor;
     @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
     @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
 
@@ -80,6 +81,13 @@ public class ActivityShowFactors extends AppCompatActivity{
                 // Refresh items
                 Logger.d("ActivityShowFactors : swipeRefreshLayout onRefresh()");
                 WebService.sendGetFactorRequest();
+            }
+        });
+
+        layBtnBack.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
         layBtnClose.setOnClickListener(new OnClickListener() {
