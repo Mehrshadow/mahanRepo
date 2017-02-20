@@ -32,4 +32,6 @@
     <color name="back_blue">#1F4258</color>
     <color name="back_btn_login">#f16521</color>
     <color name="back_edt_login">#667c8a</color>
+    <color name="orange">#ea5b0c</color>
+    <color name="brown">#42291c</color>
 </resources>
