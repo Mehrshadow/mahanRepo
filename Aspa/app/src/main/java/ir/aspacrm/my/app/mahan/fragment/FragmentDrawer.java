@@ -38,11 +38,19 @@ public class FragmentDrawer extends Fragment {
 
     private void initView() {
         title = new ArrayList<>();
-        title.add("title1");
-        title.add("title2");
-        title.add("title3");
-        title.add("title4");
-        title.add("title5");
+        title.add(getString(R.string.profile));
+        title.add(getString(R.string.connectionReport));
+        title.add(getString(R.string.onlineSharj));
+        title.add(getString(R.string.payReport));
+        title.add(getString(R.string.consumechart));
+        title.add(getString(R.string.speedTest));
+        title.add(getString(R.string.tickets));
+        title.add(getString(R.string.inviteFriends));
+        title.add(getString(R.string.pointReports));
+        title.add(getString(R.string.messages));
+        title.add(getString(R.string.games));
+        title.add(getString(R.string.spesioansuggestion));
+        title.add(getString(R.string.exit));
 
         RecyDrawer = (RecyclerView)view.findViewById(R.id.RecyDrawer);
         RecyDrawer.setLayoutManager(new LinearLayoutManager(G.context, LinearLayoutManager.VERTICAL, false));

@@ -26,7 +26,7 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
     Context context;
 
 
-    public AdapterDrawerRecycler(List<String> list,Context context) {
+    public AdapterDrawerRecycler(List<String> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -40,14 +40,18 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
 
     @Override
     public void onBindViewHolder(final DrawerRecyclerViewHolder holder, final int position) {
+        if (position == 0) {
+            holder.imgImage.setBackgroundResource(R.drawable.ic_person_dark);
+        } else {
+            holder.imgImage.setBackgroundResource(R.drawable.ic_circle);
 
+        }
 
-        holder.imgImage.setBackgroundResource(R.drawable.ic_club);
         holder.txtText.setText(list.get(position));
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (holder.getAdapterPosition()){
+                switch (holder.getAdapterPosition()) {
                     case 0:
                         Intent intent = new Intent(G.context, ActivityLogin.class);
                         G.context.startActivity(intent);
@@ -73,7 +77,7 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
             super(itemView);
             txtText = (TextView) itemView.findViewById(R.id.txtTitle);
             imgImage = (ImageView) itemView.findViewById(R.id.imgImage);
-            layout = (LinearLayout)itemView.findViewById(R.id.lay);
+            layout = (LinearLayout) itemView.findViewById(R.id.lay);
 
         }
 
