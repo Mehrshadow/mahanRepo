@@ -8,7 +8,6 @@
     android:background="@drawable/background"
     android:orientation="vertical">
 
-    //
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -31,7 +30,6 @@
                 android:layout_width="@dimen/sv_image_size"
                 android:layout_height="@dimen/sv_image_size"
                 android:layout_margin="5dp"
-                android:scaleType="fitXY"
                 android:src="@drawable/back_gray"  />
         </LinearLayout>
 
