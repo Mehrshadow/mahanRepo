@@ -13,6 +13,7 @@
                      android:background="@color/edit_text_back_color"
                      android:layout_height="?actionBarSize">
             <LinearLayout
+                android:visibility="gone"
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:gravity="center"

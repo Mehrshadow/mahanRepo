@@ -18,7 +18,7 @@ public class ActivityStarter extends AppCompatActivity {
             if(!G.currentUser.isLogin) // dar surati ke karbar logout karde bashad
                 startActivity(new Intent(G.context,ActivityLogin.class));
             else
-                startActivity(new Intent(G.context,ActivityMain.class));
+                startActivity(new Intent(G.context,ActivityMain0.class));
         }else{
             User isLastLogin = new Select().from(User.class).where("isLastLogin = ? " , true).executeSingle();
             if( isLastLogin == null )
@@ -28,7 +28,7 @@ public class ActivityStarter extends AppCompatActivity {
                 if(!G.currentUser.isLogin) // dar surati ke karbar logout karde bashad
                     startActivity(new Intent(G.context,ActivityLogin.class));
                 else
-                    startActivity(new Intent(G.context,ActivityMain.class));
+                    startActivity(new Intent(G.context,ActivityMain0.class));
             }
         }
         finish();

@@ -1,387 +1,479 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_height="match_parent"
-              android:layout_width="match_parent"
-              android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="@dimen/size_activity_padding">
+
     <LinearLayout
-            android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <FrameLayout android:layout_width="match_parent"
-                     android:background="@color/edit_text_back_color"
-                     android:layout_height="?actionBarSize">
+            android:layout_height="@dimen/size_toolbar_height"
+            android:background="@color/back_items">
+
             <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical"
-                    android:clickable="true"
-                    android:layout_marginLeft="5dp"
-                    android:padding="2dp"
-                    android:id="@+id/layBtnClose"
-                    android:background="@drawable/ripple_light_oval"
-                    android:layout_height="wrap_content">
+                android:id="@+id/layBtnClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/ripple_light_oval"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="2dp"
+                android:visibility="gone">
+
                 <ImageView
-                        android:layout_width="@dimen/sv_image_size"
-                        android:layout_height="@dimen/sv_image_size"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/sv_arrows_white"/>
+                    android:layout_width="@dimen/sv_image_size"
+                    android:layout_height="@dimen/sv_image_size"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/sv_arrows_white" />
             </LinearLayout>
 
-            <TextView android:layout_width="wrap_content"
-                      android:text="شارژ آنلاین"
-                      android:layout_gravity="center"
-                      android:textColor="@color/white"
-                      android:typeface="sans"
-                      android:layout_marginTop="8dp"
-                      android:layout_marginBottom="8dp"
-                      android:textSize="@dimen/size_font_very_small"
-                      android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_charge_online" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="شارژ آنلاین"
+                    android:textColor="@color/text_color_items"
+                    android:textSize="@dimen/size_font_very_small"
+                    android:typeface="sans" />
+
+            </LinearLayout>
+
         </FrameLayout>
     </LinearLayout>
+
     <RelativeLayout
-            android:layout_height="match_parent"
-            android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
         <LinearLayout
-                android:orientation="horizontal"
-                android:background="@color/colorPrimary"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <View android:layout_width="0dp"
-                  android:layout_height="match_parent"
-                  android:layout_weight="0.15"/>
-            <LinearLayout android:layout_width="0dp"
-                          android:gravity="center"
-                          android:orientation="vertical"
-                          android:layout_height="match_parent"
-                          android:layout_weight="0.96">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.96"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <android.support.v7.widget.CardView
+                    android:id="@+id/layShowMenuItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="#00000000">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:id="@+id/layShowMenuItem"
                         android:layout_height="wrap_content"
-                        app:cardCornerRadius="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        app:cardBackgroundColor="@color/dark_grey">
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:orientation="vertical"
-                                  android:layout_gravity="center"
-                                  android:gravity="center_horizontal"
-                                  android:layout_height="wrap_content">
-                        <LinearLayout android:layout_width="match_parent"
-                                      android:orientation="horizontal"
-                                      android:layout_margin="10dp"
-                                      android:layout_height="wrap_content">
-                            <ImageView android:layout_width="@dimen/size_image_very_very_small"
-                                       android:src="@drawable/ic_left_drawable_textview"
-                                       android:scaleType="fitEnd"
-                                       android:layout_marginTop="2dp"
-                                       android:layout_marginBottom="2dp"
-                                       android:layout_marginLeft="3dp"
-                                       android:layout_height="match_parent"/>
-                            <TextView android:layout_width="0dp"
-                                      android:layout_weight="1"
-                                      android:text="یکی از گزینه های زیر را انتخاب کنید."
-                                      android:textColor="@color/white"
-                                      android:typeface="sans"
-                                      android:layout_marginTop="8dp"
-                                      android:layout_marginBottom="8dp"
-                                      android:textSize="@dimen/size_font_very_small"
-                                      android:layout_height="wrap_content"/>
-                            <ImageView android:layout_width="@dimen/size_image_very_very_small"
-                                       android:src="@drawable/ic_right_drawable_textview"
-                                       android:scaleType="fitStart"
-                                       android:layout_marginRight="3dp"
-                                       android:layout_marginTop="2dp"
-                                       android:layout_marginBottom="2dp"
-                                       android:layout_height="match_parent"/>
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/back_items"
+                            android:orientation="horizontal"
+                            android:padding="6dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_weight="1"
+                                android:text="یکی از گزینه های زیر را انتخاب کنید."
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_default"
+                                android:typeface="sans" />
+
                         </LinearLayout>
 
 
                         <!-- layBtnTamdid Service  -->
-                        <LinearLayout android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:id="@+id/layTamdidService"
-                                      android:orientation="horizontal">
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
-                            <LinearLayout android:layout_width="0dp"
-                                          android:layout_height="wrap_content"
-                                          android:layout_weight="1">
+                        <LinearLayout
+                            android:id="@+id/layTamdidService"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
                                 <android.support.v7.widget.CardView
-                                        android:layout_marginBottom="3dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:clickable="true"
-                                        android:id="@+id/layBtnTamdidService"
-                                        android:layout_gravity="center_horizontal"
-                                        android:foreground="@drawable/ripple_list_item"
-                                        app:cardBackgroundColor="@color/back_tamdid_service_color_box"
-                                        app:cardCornerRadius="5dp"
-                                        app:cardElevation="5dp">
+                                    android:id="@+id/layBtnTamdidService"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right"
+                                    android:layout_marginBottom="3dp"
+                                    android:clickable="true"
+                                    android:foreground="@drawable/ripple_list_item"
+                                    app:cardBackgroundColor="@color/back_items"
+                                    app:cardElevation="5dp">
+
                                     <LinearLayout
-                                            android:layout_width="fill_parent"
-                                            android:orientation="horizontal"
-                                            android:gravity="center"
-                                            android:layout_gravity="center"
-                                            android:layout_height="fill_parent">
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:layout_gravity="center"
+                                        android:gravity="right"
+                                        android:orientation="horizontal">
+
                                         <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:minWidth="88dp"
-                                                android:gravity="center"
-                                                android:typeface="serif"
-                                                android:minHeight="36dp"
-                                                android:paddingLeft="5dp"
-                                                android:paddingRight="5dp"
-                                                android:singleLine="true"
-                                                android:text="تمدید سرویس"
-                                                android:textColor="@color/white"/>
-                                        <ImageView android:layout_width="@dimen/size_image_very_small"
-                                                   android:src="@drawable/ic_tamdid_64px_white"
-                                                   android:layout_height="@dimen/size_image_small"/>
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:minHeight="36dp"
+                                            android:minWidth="88dp"
+                                            android:paddingLeft="5dp"
+                                            android:paddingRight="5dp"
+                                            android:singleLine="true"
+                                            android:text="تمدید سرویس"
+                                            android:textColor="@color/text_color_items"
+                                            android:typeface="serif" />
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:src="@drawable/ic_circle" />
                                     </LinearLayout>
                                 </android.support.v7.widget.CardView>
                             </LinearLayout>
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
                         </LinearLayout>
 
                         <!-- layBtnTaghir Service  -->
-                        <LinearLayout android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:id="@+id/layTaghirService"
-                                      android:orientation="horizontal">
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="1">
+                        <LinearLayout
+                            android:id="@+id/layTaghirService"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
                                 <android.support.v7.widget.CardView
-                                        android:layout_marginBottom="3dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:clickable="true"
-                                        android:id="@+id/layBtnTaghirService"
-                                        android:layout_gravity="center_horizontal"
-                                        android:foreground="@drawable/ripple_list_item"
-                                        app:cardBackgroundColor="@color/back_taghir_service_color_box"
-                                        app:cardCornerRadius="5dp"
-                                        app:cardElevation="5dp">
+                                    android:id="@+id/layBtnTaghirService"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="3dp"
+                                    android:clickable="true"
+                                    app:cardBackgroundColor="@color/back_items"
+                                    app:cardCornerRadius="5dp"
+                                    app:cardElevation="5dp">
+
                                     <LinearLayout
-                                            android:layout_width="fill_parent"
-                                            android:orientation="horizontal"
-                                            android:gravity="center"
-                                            android:layout_gravity="center"
-                                            android:layout_height="fill_parent">
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:layout_gravity="center"
+                                        android:gravity="right"
+                                        android:orientation="horizontal">
+
                                         <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:minWidth="88dp"
-                                                android:gravity="center"
-                                                android:typeface="serif"
-                                                android:minHeight="36dp"
-                                                android:paddingLeft="5dp"
-                                                android:paddingRight="5dp"
-                                                android:singleLine="true"
-                                                android:text="تغییر سرویس"
-                                                android:textColor="@color/white"/>
-                                        <ImageView android:layout_width="@dimen/size_image_very_small"
-                                                   android:src="@drawable/ic_change_service_64px_white"
-                                                   android:layout_height="@dimen/size_image_small"/>
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:minHeight="36dp"
+                                            android:minWidth="88dp"
+                                            android:paddingLeft="5dp"
+                                            android:paddingRight="5dp"
+                                            android:singleLine="true"
+                                            android:text="تغییر سرویس"
+                                            android:textColor="@color/text_color_items"
+                                            android:typeface="serif" />
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:src="@drawable/ic_circle" />
                                     </LinearLayout>
                                 </android.support.v7.widget.CardView>
                             </LinearLayout>
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
+
                         </LinearLayout>
 
                         <!-- layBtnTraffic -->
-                        <LinearLayout android:layout_width="match_parent"
-                                      android:id="@+id/layIP"
-                                      android:layout_height="wrap_content"
-                                      android:orientation="horizontal">
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="1">
+                        <LinearLayout
+                            android:id="@+id/layIP"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
                                 <android.support.v7.widget.CardView
-                                        android:layout_marginBottom="3dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:clickable="true"
-                                        android:id="@+id/layBtnIP"
-                                        android:layout_gravity="center_horizontal"
-                                        android:foreground="@drawable/ripple_list_item"
-                                        app:cardBackgroundColor="@color/back_ip_color_box"
-                                        app:cardCornerRadius="5dp"
-                                        app:cardElevation="5dp">
+                                    android:id="@+id/layBtnIP"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="3dp"
+                                    android:clickable="true"
+                                    app:cardBackgroundColor="@color/back_items"
+                                    app:cardCornerRadius="5dp"
+                                    app:cardElevation="5dp">
+
                                     <LinearLayout
-                                            android:layout_width="fill_parent"
-                                            android:orientation="horizontal"
-                                            android:gravity="center"
-                                            android:layout_gravity="center"
-                                            android:layout_height="fill_parent">
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:layout_gravity="center"
+                                        android:gravity="right"
+                                        android:orientation="horizontal">
+
                                         <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:minWidth="88dp"
-                                                android:gravity="center"
-                                                android:typeface="serif"
-                                                android:minHeight="36dp"
-                                                android:paddingLeft="5dp"
-                                                android:paddingRight="5dp"
-                                                android:singleLine="true"
-                                                android:text="خرید آی پی"
-                                                android:textColor="@color/black"/>
-                                        <ImageView android:layout_width="@dimen/size_image_very_small"
-                                                   android:src="@drawable/ic_ip_64px_white"
-                                                   android:layout_height="@dimen/size_image_small"/>
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:minHeight="36dp"
+                                            android:minWidth="88dp"
+                                            android:paddingLeft="5dp"
+                                            android:paddingRight="5dp"
+                                            android:singleLine="true"
+                                            android:text="خرید آی پی"
+                                            android:textColor="@color/black"
+                                            android:typeface="serif" />
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:src="@drawable/ic_circle" />
                                     </LinearLayout>
                                 </android.support.v7.widget.CardView>
                             </LinearLayout>
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
+
+
                         </LinearLayout>
-                        <LinearLayout android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:id="@+id/layTraffic"
-                                      android:orientation="horizontal">
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="1">
+
+                        <LinearLayout
+                            android:id="@+id/layTraffic"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
                                 <android.support.v7.widget.CardView
-                                        android:layout_marginBottom="3dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:clickable="true"
-                                        android:id="@+id/layBtnTraffic"
-                                        android:layout_gravity="center_horizontal"
-                                        android:foreground="@drawable/ripple_list_item"
-                                        app:cardBackgroundColor="@color/back_traffic_ezafe_color_box"
-                                        app:cardCornerRadius="5dp"
-                                        app:cardElevation="5dp">
+                                    android:id="@+id/layBtnTraffic"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="3dp"
+                                    android:clickable="true"
+                                    app:cardBackgroundColor="@color/back_items"
+                                    app:cardCornerRadius="5dp"
+                                    app:cardElevation="5dp">
+
                                     <LinearLayout
-                                            android:layout_width="fill_parent"
-                                            android:orientation="horizontal"
-                                            android:gravity="center"
-                                            android:layout_gravity="center"
-                                            android:layout_height="fill_parent">
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:layout_gravity="center"
+                                        android:gravity="right"
+                                        android:orientation="horizontal">
+
                                         <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:minWidth="88dp"
-                                                android:gravity="center"
-                                                android:typeface="serif"
-                                                android:minHeight="36dp"
-                                                android:paddingLeft="5dp"
-                                                android:paddingRight="5dp"
-                                                android:singleLine="true"
-                                                android:text="ترافیک اضافه"
-                                                android:textColor="@color/white"/>
-                                        <ImageView android:layout_width="@dimen/size_image_very_small"
-                                                   android:src="@drawable/ic_traffic_64px_white"
-                                                   android:layout_height="@dimen/size_image_small"/>
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:minHeight="36dp"
+                                            android:minWidth="88dp"
+                                            android:paddingLeft="5dp"
+                                            android:paddingRight="5dp"
+                                            android:singleLine="true"
+                                            android:text="ترافیک اضافه"
+                                            android:textColor="@color/text_color_items"
+                                            android:typeface="serif" />
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:src="@drawable/ic_circle" />
                                     </LinearLayout>
                                 </android.support.v7.widget.CardView>
                             </LinearLayout>
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
+
+
                         </LinearLayout>
 
                         <!-- layBtnIP -->
                         <!-- layBtnFeshfeshe -->
-                        <LinearLayout android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:id="@+id/layFeshfeshe"
-                                      android:orientation="horizontal">
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="1">
+                        <LinearLayout
+                            android:id="@+id/layFeshfeshe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
                                 <android.support.v7.widget.CardView
-                                        android:layout_marginBottom="3dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:clickable="true"
-                                        android:id="@+id/layBtnFeshfeshe"
-                                        android:layout_gravity="center_horizontal"
-                                        android:foreground="@drawable/ripple_list_item"
-                                        app:cardBackgroundColor="@color/back_feshfeshe_color_box"
-                                        app:cardCornerRadius="5dp"
-                                        app:cardElevation="5dp">
+                                    android:id="@+id/layBtnFeshfeshe"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="3dp"
+                                    android:clickable="true"
+                                    app:cardBackgroundColor="@color/back_items"
+                                    app:cardCornerRadius="5dp"
+                                    app:cardElevation="5dp">
+
                                     <LinearLayout
-                                            android:layout_width="fill_parent"
-                                            android:orientation="horizontal"
-                                            android:gravity="center"
-                                            android:layout_gravity="center"
-                                            android:layout_height="fill_parent">
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:layout_gravity="center"
+                                        android:gravity="right"
+                                        android:orientation="horizontal">
+
                                         <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:minWidth="88dp"
-                                                android:gravity="center"
-                                                android:typeface="serif"
-                                                android:minHeight="36dp"
-                                                android:paddingLeft="5dp"
-                                                android:paddingRight="5dp"
-                                                android:singleLine="true"
-                                                android:text="فشفشه"
-                                                android:textColor="@color/white"/>
-                                        <ImageView android:layout_width="@dimen/size_image_very_small"
-                                                   android:src="@drawable/ic_feshfeshe_64px_white"
-                                                   android:layout_height="@dimen/size_image_small"/>
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:minHeight="36dp"
+                                            android:minWidth="88dp"
+                                            android:paddingLeft="5dp"
+                                            android:paddingRight="5dp"
+                                            android:singleLine="true"
+                                            android:text="فشفشه"
+                                            android:textColor="@color/text_color_items"
+                                            android:typeface="serif" />
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:src="@drawable/ic_circle" />
                                     </LinearLayout>
                                 </android.support.v7.widget.CardView>
                             </LinearLayout>
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
+
                         </LinearLayout>
-                        <View android:layout_width="match_parent" android:layout_height="0dp"
-                              android:layout_marginBottom="12dp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginBottom="12dp" />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
             </LinearLayout>
-            <View android:layout_width="0dp"
-                  android:layout_height="match_parent"
-                  android:layout_weight="0.15"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15" />
         </LinearLayout>
+
         <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/layLoading"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="3dp"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal">
+            android:id="@+id/layLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="3dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <com.pnikosis.materialishprogress.ProgressWheel
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_marginRight="5dp"
-                    app:matProg_barColor="@color/white"
-                    app:matProg_progressIndeterminate="true"/>
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginRight="5dp"
+                app:matProg_barColor="@color/text_color_items"
+                app:matProg_progressIndeterminate="true" />
+
             <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/size_font_very_very_small"
-                    android:layout_marginTop="5dp"
-                    android:text="لطفا صبر کنید"
-                    android:textColor="@color/white"
-                    android:layout_marginRight="5dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:text="لطفا صبر کنید"
+                android:textColor="@color/text_color_items"
+                android:textSize="@dimen/size_font_very_very_small" />
         </LinearLayout>
-        <TextView android:layout_width="wrap_content"
-                  android:layout_gravity="center"
-                  android:textColor="@color/white"
-                  android:typeface="sans"
-                  android:visibility="gone"
-                  android:id="@+id/txtShowMessage"
-                  android:layout_marginTop="8dp"
-                  android:layout_marginBottom="8dp"
-                  android:textSize="@dimen/size_font_very_small"
-                  android:layout_height="wrap_content"
-                  android:layout_centerInParent="true"/>
+
+        <TextView
+            android:id="@+id/txtShowMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/text_color_items"
+            android:textSize="@dimen/size_font_very_small"
+            android:typeface="sans"
+            android:visibility="gone" />
     </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layBtnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="bottom"
+            android:src="@drawable/back_orange" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="6dp"
+            android:text="بازگشت"
+            android:textColor="@color/text_color_items" />
+
+    </LinearLayout>
 </LinearLayout>

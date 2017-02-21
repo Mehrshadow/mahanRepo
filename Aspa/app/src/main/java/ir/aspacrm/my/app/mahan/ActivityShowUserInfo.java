@@ -6,9 +6,11 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.activeandroid.query.Select;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.activeandroid.query.Select;
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.WebService;
@@ -35,6 +37,7 @@ public class ActivityShowUserInfo extends AppCompatActivity {
     @Bind(R.id.txtNamayandeForush) net.kianoni.fontloader.TextView txtNamayandeForush;
     @Bind(R.id.layLoading) LinearLayout layLoading;
     @Bind(R.id.card_view) CardView cardView;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,13 @@ public class ActivityShowUserInfo extends AppCompatActivity {
 
         cardView.setVisibility(View.GONE);
         WebService.sendGetUserInfoRequest();
+
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         layBtnClose
                 .setOnClickListener(new View.OnClickListener() {

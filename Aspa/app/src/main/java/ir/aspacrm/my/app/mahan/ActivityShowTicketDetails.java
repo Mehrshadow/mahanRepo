@@ -33,6 +33,7 @@ public class ActivityShowTicketDetails extends AppCompatActivity{
 
     @Bind(R.id.lstTicketDetail) RecyclerView lstTicketDetail;
     @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
     @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
     @Bind(R.id.laySendChatMessage) LinearLayout laySendChatMessage;
@@ -89,6 +90,13 @@ public class ActivityShowTicketDetails extends AppCompatActivity{
         layBtnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
+            }
+        });
+
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
             }
         });
