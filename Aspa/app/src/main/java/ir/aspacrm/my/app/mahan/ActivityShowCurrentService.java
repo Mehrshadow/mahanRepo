@@ -147,6 +147,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
             layLoading.setVisibility(View.INVISIBLE);
             layTempConnection.setVisibility(View.VISIBLE);
             tvConnectionStatus.setText(R.string.offline);
+            tvTarazeMali.setText(G.currentAccount.balance + "");
         } else {
             lay_remaining_days.setVisibility(View.VISIBLE);
             layLoading.setVisibility(View.INVISIBLE);
@@ -154,7 +155,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
             tvConnectionStatus.setText(R.string.online);
         }
 
-        tvPackageName.setText("" + G.currentAccount.pkgName);
+        tvPackageName.setText(G.currentAccount.pkgName);
 
         if (G.currentAccount.rHour == -11111) {
             if (G.currentAccount.rDay == -11111) {
