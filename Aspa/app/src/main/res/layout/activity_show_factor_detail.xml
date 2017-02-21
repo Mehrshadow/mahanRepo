@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:background="@drawable/background"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:background="@drawable/background"
     android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@color/back_items">
+        android:layout_height="@dimen/size_toolbar_height"
+        android:background="@color/back_toolbar">
 
         <LinearLayout
             android:id="@+id/layBtnClose"
@@ -56,36 +56,39 @@
     </FrameLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/lstFactorDetail"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_height="0dp"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:layout_weight="1" />
 
         <LinearLayout
             android:id="@+id/layBtnBack"
-            android:orientation="horizontal"
-            android:layout_margin="32dp"
-            android:layout_gravity="bottom"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+
             <ImageView
                 android:id="@+id/imgBack"
-                android:layout_gravity="bottom"
-                android:src="@drawable/back_orange"
                 android:layout_width="24dp"
-                android:layout_height="24dp" />
-            <TextView
-                android:layout_marginLeft="6dp"
-                android:textColor="@color/text_color_items"
+                android:layout_height="24dp"
                 android:layout_gravity="bottom"
-                android:text="بازگشت"
+                android:src="@drawable/back_orange" />
+
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="6dp"
+                android:text="بازگشت"
+                android:textColor="@color/text_color_items" />
 
         </LinearLayout>
 

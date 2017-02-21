@@ -78,6 +78,44 @@ public class DialogClass {
         });
         dialog.show();
     }
+
+    public void showSendTicket(){
+        final Dialog dialog = new Dialog(G.currentActivity, R.style.DialogSlideAnim);
+        dialog.setContentView(R.layout.dialog_exit);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        LinearLayout layBtnPositive = (LinearLayout) dialog.findViewById(R.id.layBtnOk);
+        LinearLayout layBtnNegative = (LinearLayout) dialog.findViewById(R.id.layBtnCancel);
+        ImageView imgCloseDialog = (ImageView) dialog.findViewById(R.id.imgCloseDialog);
+        TextView txtBtnOk = (TextView) layBtnPositive.findViewById(R.id.txtValue);
+        TextView txtBtnCancel = (TextView) layBtnNegative.findViewById(R.id.txtValue);
+
+        txtBtnOk.setText("بازگشت");
+        txtBtnCancel.setText("ارسال تیکت جدید");
+
+        layBtnPositive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                G.currentActivity.finish();
+            }
+        });
+        imgCloseDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        layBtnNegative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+    }
+
     public void showChangePasswordDialog(){
         final Dialog dialog = new Dialog(G.currentActivity, R.style.DialogSlideAnim);
         dialog.setContentView(R.layout.dialog_change_password);

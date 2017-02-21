@@ -93,19 +93,20 @@ public class ActivityShowTickets extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.actionBtnAddTicket :
-                if (!layExpandTicket.isShown()) {
-                    U.expand(layExpandTicket);
-                    actionBtnAddTicket.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(G.currentActivity, R.color.red)));
-                    actionBtnAddTicket.setRippleColor(ContextCompat.getColor(G.currentActivity, R.color.red));
-                    actionBtnAddTicket.setImageResource(R.drawable.ic_close_white_36dp);
-                    isCloseButtonShow = true;
-                } else {
-                    U.collapse(layExpandTicket);
-                    actionBtnAddTicket.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(G.currentActivity, R.color.colorAccent)));
-                    actionBtnAddTicket.setRippleColor(ContextCompat.getColor(G.currentActivity, R.color.colorAccent));
-                    actionBtnAddTicket.setImageResource(R.drawable.sv_plus_white);
-                    isCloseButtonShow = false;
-                }
+                startActivity(new Intent(G.context,ActivitySendTiket.class));
+//                if (!layExpandTicket.isShown()) {
+//                    U.expand(layExpandTicket);
+//                    actionBtnAddTicket.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(G.currentActivity, R.color.red)));
+//                    actionBtnAddTicket.setRippleColor(ContextCompat.getColor(G.currentActivity, R.color.red));
+//                    actionBtnAddTicket.setImageResource(R.drawable.ic_close_white_36dp);
+//                    isCloseButtonShow = true;
+//                } else {
+//                    U.collapse(layExpandTicket);
+//                    actionBtnAddTicket.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(G.currentActivity, R.color.colorAccent)));
+//                    actionBtnAddTicket.setRippleColor(ContextCompat.getColor(G.currentActivity, R.color.colorAccent));
+//                    actionBtnAddTicket.setImageResource(R.drawable.sv_plus_white);
+//                    isCloseButtonShow = false;
+//                }
                 break;
         }
     }

@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:background="@drawable/background"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical">
 
     <FrameLayout
+        android:layout_margin="@dimen/size_toolbar_margin"
         android:layout_width="match_parent"
-
-        android:layout_height="?actionBarSize">
+        android:layout_height="@dimen/size_toolbar_height"
+        android:background="@color/back_toolbar">
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/layBtnClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,7 +30,8 @@
                 android:layout_width="@dimen/sv_image_size"
                 android:layout_height="@dimen/sv_image_size"
                 android:layout_margin="5dp"
-                android:src="@drawable/back_gray" />
+                android:src="@drawable/back_gray"
+                android:id="@+id/imageView3" />
         </LinearLayout>
 
         <LinearLayout
@@ -55,13 +57,14 @@
                 android:typeface="sans" />
 
 
-
         </LinearLayout>
 
 
     </FrameLayout>
 
     <RelativeLayout
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
