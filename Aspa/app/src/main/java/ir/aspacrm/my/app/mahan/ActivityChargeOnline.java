@@ -58,6 +58,7 @@ public class ActivityChargeOnline extends AppCompatActivity {
             }
         });
     }
+
     /** darkhaste inke mikhahim yek factor ra start konim az tarafe adapterFactor*/
     public void onEventMainThread(EventOnClickedStartFactor event){
         Logger.d("ActivityChargeOnline : EventOnClickedStartFactor is raised");

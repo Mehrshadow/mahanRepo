@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.activeandroid.query.Select;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.Downloader;
@@ -41,7 +42,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
     @Bind(R.id.lay_temp_connection)
     LinearLayout layTempConnection;
     @Bind(R.id.layBtnVaslMovaghat)
-    LinearLayout btnTempConnection;
+    CardView btnTempConnection;
     @Bind(R.id.lay_expired)
     LinearLayout layExpired;
     @Bind(R.id.lay_remaining_days)
@@ -67,6 +68,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_current_service);
+        ButterKnife.bind(this);
         EventBus.getDefault().register(this);
         G.currentActivity = this;
 
@@ -155,28 +157,28 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
             tvConnectionStatus.setText(R.string.online);
         }
 
-        tvPackageName.setText(G.currentAccount.pkgName);
+        tvPackageName.setText(" " + G.currentAccount.pkgName);
 
         if (G.currentAccount.rHour == -11111) {
             if (G.currentAccount.rDay == -11111) {
                 tvRemainingDays.setText("نامحدود");
                 lblRemainingDays.setVisibility(View.GONE);
             } else {
-                tvRemainingDays.setText("" + G.currentAccount.rDay + " " + "روز");
+                tvRemainingDays.setText("" + G.currentAccount.rDay + " " + "روز" + " ");
             }
         } else {
             if (G.currentAccount.rHour == -11111) {
                 tvRemainingDays.setText("نامحدود");
                 lblRemainingDays.setVisibility(View.GONE);
             } else {
-                tvRemainingDays.setText("" + G.currentAccount.rHour + " " + "ساعت");
+                tvRemainingDays.setText("" + G.currentAccount.rHour + " " + "ساعت" + " ");
             }
         }
         if (G.currentAccount.rTraffic == -11111) {
             tvRemainingDays.setText("نامحدود");
             lblRemainingDays.setVisibility(View.GONE);
         } else {
-            tvRemainingDays.setText(G.currentAccount.rTraffic + " " + "مگابایت");
+            tvRemainingDays.setText(G.currentAccount.rTraffic + " " + "مگابایت" + " ");
         }
     }
 
@@ -314,6 +316,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
                 break;
             case R.id.btn_enter:
                 startActivity(new Intent(G.currentActivity, ActivityMain0.class));
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
                 finish();
                 break;
         }

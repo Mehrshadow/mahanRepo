@@ -30,15 +30,15 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
-            <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:text="@string/current_service"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -58,15 +58,15 @@
                 android:gravity="end"
                 android:text="@string/remaining_days"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
-            <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                 android:id="@+id/tv_remaining_days"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:textColor="@color/back_orange_btn"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -78,12 +78,12 @@
             android:layout_marginTop="10dp"
             android:gravity="center">
 
-            <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/expired"
                 android:textColor="@color/back_orange_btn"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -95,7 +95,7 @@
             android:gravity="center">
 
             <include
-                layout="@layout/lay_btn_vasl_movaghat" />
+                layout="@layout/lay_btn_vasl_movaghat" android:id="@+id/layVaslMovaghat" />
         </LinearLayout>
 
         <LinearLayout
@@ -117,7 +117,7 @@
                     android:gravity="end"
                     android:text="@string/rials"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                     android:id="@+id/tv_taraze_mali"
@@ -127,16 +127,16 @@
                     android:layout_marginRight="5dp"
                     android:gravity="end"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
-            <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/taraze_mali"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -154,15 +154,15 @@
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
-            <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:text="@string/connection_status"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
