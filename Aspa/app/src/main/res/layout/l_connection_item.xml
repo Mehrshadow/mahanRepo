@@ -1,239 +1,303 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        app:cardBackgroundColor="@color/back_items">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:id="@+id/card_view"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            app:cardBackgroundColor="@color/dark_grey">
-        <LinearLayout android:layout_width="match_parent"
-                      android:orientation="vertical"
-                      android:layout_gravity="center"
-                      android:gravity="center_horizontal"
-                      android:layout_height="wrap_content">
-            <LinearLayout android:layout_width="match_parent"
-                          android:orientation="horizontal"
-                          android:layout_margin="10dp"
-                          android:layout_height="wrap_content">
-                <ImageView android:layout_width="@dimen/size_image_very_very_small"
-                           android:src="@drawable/ic_left_drawable_textview"
-                           android:scaleType="fitEnd"
-                           android:layout_marginTop="2dp"
-                           android:layout_marginBottom="2dp"
-                           android:layout_marginLeft="3dp"
-                           android:layout_height="match_parent"/>
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+
+
                 <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="5dp"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp"/>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="5dp"
-                                  android:layout_marginBottom="2.5dp">
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp" />
+
+                    <LinearLayout
+                        android:background="@color/back_items"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="5dp">
 
                         <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtConnectionStartDate"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:textColor="@color/white"
-                                    android:gravity="left|center_vertical"/>
+                                android:id="@+id/txtConnectionStartDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small" />
                         </LinearLayout>
+
                         <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="تاریخ شروع"
-                                    android:typeface="sans"
-                                    android:textSize="@dimen/size_font_very_very_small"
-                                    android:textColor="@color/white"
-                                    android:gravity="center_vertical|right"/>
+                                android:layout_marginRight="16dp"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="تاریخ شروع"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
                         </LinearLayout>
                     </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
+
+                    <LinearLayout
+                        android:background="@color/back_items"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtConnectionExpireDate"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:textColor="@color/white"
-                                    android:gravity="left|center_vertical"
-                                    />
+                                android:id="@+id/txtConnectionExpireDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small" />
                         </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="تاریخ پایان"
-                                      android:typeface="sans"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_marginRight="16dp"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="تاریخ پایان"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
                         </LinearLayout>
                     </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
+
+                    <LinearLayout
+                        android:background="@color/back_items"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtConnectionDuration"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:textColor="@color/white"
-                                    android:gravity="left|center_vertical"/>
+                                android:id="@+id/txtConnectionDuration"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small" />
                         </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="مدت زمان"
-                                      android:typeface="sans"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_marginRight="16dp"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="مدت زمان"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
                         </LinearLayout>
                     </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
+
+                    <LinearLayout
+                        android:background="@color/back_items"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <net.kianoni.fontloader.TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtConnectionSend"
-                                    app:fontFile="fonts/biran.ttf"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:gravity="left|center_vertical"/>
+                                android:id="@+id/txtConnectionSend"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small"
+                                app:fontFile="fonts/biran.ttf" />
                         </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="میزان ترافیک ارسالی"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:typeface="sans"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_marginRight="16dp"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="میزان ترافیک ارسالی"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
                         </LinearLayout>
                     </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
+
+                    <LinearLayout
+                        android:background="@color/back_items"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <net.kianoni.fontloader.TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtConnectionReceive"
-                                    android:textColor="@color/white"
-                                    app:fontFile="fonts/biran.ttf"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:gravity="left|center_vertical"/>
+                                android:id="@+id/txtConnectionReceive"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small"
+                                app:fontFile="fonts/biran.ttf" />
                         </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="میزان ترافیک دریافتی"
-                                      android:typeface="sans"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_marginRight="16dp"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="میزان ترافیک دریافتی"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
                         </LinearLayout>
                     </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
+
+                    <LinearLayout
+                        android:background="@color/back_items"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <net.kianoni.fontloader.TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/txtConnectionTrafficUsed"
-                                    app:fontFile="fonts/biran.ttf"
-                                    android:textSize="@dimen/size_font_very_small"
-                                    android:textColor="@color/white"
-                                    android:gravity="left|center_vertical"/>
+                                android:id="@+id/txtConnectionTrafficUsed"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_small"
+                                app:fontFile="fonts/biran.ttf" />
                         </LinearLayout>
-                        <LinearLayout android:orientation="vertical"
-                                      android:layout_width="0dp"
-                                      android:layout_height="match_parent"
-                                      android:layout_weight="1">
-                            <TextView android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:text="میزان ترافیک مصرفی"
-                                      android:textSize="@dimen/size_font_very_very_small"
-                                      android:typeface="sans"
-                                      android:textColor="@color/white"
-                                      android:gravity="center_vertical|right"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_marginRight="16dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="میزان ترافیک مصرفی"
+                                android:textColor="@color/text_color_items"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:typeface="sans" />
                         </LinearLayout>
                     </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="5dp"
-                                  android:layout_marginTop="2.5dp"
-                                  android:layout_marginBottom="2.5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_marginBottom="2.5dp"
+                        android:layout_marginTop="2.5dp">
+
                     </LinearLayout>
                 </LinearLayout>
 
-                <ImageView android:layout_width="@dimen/size_image_very_very_small"
-                           android:src="@drawable/ic_right_drawable_textview"
-                           android:scaleType="fitStart"
-                           android:layout_marginRight="3dp"
-                           android:layout_marginTop="2dp"
-                           android:layout_marginBottom="2dp"
-                           android:layout_height="match_parent"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

@@ -33,6 +33,7 @@ public class ActivityShowGraph extends AppCompatActivity {
 
     @Bind(R.id.chart1) HorizontalBarChart mChart;
     @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
     @Bind(R.id.layLoading) LinearLayout layLoading;
     Graph graph;
@@ -56,6 +57,14 @@ public class ActivityShowGraph extends AppCompatActivity {
                 finish();
             }
         });
+
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
+            }
+        });
         //mChart.setOnChartValueSelectedListener(this);
         mChart.setHighlightPerTapEnabled(false);
         mChart.setDrawBarShadow(false);
@@ -77,7 +86,7 @@ public class ActivityShowGraph extends AppCompatActivity {
         xl.setPosition(XAxis.XAxisPosition.BOTTOM);
         xl.setAvoidFirstLastClipping(true);
         xl.setDrawAxisLine(true);
-        xl.setTextColor(ContextCompat.getColor(G.currentActivity, R.color.white));//نوشته سمت چپ نمودار
+        xl.setTextColor(ContextCompat.getColor(G.currentActivity, R.color.text_color_items));//نوشته سمت چپ نمودار
         xl.setTypeface(Typeface.MONOSPACE);
         xl.setTextSize(getResources().getDimension(R.dimen.size_font_very_small));
         xl.setDrawGridLines(false);
@@ -90,7 +99,7 @@ public class ActivityShowGraph extends AppCompatActivity {
         yl.setDrawGridLines(false); // khat'haei ke az paein nemudar miad ke moshakhas konande meghdar masraf ast.
         yl.setGridLineWidth(0.3f);
         yl.setAxisMinValue(0f); // this replaces setStartAtZero(true)
-        yl.setTextColor(ContextCompat.getColor(G.currentActivity, R.color.colorPrimary));
+        yl.setTextColor(ContextCompat.getColor(G.currentActivity, R.color.text_color_items));
         yl.setTypeface(Typeface.MONOSPACE);
         yl.setTextSize(getResources().getDimension(R.dimen.size_font_small));
 //        yl.setInverted(true);
@@ -100,7 +109,7 @@ public class ActivityShowGraph extends AppCompatActivity {
         yr.setDrawAxisLine(false);
         yr.setDrawGridLines(false);
         yr.setAxisMinValue(0f); // this replaces setStartAtZero(true)
-        yr.setTextColor(ContextCompat.getColor(G.currentActivity, R.color.colorPrimary));
+        yr.setTextColor(ContextCompat.getColor(G.currentActivity, R.color.text_color_items));
         yr.setTypeface(Typeface.MONOSPACE);
         yr.setTextSize(getResources().getDimension(R.dimen.size_font_very_very_small));
 //        yr.setInverted(true);
@@ -139,7 +148,7 @@ public class ActivityShowGraph extends AppCompatActivity {
                 i++;
             }
             BarDataSet set1 = new BarDataSet(yVals1, "مقدار بر حسب مگابایت");
-            set1.setColor(ContextCompat.getColor(G.currentActivity, R.color.light_green));
+            set1.setColor(ContextCompat.getColor(G.currentActivity, R.color.orange));
             set1.setValueTextColor(ContextCompat.getColor(G.currentActivity, R.color.white));
             mChart.getLegend().setTextColor(ContextCompat.getColor(G.currentActivity, R.color.white));
             mChart.getLegend().setTypeface(Typeface.SANS_SERIF);
@@ -151,7 +160,7 @@ public class ActivityShowGraph extends AppCompatActivity {
 
             BarData data = new BarData(xVals, dataSets);
             data.setValueTextSize(getResources().getDimension(R.dimen.size_font_very_very_small)); // size of text of useage traffic
-            data.setValueTextColor(ContextCompat.getColor(G.currentActivity, R.color.white));
+            data.setValueTextColor(ContextCompat.getColor(G.currentActivity, R.color.text_color_items));
             mChart.setData(data);
             mChart.setVisibility(View.VISIBLE);
         }
