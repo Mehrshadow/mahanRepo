@@ -15,31 +15,20 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.classes.DialogClass;
-import ir.aspacrm.my.app.mahan.classes.Downloader;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.U;
 import ir.aspacrm.my.app.mahan.classes.WebService;
 import ir.aspacrm.my.app.mahan.component.ColorTool;
-import ir.aspacrm.my.app.mahan.enums.EnumDownloadID;
-import ir.aspacrm.my.app.mahan.events.EventOnCanceledDialogUpdatingApplication;
-import ir.aspacrm.my.app.mahan.events.EventOnChangedDownloadPercent;
 import ir.aspacrm.my.app.mahan.events.EventOnCheckGetPollRequest;
 import ir.aspacrm.my.app.mahan.events.EventOnClickedLogoutButton;
-import ir.aspacrm.my.app.mahan.events.EventOnDownloadedFileCompleted;
-import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetIspInfo;
-import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetUserAccountInfo;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetNews;
 import ir.aspacrm.my.app.mahan.events.EventOnGetErrorSetPoll;
-import ir.aspacrm.my.app.mahan.events.EventOnGetIspInfoResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetNewsResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnGetPollResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnGetStartFactorResponse;
-import ir.aspacrm.my.app.mahan.events.EventOnGetUpdateResponse;
-import ir.aspacrm.my.app.mahan.events.EventOnGetUserAccountInfoResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnNoAccessServerResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnSendPollRequest;
 import ir.aspacrm.my.app.mahan.events.EventOnSetPollResponse;
-import ir.aspacrm.my.app.mahan.events.EventOnShowDialogUpdatingApplicationRequest;
-import ir.aspacrm.my.app.mahan.gson.GetIspInfoResponse;
-import ir.aspacrm.my.app.mahan.model.Account;
 import ir.aspacrm.my.app.mahan.model.License;
 
 import static ir.aspacrm.my.app.mahan.G.context;
@@ -51,13 +40,7 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
     @Bind(R.id.bg_main)
     ImageView bgMain;
 
-    int level = 0;
-    DialogClass dlgUpdate;
     DialogClass dlgShowPoll;
-    Downloader downloader = null;
-    boolean downloadedCompleted;
-
-    DialogClass dlgWaiting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,36 +52,18 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
         if (bgMain != null)
             bgMain.setOnTouchListener(this);
 
-        if (getIntent().getExtras() != null) {
-            /** yani az safheye login vared safhe asli shodeim. */
-            //AccountInfoResponse jsonAccountInfo = new Gson().fromJson(getIntent().getExtras().getString("JSON_ACCOUNT_INFO"),AccountInfoResponse.class);
-            initializeUserAccountView();
-        } else {
-            /** yani mostaghim vared safheye asli shodeim. */
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    // bareye check kardane inke bashgah darad ya na.
-                    if (G.currentLicense == null)
-                        G.currentLicense = new Select().from(License.class).where("UserId = ? ", G.currentUser.userId).executeSingle();
+        /** yani mostaghim vared safheye asli shodeim. */
+        // bareye check kardane inke bashgah darad ya na.
+        if (G.currentLicense == null)
+            G.currentLicense = new Select().from(License.class).where("UserId = ? ", G.currentUser.userId).executeSingle();
 
-//                    G.handler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            dlgWaiting = new DialogClass();
-//                            dlgWaiting.DialogWaitingWithBackground(ActivityMain0.this);
-//                        }
-//                    });
-                }
-            }).start();
+        if (G.currentLicense != null && !G.currentLicense.club) {
+            bgMain.setImageResource(R.drawable.bg_main_no_feshfeshe_club);
+            mask.setImageResource(R.drawable.mask_mainbg_no_feshfeshe_club);
+        } else if (G.currentLicense != null && G.currentLicense.club) {
+            bgMain.setImageResource(R.drawable.bg_main);
+            mask.setImageResource(R.drawable.mask_mainbg);
         }
-        /** check application update */
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                WebService.getUpdateRequest();
-            }
-        }).start();
     }
 
     @Override
@@ -106,134 +71,6 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
         super.onResume();
         Logger.d("ActivityMain : onResume()");
         G.currentActivity = this;
-    }
-
-//    @Override
-//    public void onClick(final View view) {
-//        Animation clickAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_click);
-//        clickAnimation.setAnimationListener(new Animation.AnimationListener() {
-//            @Override
-//            public void onAnimationStart(Animation animation) {
-//
-//            }
-//
-//            @Override
-//            public void onAnimationEnd(Animation animation) {
-//                switch (view.getId()) {
-//                    case imgLogout:
-//                        DialogClass dialogExit = new DialogClass();
-//                        dialogExit.showExitDialog();
-//                        break;
-//                    case imgChangePassword:
-//                        if (G.currentLicense != null) {
-//                            if (G.currentLicense.changePass) {
-//                                DialogClass dialogChangePassword = new DialogClass();
-//                                dialogChangePassword.showChangePasswordDialog();
-//                            } else {
-//                                U.toast("امکان تغییر رمز برای شما فعال نیست.");
-//                            }
-//                        }
-//                        break;
-//                    case layPardakhtha:
-//                        startActivity(new Intent(G.context, ActivityPayments.class));
-//                        break;
-//                    case laySuratHesab:
-//                        startActivity(new Intent(G.context, ActivityShowFactors.class));
-//                        break;
-//                    case laySavabeghEtesal:
-//                        startActivity(new Intent(G.context, ActivityShowConnections.class));
-//                        break;
-//                    case layTicket:
-//                        if (G.currentLicense != null) {
-//                            if (G.currentLicense.ticket) {
-//                                startActivity(new Intent(G.context, ActivityShowTickets.class));
-//                            } else {
-//                                U.toast("امکان ارسال تیکت برای شما فعال نمی باشد.");
-//                            }
-//                        }
-//                        break;
-//                    case layNemudarMasraf:
-//                        startActivity(new Intent(G.context, ActivityShowGraph.class));
-//                        break;
-//                    case layChargeOnline:
-//                        if (G.currentLicense != null) {
-//                            if (G.currentLicense.chargeOnline) {
-//                                startActivity(new Intent(G.context, ActivityChargeOnline.class));
-//                            } else {
-//                                U.toast("امکان شارژ آنلاین برای شما فعال نمیباشد.");
-//                            }
-//                        }
-//                        break;
-//                    case imgUserInfo:
-//                        startActivity(new Intent(G.context, ActivityShowUserInfo.class));
-//                        break;
-//                    case imgNews:
-//                        startActivity(new Intent(G.context, ActivityShowNews.class));
-//                        break;
-//                    case imgNotification:
-//                        startActivity(new Intent(G.context, ActivityShowNotify.class));
-//                        break;
-//                    case imgCompanyInfo:
-//                        WebService.sendGetIspInfoRequest();
-//                        break;
-//                    case imgFeshfeshe:
-//                        startActivity(new Intent(G.context, ActivityShowFeshfeshe.class));
-//                        break;
-//                    case imgClub:
-//                        startActivity(new Intent(G.context, ActivityShowClubScores.class));
-//                        break;
-//                }
-//            }
-//
-//            @Override
-//            public void onAnimationRepeat(Animation animation) {
-//
-//            }
-//        });
-//        view.startAnimation(clickAnimation);
-//    }
-
-    /**
-     * gereftane about sherkat bad az darkhaste etelaate sherkat dar ghesmate menu paein
-     * bad az gereftane javab az webserice, vared in ghesmat mishavim.
-     */
-    public void onEventMainThread(EventOnGetIspInfoResponse event) {
-        Logger.d("ActivityMain : EventOnGetIspInfoResponse is raised");
-        GetIspInfoResponse response = event.getIspInfo();
-        if (response.Result) {
-            DialogClass dlgShowCompanyInfo = new DialogClass();
-            dlgShowCompanyInfo.showCompanyDetailDialog(response);
-        } else {
-            U.toast("خطا در دریافت اطلاعات از سرور");
-        }
-    }
-
-    public void onEventMainThread(EventOnGetErrorGetIspInfo event) {
-        Logger.d("ActivityMain : EventOnGetErrorGetIspInfo is raised");
-        G.currentAccount = new Select().from(Account.class).where("userId = ? ", G.currentUser.userId).executeSingle();
-        G.currentLicense = new Select().from(License.class).where("userId = ? ", G.currentUser.userId).executeSingle();
-        initializeUserAccountView();
-    }
-
-    /**
-     * geteftane etelaate moshtarak baraye namayesh dar safhe aval
-     * bad az gereftane etelate moshtarak shamel hajme baghi mande va ruzaye baghi mande
-     * darkhate ersal inke moshtarak tavasote mobile vared hesabe karbari khod shode ast ersal mishavad.
-     * sepass darkhaste gereftane khabar'haye jadid ra midahim.
-     */
-    public void onEventMainThread(EventOnGetUserAccountInfoResponse event) {
-        Logger.d("ActivityMain : EventOnGetUserAccountInfoResponse is raised");
-        initializeUserAccountView();
-        /** send this request to get point for current user if set
-         * from managment.*/
-        WebService.sendVisitMobileRequest();
-    }
-
-    public void onEventMainThread(EventOnGetErrorGetUserAccountInfo event) {
-        Logger.d("ActivityMain : EventOnGetErrorGetUserAccountInfo is raised");
-        G.currentAccount = new Select().from(Account.class).where("userId = ? ", G.currentUser.userId).executeSingle();
-        G.currentLicense = new Select().from(License.class).where("userId = ? ", G.currentUser.userId).executeSingle();
-        initializeUserAccountView();
     }
 
     public void onEventMainThread(EventOnNoAccessServerResponse event) {
@@ -288,74 +125,17 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
         WebService.sendGetPollRequest();
     }
 
-    /* Update EventBus Method */
-    public void onEventMainThread(EventOnGetUpdateResponse event) {
-        Logger.d("ActivityMain : EventOnGetUpdateResponse is raised");
-        try {
-            String version = event.getUpdateResponse().Ver;
-            if (version.length() == 0)
-                version = "0.0";
-            if (Float.parseFloat(version) > Float.parseFloat(U.getAppVersionName())) {
-                dlgUpdate = new DialogClass();
-                dlgUpdate.showUpdateApplicationDialog(event.getUpdateResponse().Ver, event.getUpdateResponse().Force, event.getUpdateResponse().Url);
-            } else {
-                /** darkhate check karane inke nazar sanji vojud darad ya na.*/
-                WebService.sendGetPollRequest();
-            }
-        } catch (Exception e) {
-        }
-    }
-
-    public void onEventMainThread(EventOnShowDialogUpdatingApplicationRequest event) {
-        Logger.d("ActivityMain : EventOnShowDialogUpdatingApplicationRequest is raised");
-        if (dlgUpdate != null) {
-            dlgUpdate.showUpdatingApplicationDialog(event.getNewVersion(), event.isForce(), event.getUrl());
-            downloader = new Downloader();
-            downloader.requestDownload(event.getUrl(), EnumDownloadID.ACTIVITY_MAIN);
-        }
-    }
-
-    public void onEventMainThread(EventOnCanceledDialogUpdatingApplication event) {
-        Logger.d("ActivityMain : EventOnCanceledDialogUpdatingApplication is raised");
-        if (dlgUpdate != null && event.isForce()) {
-            /** dar surati ke download update ejbari bashad ba cancel kardane dialog updating baz bayad
-             * dialog update application namayesh dade shavad.*/
-            dlgUpdate.showUpdateApplicationDialog(event.getNewVersion(), event.isForce(), event.getUrl());
-            /** cancel current doanload and delete raw downloaded file*/
-            downloader.cancelDownload();
-        }
-    }
-
-    public void onEventMainThread(EventOnChangedDownloadPercent event) {
-        Logger.d("ActivityMain : EventOnChangedDownloadPercent is raised");
-        if (dlgUpdate != null) {
-            dlgUpdate.changeProgressPercent(event.getPercent());
-        }
-    }
-
-    public void onEventMainThread(EventOnDownloadedFileCompleted event) {
-        Logger.d("ActivityMain : EventOnDownloadedFileCompleted is raised");
-        if (dlgUpdate != null) {
-            downloadedCompleted = true;
-            dlgUpdate.showInstallButton();
-        }
-    }
-
     public void onEventMainThread(final EventOnGetStartFactorResponse event) {
         Logger.d("ActivityMain : EventOnGetStartFactorResponse is raised");
         WebService.sendGetUserAccountInfoRequest();
     }
 
-    /*-------------------------------------------------------------------------------------------------------------*/
-    public void initializeUserAccountView() {
+    public void onEventMainThread(EventOnGetErrorGetNews event) {
+        Logger.d("ActivityMain : EventOnGetErrorGetNews is raised");
+    }
 
-        if (dlgWaiting != null) {
-            dlgWaiting.cancelDialogWaitingWithBackground();
-        }
-
-        if (G.currentAccount == null)
-            G.currentAccount = new Select().from(Account.class).where("userId = ? ", G.currentUser.userId).executeSingle();
-
+    public void onEventMainThread(EventOnGetNewsResponse event) {
+        Logger.d("ActivityMain : EventOnGetNewsResponse is raised");
     }
 
     @Override
@@ -407,14 +187,14 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
                     startActivity(new Intent(context, ActivityShowGraph.class));
                 else if (ct.closeMatch(Color.GRAY, touchColor, tolerance))
                     Logger.d("Speed test");
-                else if (ct.closeMatch(Color.parseColor("#"+Integer.toHexString(context.getResources().getColor(R.color.orange))), touchColor, tolerance))
+                else if (ct.closeMatch(Color.parseColor("#" + Integer.toHexString(context.getResources().getColor(R.color.orange))), touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowTickets.class));
                 else if (ct.closeMatch(Color.WHITE, touchColor, tolerance))
-                    Logger.d("Free internet");
+                    startActivity(new Intent(context, ActivityShowFactors.class));
                 else if (ct.closeMatch(Color.MAGENTA, touchColor, tolerance))
-                    Logger.d("Game");
+                    startActivity(new Intent(context, ActivityShowNews.class));
                 else if (ct.closeMatch(Color.RED, touchColor, tolerance))
-                    Logger.d("Special offer");
+                    startActivity(new Intent(context, ActivityShowFeshfeshe.class));
                 else if (ct.closeMatch(Color.LTGRAY, touchColor, tolerance)) {
                     if (G.currentLicense != null) {
                         if (G.currentLicense.chargeOnline) {

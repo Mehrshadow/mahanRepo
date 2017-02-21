@@ -131,7 +131,7 @@
             android:name="AA_MODELS"
             android:value="                 .model.User,                 .model.Account,                 .model.ClubScore,                 .model.Connection,                 .model.Factor,                 .model.FactorDetail,                 .model.Feshfeshe,                 .model.Graph,                 .model.Info,                 .model.License,                 .model.News,                 .model.Notify,                 .model.Payment,                 .model.Ticket,                 .model.TicketDetail                 .model.Unit" />
 
-        <activity android:name=".ShowCurrentServiceActivity"></activity>
+        <activity android:name=".ActivityShowCurrentService"></activity>
     </application>
 
 </manifest>
