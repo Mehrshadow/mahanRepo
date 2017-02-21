@@ -17,15 +17,44 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import butterknife.Bind;
-import butterknife.ButterKnife;
+
 import com.activeandroid.query.Select;
 import com.pnikosis.materialishprogress.ProgressWheel;
+
+import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
-import ir.aspacrm.my.app.mahan.classes.*;
+import ir.aspacrm.my.app.mahan.classes.DialogClass;
+import ir.aspacrm.my.app.mahan.classes.Downloader;
+import ir.aspacrm.my.app.mahan.classes.Logger;
+import ir.aspacrm.my.app.mahan.classes.U;
+import ir.aspacrm.my.app.mahan.classes.WebService;
 import ir.aspacrm.my.app.mahan.enums.EnumDownloadID;
-import ir.aspacrm.my.app.mahan.enums.EnumInternetErrorType;
-import ir.aspacrm.my.app.mahan.events.*;
+import ir.aspacrm.my.app.mahan.events.EventOnCanceledDialogUpdatingApplication;
+import ir.aspacrm.my.app.mahan.events.EventOnChangedDownloadPercent;
+import ir.aspacrm.my.app.mahan.events.EventOnCheckGetPollRequest;
+import ir.aspacrm.my.app.mahan.events.EventOnClickedLogoutButton;
+import ir.aspacrm.my.app.mahan.events.EventOnDownloadedFileCompleted;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetIspInfo;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetNews;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetNotifies;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetUserAccountInfo;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorSetPoll;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorUserLicense;
+import ir.aspacrm.my.app.mahan.events.EventOnGetIspInfoResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetNewsResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetNotifiesResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetPollResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetStartFactorResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetUpdateResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetUserAccountInfoResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetUserLicenseResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnNoAccessServerResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnSendPollRequest;
+import ir.aspacrm.my.app.mahan.events.EventOnSetPollResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnShowDialogUpdatingApplicationRequest;
 import ir.aspacrm.my.app.mahan.gson.GetIspInfoResponse;
 import ir.aspacrm.my.app.mahan.model.Account;
 import ir.aspacrm.my.app.mahan.model.License;
@@ -33,8 +62,6 @@ import ir.aspacrm.my.app.mahan.model.News;
 import ir.aspacrm.my.app.mahan.model.Notify;
 import me.leolin.shortcutbadger.ShortcutBadgeException;
 import me.leolin.shortcutbadger.ShortcutBadger;
-
-import java.util.List;
 
 public class ActivityMain extends AppCompatActivity implements OnClickListener {
 
@@ -91,7 +118,6 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
         EventBus.getDefault().register(this);
         initToolbar();
 
-
         layLoading.setVisibility(View.INVISIBLE);
         layBtnVaslMovaghat.setVisibility(View.INVISIBLE);
 
@@ -118,7 +144,7 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
 
         if (getIntent().getExtras() != null) {
             /** yani az safheye login vared safhe asli shodeim. */
-            //AccountInfoResponse jsonAccountInfo = new Gson().fromJson(getIntent().getExtras().getString("JSON_ACCOUNT_INFO"),AccountInfoResponse.class);
+//            AccountInfoResponse jsonAccountInfo = new Gson().fromJson(getIntent().getExtras().getString("JSON_ACCOUNT_INFO"),AccountInfoResponse.class);
             initializeUserAccountView();
         } else {
             /** yani mostaghim vared safheye asli shodeim. */
@@ -169,7 +195,7 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        // toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_down));
+//         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_down));
         drawerLayout = (DrawerLayout) findViewById(R.id.main_navgdrawer);
         setupDrawerToggleInActionBar();
     }
@@ -329,34 +355,7 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
         });
         view.startAnimation(clickAnimation);
     }
-    /** gereftane natije darkhaste etesal movaghat.*/
-    public void onEventMainThread(EventOnGetRegConnectionResponse event){
-        Logger.d("ActivityMain : EventOnGetRegConnectionResponse is raised");
-        layLoading.setVisibility(View.INVISIBLE);
-        layBtnVaslMovaghat.setClickable(true);
 
-        if((event.getRegConnectResponses().get(0)).Result){
-            WebService.sendGetUserAccountInfoRequest();
-            if((event.getRegConnectResponses().get(0)).Msg.length() != 0){
-                DialogClass dlgErrorMessage = new DialogClass();
-                dlgErrorMessage.showMessageDialog("خطا در اتصال موقت",(event.getRegConnectResponses().get(0)).Msg);
-            }
-        }else{
-            DialogClass dlgErrorMessage = new DialogClass();
-            dlgErrorMessage.showMessageDialog("خطا در اتصال موقت",(event.getRegConnectResponses().get(0)).Msg);
-        }
-    }
-    public void onEventMainThread(EventOnGetErrorRegConnect event){
-        Logger.d("ActivityMain : EventOnGetErrorRegConnect is raised");
-        layLoading.setVisibility(View.INVISIBLE);
-        layBtnVaslMovaghat.setClickable(true);
-
-        if(event.getErrorType() == EnumInternetErrorType.NO_INTERNET_ACCESS){
-            U.toast("ارتباط اینترنتی خود را چک کنید.");
-        }else{
-            U.toast("خطا در دریافت اطلاعات از سمت سرور، لطفا مجددا تلاش کنید.");
-        }
-    }
     /**gereftane about sherkat bad az darkhaste etelaate sherkat dar ghesmate menu paein
      * bad az gereftane javab az webserice, vared in ghesmat mishavim.*/
     public void onEventMainThread(EventOnGetIspInfoResponse event) {

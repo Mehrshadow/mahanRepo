@@ -42,7 +42,9 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-
+<<<<<<< Temporary merge branch 1
+            android:name=".ActivityMain"
+=======
             android:name=".ActivityMain0"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -103,6 +105,14 @@
             android:name=".ActivityRegister"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ActivitySendTiket"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ActivityShowCurrentService"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
         <!-- Receiver -->
         <receiver
@@ -134,11 +144,11 @@
             android:name="AA_MODELS"
             android:value="                 .model.User,                 .model.Account,                 .model.ClubScore,                 .model.Connection,                 .model.Factor,                 .model.FactorDetail,                 .model.Feshfeshe,                 .model.Graph,                 .model.Info,                 .model.License,                 .model.News,                 .model.Notify,                 .model.Payment,                 .model.Ticket,                 .model.TicketDetail                 .model.Unit" />
 
-
-        <activity android:name=".ActivitySendTiket"/>
-
-        <activity android:name=".ShowCurrentServiceActivity"/>
-
+<<<<<<< Temporary merge branch 1
+        <activity android:name=".ActivitySendTiket"></activity>
+=======
+        <activity android:name=".ShowCurrentServiceActivity"></activity>
+>>>>>>> Temporary merge branch 2
     </application>
 
 </manifest>
