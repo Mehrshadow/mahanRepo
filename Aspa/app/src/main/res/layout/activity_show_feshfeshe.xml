@@ -1,118 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:background="@color/colorPrimary"
-              android:layout_height="match_parent">
-    <FrameLayout android:layout_width="match_parent"
-                 android:background="@color/edit_text_back_color"
-                 android:layout_height="?actionBarSize">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="@dimen/size_activity_padding">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/back_items">
+
         <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center_vertical"
-                android:clickable="true"
-                android:layout_marginLeft="5dp"
-                android:padding="2dp"
-                android:id="@+id/layBtnClose"
-                android:background="@drawable/ripple_light_oval"
-                android:layout_height="wrap_content">
+            android:id="@+id/layBtnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/ripple_light_oval"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="2dp"
+            android:visibility="gone">
+
             <ImageView
-                    android:layout_width="@dimen/sv_image_size"
-                    android:layout_height="@dimen/sv_image_size"
-                    android:scaleType="fitXY"
-                    android:layout_margin="5dp"
-                    android:src="@drawable/sv_arrows_white"/>
+                android:layout_width="@dimen/sv_image_size"
+                android:layout_height="@dimen/sv_image_size"
+                android:layout_margin="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/sv_arrows_white" />
         </LinearLayout>
 
-        <TextView android:layout_width="wrap_content"
-                  android:text="فشفشه"
-                  android:layout_gravity="center"
-                  android:textColor="@color/white"
-                  android:typeface="sans"
-                  android:layout_marginTop="8dp"
-                  android:layout_marginBottom="8dp"
-                  android:textSize="@dimen/size_font_very_small"
-                  android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_feshfeshe" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/special_offer"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_font_very_small"
+                android:typeface="sans" />
+
+        </LinearLayout>
     </FrameLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-            android:orientation="vertical"
+    <LinearLayout
+        android:id="@+id/layCurrentFeshfeshe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="2dp"
+        android:background="@color/back_items"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
 
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/imgEndCurrentFeshfesheRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:foreground="@drawable/ripple_list_item"
+            android:minWidth="100dp"
+            app:cardBackgroundColor="@color/back_orange_btn"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                    android:id="@+id/txtPackagePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:minHeight="36dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="اتمام فشفشه"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_font_very_small"
+                    android:typeface="serif" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="vertical">
+
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                android:id="@+id/txtCurrentFeshfesheExpireDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="زمان پایان : "
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_font_very_very_small" />
+
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                android:id="@+id/txtCurrentFeshfesheTraffic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="ترافیک باقیمانده : "
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_font_very_very_small" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:id="@+id/swipeRefreshLayout"
-            android:layout_height="match_parent"
-            android:gravity="center">
-        <RelativeLayout android:layout_width="match_parent"
-                        android:background="@color/colorPrimary"
-                        android:layout_height="match_parent">
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="match_parent"
-                          android:orientation="vertical">
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <android.support.v7.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:id="@+id/lstFeshfeshe"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:layout_height="0dp"/>
-                <LinearLayout android:layout_width="match_parent"
-                              android:orientation="horizontal"
-                              android:id="@+id/layCurrentFeshfeshe"
-                              android:layout_alignParentBottom="true"
-                              android:gravity="right|center_vertical"
-                              android:background="@color/edit_text_back_color"
-                              android:layout_height="wrap_content">
-                    <LinearLayout android:layout_width="0dp"
-                                  android:layout_weight="1"
-                                  android:gravity="right"
-                                  android:orientation="vertical"
-                                  android:layout_height="wrap_content">
-                        <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="زمان پایان : "
-                                android:drawableRight="@drawable/ic_date_24px_white"
-                                android:drawablePadding="5dp"
-                                android:gravity="center"
-                                android:textSize="@dimen/size_font_very_very_small"
-                                android:id="@+id/txtCurrentFeshfesheExpireDate"
-                                android:textColor="@color/white"/>
-                        <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="ترافیک باقیمانده : "
-                                android:gravity="center"
-                                android:drawableRight="@drawable/ic_traffic_24px_white"
-                                android:drawablePadding="5dp"
-                                android:textSize="@dimen/size_font_very_very_small"
-                                android:id="@+id/txtCurrentFeshfesheTraffic"
-                                android:textColor="@color/white"/>
-                    </LinearLayout>
+                    android:id="@+id/lstFeshfeshe"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:background="@drawable/ripple_list_item"
+                    android:id="@+id/layBtnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="16dp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
                     <ImageView
-                            android:layout_width="@dimen/size_image_small"
-                            android:layout_height="@dimen/size_image_small"
-                            android:src="@drawable/ic_off_white_64px"
-                            android:clickable="true"
-                            android:id="@+id/imgEndCurrentFeshfesheRequest"
-                            android:background="@drawable/ripple_light_oval"
-                            android:layout_margin="5dp"/>
+                        android:id="@+id/imgBack"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="bottom"
+                        android:src="@drawable/back_orange" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="6dp"
+                        android:text="بازگشت"
+                        android:textColor="@color/text_color_items" />
 
                 </LinearLayout>
+
+
             </LinearLayout>
-            <TextView android:layout_width="wrap_content"
-                      android:text=""
-                      android:layout_gravity="center"
-                      android:textColor="@color/white"
-                      android:typeface="sans"
-                      android:visibility="gone"
-                      android:layout_centerInParent="true"
-                      android:id="@+id/txtShowMessage"
-                      android:layout_marginTop="8dp"
-                      android:layout_marginBottom="8dp"
-                      android:textSize="@dimen/size_font_very_small"
-                      android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txtShowMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_font_very_small"
+                android:typeface="sans"
+                android:visibility="gone" />
         </RelativeLayout>
     </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

@@ -29,6 +29,10 @@
     <string name="remaining_days"> تا انقضا</string>
     <string name="online">آنلاین</string>
     <string name="offline">آفلاین</string>
+    <string name="special_offer">پیشنهاد ویژه</string>
+    <string name="finish_current_feshfeshe">اتمام فشفشه</string>
+    <string name="support">پشتیبانی</string>
+    <string name="tickets_details">جزییات تیکت ها</string>
     <string-array name="sp_olaviat_items">
         <item>کم</item>
         <item>متوسط</item>

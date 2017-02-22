@@ -32,6 +32,7 @@
     <color name="back_loading_color">#99474345</color>
     <color name="back_btn_vasl_movaghat">#ff5722</color>
     <color name="back_blue">#1F4258</color>
+    <color name="txt_blue">#0089cf</color>
     <color name="back_btn_login">#f16521</color>
     <color name="back_edt_login">#667c8a</color>
     <color name="back_orange_btn">#f16521</color>

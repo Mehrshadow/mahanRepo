@@ -5,38 +5,49 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.activeandroid.query.Select;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.activeandroid.query.Select;
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.adapter.AdapterFeshfeshe;
 import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.WebService;
-import ir.aspacrm.my.app.mahan.events.*;
+import ir.aspacrm.my.app.mahan.events.EventOnClickedEndFeshfeshe;
+import ir.aspacrm.my.app.mahan.events.EventOnClickedStartFeshfeshe;
+import ir.aspacrm.my.app.mahan.events.EventOnGetCurrentFeshFesheResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetEndFeshFeshesResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorEndFeshFeshes;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorLoadFeshFeshes;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorStartFeshFeshes;
+import ir.aspacrm.my.app.mahan.events.EventOnGetLoadFeshFeshesResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetStartFeshFeshesResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnNoAccessServerResponse;
 import ir.aspacrm.my.app.mahan.model.Feshfeshe;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Microsoft on 4/2/2016.
  */
 public class ActivityShowFeshfeshe extends AppCompatActivity {
-    @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.lstFeshfeshe) RecyclerView lstFeshfeshe;
     @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
     @Bind(R.id.txtCurrentFeshfesheExpireDate) TextView txtCurrentFeshfesheExpireDate;
     @Bind(R.id.txtCurrentFeshfesheTraffic) TextView txtCurrentFeshfesheTraffic;
     @Bind(R.id.layCurrentFeshfeshe) LinearLayout layCurrentFeshfeshe;
-    @Bind(R.id.imgEndCurrentFeshfesheRequest) ImageView imgEndCurrentFeshfesheRequest;
+    @Bind(R.id.imgEndCurrentFeshfesheRequest) CardView imgEndCurrentFeshfesheRequest;
 
 
     AdapterFeshfeshe adapterFeshfeshe;
@@ -83,7 +94,7 @@ public class ActivityShowFeshfeshe extends AppCompatActivity {
             }
         });
 
-        layBtnClose.setOnClickListener(new View.OnClickListener() {
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
