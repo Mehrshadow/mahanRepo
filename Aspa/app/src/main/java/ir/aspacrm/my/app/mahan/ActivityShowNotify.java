@@ -10,9 +10,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.activeandroid.query.Select;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.activeandroid.query.Select;
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.adapter.AdapterNotify;
 import ir.aspacrm.my.app.mahan.classes.Logger;
@@ -25,14 +30,17 @@ import ir.aspacrm.my.app.mahan.model.Notify;
 import me.leolin.shortcutbadger.ShortcutBadgeException;
 import me.leolin.shortcutbadger.ShortcutBadger;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ActivityShowNotify extends AppCompatActivity {
-    @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
-    @Bind(R.id.lstNotify) RecyclerView lstNotify;
-    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
-    @Bind(R.id.txtShowMessage) TextView txtShowMessage;
+    @Bind(R.id.layBtnClose)
+    LinearLayout layBtnClose;
+    @Bind(R.id.lstNotify)
+    RecyclerView lstNotify;
+    @Bind(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
+    @Bind(R.id.txtShowMessage)
+    TextView txtShowMessage;
+    @Bind(R.id.layBtnBack)
+    LinearLayout layBtnBack;
 
     AdapterNotify adapterNotify;
     LinearLayoutManager linearLayoutManager;
@@ -80,26 +88,35 @@ public class ActivityShowNotify extends AppCompatActivity {
                 finish();
             }
         });
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
+
     private void sendRequestGetNewNotify() {
         Notify lastNotify = new Select()
                 .from(Notify.class)
-                .where("UserId = ? " , G.currentUser.userId)
+                .where("UserId = ? ", G.currentUser.userId)
                 .orderBy("NotifyCode desc")
                 .limit(1)
                 .executeSingle();
-        if(lastNotify == null) {
-            WebService.sendGetNotifiesRequest(0,false);
-        }else{
-            WebService.sendGetNotifiesRequest(lastNotify.notifyCode,false);
+        if (lastNotify == null) {
+            WebService.sendGetNotifiesRequest(0, false);
+        } else {
+            WebService.sendGetNotifiesRequest(lastNotify.notifyCode, false);
         }
     }
-    public void onEventMainThread(EventOnGetNotifiesResponse event){
+
+    public void onEventMainThread(EventOnGetNotifiesResponse event) {
         Logger.d("ActivityShowNotify : EventOnGetNotifiesResponse is raised.");
         getNotifyFromDB();
         swipeRefreshLayout.setRefreshing(false);
     }
-    public void onEventMainThread(EventOnGetErrorGetNotifies event){
+
+    public void onEventMainThread(EventOnGetErrorGetNotifies event) {
         Logger.d("ActivityShowNotify : EventOnGetErrorGetNotifies is raised.");
         swipeRefreshLayout.post(new Runnable() {
             @Override
@@ -109,10 +126,11 @@ public class ActivityShowNotify extends AppCompatActivity {
         });
         getNotifyFromDB();
 
-        if(event.getErrorType() == EnumInternetErrorType.NO_INTERNET_ACCESS){
+        if (event.getErrorType() == EnumInternetErrorType.NO_INTERNET_ACCESS) {
             U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
         }
     }
+
     private void getNotifyFromDB() {
         notifies = new Select()
                 .from(Notify.class)
