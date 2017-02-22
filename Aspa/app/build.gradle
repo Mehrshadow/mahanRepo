@@ -43,5 +43,5 @@ dependencies {
     compile 'com.ctrlplusz.anytextview:library:1.2'
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.3'
     compile 'me.leolin:ShortcutBadger:1.1.8'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
 }

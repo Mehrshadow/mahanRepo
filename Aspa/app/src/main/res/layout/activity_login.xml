@@ -63,14 +63,6 @@
                     android:layout_margin="10dp"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="@dimen/size_image_very_very_small"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="2dp"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginTop="2dp"
-                        android:scaleType="fitEnd"
-                        android:src="@drawable/ic_left_drawable_textview" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -83,14 +75,6 @@
                         android:textSize="@dimen/size_font_very_small"
                         android:typeface="sans" />
 
-                    <ImageView
-                        android:layout_width="@dimen/size_image_very_very_small"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="2dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginTop="2dp"
-                        android:scaleType="fitStart"
-                        android:src="@drawable/ic_right_drawable_textview" />
                 </LinearLayout>
 
                 <LinearLayout

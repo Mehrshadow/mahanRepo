@@ -1,160 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:background="@color/edit_text_back_color"
-              android:layout_width="match_parent"
-              android:id="@+id/layMainDialog"
-              android:layout_height="match_parent"
-              android:padding="5dp">
-    <android.support.v7.widget.CardView android:layout_width="match_parent"
-                                        android:id="@+id/card_view"
-                                        android:layout_height="wrap_content"
-                                        app:cardCornerRadius="10dp"
-                                        android:layout_marginTop="10dp"
-                                        android:layout_marginBottom="10dp"
-                                        app:cardBackgroundColor="@color/dark_grey">
-        <LinearLayout android:layout_width="match_parent"
-                      android:orientation="vertical"
-                      android:layout_gravity="center"
-                      android:gravity="center_horizontal"
-                      android:layout_height="wrap_content">
-            <LinearLayout android:layout_width="match_parent"
-                          android:orientation="horizontal"
-                          android:layout_margin="10dp"
-                          android:gravity="center"
-                          android:layout_height="wrap_content">
-                <ImageView android:layout_width="@dimen/size_image_very_very_small"
-                           android:src="@drawable/ic_left_drawable_textview"
-                           android:scaleType="fitEnd"
-                           android:layout_marginTop="2dp"
-                           android:layout_marginBottom="2dp"
-                           android:layout_marginLeft="3dp"
-                           android:layout_height="match_parent"/>
-                <TextView android:layout_width="wrap_content"
-                          android:text="نظرسنجی"
-                          android:textColor="@color/white"
-                          android:typeface="sans"
-                          android:layout_marginTop="8dp"
-                          android:layout_marginBottom="8dp"
-                          android:textSize="@dimen/size_font_default"
-                          android:layout_height="wrap_content"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layMainDialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_items"
+    android:orientation="vertical"
+    android:padding="5dp">
 
-                <ImageView android:layout_width="@dimen/size_image_very_very_small"
-                           android:src="@drawable/ic_right_drawable_textview"
-                           android:scaleType="fitStart"
-                           android:layout_marginRight="3dp"
-                           android:layout_marginTop="2dp"
-                           android:layout_marginBottom="2dp"
-                           android:layout_height="match_parent"/>
-            </LinearLayout>
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@color/back_items"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
             <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:padding="3dp"
-                    android:gravity="center_vertical"
-                    android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+
                 <TextView
-                        android:layout_width="match_parent"
-                        android:text=""
-                        android:id="@+id/txtPollQuestion"
-                        android:gravity="right"
-                        android:typeface="serif"
-                        android:textSize="@dimen/size_font_very_very_small"
-                        android:textColor="@color/white"
-                        android:layout_height="wrap_content"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="نظرسنجی"
+                    android:textColor="@color/text_color_items"
+                    android:textSize="@dimen/size_font_default"
+                    android:typeface="sans" />
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <TextView
+                    android:id="@+id/txtPollQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text=""
+                    android:textColor="@color/text_color_items"
+                    android:textSize="@dimen/size_font_very_very_small"
+                    android:typeface="serif" />
             </LinearLayout>
-            <LinearLayout android:layout_width="match_parent"
-                          android:orientation="horizontal"
-                          android:layout_marginLeft="20dp"
-                          android:id="@+id/laySpinner"
-                          android:layout_marginRight="20dp"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:id="@+id/laySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="0dp"
-                        android:gravity="right|center_vertical"
-                        android:background="@drawable/rounded_background_spinner"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_background_spinner"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal">
+
                     <android.support.v7.widget.AppCompatSpinner
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            tools:listitem="@layout/s_item_white"
-                            android:background="@drawable/background_spinner"
-                            android:id="@+id/spPollOption"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"/>
+                        android:id="@+id/spPollOption"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:background="@color/back_items"
+                        tools:listitem="@layout/s_item_white" />
                 </LinearLayout>
 
             </LinearLayout>
+
             <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:padding="3dp"
-                    android:background="@drawable/rounded_rectangle_edit_text"
-                    android:gravity="center_vertical"
-                    android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/rounded_rectangle_edit_text"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
                 <EditText
-                        android:id="@+id/edtPollDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/size_font_very_very_small"
-                        android:minLines="10"
-                        android:textColor="@color/white"
-                        android:gravity="top"
-                        android:background="@color/trans"
-                        android:textColorHint="@color/light_light_grey"
-                        android:minHeight="40dp"
-                        android:typeface="serif"
-                        android:hint="پاسخ نظرسنجی"/>
-            </LinearLayout>
-            <LinearLayout
-                    android:orientation="horizontal"
-                    android:id="@+id/layLoading"
-                    android:layout_marginBottom="3dp"
+                    android:id="@+id/edtPollDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                <TextView android:layout_width="match_parent"
-                          android:layout_weight="1"
-                          android:layout_gravity="bottom"
-                          android:text=" لطفا صبر کنید."
-                          android:textColor="@color/white"
-                          android:layout_marginBottom="1dp"
-                          android:typeface="sans"
-                          android:textSize="@dimen/size_font_very_very_small"
-                          android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:background="@color/trans"
+                    android:gravity="top"
+                    android:hint="پاسخ نظرسنجی"
+                    android:minHeight="40dp"
+                    android:minLines="10"
+                    android:textColor="@color/text_color_items"
+                    android:textColorHint="@color/light_light_grey"
+                    android:textSize="@dimen/size_font_very_very_small"
+                    android:typeface="serif" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layLoading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:text=" لطفا صبر کنید."
+                    android:textColor="@color/text_color_items"
+                    android:textSize="@dimen/size_font_very_very_small"
+                    android:typeface="sans" />
+
                 <com.pnikosis.materialishprogress.ProgressWheel
-                        android:id="@+id/progress_wheel"
-                        android:layout_marginRight="20dp"
-                        android:layout_gravity="right"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        app:matProg_barColor="@color/white"
-                        app:matProg_progressIndeterminate="true"/>
+                    android:id="@+id/progress_wheel"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="20dp"
+                    app:matProg_barColor="@color/text_color_items"
+                    app:matProg_progressIndeterminate="true" />
 
             </LinearLayout>
-            <TextView android:layout_width="match_parent"
-                      android:layout_weight="1"
-                      android:layout_marginLeft="20dp"
-                      android:layout_marginRight="20dp"
-                      android:id="@+id/txtShowErrorMessage"
-                      android:textColor="@color/colorAccent"
-                      android:typeface="sans"
-                      android:textSize="@dimen/size_font_very_very_small"
-                      android:layout_height="wrap_content"/>
-            <include layout="@layout/lay_btn_login" android:id="@+id/layBtnSendPoll"/>
+
+            <TextView
+                android:id="@+id/txtShowErrorMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/size_font_very_very_small"
+                android:typeface="sans" />
+
+            <include
+                android:id="@+id/layBtnSendPoll"
+                layout="@layout/lay_btn_login" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

@@ -26,6 +26,7 @@ import java.util.List;
 public class ActivityShowClubScores extends AppCompatActivity {
 
     @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.lstClubScore) RecyclerView lstClubScore;
     @Bind(R.id.txtTotalClubScore) TextView txtTotalClubScore;
     @Bind(R.id.layTotalClubScore)  LinearLayout layTotalClubScore;
@@ -78,6 +79,13 @@ public class ActivityShowClubScores extends AppCompatActivity {
         layBtnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
+            }
+        });
+
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
             }
         });

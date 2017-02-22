@@ -51,7 +51,7 @@ android:padding="@dimen/size_activity_padding"
                 android:layout_gravity="center"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
-                android:text="باشگاه"
+                android:text="مجموع امتیازات"
                 android:textColor="@color/text_color_items"
                 android:textSize="@dimen/size_font_very_small"
                 android:typeface="sans" />
@@ -59,10 +59,34 @@ android:padding="@dimen/size_activity_padding"
 
     </FrameLayout>
 
+    <LinearLayout
+     android:layout_marginTop="2dp"
+        android:id="@+id/layTotalClubScore"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_toolbar_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/back_items"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+            android:id="@+id/txtTotalClubScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="مجموع امتیازات : "
+            android:textColor="@color/text_color_items"
+            android:textSize="@dimen/size_font_very_small" />
+
+
+    </LinearLayout>
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -86,27 +110,7 @@ android:padding="@dimen/size_activity_padding"
                 <!--android:background="@drawable/toolbar_dropshadow"-->
                 <!--android:id="@+id/viewShadow"-->
                 <!--android:visibility="visible"/>-->
-                <LinearLayout
-                    android:id="@+id/layTotalClubScore"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/back_items"
-                    android:gravity="center"
-                    android:orientation="horizontal">
 
-                    <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
-                        android:id="@+id/txtTotalClubScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:text="مجموع امتیازات : "
-                        android:textColor="@color/text_color_items"
-                        android:textSize="@dimen/size_font_very_small" />
-
-
-                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -124,4 +128,28 @@ android:padding="@dimen/size_activity_padding"
                 android:visibility="gone" />
         </RelativeLayout>
     </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:layout_margin="16dp"
+        android:gravity="bottom"
+        android:id="@+id/layBtnBack"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_gravity="bottom"
+            android:src="@drawable/back_orange"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+        <TextView
+            android:layout_marginLeft="6dp"
+            android:textColor="@color/text_color_items"
+            android:layout_gravity="bottom"
+            android:text="بازگشت"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 </LinearLayout>

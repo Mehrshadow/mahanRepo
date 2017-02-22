@@ -3,7 +3,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:id="@+id/layMainDialog"
-              android:background="@color/dialog_background"
+              android:background="@color/back_items"
               android:layout_height="match_parent">
     <LinearLayout
             android:orientation="vertical"
@@ -27,7 +27,7 @@
                 android:id="@+id/txtDialogTitle"
                 android:textSize="@dimen/size_font_very_small"
                 android:typeface="serif"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color_items"
                 android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
@@ -42,7 +42,7 @@
                 android:id="@+id/txtDialogDescription"
                 android:typeface="serif"
                 android:textSize="@dimen/size_font_very_very_small"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color_items"
                 android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout

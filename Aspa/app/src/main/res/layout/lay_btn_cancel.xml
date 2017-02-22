@@ -8,7 +8,7 @@
         android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true"
         android:clickable="true"
-        android:background="@drawable/btn_negative_background"
+        android:background="@color/back_blue"
         card_view:cardElevation="5dp">
     <RelativeLayout
             android:layout_width="fill_parent"
