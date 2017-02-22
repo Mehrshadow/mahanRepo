@@ -197,7 +197,8 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
                     startActivity(new Intent(context, ActivityShowFeshfeshe.class));
                 else if (ct.closeMatch(Color.parseColor("#" + Integer.toHexString(context.getResources().getColor(R.color.brown))), touchColor, tolerance)) {
                     startActivity(new Intent(context, ActivityShowCurrentService.class));
-                    overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+//                    overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+                    finish();
                 } else if (ct.closeMatch(Color.LTGRAY, touchColor, tolerance)) {
                     if (G.currentLicense != null) {
                         if (G.currentLicense.chargeOnline) {

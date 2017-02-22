@@ -149,12 +149,14 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
             layLoading.setVisibility(View.INVISIBLE);
             layTempConnection.setVisibility(View.VISIBLE);
             tvConnectionStatus.setText(R.string.offline);
-            tvTarazeMali.setText(G.currentAccount.balance + "");
+            tvTarazeMali.setText(" " + G.currentAccount.balance + "");
         } else {
             lay_remaining_days.setVisibility(View.VISIBLE);
             layLoading.setVisibility(View.INVISIBLE);
             layTempConnection.setVisibility(View.GONE);
-            tvConnectionStatus.setText(R.string.online);
+            layExpired.setVisibility(View.GONE);
+            tvConnectionStatus.setText(" " + getString(R.string.online));
+            tvTarazeMali.setText(" " + G.currentAccount.balance + "");
         }
 
         tvPackageName.setText(" " + G.currentAccount.pkgName);
@@ -316,7 +318,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
                 break;
             case R.id.btn_enter:
                 startActivity(new Intent(G.currentActivity, ActivityMain0.class));
-                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+//                overridePendingTransition(0, R.anim.right_to_left);
                 finish();
                 break;
         }

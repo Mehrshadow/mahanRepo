@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
@@ -28,13 +29,20 @@ import ir.aspacrm.my.app.mahan.gson.LoadBanksResponse;
 
 public class FragmentShowBankList extends Fragment {
 
-    @Bind(R.id.lstBankList) RecyclerView lstBankList;
-    @Bind(R.id.layLoading) LinearLayout layLoading;
-    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
-    @Bind(R.id.txtShowMessage) TextView txtShowMessage;
-
-    @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
-    @Bind(R.id.txtPageTitle) TextView txtPageTitle;
+    @Bind(R.id.lstBankList)
+    RecyclerView lstBankList;
+    @Bind(R.id.layLoading)
+    LinearLayout layLoading;
+    @Bind(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
+    @Bind(R.id.txtShowMessage)
+    TextView txtShowMessage;
+    @Bind(R.id.layBtnBack)
+    LinearLayout layBtnBack;
+    @Bind(R.id.layBtnClose)
+    LinearLayout layBtnClose;
+    @Bind(R.id.txtPageTitle)
+    TextView txtPageTitle;
 
     AdapterBank adapterBank;
     LoadBanksResponse[] banks = new LoadBanksResponse[0];
@@ -47,18 +55,20 @@ public class FragmentShowBankList extends Fragment {
 
     public static FragmentShowBankList newInstance(long factorCode, int money) {
         Bundle args = new Bundle();
-        args.putLong("FACTOR_CODE",factorCode);
-        args.putInt("MONEY",money);
+        args.putLong("FACTOR_CODE", factorCode);
+        args.putInt("MONEY", money);
         FragmentShowBankList fragment = new FragmentShowBankList();
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Logger.d("FragmentShowBankList : onCreate()");
         EventBus.getDefault().register(this);
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -66,6 +76,7 @@ public class FragmentShowBankList extends Fragment {
         ButterKnife.bind(this, view);
         return view;
     }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -79,13 +90,13 @@ public class FragmentShowBankList extends Fragment {
         adapterBank = new AdapterBank(banks);
         /** baraye anke moshakhas konim grid
          * ma be surate list namayesh dade sahvad ya grid chand setune*/
-        typeOfGrid = G.localMemory.getInt("GRID_TYPE",1);
-        if(typeOfGrid == EnumGridType.GRID){
+        typeOfGrid = G.localMemory.getInt("GRID_TYPE", 1);
+        if (typeOfGrid == EnumGridType.GRID) {
             columnsOfGrid = getResources().getInteger(R.integer.grid_columns);
-        }else{
+        } else {
             columnsOfGrid = getResources().getInteger(R.integer.grid_list_columns);
         }
-        lstBankList.setLayoutManager(new GridLayoutManager(G.context,columnsOfGrid));
+        lstBankList.setLayoutManager(new GridLayoutManager(G.context, columnsOfGrid));
         lstBankList.setHasFixedSize(true);
         lstBankList.setAdapter(adapterBank);
 
@@ -114,7 +125,15 @@ public class FragmentShowBankList extends Fragment {
                 getActivity().onBackPressed();
             }
         });
+
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
     }
+
     public void onEventMainThread(EventOnGetBankListResponse event) {
         Logger.d("FragmentShowBankList : EventOnGetBankListResponse is raised");
         LoadBanksResponse[] banks = event.getBankList();
@@ -133,11 +152,12 @@ public class FragmentShowBankList extends Fragment {
             }
         });
     }
-    public void onEventMainThread(EventOnGetErrorGetBankList event){
+
+    public void onEventMainThread(EventOnGetErrorGetBankList event) {
         Logger.d("FragmentShowBankList : EventOnGetErrorGetBankList is raised");
         layLoading.setVisibility(View.GONE);
         DialogClass dlgShowErrorMessage = new DialogClass();
-        dlgShowErrorMessage.showMessageDialog("پیغام","خطا در دریافت لیست بانک ها، لطفا مجددا تلاش کنید.");
+        dlgShowErrorMessage.showMessageDialog("پیغام", "خطا در دریافت لیست بانک ها، لطفا مجددا تلاش کنید.");
         swipeRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
@@ -145,49 +165,53 @@ public class FragmentShowBankList extends Fragment {
             }
         });
     }
-//    public void onEventMainThread(EventOnBankSelected event) {
+
+    //    public void onEventMainThread(EventOnBankSelected event) {
 //        Logger.d("FragmentShowBankList : EventOnBankSelected is raised");
-        //WebService.sendCallBankPageForPayment(factorCode,event.getCode(),"" + money);
+    //WebService.sendCallBankPageForPayment(factorCode,event.getCode(),"" + money);
 //    }
-public void onEventMainThread(EventOnBankSelected event) {
-    Logger.d("FragmentShowBankList : EventOnBankSelected is raised");
+    public void onEventMainThread(EventOnBankSelected event) {
+        Logger.d("FragmentShowBankList : EventOnBankSelected is raised");
 
 
-    /**
-     *
-     *
-     .add("rt", "CallBankPageForPayment")
-     .add("UserID", "" + G.currentUser.userId)
-     .add("ExKey", "" + G.currentUser.exKey)
-     .add("FactorCode", "" + factorCode)
-     .add("BankCode", "" + bankCode)
-     .add("Money", "" + money)
+        /**
+         *
+         *
+         .add("rt", "CallBankPageForPayment")
+         .add("UserID", "" + G.currentUser.userId)
+         .add("ExKey", "" + G.currentUser.exKey)
+         .add("FactorCode", "" + factorCode)
+         .add("BankCode", "" + bankCode)
+         .add("Money", "" + money)
 
-     */
+         */
 
-    Logger.d("Payam :" + G.currentUser.ispUrl + G.WS_PAGE
-            +"?rt=CallBankPageForPayment&UserID=" + G.currentUser.userId
-            +"&ExKey="+ G.currentUser.exKey
-            +"&FactorCode="+ factorCode +"&BankCode="+ event.getCode()
-            +"&Money=" + money);
-    getActivity().getSupportFragmentManager().beginTransaction()
-            .add(R.id.layFragment, FragmentBrowser.newInstance(G.currentUser.ispUrl + G.WS_PAGE
-                    +"?rt=CallBankPageForPayment&UserID=" + G.currentUser.userId
-                    +"&ExKey="+ G.currentUser.exKey
-                    +"&FactorCode="+ factorCode+"&BankCode="+ event.getCode()
-                    +"&Money=" + money))
-            .addToBackStack("FragmentBrowser")
-            .commit();
-}
+        Logger.d("Payam :" + G.currentUser.ispUrl + G.WS_PAGE
+                + "?rt=CallBankPageForPayment&UserID=" + G.currentUser.userId
+                + "&ExKey=" + G.currentUser.exKey
+                + "&FactorCode=" + factorCode + "&BankCode=" + event.getCode()
+                + "&Money=" + money);
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .add(R.id.layFragment, FragmentBrowser.newInstance(G.currentUser.ispUrl + G.WS_PAGE
+                        + "?rt=CallBankPageForPayment&UserID=" + G.currentUser.userId
+                        + "&ExKey=" + G.currentUser.exKey
+                        + "&FactorCode=" + factorCode + "&BankCode=" + event.getCode()
+                        + "&Money=" + money))
+                .addToBackStack("FragmentBrowser")
+                .commit();
+    }
+
     @Override
     public void onResume() {
         super.onResume();
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+    android:padding="@dimen/size_activity_padding"
     android:orientation="vertical">
 
     <FrameLayout
@@ -12,6 +13,7 @@
         android:background="@color/back_toolbar">
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/layBtnClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

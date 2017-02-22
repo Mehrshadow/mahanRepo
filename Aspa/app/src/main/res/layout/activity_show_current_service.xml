@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
 
             <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                 android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
                 android:gravity="end"
                 android:text="@string/remaining_days"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
 
             <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                 android:id="@+id/tv_remaining_days"
@@ -117,7 +117,7 @@
                     android:gravity="end"
                     android:text="@string/rials"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="14sp" />
 
                 <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                     android:id="@+id/tv_taraze_mali"
@@ -127,7 +127,7 @@
                     android:layout_marginRight="5dp"
                     android:gravity="end"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -154,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
 
             <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                 android:layout_width="wrap_content"
