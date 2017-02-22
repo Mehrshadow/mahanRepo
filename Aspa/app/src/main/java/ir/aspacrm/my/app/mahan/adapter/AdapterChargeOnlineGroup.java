@@ -39,7 +39,7 @@ public class AdapterChargeOnlineGroup extends RecyclerView.Adapter<AdapterCharge
     public void onBindViewHolder(GroupViewHolder holder, int position) {
         final ChargeOnlineGroup group = groups.get(position);
         holder.txtGroupName.setText("" + group.des);
-        holder.layMainGroup.setCardBackgroundColor(Color.parseColor(group.color));
+//        holder.layMainGroup.setCardBackgroundColor(Color.parseColor(group.color));
         holder.layMainGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

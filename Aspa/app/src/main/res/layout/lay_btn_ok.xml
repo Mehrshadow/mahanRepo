@@ -6,7 +6,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:clickable="true"
-        android:background="@drawable/btn_positive_background">
+        android:background="@color/back_blue">
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">

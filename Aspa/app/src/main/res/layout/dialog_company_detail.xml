@@ -3,7 +3,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:id="@+id/layMainDialog"
-              android:background="@color/dialog_background"
+              android:background="@color/back_items"
               android:layout_height="match_parent">
 
     <LinearLayout
@@ -14,7 +14,7 @@
                    android:layout_gravity="center"
                    android:id="@+id/imgCloseDialog"
                    android:layout_margin="3dp"
-                   android:src="@drawable/ic_expand_more_black_24dp"
+                   android:src="@drawable/ic_arrow_down"
                    android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
@@ -27,7 +27,7 @@
                 android:gravity="center"
                 android:textSize="@dimen/size_font_very_small"
                 android:typeface="serif"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color_items"
                 android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
@@ -43,7 +43,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
                 android:textSize="@dimen/size_font_very_very_small"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color_items"
                 android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
@@ -61,7 +61,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="40dp"
                 android:textSize="@dimen/size_font_very_very_small"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color_items"
                 android:layout_height="wrap_content"/>
     </LinearLayout>
     <!--<TextView android:layout_width="match_parent"-->

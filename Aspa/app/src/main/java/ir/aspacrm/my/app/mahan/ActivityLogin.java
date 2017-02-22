@@ -15,8 +15,11 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -59,7 +62,8 @@ public class ActivityLogin extends AppCompatActivity {
     @Bind(R.id.txtShowErrorMessage) TextView txtShowErrorMessage;
     @Bind(R.id.txtBackToLoginPage) TextView txtBackToLoginPage;
     @Bind(R.id.layForgetPassword) LinearLayout layForgetPassword;
-    @Bind(R.id.layContent) CardView layContent;
+    @Bind(R.id.layContent)
+    FrameLayout layContent;
     @Bind(R.id.txtLoading) TextView txtLoading;
     @Bind(R.id.progress_wheel) ProgressWheel progressWheel;
     @Bind(R.id.layLoading) LinearLayout layLoading;
@@ -71,11 +75,14 @@ public class ActivityLogin extends AppCompatActivity {
     boolean isShowPassword = false;
 
 
+    Animation animFadeIn = AnimationUtils.loadAnimation(G.context,R.anim.fade_in);
+    Animation animFadeOut = AnimationUtils.loadAnimation(G.context,R.anim.fade_out);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login0);
-        //////
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
 
@@ -249,51 +256,68 @@ public class ActivityLogin extends AppCompatActivity {
         }
     }
     private void showLoginLayout() {
-        G.handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                layLogin.setVisibility(View.VISIBLE);
-                layForgetPassword.setVisibility(View.INVISIBLE);
-            }
-        }, 500);
+        layLogin.startAnimation(animFadeIn);
+        layForgetPassword.startAnimation(animFadeOut);
+        layLogin.setVisibility(View.VISIBLE);
+                layForgetPassword.setVisibility(View.GONE);
 
-        ObjectAnimator rotateY = ObjectAnimator.ofFloat(layContent, "rotationY", 180f, 0.0f);
-        ObjectAnimator scaleDownXToSmall = ObjectAnimator.ofFloat(layContent, "scaleX", 0.85f);
-        ObjectAnimator scaleDownYToSmall = ObjectAnimator.ofFloat(layContent, "scaleY", 0.85f);
-        ObjectAnimator scaleDownXToBig = ObjectAnimator.ofFloat(layContent, "scaleX", 1f);
-        ObjectAnimator scaleDownYToBig = ObjectAnimator.ofFloat(layContent, "scaleY", 1f);
-        rotateY.setInterpolator(new AccelerateDecelerateInterpolator());
-        scaleDownYToSmall.setDuration(1000);
-
-
-        AnimatorSet firstAnim = new AnimatorSet();
-        firstAnim.play(scaleDownXToSmall).with(scaleDownYToSmall).before(rotateY);
-
-        AnimatorSet secondAnim = new AnimatorSet();
-        secondAnim.play(scaleDownXToBig).with(scaleDownYToBig).after(firstAnim);
-        secondAnim.start();
+//        G.handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                layLogin.setVisibility(View.VISIBLE);
+//                layForgetPassword.setVisibility(View.INVISIBLE);
+//            }
+//        }, 500);
+//
+//        ObjectAnimator rotateY = ObjectAnimator.ofFloat(layContent, "rotationY", 180f, 0.0f);
+//        ObjectAnimator scaleDownXToSmall = ObjectAnimator.ofFloat(layContent, "scaleX", 0.85f);
+//        ObjectAnimator scaleDownYToSmall = ObjectAnimator.ofFloat(layContent, "scaleY", 0.85f);
+//        ObjectAnimator scaleDownXToBig = ObjectAnimator.ofFloat(layContent, "scaleX", 1f);
+//        ObjectAnimator scaleDownYToBig = ObjectAnimator.ofFloat(layContent, "scaleY", 1f);
+//        rotateY.setInterpolator(new AccelerateDecelerateInterpolator());
+//        scaleDownYToSmall.setDuration(1000);
+//
+//
+//        AnimatorSet firstAnim = new AnimatorSet();
+//        firstAnim.play(scaleDownXToSmall).with(scaleDownYToSmall).before(rotateY);
+//
+//        AnimatorSet secondAnim = new AnimatorSet();
+//        secondAnim.play(scaleDownXToBig).with(scaleDownYToBig).after(firstAnim);
+//        secondAnim.start();
     }
     private void showForgetPasswordLayout() {
-        G.handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                layLogin.setVisibility(View.INVISIBLE);
-                layForgetPassword.setVisibility(View.VISIBLE);
-            }
-        }, 500);
-        ObjectAnimator rotateY = ObjectAnimator.ofFloat(layContent, "rotationY", 0.0f, 180f);
-        ObjectAnimator scaleDownXToSmall = ObjectAnimator.ofFloat(layContent, "scaleX", 0.85f);
-        ObjectAnimator scaleDownYToSmall = ObjectAnimator.ofFloat(layContent, "scaleY", 0.85f);
-        ObjectAnimator scaleDownXToBig = ObjectAnimator.ofFloat(layContent, "scaleX", 1f);
-        ObjectAnimator scaleDownYToBig = ObjectAnimator.ofFloat(layContent, "scaleY", 1f);
-        rotateY.setInterpolator(new AccelerateDecelerateInterpolator());
-        scaleDownYToSmall.setDuration(1000);
-        AnimatorSet firstAnim = new AnimatorSet();
-        firstAnim.play(scaleDownXToSmall).with(scaleDownYToSmall).before(rotateY);
 
-        AnimatorSet secondAnim = new AnimatorSet();
-        secondAnim.play(scaleDownXToBig).with(scaleDownYToBig).after(firstAnim);
-        secondAnim.start();
+        Animation animFadeIn = AnimationUtils.loadAnimation(G.context,R.anim.fade_in);
+        Animation animFadeOut = AnimationUtils.loadAnimation(G.context,R.anim.fade_out);
+        layLogin.startAnimation(animFadeOut);
+        layForgetPassword.startAnimation(animFadeIn);
+        layLogin.setVisibility(View.GONE);
+                layForgetPassword.setVisibility(View.VISIBLE);
+
+
+//        G.handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                layLogin.setVisibility(View.INVISIBLE);
+//                layForgetPassword.setVisibility(View.VISIBLE);
+//            }
+//        }, 500);
+//        Animation animFadeIn = AnimationUtils.loadAnimation(G.context,R.anim.fade_in);
+//
+//
+//        ObjectAnimator rotateY = ObjectAnimator.ofFloat(layContent, "rotationY", 0.0f, 180f);
+//        ObjectAnimator scaleDownXToSmall = ObjectAnimator.ofFloat(layContent, "scaleX", 0.85f);
+//        ObjectAnimator scaleDownYToSmall = ObjectAnimator.ofFloat(layContent, "scaleY", 0.85f);
+//        ObjectAnimator scaleDownXToBig = ObjectAnimator.ofFloat(layContent, "scaleX", 1f);
+//        ObjectAnimator scaleDownYToBig = ObjectAnimator.ofFloat(layContent, "scaleY", 1f);
+//        rotateY.setInterpolator(new AccelerateDecelerateInterpolator());
+//        scaleDownYToSmall.setDuration(1000);
+//        AnimatorSet firstAnim = new AnimatorSet();
+//        firstAnim.play(scaleDownXToSmall).with(scaleDownYToSmall).before(rotateY);
+//
+//        AnimatorSet secondAnim = new AnimatorSet();
+//        secondAnim.play(scaleDownXToBig).with(scaleDownYToBig).after(firstAnim);
+//        secondAnim.start();
     }
     public void onEventMainThread(EventOnGetIspUrlResponse event){
         Logger.d("ActivityLogin : EventOnGetIspUrlResponse is raised.");
@@ -355,7 +379,7 @@ public class ActivityLogin extends AppCompatActivity {
         layLoading.setVisibility(View.INVISIBLE);
         AccountInfoResponse response = event.getAccountInfo();
         if(response.Result){
-            Intent intent = new Intent(G.context,ActivityMain.class);
+            Intent intent = new Intent(G.context,ActivityShowCurrentService.class);
             intent.putExtra("JSON_ACCOUNT_INFO", "" + new Gson().toJson(event.getAccountInfo()));
             startActivity(intent);
             finish();
