@@ -36,6 +36,7 @@ public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnCli
     @Bind(R.id.layFeshfeshe) LinearLayout layFeshfeshe;
     @Bind(R.id.layShowMenuItem) CardView layShowMenuItem;
     @Bind(R.id.layLoading) LinearLayout layLoading;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
 
 
@@ -80,6 +81,14 @@ public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnCli
             @Override
             public void onClick(View view) {
                 getActivity().onBackPressed();
+            }
+        });
+
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+
             }
         });
     }

@@ -6,11 +6,10 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:padding="16dp">
 
 
     <FrameLayout
-        android:layout_margin="@dimen/size_toolbar_margin"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_toolbar_height"
         android:background="@color/back_toolbar">
@@ -67,8 +66,9 @@
 
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
             android:gravity="center_horizontal"
             android:orientation="vertical">
@@ -228,6 +228,30 @@
                 layout="@layout/lay_btn_login" />
 
         </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="16dp"
+        android:gravity="bottom"
+        android:id="@+id/layBtnBack"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_gravity="bottom"
+            android:src="@drawable/back_orange"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+        <TextView
+            android:layout_marginLeft="6dp"
+            android:textColor="@color/text_color_items"
+            android:layout_gravity="bottom"
+            android:text="بازگشت"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

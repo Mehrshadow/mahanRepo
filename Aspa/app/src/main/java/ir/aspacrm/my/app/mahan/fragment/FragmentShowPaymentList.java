@@ -48,6 +48,7 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
 
     @Bind(R.id.lstPayment) RecyclerView lstPayment;
     @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.layLoading) LinearLayout layLoading;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
     @Bind(R.id.txtShowErrorMessage) TextView txtShowErrorMessage;
@@ -156,6 +157,14 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
             @Override
             public void onClick(View view) {
                 getActivity().finish();
+            }
+        });
+
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+
             }
         });
     }

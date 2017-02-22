@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -38,6 +39,9 @@ public class ActivityShowTickets extends AppCompatActivity implements View.OnCli
     @Bind(R.id.swipeRefreshLayout)  SwipeRefreshLayout swipeRefreshLayout;
     @Bind(R.id.actionBtnAddTicket) FloatingActionButton actionBtnAddTicket;
     @Bind(R.id.layExpandTicket) LinearLayout layExpandTicket;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
+    @Bind(R.id.layBtnNewTicket)
+    CardView layBtnNewTicket;
 
     AdapterTicket adapterTicket;
     LinearLayoutManager linearLayoutManager;
@@ -53,10 +57,15 @@ public class ActivityShowTickets extends AppCompatActivity implements View.OnCli
         EventBus.getDefault().register(this);
 
 
-        if (Build.VERSION.SDK_INT >= 21)
+        if (Build.VERSION.SDK_INT >= 21){
             getWindow().setStatusBarColor(ContextCompat.getColor(G.context, R.color.dark_dark_grey));
 
+        }
 
+
+        ((TextView)(layBtnNewTicket.findViewById(R.id.txtValue))).setText("تیکت جدید");
+        layBtnNewTicket.setClickable(true);
+        layBtnNewTicket.setOnClickListener(this);
         actionBtnAddTicket.setOnClickListener(this);
         adapterTicket = new AdapterTicket(tickets);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -88,25 +97,19 @@ public class ActivityShowTickets extends AppCompatActivity implements View.OnCli
                 finish();
             }
         });
+
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.actionBtnAddTicket :
+            case R.id.layBtnNewTicket :
                 startActivity(new Intent(G.context,ActivitySendTiket.class));
-//                if (!layExpandTicket.isShown()) {
-//                    U.expand(layExpandTicket);
-//                    actionBtnAddTicket.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(G.currentActivity, R.color.red)));
-//                    actionBtnAddTicket.setRippleColor(ContextCompat.getColor(G.currentActivity, R.color.red));
-//                    actionBtnAddTicket.setImageResource(R.drawable.ic_close_white_36dp);
-//                    isCloseButtonShow = true;
-//                } else {
-//                    U.collapse(layExpandTicket);
-//                    actionBtnAddTicket.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(G.currentActivity, R.color.colorAccent)));
-//                    actionBtnAddTicket.setRippleColor(ContextCompat.getColor(G.currentActivity, R.color.colorAccent));
-//                    actionBtnAddTicket.setImageResource(R.drawable.sv_plus_white);
-//                    isCloseButtonShow = false;
-//                }
                 break;
         }
     }

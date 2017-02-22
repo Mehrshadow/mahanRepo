@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -45,6 +46,8 @@ public class ActivitySendTiket extends AppCompatActivity {
     @Bind(R.id.txtValue)
     TextView txtBtnSendTicket;
     @Bind(R.id.txtShowErrorMessage) TextView txtShowErrorMessage;
+    @Bind(R.id.layBtnBack)
+    LinearLayout layBtnBack;
 
     ArrayAdapter<String> adapterOlaviat;
     AdapterSpinnerVahed adapterSpinnerVahed;
@@ -76,6 +79,13 @@ public class ActivitySendTiket extends AppCompatActivity {
     }
 
     private void initView() {
+
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         txtBtnSendTicket.setText("ارسال");
         adapterOlaviat = new ArrayAdapter<> (G.context,

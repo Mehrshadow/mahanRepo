@@ -12,7 +12,7 @@
         android:layout_marginBottom="2.5dp"
         android:clickable="true"
         android:foreground="@drawable/ripple_list_item"
-        app:cardBackgroundColor="@color/dark_grey">
+        app:cardBackgroundColor="@color/back_items">
 <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:text="نامشخص"
             android:gravity="center"
             android:textSize="@dimen/size_font_small"
-            android:textColor="@color/white"
+            android:textColor="@color/text_color_items"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -31,6 +31,7 @@ public class ActivityShowConnections extends AppCompatActivity{
 
     @Bind(R.id.lstConnection) RecyclerView lstConnection;
     @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
     @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
 
@@ -79,6 +80,13 @@ public class ActivityShowConnections extends AppCompatActivity{
         layBtnClose.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
+            }
+        });
+
+        layBtnBack.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
             }
         });
