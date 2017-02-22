@@ -127,6 +127,8 @@
             android:gravity="bottom"
             android:id="@+id/layBtnBack"
             android:orientation="horizontal"
+            android:background="@drawable/ripple_list_item"
+            android:padding="5dp"
             android:layout_gravity="bottom"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"

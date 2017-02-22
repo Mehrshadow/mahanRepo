@@ -10,9 +10,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.activeandroid.query.Select;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.activeandroid.query.Select;
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.adapter.AdapterNews;
 import ir.aspacrm.my.app.mahan.classes.Logger;
@@ -23,11 +28,8 @@ import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetNews;
 import ir.aspacrm.my.app.mahan.events.EventOnGetNewsResponse;
 import ir.aspacrm.my.app.mahan.model.News;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ActivityShowNews extends AppCompatActivity {
-    @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.lstNews) RecyclerView lstNews;
     @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
@@ -70,7 +72,7 @@ public class ActivityShowNews extends AppCompatActivity {
                 sendRequestGetNewNews();
             }
         });
-        layBtnClose.setOnClickListener(new View.OnClickListener() {
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();

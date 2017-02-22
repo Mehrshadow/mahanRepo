@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
@@ -13,8 +16,6 @@ import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.events.EventOnClickedStartFeshfeshe;
 import ir.aspacrm.my.app.mahan.model.Feshfeshe;
-
-import java.util.List;
 
 public class AdapterFeshfeshe extends RecyclerView.Adapter<AdapterFeshfeshe.FeshfesheViewHolder> {
 
@@ -25,7 +26,7 @@ public class AdapterFeshfeshe extends RecyclerView.Adapter<AdapterFeshfeshe.Fesh
 
     @Override
     public FeshfesheViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(G.context).inflate(R.layout.l_feshfeshe_item, parent, false);
+        View view = LayoutInflater.from(G.context).inflate(R.layout.l_feshfeshe_item2, parent, false);
         return new FeshfesheViewHolder(view);
     }
 

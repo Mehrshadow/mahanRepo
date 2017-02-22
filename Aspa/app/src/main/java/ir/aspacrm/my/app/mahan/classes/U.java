@@ -24,18 +24,28 @@ import android.view.animation.Transformation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.activeandroid.query.Delete;
-import ir.aspacrm.my.app.mahan.ActivityShowNotify;
-import ir.aspacrm.my.app.mahan.G;
-import ir.aspacrm.my.app.mahan.R;
-import ir.aspacrm.my.app.mahan.enums.EnumChargeOnlineMenuItem;
-import ir.aspacrm.my.app.mahan.model.*;
 
 import java.io.File;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+
+import ir.aspacrm.my.app.mahan.ActivityShowNotify;
+import ir.aspacrm.my.app.mahan.G;
+import ir.aspacrm.my.app.mahan.R;
+import ir.aspacrm.my.app.mahan.enums.EnumChargeOnlineMenuItem;
+import ir.aspacrm.my.app.mahan.model.ClubScore;
+import ir.aspacrm.my.app.mahan.model.Connection;
+import ir.aspacrm.my.app.mahan.model.Factor;
+import ir.aspacrm.my.app.mahan.model.FactorDetail;
+import ir.aspacrm.my.app.mahan.model.Feshfeshe;
+import ir.aspacrm.my.app.mahan.model.Payment;
+import ir.aspacrm.my.app.mahan.model.Ticket;
+import ir.aspacrm.my.app.mahan.model.TicketDetail;
+import ir.aspacrm.my.app.mahan.model.Unit;
 
 public  class U {
     public static void toast(String message){
@@ -134,7 +144,7 @@ public  class U {
         builder.setContentTitle(U.getApplicationName());
         builder.setContentText(message)
                 .setContentIntent(pendingIntent)
-                .setSmallIcon(R.mipmap.ic_notify)
+                .setSmallIcon(R.drawable.ic_notify)
                 .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS)
                 .setAutoCancel(true);
         Notification notification = builder.build();
