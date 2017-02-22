@@ -24,15 +24,15 @@ import ir.aspacrm.my.app.mahan.gson.ChargeOnlineMainItemResponse;
 
 public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnClickListener{
 
-    @Bind(R.id.layBtnTamdidService) CardView layBtnTamdidService;
+    @Bind(R.id.layBtnTamdidService) LinearLayout layBtnTamdidService;
     @Bind(R.id.layTamdidService) LinearLayout layTamdidService;
-    @Bind(R.id.layBtnTaghirService) CardView layBtnTaghirService;
+    @Bind(R.id.layBtnTaghirService) LinearLayout layBtnTaghirService;
     @Bind(R.id.layTaghirService) LinearLayout layTaghirService;
-    @Bind(R.id.layBtnTraffic) CardView layBtnTraffic;
+    @Bind(R.id.layBtnTraffic) LinearLayout layBtnTraffic;
     @Bind(R.id.layTraffic) LinearLayout layTraffic;
-    @Bind(R.id.layBtnIP) CardView layBtnIP;
+    @Bind(R.id.layBtnIP) LinearLayout layBtnIP;
     @Bind(R.id.layIP) LinearLayout layIP;
-    @Bind(R.id.layBtnFeshfeshe) CardView layBtnFeshfeshe;
+    @Bind(R.id.layBtnFeshfeshe) LinearLayout layBtnFeshfeshe;
     @Bind(R.id.layFeshfeshe) LinearLayout layFeshfeshe;
     @Bind(R.id.layShowMenuItem) CardView layShowMenuItem;
     @Bind(R.id.layLoading) LinearLayout layLoading;
