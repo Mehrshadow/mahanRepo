@@ -1,7 +1,5 @@
 package ir.aspacrm.my.app.mahan;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -14,7 +12,6 @@ import android.text.InputType;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
@@ -24,27 +21,41 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 import com.activeandroid.query.Select;
 import com.google.gson.Gson;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.U;
 import ir.aspacrm.my.app.mahan.classes.WebService;
 import ir.aspacrm.my.app.mahan.component.CustomEditText;
-import ir.aspacrm.my.app.mahan.events.*;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetChargeOnlineMainItems;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetIspInfo;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetUserAccountInfo;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetUserInfo;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorIspUrl;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorLogin;
+import ir.aspacrm.my.app.mahan.events.EventOnGetErrorSendRememberPassword;
+import ir.aspacrm.my.app.mahan.events.EventOnGetIspInfoLoginResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetIspUrlResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetLoginResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetUserAccountInfoResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetUserInfoResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnGetUserLicenseResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnNetworkStatusChange;
+import ir.aspacrm.my.app.mahan.events.EventOnNoAccessServerResponse;
+import ir.aspacrm.my.app.mahan.events.EventOnRememberPasswordResponse;
 import ir.aspacrm.my.app.mahan.gson.AccountInfoResponse;
 import ir.aspacrm.my.app.mahan.gson.ISPInfoLoginResponse;
 import ir.aspacrm.my.app.mahan.gson.LoginResponse;
 import ir.aspacrm.my.app.mahan.model.User;
-
-import java.util.List;
 
 /**
  * Created by Microsoft on 3/3/2016.
