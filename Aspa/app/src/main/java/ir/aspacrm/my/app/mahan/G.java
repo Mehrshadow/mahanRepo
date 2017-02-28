@@ -64,7 +64,7 @@ public class G extends Application {
         if (currentUser == null)
             currentUser = new User();
 
-
+//
         try {
             currentUserInfo = new Select().from(Info.class).where("userId = ? ", G.currentUser.userId).executeSingle();
         } catch (Exception e) {
