@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:padding="@dimen/size_activity_padding"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/size_activity_padding">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -13,7 +13,6 @@
         android:background="@color/back_toolbar">
 
         <LinearLayout
-            android:visibility="gone"
             android:id="@+id/layBtnClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +22,8 @@
             android:clickable="true"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="2dp">
+            android:padding="2dp"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="@dimen/sv_image_size"
@@ -161,11 +161,11 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:padding="5dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="2.5dp"
-                                android:layout_marginTop="2.5dp">
+                                android:layout_marginTop="2.5dp"
+                                android:padding="5dp">
 
                                 <LinearLayout
                                     android:layout_width="0dp"
@@ -242,11 +242,11 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:padding="5dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="2.5dp"
-                                android:layout_marginTop="2.5dp">
+                                android:layout_marginTop="2.5dp"
+                                android:padding="5dp">
 
                                 <LinearLayout
                                     android:layout_width="0dp"
@@ -325,11 +325,11 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:padding="5dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="2.5dp"
-                                android:layout_marginTop="2.5dp">
+                                android:layout_marginTop="2.5dp"
+                                android:padding="5dp">
 
                                 <LinearLayout
                                     android:layout_width="0dp"
@@ -408,12 +408,12 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:padding="5dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="2.5dp"
                                 android:layout_marginTop="2.5dp"
-                                android:gravity="center_vertical">
+                                android:gravity="center_vertical"
+                                android:padding="5dp">
 
                                 <LinearLayout
                                     android:layout_width="0dp"
@@ -493,11 +493,11 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:padding="5dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="2.5dp"
-                                android:layout_marginTop="2.5dp">
+                                android:layout_marginTop="2.5dp"
+                                android:padding="5dp">
 
                                 <LinearLayout
                                     android:layout_width="0dp"
@@ -582,7 +582,9 @@
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             android:layout_margin="32dp"
-            android:orientation="horizontal">
+            android:background="@drawable/ripple_list_item"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <ImageView
                 android:id="@+id/imgBack"

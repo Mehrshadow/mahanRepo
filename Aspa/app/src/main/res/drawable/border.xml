@@ -9,5 +9,5 @@
               <!--android:endColor="#00FF00"-->
               <!--android:angle="270" />-->
     <!--<corners android:radius="3dp" />-->
-    <stroke android:width="5px" android:color="@color/colorPrimary" />
+    <stroke android:width="2dp" android:color="@color/back_items" />
 </shape>

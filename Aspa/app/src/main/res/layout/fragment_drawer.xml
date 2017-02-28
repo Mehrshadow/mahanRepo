@@ -22,6 +22,7 @@
 
 
             <LinearLayout
+                android:gravity="right"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -29,13 +30,31 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:text="میزان امتیاز" />
 
-                <TextView
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+                        android:visibility="gone"
+                        android:layout_gravity="right"
+                        android:id="@+id/txtScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:text=" " />
+                    <ProgressBar
+                        android:id="@+id/prgLoadingScore"
+                        android:layout_gravity="center"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp" />
+                </FrameLayout>
+
+
+
+                <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+                    android:id="@+id/txtStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
@@ -49,7 +68,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="16dp"
-                android:layout_weight="1"
+                android:layout_weight=".8"
                 android:src="@drawable/profile" />
 
         </LinearLayout>
@@ -61,12 +80,13 @@
             android:layout_weight=".2"
             android:orientation="horizontal">
 
-            <TextView
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+                android:id="@+id/txtName"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:text="علی صادقلو"
+                android:text=""
                 android:textSize="36dp"
                 android:textStyle="bold" />
 
@@ -74,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/red" />
+                android:background="@drawable/ic_arrow_drawer" />
 
         </LinearLayout>
 
@@ -103,7 +123,7 @@
             android:orientation="vertical">
 
             <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
-                android:id="@+id/txtRemainDay"
+                android:id="@+id/txtRemainDay1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -112,7 +132,7 @@
                 android:textSize="@dimen/size_font_big" />
 
             <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
-                android:id="@+id/txtRemainDay"
+                android:id="@+id/txtRemainDay2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -120,7 +140,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/size_font_big" />
 
-            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
                 android:id="@+id/txtRemainDay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

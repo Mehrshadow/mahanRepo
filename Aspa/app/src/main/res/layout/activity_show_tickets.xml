@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:padding="16dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -15,7 +14,6 @@
         android:background="@color/back_toolbar">
 
         <LinearLayout
-            android:visibility="gone"
             android:id="@+id/layBtnClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,15 +22,16 @@
             android:clickable="true"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="2dp">
+            android:padding="2dp"
+            android:visibility="gone">
 
 
             <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="@dimen/sv_image_size"
                 android:layout_height="@dimen/sv_image_size"
                 android:layout_margin="5dp"
-                android:src="@drawable/back_gray"
-                android:id="@+id/imageView3" />
+                android:src="@drawable/back_gray" />
         </LinearLayout>
 
         <LinearLayout
@@ -64,11 +63,11 @@
     </FrameLayout>
 
     <RelativeLayout
-        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -123,7 +122,6 @@
             android:visibility="gone" />
 
         <android.support.design.widget.FloatingActionButton
-            android:visibility="gone"
             android:id="@+id/actionBtnAddTicket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -132,30 +130,35 @@
             android:layout_margin="24dp"
             android:clickable="true"
             android:src="@drawable/sv_plus_white"
+            android:visibility="gone"
             app:backgroundTint="@color/colorPrimary" />
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_margin="16dp"
-        android:gravity="bottom"
         android:id="@+id/layBtnBack"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:background="@drawable/ripple_list_item"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
         <ImageView
             android:id="@+id/imgBack"
-            android:layout_gravity="bottom"
-            android:src="@drawable/back_orange"
             android:layout_width="24dp"
-            android:layout_height="24dp" />
-        <TextView
-            android:layout_marginLeft="6dp"
-            android:textColor="@color/text_color_items"
+            android:layout_height="24dp"
             android:layout_gravity="bottom"
-            android:text="بازگشت"
+            android:src="@drawable/back_orange" />
+
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="6dp"
+            android:text="بازگشت"
+            android:textColor="@color/text_color_items" />
 
     </LinearLayout>
 </LinearLayout>

@@ -6,18 +6,21 @@ import android.content.SharedPreferences;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Select;
-import ir.aspacrm.my.app.mahan.classes.CheckNotification;
-import ir.aspacrm.my.app.mahan.classes.Logger;
-import ir.aspacrm.my.app.mahan.classes.U;
-import ir.aspacrm.my.app.mahan.model.Account;
-import ir.aspacrm.my.app.mahan.model.License;
-import ir.aspacrm.my.app.mahan.model.User;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Calendar;
+
+import ir.aspacrm.my.app.mahan.classes.CheckNotification;
+import ir.aspacrm.my.app.mahan.classes.Logger;
+import ir.aspacrm.my.app.mahan.classes.U;
+import ir.aspacrm.my.app.mahan.model.Account;
+import ir.aspacrm.my.app.mahan.model.Info;
+import ir.aspacrm.my.app.mahan.model.License;
+import ir.aspacrm.my.app.mahan.model.User;
 
 /**
  * Created by Microsoft on 3/1/2016.
@@ -28,16 +31,19 @@ public class G extends Application {
     public static User currentUser;
     public static License currentLicense;
     public static Account currentAccount;
+    public static Info currentUserInfo;
     public static AppCompatActivity currentActivity;
     public static SharedPreferences localMemory;
     public static CheckNotification checkNotification;
     public static long customerId;
 
 
-    /** static field */
-    public static final String DIR_APP_DOWNLOAD_FOLDER = Environment.getExternalStorageDirectory() + "/ASPA" ;
+    /**
+     * static field
+     */
+    public static final String DIR_APP_DOWNLOAD_FOLDER = Environment.getExternalStorageDirectory() + "/ASPA";
     public static final long NOTIFICATION_CHECKER_TIME = 20 * 60 * 1000;
-//    public static final long NOTIFICATION_CHECKER_TIME = 30 * 1000;
+    //    public static final long NOTIFICATION_CHECKER_TIME = 30 * 1000;
     public static final String JMWS = "http://mng.aspacrm.ir/service.aspx"; // WebService Jahanmir
     public static final String WS_PAGE = "/aspamobile.aspx";
     public static final NumberFormat formatterPrice = new DecimalFormat("#,###,###,###");
@@ -55,8 +61,15 @@ public class G extends Application {
 
         /** get current User*/
         currentUser = new Select().from(User.class).where("isLogin = ? ", true).executeSingle();
-        if(currentUser == null)
+        if (currentUser == null)
             currentUser = new User();
+
+
+        try {
+            currentUserInfo = new Select().from(Info.class).where("userId = ? ", G.currentUser.userId).executeSingle();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         /** get customerId */
         customerId = getResources().getInteger(R.integer.customer_id);

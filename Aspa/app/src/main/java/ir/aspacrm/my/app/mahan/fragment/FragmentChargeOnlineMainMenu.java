@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
@@ -36,7 +37,6 @@ public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnCli
     @Bind(R.id.layFeshfeshe) LinearLayout layFeshfeshe;
     @Bind(R.id.layShowMenuItem) CardView layShowMenuItem;
     @Bind(R.id.layLoading) LinearLayout layLoading;
-    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
 
 
@@ -84,13 +84,6 @@ public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnCli
             }
         });
 
-        layBtnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().onBackPressed();
-
-            }
-        });
     }
     public void onEventMainThread(EventOnGetChargeOnlineMainItem event) {
         Logger.d("FragmentChargeOnlineMainMenu : EventOnGetChargeOnlineMainItem is raised.");

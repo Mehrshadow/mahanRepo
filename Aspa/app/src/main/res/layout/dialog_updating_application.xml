@@ -1,94 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:id="@+id/layMainDialog"
-              android:background="@color/back_items"
-              android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layMainDialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_items"
+    android:orientation="vertical">
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/imgCloseDialog"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_margin="3dp"-->
+    <!--android:src="@drawable/ic_arrow_down" />-->
+    <!--</LinearLayout>-->
 
     <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <ImageView android:layout_width="wrap_content"
-                   android:layout_gravity="center"
-                   android:id="@+id/imgCloseDialog"
-                   android:layout_margin="3dp"
-                   android:src="@drawable/ic_arrow_down"
-                   android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+            android:id="@+id/txtDialogTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/back_orange_btn"
+            android:padding="5dp"
+            android:gravity="center"
+            android:text="دانلود نسخه جدید"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:textSize="@dimen/size_font_very_small"
+            android:typeface="serif" />
     </LinearLayout>
+
     <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
         <TextView
-                android:layout_width="match_parent"
-                android:text="دانلود نسخه جدید"
-                android:gravity="center"
-                android:textSize="@dimen/size_font_very_small"
-                android:id="@+id/txtDialogTitle"
-                android:typeface="serif"
-                android:textColor="@color/text_color_items"
-                android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-        <TextView
-                android:layout_width="match_parent"
-                android:text="لطفا تا پایان دانلود نسخه جدید صبر کنید و سپس اقدام به نصب نسخه جدید کنید."
-                android:gravity="center"
-                android:typeface="serif"
-                android:textSize="@dimen/size_font_very_very_small"
-                android:textColor="@color/text_color_items"
-                android:layout_height="wrap_content" android:id="@+id/txtDialogDescription"/>
-    </LinearLayout>
-    <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/txtDialogDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/layLoading"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
             android:gravity="center"
-            android:layout_gravity="center_horizontal">
-        <com.pnikosis.materialishprogress.ProgressWheel
-                android:id="@+id/prgDownloadUpdatePercent"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginBottom="3dp"
-                app:matProg_barColor="@color/text_color_items"
-                app:matProg_progressIndeterminate="false"/>
-        <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/size_font_very_very_small"
-                android:id="@+id/txtLoading"
-                android:typeface="serif"
-                android:text="لطفا صبر کنید"
-                android:textColor="@color/text_color_items"/>
-    </LinearLayout>
-    <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
-            android:layout_width="match_parent"
-            android:text=""
-            android:gravity="right"
-            android:typeface="serif"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="5dp"
-            android:id="@+id/txtShowErrorMessage"
+            android:text="لطفا تا پایان دانلود نسخه جدید صبر کنید و سپس اقدام به نصب نسخه جدید کنید."
+            android:textColor="@color/txt_blue"
             android:textSize="@dimen/size_font_very_very_small"
-            android:textColor="@color/colorAccent"
-            android:layout_height="wrap_content"/>
+            android:typeface="serif" />
+    </LinearLayout>
+
     <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:layout_height="wrap_content">
-        <include layout="@layout/lay_btn_cancel" android:id="@+id/layBtnCancelCurrentUpdate"/>
-        <include layout="@layout/lay_btn_ok" android:id="@+id/layBtnInstallUpdate"/>
+        android:id="@+id/layLoading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.pnikosis.materialishprogress.ProgressWheel
+            android:id="@+id/prgDownloadUpdatePercent"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginBottom="3dp"
+            app:matProg_barColor="@color/text_color_items"
+            app:matProg_progressIndeterminate="false" />
+
+        <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+            android:id="@+id/txtLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="لطفا صبر کنید"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_font_very_very_small"
+            android:typeface="serif" />
+    </LinearLayout>
+
+    <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+        android:id="@+id/txtShowErrorMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:gravity="right"
+        android:text=""
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/size_font_very_very_small"
+        android:typeface="serif" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/layBtnCancelCurrentUpdate"
+            layout="@layout/lay_btn_cancel" />
+
+        <include
+            android:id="@+id/layBtnInstallUpdate"
+            layout="@layout/lay_btn_ok" />
     </LinearLayout>
 </LinearLayout>

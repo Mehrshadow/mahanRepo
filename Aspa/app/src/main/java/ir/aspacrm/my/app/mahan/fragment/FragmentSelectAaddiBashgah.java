@@ -23,9 +23,9 @@ import ir.aspacrm.my.app.mahan.events.EventOnShowFragmentChargeOnlinePackageRequ
 
 public class FragmentSelectAaddiBashgah extends Fragment {
 
-    @Bind(R.id.layBtnAaddi) CardView layBtnAaddi;
+    @Bind(R.id.layBtnAaddi) LinearLayout layBtnAaddi;
     @Bind(R.id.layAaddi) LinearLayout layAaddi;
-    @Bind(R.id.layBtnBashgah) CardView layBtnBashgah;
+    @Bind(R.id.layBtnBashgah) LinearLayout layBtnBashgah;
     @Bind(R.id.layBashgah) LinearLayout layBashgah;
     @Bind(R.id.layLoading) LinearLayout layLoading;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;

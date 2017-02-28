@@ -10,8 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
@@ -26,16 +29,13 @@ import ir.aspacrm.my.app.mahan.events.EventOnGetChargeOnlineForLoadGroups;
 import ir.aspacrm.my.app.mahan.events.EventOnGetErrorChargeOnlineForLoadGroups;
 import ir.aspacrm.my.app.mahan.gson.ChargeOnlineGroup;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class FragmentChargeOnlineGroup extends Fragment {
 
     @Bind(R.id.lstGroup) RecyclerView lstGroup;
     @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
 
-    @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
+//    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.txtPageTitle) TextView txtPageTitle;
 
     AdapterChargeOnlineGroup adapterChargeOnlineGroup;
@@ -119,13 +119,13 @@ public class FragmentChargeOnlineGroup extends Fragment {
             }
         });
 
-        layBtnClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().onBackPressed();
-            }
-        });
-
+//        layBtnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getActivity().onBackPressed();
+//            }
+//        });
+//
 
     }
     public void onEventMainThread(EventOnGetChargeOnlineForLoadGroups event){

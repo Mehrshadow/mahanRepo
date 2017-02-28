@@ -68,6 +68,8 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:background="@drawable/ripple_list_item"
+            android:padding="5dp"
             android:id="@+id/layBtnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
