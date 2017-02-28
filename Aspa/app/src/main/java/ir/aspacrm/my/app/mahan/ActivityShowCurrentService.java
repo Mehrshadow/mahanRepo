@@ -161,6 +161,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
 
         tvPackageName.setText(" " + G.currentAccount.pkgName);
 
+
         if (G.currentAccount.rHour == -11111) {
             if (G.currentAccount.rDay == -11111) {
                 tvRemainingDays.setText("نامحدود");

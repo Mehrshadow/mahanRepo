@@ -64,6 +64,8 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
             bgMain.setImageResource(R.drawable.bg_main);
             mask.setImageResource(R.drawable.mask_mainbg);
         }
+
+        WebService.sendGetUserAccountInfoRequest();
     }
 
     @Override
@@ -204,7 +206,7 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
                         if (G.currentLicense.chargeOnline) {
                             startActivity(new Intent(context, ActivityChargeOnline.class));
                         } else {
-                            U.toast("امکان شارژ آنلاین برای شما فعال نمیباشد.");
+                            U.toast("امکان شارژ آنلاین برای شما فعال     نمیباشد.");
                         }
                     }
                 }

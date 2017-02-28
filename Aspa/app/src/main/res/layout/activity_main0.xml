@@ -44,7 +44,7 @@
         <fragment
             android:id="@+id/replace_fragment"
             android:name="ir.aspacrm.my.app.mahan.fragment.FragmentDrawer"
-            android:layout_width="300dp"
+            android:layout_width="400dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
             android:layout_weight="1" />

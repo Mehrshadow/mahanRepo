@@ -26,8 +26,10 @@ import ir.aspacrm.my.app.mahan.enums.EnumInternetErrorType;
 import ir.aspacrm.my.app.mahan.events.*;
 import ir.aspacrm.my.app.mahan.fragment.*;
 
+import static ir.aspacrm.my.app.mahan.R.id.layBtnClose;
+
 public class ActivityChargeOnline extends AppCompatActivity {
-    @Bind(ir.aspacrm.my.app.mahan.R.id.layBtnClose) LinearLayout layBtnClose;
+    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(ir.aspacrm.my.app.mahan.R.id.layFragment) FrameLayout layFragment;
     @Bind(ir.aspacrm.my.app.mahan.R.id.layLoading) LinearLayout layLoading;
 
@@ -51,7 +53,7 @@ public class ActivityChargeOnline extends AppCompatActivity {
                 .replace(ir.aspacrm.my.app.mahan.R.id.layFragment,new FragmentChargeOnlineMainMenu())
                 .addToBackStack("FragmentChargeOnlineMainMenu")
                 .commit();
-        layBtnClose.setOnClickListener(new View.OnClickListener() {
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();

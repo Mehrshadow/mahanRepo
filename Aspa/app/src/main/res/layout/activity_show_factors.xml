@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-android:padding="16dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     //
 
@@ -16,7 +14,6 @@ android:padding="16dp"
         android:background="@color/back_toolbar">
 
         <LinearLayout
-            android:visibility="gone"
             android:id="@+id/layBtnClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,13 +23,14 @@ android:padding="16dp"
             android:clickable="true"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="2dp">
+            android:padding="2dp"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="@dimen/sv_image_size"
                 android:layout_height="@dimen/sv_image_size"
                 android:layout_margin="5dp"
-                android:src="@drawable/back_gray"  />
+                android:src="@drawable/back_gray" />
         </LinearLayout>
 
         <LinearLayout
@@ -64,14 +62,14 @@ android:padding="16dp"
     </FrameLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <android.support.v4.widget.SwipeRefreshLayout
                 android:id="@+id/swipeRefreshLayout"
@@ -104,26 +102,30 @@ android:padding="16dp"
 
 
         <LinearLayout
-            android:layout_margin="16dp"
-            android:gravity="bottom"
             android:id="@+id/layBtnBack"
-            android:orientation="horizontal"
-            android:layout_gravity="bottom"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/ripple_list_item"
+            android:gravity="bottom"
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <ImageView
                 android:id="@+id/imgBack"
-                android:layout_gravity="bottom"
-                android:src="@drawable/back_orange"
                 android:layout_width="24dp"
-                android:layout_height="24dp" />
-            <TextView
-                android:layout_marginLeft="6dp"
-                android:textColor="@color/text_color_items"
+                android:layout_height="24dp"
                 android:layout_gravity="bottom"
-                android:text="بازگشت"
+                android:src="@drawable/back_orange" />
+
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="6dp"
+                android:text="بازگشت"
+                android:textColor="@color/text_color_items" />
 
         </LinearLayout>
 

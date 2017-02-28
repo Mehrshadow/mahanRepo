@@ -13,7 +13,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:background="@color/back_items">
+            android:background="@color/back_toolbar">
 
             <LinearLayout
                 android:visibility="gone"

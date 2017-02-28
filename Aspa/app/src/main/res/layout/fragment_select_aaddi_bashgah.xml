@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:padding="@dimen/size_activity_padding"
-    android:background="@drawable/background"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_height="match_parent"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent">
     <LinearLayout
-            android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <FrameLayout android:layout_width="match_parent"
-                     android:background="@color/back_items"
+                     android:background="@color/edit_text_back_color"
                      android:layout_height="?actionBarSize">
             <LinearLayout
-                android:visibility="gone"
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:gravity="center"
@@ -27,16 +27,16 @@
                     android:background="@drawable/ripple_light_oval"
                     android:layout_height="wrap_content">
                 <ImageView
-                        android:layout_width="@dimen/sv_image_size"
-                        android:layout_height="@dimen/sv_image_size"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/sv_arrows_white"/>
+                    android:layout_width="@dimen/sv_image_size"
+                    android:layout_height="@dimen/sv_image_size"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/sv_arrows_white" />
             </LinearLayout>
 
             <TextView android:layout_width="wrap_content"
                       android:text="شارژ آنلاین"
                       android:layout_gravity="center"
-                      android:textColor="@color/text_color_items"
+                      android:textColor="@color/white"
                       android:typeface="sans"
                       android:id="@+id/txtPageTitle"
                       android:layout_marginTop="8dp"
@@ -48,10 +48,16 @@
 
 
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_width="match_parent">
         <LinearLayout
                 android:orientation="horizontal"
+                android:background="@color/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <View android:layout_width="0dp"
@@ -63,13 +69,21 @@
                           android:layout_height="match_parent"
                           android:layout_weight="0.96">
                 <android.support.v7.widget.CardView
+                    android:id="@+id/layShowMenuItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="#00000000">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:id="@+id/layShowMenuItem"
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        app:cardBackgroundColor="@color/back_items">
+                        app:cardBackgroundColor="@color/dark_grey">
                     <LinearLayout android:layout_width="match_parent"
                                   android:orientation="vertical"
                                   android:layout_gravity="center"
@@ -79,7 +93,13 @@
                                       android:orientation="horizontal"
                                       android:layout_margin="10dp"
                                       android:layout_height="wrap_content">
-
+                            <ImageView android:layout_width="@dimen/size_image_very_very_small"
+                                       android:src="@drawable/ic_left_drawable_textview"
+                                       android:scaleType="fitEnd"
+                                       android:layout_marginTop="2dp"
+                                       android:layout_marginBottom="2dp"
+                                       android:layout_marginLeft="3dp"
+                                       android:layout_height="match_parent"/>
                             <TextView android:layout_width="0dp"
                                       android:layout_weight="1"
                                       android:text="یکی از گزینه های زیر را انتخاب کنید."
@@ -89,6 +109,13 @@
                                       android:layout_marginBottom="8dp"
                                       android:textSize="@dimen/size_font_very_small"
                                       android:layout_height="wrap_content"/>
+                            <ImageView android:layout_width="@dimen/size_image_very_very_small"
+                                       android:src="@drawable/ic_right_drawable_textview"
+                                       android:scaleType="fitStart"
+                                       android:layout_marginRight="3dp"
+                                       android:layout_marginTop="2dp"
+                                       android:layout_marginBottom="2dp"
+                                       android:layout_height="match_parent"/>
                         </LinearLayout>
 
                         <!-- layBtnAaddi -->
@@ -108,11 +135,19 @@
                                         android:id="@+id/layBtnAaddi"
                                         android:layout_gravity="center_horizontal"
                                         android:foreground="@drawable/ripple_list_item"
-                                        app:cardBackgroundColor="@color/orange"
+                                        app:cardBackgroundColor="@color/back_ip_color_box"
+                                        app:cardCornerRadius="5dp"
                                         app:cardElevation="5dp">
                                     <LinearLayout
-                                            android:layout_width="fill_parent"
-                                            android:orientation="horizontal"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:layout_gravity="center"
+                                        android:gravity="right"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
                                             android:gravity="center"
                                             android:layout_gravity="center"
                                             android:layout_height="fill_parent">
@@ -127,15 +162,18 @@
                                                 android:paddingRight="5dp"
                                                 android:singleLine="true"
                                                 android:text="عادی"
-                                                android:textColor="@color/white"/>
+                                                android:textColor="@color/black"/>
                                         <ImageView android:layout_width="@dimen/size_image_very_small"
                                                    android:src="@drawable/ic_normal_person_64px_white"
                                                    android:layout_height="@dimen/size_image_small"/>
                                     </LinearLayout>
-                                </android.support.v7.widget.CardView>
+                                </LinearLayout>
                             </LinearLayout>
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.3" />
                         </LinearLayout>
                         <!-- layBtnFeshfeshe -->
                         <LinearLayout android:layout_width="match_parent"
@@ -154,60 +192,74 @@
                                         android:id="@+id/layBtnBashgah"
                                         android:layout_gravity="center_horizontal"
                                         android:foreground="@drawable/ripple_list_item"
-                                        app:cardBackgroundColor="@color/back_blue"
+                                        app:cardBackgroundColor="@color/back_feshfeshe_color_box"
+                                        app:cardCornerRadius="5dp"
                                         app:cardElevation="5dp">
                                     <LinearLayout
-                                            android:layout_width="fill_parent"
-                                            android:orientation="horizontal"
-                                            android:gravity="center"
-                                            android:layout_gravity="center"
-                                            android:layout_height="fill_parent">
+                                        android:gravity="right"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:layout_gravity="center"
+                                        android:orientation="horizontal">
+
                                         <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:minWidth="88dp"
-                                                android:gravity="center"
-                                                android:typeface="serif"
-                                                android:minHeight="36dp"
-                                                android:paddingLeft="5dp"
-                                                android:paddingRight="5dp"
-                                                android:singleLine="true"
-                                                android:text="باشگاه"
-                                                android:textColor="@color/white"/>
-                                        <ImageView android:layout_width="@dimen/size_image_very_small"
-                                                   android:src="@drawable/ic_group_person_64px_white"
-                                                   android:layout_height="@dimen/size_image_small"/>
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:minHeight="36dp"
+                                            android:minWidth="88dp"
+                                            android:paddingLeft="5dp"
+                                            android:paddingRight="5dp"
+                                            android:singleLine="true"
+                                            android:text="باشگاه"
+                                            android:textColor="@color/text_color_items"
+                                            android:typeface="serif" />
+
+                                        <ImageView
+                                            android:layout_width="@dimen/size_image_very_small"
+                                            android:layout_height="@dimen/size_image_small"
+                                            android:src="@drawable/ic_circle" />
                                     </LinearLayout>
-                                </android.support.v7.widget.CardView>
+                                </LinearLayout>
                             </LinearLayout>
-                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                                          android:layout_weight="0.3"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.3" />
                         </LinearLayout>
-                        <View android:layout_width="match_parent" android:layout_height="0dp"
-                              android:layout_marginBottom="12dp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginBottom="12dp" />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
             </LinearLayout>
-            <View android:layout_width="0dp"
-                  android:layout_height="match_parent"
-                  android:layout_weight="0.15"/>
-        </LinearLayout>
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
+
+            <View
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/layLoading"
-                android:background="@color/back_loading_color"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="3dp"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal">
+                android:layout_weight="0.15" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layLoading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="3dp"
+            android:background="@color/back_loading_color"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <com.pnikosis.materialishprogress.ProgressWheel
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_marginRight="5dp"
-                    app:matProg_barColor="@color/text_color_items"
+                    app:matProg_barColor="@color/white"
                     app:matProg_progressIndeterminate="true"/>
             <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                     android:layout_width="wrap_content"
@@ -215,20 +267,22 @@
                     android:textSize="@dimen/size_font_very_very_small"
                     android:layout_marginTop="5dp"
                     android:text="لطفا صبر کنید"
-                    android:textColor="@color/text_color_items"
+                    android:textColor="@color/white"
                     android:layout_marginRight="5dp"/>
         </LinearLayout>
-        <TextView android:layout_width="wrap_content"
-                  android:layout_gravity="center"
-                  android:textColor="@color/white"
-                  android:typeface="sans"
-                  android:visibility="gone"
-                  android:id="@+id/txtShowMessage"
-                  android:layout_marginTop="8dp"
-                  android:layout_marginBottom="8dp"
-                  android:textSize="@dimen/size_font_very_small"
-                  android:layout_height="wrap_content"
-                  android:layout_centerInParent="true"/>
+
+        <TextView
+            android:id="@+id/txtShowMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_font_very_small"
+            android:typeface="sans"
+            android:visibility="gone" />
     </RelativeLayout>
 
 

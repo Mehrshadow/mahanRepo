@@ -57,6 +57,7 @@ import ir.aspacrm.my.app.mahan.events.EventOnSetPollResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnShowDialogUpdatingApplicationRequest;
 import ir.aspacrm.my.app.mahan.gson.GetIspInfoResponse;
 import ir.aspacrm.my.app.mahan.model.Account;
+import ir.aspacrm.my.app.mahan.model.Info;
 import ir.aspacrm.my.app.mahan.model.License;
 import ir.aspacrm.my.app.mahan.model.News;
 import ir.aspacrm.my.app.mahan.model.Notify;
@@ -66,35 +67,64 @@ import me.leolin.shortcutbadger.ShortcutBadger;
 public class ActivityMain extends AppCompatActivity implements OnClickListener {
 
 
-    @Bind(R.id.progressTraffic) ProgressWheel progressTraffic;
-    @Bind(R.id.progressDays) ProgressWheel progressDays;
-    @Bind(R.id.imgLogout) ImageView imgLogout;
-    @Bind(R.id.imgChangePassword) ImageView imgChangePassword;
-    @Bind(R.id.imgUserInfo) ImageView imgUserInfo;
-    @Bind(R.id.imgNews) ImageView imgNews;
-    @Bind(R.id.imgNotification) ImageView imgNotification;
-    @Bind(R.id.imgCompanyInfo) ImageView imgCompanyInfo;
-    @Bind(R.id.imgFeshfeshe) ImageView imgFeshfeshe;
-    @Bind(R.id.imgClub) ImageView imgClub;
-    @Bind(R.id.layPackageName) FrameLayout layPackageName;
-    @Bind(R.id.layGroupName) FrameLayout layGroupName;
-    @Bind(R.id.txtRemainTraffic) TextView txtRemainTraffic;
-    @Bind(R.id.txtRemainDay) TextView txtRemainDay;
-    @Bind(R.id.layPardakhtha) LinearLayout layPardakhtha;
-    @Bind(R.id.laySuratHesab) LinearLayout laySuratHesab;
-    @Bind(R.id.laySavabeghEtesal) LinearLayout laySavabeghEtesal;
-    @Bind(R.id.layTicket) LinearLayout layTicket;
-    @Bind(R.id.layNemudarMasraf) LinearLayout layNemudarMasraf;
-    @Bind(R.id.layChargeOnline) LinearLayout layChargeOnline;
-    @Bind(R.id.layFeshfesheBashgah) LinearLayout layFeshfesheBashgah;
-    @Bind(R.id.layUnSeenNews) LinearLayout layUnSeenNews;
-    @Bind(R.id.layUnSeenNotify) LinearLayout layUnSeenNotify;
-    @Bind(R.id.txtUnSeenNews) TextView txtUnSeenNews;
-    @Bind(R.id.txtUnSeenNotify) TextView txtUnSeenNotify;
-    @Bind(R.id.layBtnVaslMovaghat) CardView layBtnVaslMovaghat;
-    @Bind(R.id.layLoading) LinearLayout layLoading;
-    @Bind(R.id.layAccountInfo) LinearLayout layAccountInfo;
-    @Bind(R.id.imgDrawerToggle) ImageView imgDrawerToggle;
+    @Bind(R.id.progressTraffic)
+    ProgressWheel progressTraffic;
+    @Bind(R.id.progressDays)
+    ProgressWheel progressDays;
+    @Bind(R.id.imgLogout)
+    ImageView imgLogout;
+    @Bind(R.id.imgChangePassword)
+    ImageView imgChangePassword;
+    @Bind(R.id.imgUserInfo)
+    ImageView imgUserInfo;
+    @Bind(R.id.imgNews)
+    ImageView imgNews;
+    @Bind(R.id.imgNotification)
+    ImageView imgNotification;
+    @Bind(R.id.imgCompanyInfo)
+    ImageView imgCompanyInfo;
+    @Bind(R.id.imgFeshfeshe)
+    ImageView imgFeshfeshe;
+    @Bind(R.id.imgClub)
+    ImageView imgClub;
+    @Bind(R.id.layPackageName)
+    FrameLayout layPackageName;
+    @Bind(R.id.layGroupName)
+    FrameLayout layGroupName;
+    @Bind(R.id.txtRemainTraffic)
+    TextView txtRemainTraffic;
+    @Bind(R.id.txtRemainDay)
+    TextView txtRemainDay;
+    @Bind(R.id.layPardakhtha)
+    LinearLayout layPardakhtha;
+    @Bind(R.id.laySuratHesab)
+    LinearLayout laySuratHesab;
+    @Bind(R.id.laySavabeghEtesal)
+    LinearLayout laySavabeghEtesal;
+    @Bind(R.id.layTicket)
+    LinearLayout layTicket;
+    @Bind(R.id.layNemudarMasraf)
+    LinearLayout layNemudarMasraf;
+    @Bind(R.id.layChargeOnline)
+    LinearLayout layChargeOnline;
+    @Bind(R.id.layFeshfesheBashgah)
+    LinearLayout layFeshfesheBashgah;
+    @Bind(R.id.layUnSeenNews)
+    LinearLayout layUnSeenNews;
+    @Bind(R.id.layUnSeenNotify)
+    LinearLayout layUnSeenNotify;
+    @Bind(R.id.txtUnSeenNews)
+    TextView txtUnSeenNews;
+    @Bind(R.id.txtUnSeenNotify)
+    TextView txtUnSeenNotify;
+    @Bind(R.id.layBtnVaslMovaghat)
+    CardView layBtnVaslMovaghat;
+    @Bind(R.id.layLoading)
+    LinearLayout layLoading;
+    @Bind(R.id.layAccountInfo)
+    LinearLayout layAccountInfo;
+    @Bind(R.id.imgDrawerToggle)
+    ImageView imgDrawerToggle;
 
     TextView txtPackageName;
     TextView txtGroupName;
@@ -152,8 +182,8 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
                 @Override
                 public void run() {
                     // bareye check kardane inke bashgah darad ya na.
-                    if(G.currentLicense == null)
-                        G.currentLicense = new Select().from(License.class).where("UserId = ? " ,G.currentUser.userId).executeSingle();
+                    if (G.currentLicense == null)
+                        G.currentLicense = new Select().from(License.class).where("UserId = ? ", G.currentUser.userId).executeSingle();
 
                     if (G.currentLicense != null && !G.currentLicense.club)
                         layFeshfesheBashgah.setVisibility(View.INVISIBLE);
@@ -242,11 +272,12 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
 
     }
 
-    public void onEventMainThread(EventOnGetUserLicenseResponse event){
+
+    public void onEventMainThread(EventOnGetUserLicenseResponse event) {
         Logger.d("ActivityMain : EventOnGetUserLicenseResponse is raised.");
 
-        if(G.currentLicense == null)
-            G.currentLicense = new Select().from(License.class).where("UserId = ? " ,G.currentUser.userId).executeSingle();
+        if (G.currentLicense == null)
+            G.currentLicense = new Select().from(License.class).where("UserId = ? ", G.currentUser.userId).executeSingle();
 
         if (G.currentLicense != null && !G.currentLicense.club)
             layFeshfesheBashgah.setVisibility(View.INVISIBLE);
@@ -255,10 +286,12 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
         }
         WebService.sendGetUserAccountInfoRequest();
     }
-    public void onEventMainThread(EventOnGetErrorUserLicense event){
+
+    public void onEventMainThread(EventOnGetErrorUserLicense event) {
         Logger.d("ActivityMain : EventOnGetErrorUserLicense is raised.");
         initializeUserAccountView();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -273,6 +306,7 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
         checkNewNews();
         checkNewNotify();
     }
+
     @Override
     public void onClick(final View view) {
         Animation clickAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_click);
@@ -281,6 +315,7 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
             public void onAnimationStart(Animation animation) {
 
             }
+
             @Override
             public void onAnimationEnd(Animation animation) {
                 switch (view.getId()) {
@@ -289,7 +324,7 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
                         dialogExit.showExitDialog();
                         break;
                     case R.id.imgChangePassword:
-                        if(G.currentLicense != null){
+                        if (G.currentLicense != null) {
                             if (G.currentLicense.changePass) {
                                 DialogClass dialogChangePassword = new DialogClass();
                                 dialogChangePassword.showChangePasswordDialog();
@@ -308,7 +343,7 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
                         startActivity(new Intent(G.context, ActivityShowConnections.class));
                         break;
                     case R.id.layTicket:
-                        if(G.currentLicense != null){
+                        if (G.currentLicense != null) {
                             if (G.currentLicense.ticket) {
                                 startActivity(new Intent(G.context, ActivityShowTickets.class));
                             } else {
@@ -320,7 +355,7 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
                         startActivity(new Intent(G.context, ActivityShowGraph.class));
                         break;
                     case R.id.layChargeOnline:
-                        if(G.currentLicense !=null){
+                        if (G.currentLicense != null) {
                             if (G.currentLicense.chargeOnline) {
                                 startActivity(new Intent(G.context, ActivityChargeOnline.class));
                             } else {
@@ -348,6 +383,7 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
                         break;
                 }
             }
+
             @Override
             public void onAnimationRepeat(Animation animation) {
 
@@ -356,8 +392,10 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
         view.startAnimation(clickAnimation);
     }
 
-    /**gereftane about sherkat bad az darkhaste etelaate sherkat dar ghesmate menu paein
-     * bad az gereftane javab az webserice, vared in ghesmat mishavim.*/
+    /**
+     * gereftane about sherkat bad az darkhaste etelaate sherkat dar ghesmate menu paein
+     * bad az gereftane javab az webserice, vared in ghesmat mishavim.
+     */
     public void onEventMainThread(EventOnGetIspInfoResponse event) {
         Logger.d("ActivityMain : EventOnGetIspInfoResponse is raised");
         GetIspInfoResponse response = event.getIspInfo();
@@ -368,16 +406,20 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
             U.toast("خطا در دریافت اطلاعات از سرور");
         }
     }
+
     public void onEventMainThread(EventOnGetErrorGetIspInfo event) {
         Logger.d("ActivityMain : EventOnGetErrorGetIspInfo is raised");
         G.currentAccount = new Select().from(Account.class).where("userId = ? ", G.currentUser.userId).executeSingle();
         G.currentLicense = new Select().from(License.class).where("userId = ? ", G.currentUser.userId).executeSingle();
         initializeUserAccountView();
     }
-    /**geteftane etelaate moshtarak baraye namayesh dar safhe aval
+
+    /**
+     * geteftane etelaate moshtarak baraye namayesh dar safhe aval
      * bad az gereftane etelate moshtarak shamel hajme baghi mande va ruzaye baghi mande
      * darkhate ersal inke moshtarak tavasote mobile vared hesabe karbari khod shode ast ersal mishavad.
-     * sepass darkhaste gereftane khabar'haye jadid ra midahim.*/
+     * sepass darkhaste gereftane khabar'haye jadid ra midahim.
+     */
     public void onEventMainThread(EventOnGetUserAccountInfoResponse event) {
         Logger.d("ActivityMain : EventOnGetUserAccountInfoResponse is raised");
         initializeUserAccountView();
@@ -385,16 +427,19 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
          * from managment.*/
         WebService.sendVisitMobileRequest();
     }
+
     public void onEventMainThread(EventOnGetErrorGetUserAccountInfo event) {
         Logger.d("ActivityMain : EventOnGetErrorGetUserAccountInfo is raised");
         G.currentAccount = new Select().from(Account.class).where("userId = ? ", G.currentUser.userId).executeSingle();
         G.currentLicense = new Select().from(License.class).where("userId = ? ", G.currentUser.userId).executeSingle();
         initializeUserAccountView();
     }
+
     /**
      * bad az gereftane khabar haye jadid check mikonim bebinim chandta az khabar
      * haye daryafti jadid bude astta eghdam be namayeshe tedade anha be karbar bashim.
-     * sepass eghdam be ersal darkhaste tedade */
+     * sepass eghdam be ersal darkhaste tedade
+     */
     public void onEventMainThread(EventOnGetNewsResponse event) {
         Logger.d("ActivityMain : EventOnGetNewsResponse is raised");
         /** mohasebe khabare jadid daryafti*/
@@ -403,6 +448,7 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
          * gerfetane notifay'haye jadid ehtemalli*/
         sendRequestGetNotify();
     }
+
     public void onEventMainThread(EventOnGetErrorGetNews event) {
         Logger.d("ActivityMain : EventOnGetErrorGetNews is raised");
         /** mohasebe khabare jadid daryafti*/
@@ -410,20 +456,24 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
         /** mohasebe notify'haye jadid daryafti*/
         checkNewNotify();
     }
+
     public void onEventMainThread(EventOnGetNotifiesResponse event) {
         Logger.d("ActivityMain : EventOnGetNotifiesResponse is raised");
         /** mohasebe notify'haye jadid daryafti*/
         checkNewNotify();
     }
+
     public void onEventMainThread(EventOnGetErrorGetNotifies event) {
         Logger.d("ActivityMain : EventOnGetErrorGetNotifies is raised");
         /** mohasebe notify'haye jadid daryafti*/
         checkNewNotify();
     }
+
     public void onEventMainThread(EventOnNoAccessServerResponse event) {
-        if(dlgShowPoll != null)
+        if (dlgShowPoll != null)
             dlgShowPoll.showErrorOnPollDialog("لطفا ارتباط اینترنتی خود را چک کرده و سپس مجددا تلاش کنید.");
     }
+
     public void onEventMainThread(EventOnClickedLogoutButton event) {
         Logger.d("ActivityMain : EventOnClickedLogoutButton is raised");
         G.currentUser.isLogin = false;
@@ -431,67 +481,76 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
         startActivity(new Intent(G.context, ActivityLogin.class));
         finish();
     }
+
     public void onEventMainThread(EventOnSendPollRequest event) {
         Logger.d("ActivityMain : EventOnSendPollRequest is raised");
         WebService.sendSetPollRequest(event.getPollId(), event.getOptionId(), event.getDes());
     }
+
     public void onEventMainThread(EventOnSetPollResponse event) {
         Logger.d("ActivityMain : EventOnSetPollResponse is raised");
-        if(event.getStatus()){
+        if (event.getStatus()) {
             /** dar surati ke pasukhe ma be dorosti sabt shode bashad.*/
-            if(dlgShowPoll != null)
+            if (dlgShowPoll != null)
                 dlgShowPoll.cancelPollDialog();
             U.toast("نظر شما با موفقیت ثبت شد.");
-        }else{
-            if(dlgShowPoll != null)
+        } else {
+            if (dlgShowPoll != null)
                 dlgShowPoll.showErrorOnPollDialog("ثبت نظر با مشکل مواجه شد، لطفا دوباره تلاش کنید.");
         }
 
     }
+
     public void onEventMainThread(EventOnGetErrorSetPoll event) {
         Logger.d("ActivityMain : EventOnGetErrorSetPoll is raised");
-        if(dlgShowPoll != null)
+        if (dlgShowPoll != null)
             dlgShowPoll.showErrorOnPollDialog("ثبت نظر با مشکل مواجه شد، لطفا دوباره تلاش کنید.");
     }
+
     public void onEventMainThread(EventOnGetPollResponse event) {
         Logger.d("ActivityMain : EventOnGetPollResponse is raised");
-        if(event.getPollResponse().Result){
+        if (event.getPollResponse().Result) {
             dlgShowPoll = new DialogClass();
             dlgShowPoll.showPollDialog(event.getPollResponse());
         }
     }
+
     public void onEventMainThread(EventOnCheckGetPollRequest event) {
         Logger.d("ActivityMain : EventOnCheckGetPollRequest is raised");
         /** darkhate check karane inke nazar sanji vojud darad ya na.*/
         WebService.sendGetPollRequest();
     }
+
     /* Update EventBus Method */
     public void onEventMainThread(EventOnGetUpdateResponse event) {
         Logger.d("ActivityMain : EventOnGetUpdateResponse is raised");
         try {
             String version = event.getUpdateResponse().Ver;
-            if(version.length() == 0)
+            if (version.length() == 0)
                 version = "0.0";
-            if(Float.parseFloat(version) > Float.parseFloat(U.getAppVersionName())){
+            if (Float.parseFloat(version) > Float.parseFloat(U.getAppVersionName())) {
                 dlgUpdate = new DialogClass();
-                dlgUpdate.showUpdateApplicationDialog(event.getUpdateResponse().Ver,event.getUpdateResponse().Force,event.getUpdateResponse().Url);
-            }else{
+                dlgUpdate.showUpdateApplicationDialog(event.getUpdateResponse().Ver, event.getUpdateResponse().Force, event.getUpdateResponse().Url);
+            } else {
                 /** darkhate check karane inke nazar sanji vojud darad ya na.*/
                 WebService.sendGetPollRequest();
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
     }
+
     public void onEventMainThread(EventOnShowDialogUpdatingApplicationRequest event) {
         Logger.d("ActivityMain : EventOnShowDialogUpdatingApplicationRequest is raised");
-        if(dlgUpdate != null ){
+        if (dlgUpdate != null) {
             dlgUpdate.showUpdatingApplicationDialog(event.getNewVersion(), event.isForce(), event.getUrl());
             downloader = new Downloader();
             downloader.requestDownload(event.getUrl(), EnumDownloadID.ACTIVITY_MAIN);
         }
     }
+
     public void onEventMainThread(EventOnCanceledDialogUpdatingApplication event) {
         Logger.d("ActivityMain : EventOnCanceledDialogUpdatingApplication is raised");
-        if(dlgUpdate != null && event.isForce()){
+        if (dlgUpdate != null && event.isForce()) {
             /** dar surati ke download update ejbari bashad ba cancel kardane dialog updating baz bayad
              * dialog update application namayesh dade shavad.*/
             dlgUpdate.showUpdateApplicationDialog(event.getNewVersion(), event.isForce(), event.getUrl());
@@ -499,32 +558,35 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
             downloader.cancelDownload();
         }
     }
+
     public void onEventMainThread(EventOnChangedDownloadPercent event) {
         Logger.d("ActivityMain : EventOnChangedDownloadPercent is raised");
-        if(dlgUpdate != null){
+        if (dlgUpdate != null) {
             dlgUpdate.changeProgressPercent(event.getPercent());
         }
     }
+
     public void onEventMainThread(EventOnDownloadedFileCompleted event) {
         Logger.d("ActivityMain : EventOnDownloadedFileCompleted is raised");
-        if(dlgUpdate != null){
+        if (dlgUpdate != null) {
             downloadedCompleted = true;
             dlgUpdate.showInstallButton();
         }
     }
 
-    public void onEventMainThread(final EventOnGetStartFactorResponse event){
+    public void onEventMainThread(final EventOnGetStartFactorResponse event) {
         Logger.d("ActivityMain : EventOnGetStartFactorResponse is raised");
         WebService.sendGetUserAccountInfoRequest();
     }
+
     /*-------------------------------------------------------------------------------------------------------------*/
     public void initializeUserAccountView() {
 
-        if(dlgWaiting != null){
+        if (dlgWaiting != null) {
             dlgWaiting.cancelDialogWaitingWithBackground();
         }
-        if(G.currentLicense == null)
-            G.currentLicense = new Select().from(License.class).where("UserId = ? " ,G.currentUser.userId).executeSingle();
+        if (G.currentLicense == null)
+            G.currentLicense = new Select().from(License.class).where("UserId = ? ", G.currentUser.userId).executeSingle();
 
         if (G.currentLicense != null && !G.currentLicense.club)
             layFeshfesheBashgah.setVisibility(View.INVISIBLE);
@@ -532,16 +594,16 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
             layFeshfesheBashgah.setVisibility(View.VISIBLE);
         }
 
-        if(G.currentAccount == null)
-            G.currentAccount = new Select().from(Account.class).where("userId = ? ",G.currentUser.userId).executeSingle();
+        if (G.currentAccount == null)
+            G.currentAccount = new Select().from(Account.class).where("userId = ? ", G.currentUser.userId).executeSingle();
 
 
-        if (G.currentAccount.regConnect){
+        if (G.currentAccount.regConnect) {
             /** namayesh halate vasl movaghat.*/
             layAccountInfo.setVisibility(View.INVISIBLE);
             layLoading.setVisibility(View.INVISIBLE);
             layBtnVaslMovaghat.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             layAccountInfo.setVisibility(View.VISIBLE);
             layLoading.setVisibility(View.INVISIBLE);
             layBtnVaslMovaghat.setVisibility(View.INVISIBLE);
@@ -578,6 +640,7 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
         checkNewNews();
         checkNewNotify();
     }
+
     public void setProgressValue(final ProgressWheel progressWheel, final int percent) {
         new Thread(new Runnable() {
             @Override
@@ -599,65 +662,70 @@ public class ActivityMain extends AppCompatActivity implements OnClickListener {
             }
         }).start();
     }
+
     private void sendRequestGetNews() {
         News lastNews = new Select()
                 .from(News.class)
-                .where("UserId = ? " , G.currentUser.userId)
+                .where("UserId = ? ", G.currentUser.userId)
                 .orderBy("NewsID desc")
                 .limit(1)
                 .executeSingle();
-        if(lastNews == null) {
+        if (lastNews == null) {
             WebService.sendGetNewsRequest(0);
-        }else{
+        } else {
             WebService.sendGetNewsRequest(lastNews.newsID);
         }
     }
+
     private void sendRequestGetNotify() {
         Notify lastNotify = new Select()
                 .from(Notify.class)
-                .where("UserId = ? " , G.currentUser.userId)
+                .where("UserId = ? ", G.currentUser.userId)
                 .orderBy("NotifyCode desc")
                 .limit(1)
                 .executeSingle();
-        if(lastNotify == null) {
-            WebService.sendGetNotifiesRequest(0,false);
-        }else{
-            WebService.sendGetNotifiesRequest(lastNotify.notifyCode,false);
+        if (lastNotify == null) {
+            WebService.sendGetNotifiesRequest(0, false);
+        } else {
+            WebService.sendGetNotifiesRequest(lastNotify.notifyCode, false);
         }
     }
+
     private void checkNewNews() {
         List<News> unSeenNews = new Select()
                 .from(News.class)
-                .where("UserId = ? AND IsSeen = ?", G.currentUser.userId,false)
+                .where("UserId = ? AND IsSeen = ?", G.currentUser.userId, false)
                 .execute();
         int countUnSeenNews = unSeenNews.size();
-        if(countUnSeenNews != 0){
+        if (countUnSeenNews != 0) {
             txtUnSeenNews.setText("" + countUnSeenNews);
             layUnSeenNews.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             layUnSeenNews.setVisibility(View.GONE);
         }
     }
+
     private void checkNewNotify() {
         List<Notify> unSeenNotify = new Select()
                 .from(Notify.class)
-                .where("UserId = ? AND IsSeen = ?", G.currentUser.userId,false)
+                .where("UserId = ? AND IsSeen = ?", G.currentUser.userId, false)
                 .execute();
         int countUnSeenNotify = unSeenNotify.size();
-        if(countUnSeenNotify != 0){
+        if (countUnSeenNotify != 0) {
             txtUnSeenNotify.setText("" + countUnSeenNotify);
             try {
-                ShortcutBadger.applyCountOrThrow(G.context,countUnSeenNotify); //for 1.1.4+
+                ShortcutBadger.applyCountOrThrow(G.context, countUnSeenNotify); //for 1.1.4+
             } catch (ShortcutBadgeException e) {
                 //e.printStackTrace();
                 Logger.d("" + e.getMessage());
             }
 
             layUnSeenNotify.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             layUnSeenNotify.setVisibility(View.GONE);
         }
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
