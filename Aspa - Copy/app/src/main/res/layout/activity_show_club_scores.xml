@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="@dimen/size_activity_padding">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_toolbar_height"
+        android:background="@color/back_items">
+
+        <LinearLayout
+            android:id="@+id/layBtnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/ripple_light_oval"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="2dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="@dimen/sv_image_size"
+                android:layout_height="@dimen/sv_image_size"
+                android:layout_margin="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/sv_arrows_white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_scores" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:text="مجموع امتیازات"
+                android:textColor="@color/text_color_items"
+                android:textSize="@dimen/size_font_very_small"
+                android:typeface="sans" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/layTotalClubScore"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_toolbar_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="2dp"
+        android:background="@color/back_items"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+            android:id="@+id/txtTotalClubScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="مجموع امتیازات : "
+            android:textColor="@color/text_color_items"
+            android:textSize="@dimen/size_font_very_small" />
+
+
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/lstClubScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1" />
+                <!--<View android:layout_width="match_parent"-->
+                <!--android:layout_height="5dp"-->
+                <!--android:background="@drawable/toolbar_dropshadow"-->
+                <!--android:id="@+id/viewShadow"-->
+                <!--android:visibility="visible"/>-->
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtShowMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:text=""
+                android:textColor="@color/text_color_items"
+                android:textSize="@dimen/size_font_very_small"
+                android:typeface="sans"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:background="@drawable/ripple_list_item"
+        android:padding="5dp"
+        android:id="@+id/layBtnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="bottom"
+            android:src="@drawable/back_orange" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="6dp"
+            android:text="بازگشت"
+            android:textColor="@color/text_color_items" />
+
+    </LinearLayout>
+</LinearLayout>
