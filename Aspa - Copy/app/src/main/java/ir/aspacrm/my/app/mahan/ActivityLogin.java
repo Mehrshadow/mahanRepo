@@ -399,6 +399,7 @@ public class ActivityLogin extends AppCompatActivity {
             G.currentUser.isLastLogin = true;
             G.currentUser.exKey = response.ExKey;
             G.currentUser.save();
+
             /** after get login request get user license */
             WebService.sendGetUserLicenseRequest();
         } else {
@@ -416,6 +417,7 @@ public class ActivityLogin extends AppCompatActivity {
 
     public void onEventMainThread(EventOnGetUserInfoResponse event) {
         Logger.d("ActivityLogin : EventOnGetUserInfoResponse is raised.");
+
         WebService.sendGetUserAccountInfoRequest();
     }
 
