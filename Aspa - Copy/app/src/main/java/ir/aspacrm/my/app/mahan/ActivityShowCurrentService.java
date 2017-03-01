@@ -384,6 +384,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         G.currentUser.isLogin = false;
         G.currentUser.save();
         startActivity(new Intent(context, ActivityLogin.class));
+        //
         finish();
     }
 
