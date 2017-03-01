@@ -85,6 +85,7 @@
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
@@ -129,15 +130,15 @@
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <LinearLayout
-        android:background="@drawable/ripple_list_item"
-        android:padding="5dp"
         android:id="@+id/layBtnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_margin="16dp"
+        android:background="@drawable/ripple_list_item"
         android:gravity="bottom"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/imgBack"

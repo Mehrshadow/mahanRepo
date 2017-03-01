@@ -62,10 +62,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:padding="2dp"
         android:background="@color/back_items"
         android:gravity="right|center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="2dp">
 
 
         <android.support.v7.widget.CardView
@@ -108,10 +108,10 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:gravity="end"
             android:orientation="vertical">
 
             <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
@@ -139,9 +139,9 @@
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -152,6 +152,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_above="@id/layBtnBack"
                 android:orientation="vertical">
 
                 <android.support.v7.widget.RecyclerView
@@ -161,35 +162,34 @@
                     android:layout_gravity="center"
                     android:layout_weight="1" />
 
-                <LinearLayout
-                    android:background="@drawable/ripple_list_item"
-                    android:id="@+id/layBtnBack"
-                    android:padding="5dp"
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layBtnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:layout_margin="16dp"
+                android:background="@drawable/ripple_list_item"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="bottom"
+                    android:src="@drawable/back_orange" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_gravity="bottom"
-                    android:layout_margin="16dp"
-                    android:gravity="bottom"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imgBack"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="bottom"
-                        android:src="@drawable/back_orange" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginLeft="6dp"
-                        android:text="بازگشت"
-                        android:textColor="@color/text_color_items" />
-
-                </LinearLayout>
-
+                    android:layout_marginLeft="6dp"
+                    android:text="بازگشت"
+                    android:textColor="@color/text_color_items" />
 
             </LinearLayout>
 

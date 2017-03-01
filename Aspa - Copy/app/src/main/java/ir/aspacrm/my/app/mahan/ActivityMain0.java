@@ -44,14 +44,10 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
     ImageView mask;
     @Bind(R.id.bg_main)
     ImageView bgMain;
-
-
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-
     @Bind(R.id.imgDrawerToggle)
     ImageView imgDrawerToggle;
-
     DialogClass dlgShowPoll;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle mActionBarDrawerToggle;
@@ -257,13 +253,14 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
                 else if (ct.closeMatch(Color.CYAN, touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowGraph.class));
                 else if (ct.closeMatch(Color.GRAY, touchColor, tolerance))
-                    Logger.d("Speed test");
+                    new DialogClass().showMessageDialog(getString(R.string.future), getString(R.string.item_available_in_future));
                 else if (ct.closeMatch(Color.parseColor("#" + Integer.toHexString(context.getResources().getColor(R.color.orange))), touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowTickets.class));
                 else if (ct.closeMatch(Color.WHITE, touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowFactors.class));
                 else if (ct.closeMatch(Color.MAGENTA, touchColor, tolerance))
-                    startActivity(new Intent(context, ActivityShowNews.class));
+                    new DialogClass().showMessageDialog(getString(R.string.future), getString(R.string.item_available_in_future));
+//                    startActivity(new Intent(context, ActivityShowNews.class));
                 else if (ct.closeMatch(Color.RED, touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowFeshfeshe.class));
                 else if (ct.closeMatch(Color.parseColor("#" + Integer.toHexString(context.getResources().getColor(R.color.brown))), touchColor, tolerance)) {

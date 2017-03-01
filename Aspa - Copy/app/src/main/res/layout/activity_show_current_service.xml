@@ -40,9 +40,8 @@
                         android:id="@+id/tv_package_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="start"
+                        android:gravity="center"
                         android:maxEms="1000"
-                        android:text="اینترنت رایگان 3 ماهه با ترافیک  45 گیگا بایت"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
 

@@ -1,12 +1,14 @@
 package ir.aspacrm.my.app.mahan.adapter;
 
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ir.aspacrm.my.app.mahan.G;
@@ -14,8 +16,6 @@ import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewNormal;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewThin;
 import ir.aspacrm.my.app.mahan.model.News;
-
-import java.util.List;
 
 public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder> {
 
@@ -38,11 +38,11 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
         holder.txtNewsBodyText.setText("" + Html.fromHtml(news.bodyText));
         holder.txtNewsDate.setText("" + news.newsDate);
         if(!news.isSeen){
-            holder.newsCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.circle_background_color));
+//            holder.newsCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.circle_background_color));
             news.isSeen = true;
             news.save();
         }else{
-            holder.newsCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.dark_grey));
+//            holder.newsCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.dark_grey));
         }
 //        holder.txtNewsImportant.setText("" + news.Title);
     }

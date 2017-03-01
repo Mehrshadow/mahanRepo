@@ -42,19 +42,7 @@
                         android:layout_marginBottom="2.5dp"
                         android:layout_marginTop="5dp"
                         android:orientation="vertical">
-                        <!--<LinearLayout-->
-                        <!--android:orientation="vertical"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="match_parent">-->
-                        <!--<ir.aspacrm.my.app.aspa.component.PersianTextViewNormal-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:ellipsize="end"-->
-                        <!--android:textSize="@dimen/size_font_very_very_small"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginBottom="3dp"-->
-                        <!--android:id="@+id/txtNewsTitle"-->
-                        <!--android:textColor="@color/white"/>-->
-                        <!--</LinearLayout>-->
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -65,41 +53,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
-                                android:textColor="@color/white"
+                                android:textColor="@color/black"
                                 android:textSize="@dimen/size_font_very_very_small" />
                         </LinearLayout>
                     </LinearLayout>
-                    <!--<LinearLayout android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="2.5dp"-->
-                    <!--android:layout_marginBottom="2.5dp">-->
-                    <!--<LinearLayout android:orientation="vertical"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent">-->
-                    <!--<ir.aspacrm.my.app.aspa.component.PersianTextViewThin-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="1393/01/01 22:38"-->
-                    <!--android:id="@+id/txtNewsDate"-->
-                    <!--android:typeface="sans"-->
-                    <!--android:textColor="@color/white"-->
-                    <!--android:textSize="@dimen/size_font_very_very_small"-->
-                    <!--android:gravity="center_vertical|left"/>-->
-                    <!--</LinearLayout>-->
-                    <!--&lt;!&ndash;<include layout="@layout/lay_separate"/>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<LinearLayout android:orientation="vertical"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<ir.aspacrm.my.app.aspa.component.PersianTextViewThin&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:id="@+id/txtNewsImportant"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:textSize="@dimen/size_font_very_very_small"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:text="وضعیت"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:textColor="@color/white"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:gravity="left|center_vertical"/>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
-                    <!--</LinearLayout>-->
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
