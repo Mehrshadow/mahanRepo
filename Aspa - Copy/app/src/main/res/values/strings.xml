@@ -35,6 +35,10 @@
     <string name="tickets_details">جزییات تیکت ها</string>
     <string name="current_package_name">سرویس فعلی شما: %1$s</string>
     <string name="news">اخبار</string>
+    <string name="error">خطا</string>
+    <string name="input_incorrect_error">لطفا مقدار صحیحی برای مبلغ وارد کنید</string>
+    <string name="item_available_in_future">این آیتم به زودی در دسترس قرار خواهد گرفت</string>
+    <string name="future">به زودی</string>
     <string-array name="sp_olaviat_items">
         <item>کم</item>
         <item>متوسط</item>

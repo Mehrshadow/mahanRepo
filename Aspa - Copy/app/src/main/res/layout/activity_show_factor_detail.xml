@@ -12,6 +12,7 @@
         android:background="@color/back_toolbar">
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/layBtnClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

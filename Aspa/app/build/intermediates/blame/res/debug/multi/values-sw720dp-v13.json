@@ -1,0 +1,772 @@
+[
+    {
+        "outputFile": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 49,
+                    "endOffset": 100
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 872,
+                        "endColumn": 49,
+                        "endOffset": 917
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 57,
+                    "endOffset": 158
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 749,
+                        "endColumn": 57,
+                        "endOffset": 802
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 163,
+                    "endColumn": 44,
+                    "endOffset": 203
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 317,
+                        "endColumn": 44,
+                        "endOffset": 357
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 208,
+                    "endColumn": 48,
+                    "endOffset": 252
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 267,
+                        "endColumn": 48,
+                        "endOffset": 311
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 257,
+                    "endColumn": 46,
+                    "endOffset": 299
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 219,
+                        "endColumn": 46,
+                        "endOffset": 261
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 304,
+                    "endColumn": 49,
+                    "endOffset": 349
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 363,
+                        "endColumn": 49,
+                        "endOffset": 408
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 354,
+                    "endColumn": 51,
+                    "endOffset": 401
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 166,
+                        "endColumn": 51,
+                        "endOffset": 213
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 406,
+                    "endColumn": 56,
+                    "endOffset": 458
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 108,
+                        "endColumn": 56,
+                        "endOffset": 160
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 463,
+                    "endColumn": 61,
+                    "endOffset": 520
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 45,
+                        "endColumn": 61,
+                        "endOffset": 102
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 525,
+                    "endColumn": 45,
+                    "endOffset": 566
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 595,
+                        "endColumn": 45,
+                        "endOffset": 636
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 571,
+                    "endColumn": 49,
+                    "endOffset": 616
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 544,
+                        "endColumn": 49,
+                        "endOffset": 589
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 621,
+                    "endColumn": 51,
+                    "endOffset": 668
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 696,
+                        "endColumn": 51,
+                        "endOffset": 743
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 673,
+                    "endColumn": 47,
+                    "endOffset": 716
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 495,
+                        "endColumn": 47,
+                        "endOffset": 538
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 721,
+                    "endColumn": 50,
+                    "endOffset": 767
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 642,
+                        "endColumn": 50,
+                        "endOffset": 688
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 772,
+                    "endColumn": 52,
+                    "endOffset": 820
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 441,
+                        "endColumn": 52,
+                        "endOffset": 489
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 825,
+                    "endColumn": 62,
+                    "endOffset": 883
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 925,
+                        "endColumn": 62,
+                        "endOffset": 983
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 888,
+                    "endColumn": 44,
+                    "endOffset": 928
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 810,
+                        "endColumn": 44,
+                        "endOffset": 850
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 933,
+                    "endColumn": 44,
+                    "endOffset": 973
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\integer.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 83,
+                        "endColumn": 44,
+                        "endOffset": 123
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 978,
+                    "endColumn": 49,
+                    "endOffset": 1023
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\integer.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 129,
+                        "endColumn": 49,
+                        "endOffset": 174
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1028,
+                    "endColumn": 54,
+                    "endOffset": 1078
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw720dp\\strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 54,
+                        "endOffset": 67
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 49,
+                    "endOffset": 100
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 872,
+                        "endColumn": 49,
+                        "endOffset": 917
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 57,
+                    "endOffset": 158
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 749,
+                        "endColumn": 57,
+                        "endOffset": 802
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 163,
+                    "endColumn": 44,
+                    "endOffset": 203
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 317,
+                        "endColumn": 44,
+                        "endOffset": 357
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 208,
+                    "endColumn": 48,
+                    "endOffset": 252
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 267,
+                        "endColumn": 48,
+                        "endOffset": 311
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 257,
+                    "endColumn": 46,
+                    "endOffset": 299
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 219,
+                        "endColumn": 46,
+                        "endOffset": 261
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 304,
+                    "endColumn": 49,
+                    "endOffset": 349
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 363,
+                        "endColumn": 49,
+                        "endOffset": 408
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 354,
+                    "endColumn": 51,
+                    "endOffset": 401
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 166,
+                        "endColumn": 51,
+                        "endOffset": 213
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 406,
+                    "endColumn": 56,
+                    "endOffset": 458
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 108,
+                        "endColumn": 56,
+                        "endOffset": 160
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 463,
+                    "endColumn": 61,
+                    "endOffset": 520
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 45,
+                        "endColumn": 61,
+                        "endOffset": 102
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 525,
+                    "endColumn": 45,
+                    "endOffset": 566
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 595,
+                        "endColumn": 45,
+                        "endOffset": 636
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 571,
+                    "endColumn": 49,
+                    "endOffset": 616
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 544,
+                        "endColumn": 49,
+                        "endOffset": 589
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 621,
+                    "endColumn": 51,
+                    "endOffset": 668
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 696,
+                        "endColumn": 51,
+                        "endOffset": 743
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 673,
+                    "endColumn": 47,
+                    "endOffset": 716
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 495,
+                        "endColumn": 47,
+                        "endOffset": 538
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 721,
+                    "endColumn": 50,
+                    "endOffset": 767
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 642,
+                        "endColumn": 50,
+                        "endOffset": 688
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 772,
+                    "endColumn": 52,
+                    "endOffset": 820
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 441,
+                        "endColumn": 52,
+                        "endOffset": 489
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 825,
+                    "endColumn": 62,
+                    "endOffset": 883
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 925,
+                        "endColumn": 62,
+                        "endOffset": 983
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 888,
+                    "endColumn": 44,
+                    "endOffset": 928
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 810,
+                        "endColumn": 44,
+                        "endOffset": 850
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 933,
+                    "endColumn": 44,
+                    "endOffset": 973
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\integer.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 83,
+                        "endColumn": 44,
+                        "endOffset": 123
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 978,
+                    "endColumn": 49,
+                    "endOffset": 1023
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\integer.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 129,
+                        "endColumn": 49,
+                        "endOffset": 174
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1028,
+                    "endColumn": 54,
+                    "endOffset": 1078
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw720dp\\strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 54,
+                        "endOffset": 67
+                    }
+                }
+            }
+        ]
+    }
+]

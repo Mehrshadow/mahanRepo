@@ -20,9 +20,18 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.activeandroid.query.Select;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.activeandroid.query.Select;
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
@@ -36,27 +45,31 @@ import ir.aspacrm.my.app.mahan.events.EventOnGetPaymentResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnNoAccessServerResponse;
 import ir.aspacrm.my.app.mahan.model.Payment;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
 public class FragmentShowPaymentList extends Fragment implements View.OnClickListener {
 
 
-    @Bind(R.id.lstPayment) RecyclerView lstPayment;
-    @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
-    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
-    @Bind(R.id.layLoading) LinearLayout layLoading;
-    @Bind(R.id.txtShowMessage) TextView txtShowMessage;
-    @Bind(R.id.txtShowErrorMessage) TextView txtShowErrorMessage;
-    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
-    @Bind(R.id.actionBtnPayment) FloatingActionButton actionBtnPayment;
-    @Bind(R.id.layExpandPayment) LinearLayout layExpandPayment;
-    @Bind(R.id.edtPayment) EditText edtPayment;
-    @Bind(R.id.layBtnPay) CardView layBtnPay;
+    @Bind(R.id.lstPayment)
+    RecyclerView lstPayment;
+    @Bind(R.id.layBtnClose)
+    LinearLayout layBtnClose;
+    @Bind(R.id.layBtnBack)
+    LinearLayout layBtnBack;
+    @Bind(R.id.layLoading)
+    LinearLayout layLoading;
+    @Bind(R.id.txtShowMessage)
+    TextView txtShowMessage;
+//    @Bind(R.id.txtShowErrorMessage)
+//    TextView txtShowErrorMessage;
+    @Bind(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
+    @Bind(R.id.actionBtnPayment)
+    FloatingActionButton actionBtnPayment;
+    @Bind(R.id.layExpandPayment)
+    LinearLayout layExpandPayment;
+    @Bind(R.id.edtPayment)
+    EditText edtPayment;
+    @Bind(R.id.layBtnPay)
+    CardView layBtnPay;
 
     AdapterPayment adapterPayment;
     List<Payment> payments = new ArrayList<>();
@@ -65,7 +78,9 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
 
 
 //    long orderId; // this filed use when user request to pay, and get this item from webservice payforpay
-    /** baraye inke bedunim range dokme bayad chejuri bashad **/
+    /**
+     * baraye inke bedunim range dokme bayad chejuri bashad
+     **/
     boolean isCloseButtonShow = false;
 
     @Override
@@ -77,8 +92,8 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_show_payment_list,container,false);
-        ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.fragment_show_payment_list, container, false);
+        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -87,13 +102,10 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
         super.onActivityCreated(savedInstanceState);
 
 
-
-
-
         layLoading.setVisibility(View.GONE);
 
         if (Build.VERSION.SDK_INT >= 21)
-            getActivity().getWindow().setStatusBarColor(ContextCompat.getColor(G.context,R.color.dark_dark_grey));
+            getActivity().getWindow().setStatusBarColor(ContextCompat.getColor(G.context, R.color.dark_dark_grey));
 
         actionBtnPayment.setOnClickListener(this);
         layBtnPay.setOnClickListener(this);
@@ -170,9 +182,9 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
     }
 
     @Override
-    public void onClick(View view)  {
-        switch (view.getId()){
-            case R.id.actionBtnPayment :
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.actionBtnPayment:
                 if (!layExpandPayment.isShown()) {
                     U.expand(layExpandPayment);
                     actionBtnPayment.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(G.currentActivity, R.color.red)));
@@ -189,9 +201,9 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
                 break;
 
             case R.id.layBtnPay:
-                final String payPrice = edtPayment.getText().toString().trim().replace(",","");
-                txtShowErrorMessage.setText("");
-                if(!payPrice.equals("")) {
+                final String payPrice = edtPayment.getText().toString().trim().replace(",", "");
+//                txtShowErrorMessage.setText("");
+                if (!payPrice.equals("")) {
 //                    String encodedHash = Uri.encode("#");
 //                    String ussd = "*" + "789" + encodedHash;
 //                    startActivity(new Intent("android.intent.action.CALL", Uri.parse("tel:" + ussd)));
@@ -201,19 +213,21 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
                     getActivity()
                             .getSupportFragmentManager()
                             .beginTransaction()
-                            .add(R.id.layFragment,FragmentShowBankList.newInstance(0,Integer.parseInt(payPrice)))
+                            .add(R.id.layFragment, FragmentShowBankList.newInstance(0, Integer.parseInt(payPrice)))
                             .addToBackStack("FragmentShowBankList")
                             .commit();
-                }else{
-                    txtShowErrorMessage.setText("لطفا مقدار صحیحی برای مبلغ وارد کنید. ");
+                } else {
+
+                    new DialogClass().showMessageDialog(getString(R.string.error), getString(R.string.input_incorrect_error));
+
+//                    txtShowErrorMessage.setText("لطفا مقدار صحیحی برای مبلغ وارد کنید. ");
                 }
                 break;
         }
     }
 
 
-
-//    /** darkhaste inke mikhahim yek factor ra start konim az tarafe adapterFactor*/
+    //    /** darkhaste inke mikhahim yek factor ra start konim az tarafe adapterFactor*/
 //    public void onEventMainThread(EventOnClickedStartFactor event){
 //        Logger.d("ActivityShowPayments : EventOnClickedStartFactor is raised");
 //        WebService.sendStartFactorRequest(event.getFactorId());
@@ -276,26 +290,28 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
 //        orderId = 0;
 //        layLoading.setVisibility(View.GONE);
 //    }
-    public void onEventMainThread(EventOnGetPaymentResponse event){
+    public void onEventMainThread(EventOnGetPaymentResponse event) {
         Logger.d("ActivityShowPayments : EventOnGetPaymentResponse is raised");
         swipeRefreshLayout.setRefreshing(false);
         payments = event.getPayments();
         adapterPayment.updateList(payments);
-        if ( payments.size() == 0 ){
+        if (payments.size() == 0) {
             txtShowMessage.setVisibility(View.VISIBLE);
             txtShowMessage.setText("موردی یافت نشد.");
-        }else {
+        } else {
             txtShowMessage.setVisibility(View.GONE);
         }
     }
-    public void onEventMainThread(EventOnGetErrorGetPayment event){
+
+    public void onEventMainThread(EventOnGetErrorGetPayment event) {
         Logger.d("ActivityShowPayments : EventOnGetErrorGetPayment is raised");
         swipeRefreshLayout.setRefreshing(false);
 //        txtShowMessage.setVisibility(View.VISIBLE);
 //        txtShowMessage.setText("خطا در دریافت اطلاعات از سرور لطفا دوباره تلاش کنید.");
         getPaymentFromDB();
     }
-    public void onEventMainThread(EventOnNoAccessServerResponse event){
+
+    public void onEventMainThread(EventOnNoAccessServerResponse event) {
         Logger.d("ActivityShowPayments : EventOnNoAccessServerResponse is raised");
         swipeRefreshLayout.post(new Runnable() {
             @Override
@@ -305,6 +321,7 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
         });
         getPaymentFromDB();
     }
+
     private void getPaymentFromDB() {
         payments = new Select().from(Payment.class).where("UserID = ?", G.currentUser.userId).execute();
         adapterPayment.updateList(payments);
@@ -316,11 +333,10 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
         if (!isCloseButtonShow) {
             actionBtnPayment.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(G.currentActivity, R.color.colorAccent)));
             actionBtnPayment.setRippleColor(ContextCompat.getColor(G.currentActivity, R.color.red));
-        }else{
+        } else {
             actionBtnPayment.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(G.currentActivity, R.color.red)));
             actionBtnPayment.setRippleColor(ContextCompat.getColor(G.currentActivity, R.color.colorAccent));
         }
-
 
 
 //        if (orderId != 0){
@@ -333,7 +349,7 @@ public class FragmentShowPaymentList extends Fragment implements View.OnClickLis
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if(isVisibleToUser){
+        if (isVisibleToUser) {
             getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         }
     }

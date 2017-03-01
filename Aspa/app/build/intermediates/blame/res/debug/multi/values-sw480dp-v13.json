@@ -1,0 +1,772 @@
+[
+    {
+        "outputFile": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw480dp-v13\\values-sw480dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 49,
+                    "endOffset": 100
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 864,
+                        "endColumn": 49,
+                        "endOffset": 909
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 56,
+                    "endOffset": 157
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 746,
+                        "endColumn": 56,
+                        "endOffset": 798
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 162,
+                    "endColumn": 44,
+                    "endOffset": 202
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 316,
+                        "endColumn": 44,
+                        "endOffset": 356
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 207,
+                    "endColumn": 48,
+                    "endOffset": 251
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 266,
+                        "endColumn": 48,
+                        "endOffset": 310
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 256,
+                    "endColumn": 46,
+                    "endOffset": 298
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 218,
+                        "endColumn": 46,
+                        "endOffset": 260
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 303,
+                    "endColumn": 49,
+                    "endOffset": 348
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 362,
+                        "endColumn": 49,
+                        "endOffset": 407
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 353,
+                    "endColumn": 51,
+                    "endOffset": 400
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 165,
+                        "endColumn": 51,
+                        "endOffset": 212
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 405,
+                    "endColumn": 56,
+                    "endOffset": 457
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 107,
+                        "endColumn": 56,
+                        "endOffset": 159
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 462,
+                    "endColumn": 60,
+                    "endOffset": 518
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 45,
+                        "endColumn": 60,
+                        "endOffset": 101
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 523,
+                    "endColumn": 45,
+                    "endOffset": 564
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 594,
+                        "endColumn": 45,
+                        "endOffset": 635
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 569,
+                    "endColumn": 49,
+                    "endOffset": 614
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 543,
+                        "endColumn": 49,
+                        "endOffset": 588
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 619,
+                    "endColumn": 51,
+                    "endOffset": 666
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 693,
+                        "endColumn": 51,
+                        "endOffset": 740
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 671,
+                    "endColumn": 47,
+                    "endOffset": 714
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 494,
+                        "endColumn": 47,
+                        "endOffset": 537
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 719,
+                    "endColumn": 50,
+                    "endOffset": 765
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 641,
+                        "endColumn": 50,
+                        "endOffset": 687
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 770,
+                    "endColumn": 52,
+                    "endOffset": 818
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 440,
+                        "endColumn": 52,
+                        "endOffset": 488
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 823,
+                    "endColumn": 62,
+                    "endOffset": 881
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 915,
+                        "endColumn": 62,
+                        "endOffset": 973
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 886,
+                    "endColumn": 44,
+                    "endOffset": 926
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 804,
+                        "endColumn": 44,
+                        "endOffset": 844
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 931,
+                    "endColumn": 44,
+                    "endOffset": 971
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\integer.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 83,
+                        "endColumn": 44,
+                        "endOffset": 123
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 976,
+                    "endColumn": 49,
+                    "endOffset": 1021
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\integer.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 129,
+                        "endColumn": 49,
+                        "endOffset": 174
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1026,
+                    "endColumn": 54,
+                    "endOffset": 1076
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\repos\\mahanRepo\\Aspa\\app\\src\\main\\res\\values-sw480dp\\strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 54,
+                        "endOffset": 67
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw480dp-v13\\values-sw480dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 49,
+                    "endOffset": 100
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 864,
+                        "endColumn": 49,
+                        "endOffset": 909
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 56,
+                    "endOffset": 157
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 746,
+                        "endColumn": 56,
+                        "endOffset": 798
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 162,
+                    "endColumn": 44,
+                    "endOffset": 202
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 316,
+                        "endColumn": 44,
+                        "endOffset": 356
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 207,
+                    "endColumn": 48,
+                    "endOffset": 251
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 266,
+                        "endColumn": 48,
+                        "endOffset": 310
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 256,
+                    "endColumn": 46,
+                    "endOffset": 298
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 218,
+                        "endColumn": 46,
+                        "endOffset": 260
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 303,
+                    "endColumn": 49,
+                    "endOffset": 348
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 362,
+                        "endColumn": 49,
+                        "endOffset": 407
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 353,
+                    "endColumn": 51,
+                    "endOffset": 400
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 165,
+                        "endColumn": 51,
+                        "endOffset": 212
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 405,
+                    "endColumn": 56,
+                    "endOffset": 457
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 107,
+                        "endColumn": 56,
+                        "endOffset": 159
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 462,
+                    "endColumn": 60,
+                    "endOffset": 518
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 45,
+                        "endColumn": 60,
+                        "endOffset": 101
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 523,
+                    "endColumn": 45,
+                    "endOffset": 564
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 594,
+                        "endColumn": 45,
+                        "endOffset": 635
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 569,
+                    "endColumn": 49,
+                    "endOffset": 614
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 543,
+                        "endColumn": 49,
+                        "endOffset": 588
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 619,
+                    "endColumn": 51,
+                    "endOffset": 666
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 693,
+                        "endColumn": 51,
+                        "endOffset": 740
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 671,
+                    "endColumn": 47,
+                    "endOffset": 714
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 494,
+                        "endColumn": 47,
+                        "endOffset": 537
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 719,
+                    "endColumn": 50,
+                    "endOffset": 765
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 641,
+                        "endColumn": 50,
+                        "endOffset": 687
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 770,
+                    "endColumn": 52,
+                    "endOffset": 818
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 440,
+                        "endColumn": 52,
+                        "endOffset": 488
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 823,
+                    "endColumn": 62,
+                    "endOffset": 881
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 915,
+                        "endColumn": 62,
+                        "endOffset": 973
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 886,
+                    "endColumn": 44,
+                    "endOffset": 926
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\dimens.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 804,
+                        "endColumn": 44,
+                        "endOffset": 844
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 931,
+                    "endColumn": 44,
+                    "endOffset": 971
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\integer.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 83,
+                        "endColumn": 44,
+                        "endOffset": 123
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 976,
+                    "endColumn": 49,
+                    "endOffset": 1021
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\integer.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 129,
+                        "endColumn": 49,
+                        "endOffset": 174
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1026,
+                    "endColumn": 54,
+                    "endOffset": 1076
+                },
+                "from": {
+                    "file": "C:\\Users\\FCC\\Desktop\\Aspa\\app\\src\\main\\res\\values-sw480dp\\strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 54,
+                        "endOffset": 67
+                    }
+                }
+            }
+        ]
+    }
+]

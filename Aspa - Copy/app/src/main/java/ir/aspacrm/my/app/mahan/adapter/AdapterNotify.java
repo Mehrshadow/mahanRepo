@@ -1,19 +1,19 @@
 package ir.aspacrm.my.app.mahan.adapter;
 
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewThin;
 import ir.aspacrm.my.app.mahan.model.Notify;
-
-import java.util.List;
 
 public class AdapterNotify extends RecyclerView.Adapter<AdapterNotify.NewsViewHolder> {
 
@@ -32,11 +32,11 @@ public class AdapterNotify extends RecyclerView.Adapter<AdapterNotify.NewsViewHo
     public void onBindViewHolder(NewsViewHolder holder, int position) {
         final Notify notify = notifies.get(position);
         if(!notify.isSeen){
-            holder.notifyCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.circle_background_color));
+//            holder.notifyCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.circle_background_color));
             notify.isSeen = true;
             notify.save();
         }else{
-            holder.notifyCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.dark_grey));
+//            holder.notifyCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.dark_grey));
         }
         holder.txtNotifyMessage.setText("" + notify.message);
     }

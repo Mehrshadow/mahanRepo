@@ -88,7 +88,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         EventBus.getDefault().register(this);
         G.currentActivity = this;
         G.context = this;
-        
+
         initToolbar();
 
         setOnClickListeners();
@@ -230,10 +230,8 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         }
 
         tvPackageName.setText(G.currentAccount.pkgName.trim().length() < 10 ?
-                String.format(G.currentAccount.pkgName, R.string.current_package_name)
-                : String.format("\n" + G.currentAccount.pkgName, R.string.current_package_name));
-//        tvPackageName.setText(G.currentAccount.pkgName.trim().length() < 1 ? "" + G.currentAccount.pkgName : "\n" + G.currentAccount.pkgName);
-
+                String.format(getString(R.string.current_package_name), G.currentAccount.pkgName)
+                : String.format(getString(R.string.current_package_name), "\n" + G.currentAccount.pkgName));
 
         if (G.currentAccount.rHour == -11111) {
             if (G.currentAccount.rDay == -11111) {
