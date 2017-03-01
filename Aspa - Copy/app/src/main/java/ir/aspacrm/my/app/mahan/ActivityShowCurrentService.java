@@ -88,8 +88,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         EventBus.getDefault().register(this);
         G.currentActivity = this;
         G.context = this;
-
-        /////////////
+        
         initToolbar();
 
         setOnClickListeners();

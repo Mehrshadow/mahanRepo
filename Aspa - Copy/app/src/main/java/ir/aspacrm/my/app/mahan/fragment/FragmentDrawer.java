@@ -112,12 +112,12 @@ public class FragmentDrawer extends Fragment {
                 txtRemainDay.setText("" + G.currentAccount.rHour + " " + "ساعت" + " ");
             }
         }
-        if (G.currentAccount.rTraffic == -11111) {
-            txtRemainDay.setText("نامحدود");
-//            lblRemainingDays.setVisibility(View.GONE);
-        } else {
-            txtRemainDay.setText(G.currentAccount.rTraffic + " " + "مگابایت" + " ");
-        }
+//        if (G.currentAccount.rTraffic == -11111) {
+//            txtRemainDay.setText("نامحدود");
+////            lblRemainingDays.setVisibility(View.GONE);
+//        } else {
+//            txtRemainDay.setText(G.currentAccount.rTraffic + " " + "مگابایت" + " ");
+//        }
     }
 
     public void onEventMainThread(EventOnGetClubScoreResponse event) {
