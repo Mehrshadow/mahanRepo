@@ -32,16 +32,30 @@
                 android:src="@drawable/sv_arrows_white" />
         </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:text="سوابق اتصال"
-            android:textColor="@color/text_color_items"
-            android:textSize="@dimen/size_font_default"
-            android:typeface="sans" />
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_connections" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:text="سوابق اتصال مشتری"
+                android:textColor="@color/text_color_items"
+                android:textSize="@dimen/size_font_very_small"
+                android:typeface="sans" />
+
+
+        </LinearLayout>
     </FrameLayout>
 
     <RelativeLayout
