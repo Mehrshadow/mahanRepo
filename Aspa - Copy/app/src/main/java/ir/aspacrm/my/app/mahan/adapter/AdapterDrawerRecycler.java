@@ -8,12 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.List;
 
 import ir.aspacrm.my.app.mahan.ActivityChargeOnline;
-import ir.aspacrm.my.app.mahan.ActivityLogin;
 import ir.aspacrm.my.app.mahan.ActivityPayments;
 import ir.aspacrm.my.app.mahan.ActivityShowClubScores;
 import ir.aspacrm.my.app.mahan.ActivityShowConnections;
@@ -27,9 +25,6 @@ import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.U;
-import ir.aspacrm.my.app.mahan.gson.ChargeOnlineGroup;
-
-import static ir.aspacrm.my.app.mahan.G.context;
 
 /**
  * Created by HaMiD on 1/22/2017.
@@ -89,14 +84,14 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
                         G.context.startActivity(new Intent(context, ActivityShowGraph.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 5:
-                        // Teste SorAt
+                        new DialogClass().showMessageDialog(context.getString(R.string.future), context.getString(R.string.item_available_in_future));
                         break;
 
                     case 6:
                         G.context.startActivity(new Intent(context, ActivityShowTickets.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 7:
-                        //Davate Dostan
+                        new DialogClass().showMessageDialog(context.getString(R.string.future), context.getString(R.string.item_available_in_future));
                         break;
 
                     case 8:
@@ -106,7 +101,7 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
                         G.context.startActivity(new Intent(context, ActivityShowNotify.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 10:
-                        //Baazi
+                        new DialogClass().showMessageDialog(context.getString(R.string.future), context.getString(R.string.item_available_in_future));
                         break;
                     case 11:
                         G.context.startActivity(new Intent(context, ActivityShowFeshfeshe.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
