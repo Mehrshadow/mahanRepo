@@ -33,6 +33,7 @@
     <string name="finish_current_feshfeshe">اتمام فشفشه</string>
     <string name="support">پشتیبانی</string>
     <string name="tickets_details">جزییات تیکت ها</string>
+    <string name="current_package_name">سرویس فعلی شما: %1$s</string>
     <string-array name="sp_olaviat_items">
         <item>کم</item>
         <item>متوسط</item>

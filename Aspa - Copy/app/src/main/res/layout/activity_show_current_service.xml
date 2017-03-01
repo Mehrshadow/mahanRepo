@@ -28,7 +28,9 @@
                 android:id="@+id/tv_package_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="right"
+                android:gravity="start"
+                android:maxEms="1000"
+                android:text="اینترنت رایگان 3 ماهه با ترافیک  45 گیگا بایت"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -36,8 +38,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="start"
+                android:visibility="gone"
                 android:text="@string/current_service"
                 android:textColor="@color/white"
+                android:maxEms="100"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 

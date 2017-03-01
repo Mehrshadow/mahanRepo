@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_ticket" />
 
-            <TextView
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -92,11 +92,6 @@
             android:layout_marginTop="40dp"
             android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/lstTicketDetail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center" />
         </android.support.v4.widget.SwipeRefreshLayout>
 
         <TextView
@@ -111,6 +106,16 @@
             android:textSize="@dimen/size_font_very_small"
             android:typeface="sans"
             android:visibility="gone" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lstTicketDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </RelativeLayout>
 
     <LinearLayout
@@ -144,7 +149,7 @@
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="6dp"
                 android:text="بازگشت"
-                android:textColor="@color/txt_blue" />
+                android:textColor="@color/black" />
 
         </LinearLayout>
 

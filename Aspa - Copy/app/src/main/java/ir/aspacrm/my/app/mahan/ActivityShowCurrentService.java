@@ -159,7 +159,10 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
             tvTarazeMali.setText(" " + G.currentAccount.balance + "");
         }
 
-        tvPackageName.setText(" " + G.currentAccount.pkgName);
+        tvPackageName.setText(G.currentAccount.pkgName.trim().length() < 10 ?
+                String.format(G.currentAccount.pkgName, R.string.current_package_name)
+                : String.format("\n" + G.currentAccount.pkgName, R.string.current_package_name));
+//        tvPackageName.setText(G.currentAccount.pkgName.trim().length() < 1 ? "" + G.currentAccount.pkgName : "\n" + G.currentAccount.pkgName);
 
 
         if (G.currentAccount.rHour == -11111) {
