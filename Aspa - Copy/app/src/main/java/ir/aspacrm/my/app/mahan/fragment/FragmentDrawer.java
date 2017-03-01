@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +15,15 @@ import android.widget.TextView;
 
 import com.activeandroid.query.Select;
 
+import net.time4j.SystemClock;
+import net.time4j.calendar.PersianCalendar;
+import net.time4j.format.DisplayMode;
+import net.time4j.format.expert.ChronoFormatter;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.G;
@@ -40,7 +48,7 @@ public class FragmentDrawer extends Fragment {
     private View view;
     private RecyclerView RecyDrawer;
     List<String> title;
-    TextView txtStatus, txtScore, txtName;
+    TextView txtStatus, txtScore, txtName, txtRemainDay2;
     TextView txtRemainDay;
     LinearLayout layTotalClubScore;
     ProgressBar prgLoadingScore;
@@ -58,6 +66,7 @@ public class FragmentDrawer extends Fragment {
 
     private void initView() {
         txtRemainDay = (PersianTextViewBold) view.findViewById(R.id.txtRemainDay);
+        txtRemainDay2 = (PersianTextViewBold) view.findViewById(R.id.txtRemainDay2);
 
         txtScore = (ir.aspacrm.my.app.mahan.component.PersianTextViewNormal) view.findViewById(R.id.txtScore);
 
@@ -91,6 +100,39 @@ public class FragmentDrawer extends Fragment {
 
     private void initializeUserAccountView() {
 
+
+        // current date
+        PersianCalendar jalali = SystemClock.inLocalView().now(PersianCalendar.axis());
+        System.out.println(jalali); // AP-1394-08-04
+
+        // localized format of tomorrow (English and Farsi)
+        ChronoFormatter<PersianCalendar> f =
+                ChronoFormatter.ofStyle(DisplayMode.FULL, Locale.ENGLISH, PersianCalendar.axis());
+        Locale farsi = new Locale("fa");
+        String da = f.with(farsi).format(jalali);
+
+        String[] separated0 = da.split(",");
+        String date = separated0[0];
+        String dayOfWeek = separated0[1];
+
+        String[] separated = date.split(" ");
+        String day = separated[3];
+        String month= separated[2];
+        String year= separated[1];
+
+        String farsiDate = dayOfWeek+","+day +" "+ month+" "+year;
+
+
+
+//        txtRemainDay1.setText(dayOfWeek);
+        txtRemainDay2.setText(farsiDate);
+
+//        Calendar cc = Calendar.getInstance();
+//        int year=cc.get(Calendar.YEAR);
+//        int month=cc.get(Calendar.MONTH);
+//        int mDay = cc.get(Calendar.DAY_OF_MONTH);
+//        System.out.println("Date", year+":"+month+":"+mDay);
+
         txtStatus = (TextView) view.findViewById(R.id.txtStatus);
         txtStatus.setText(G.currentUserInfo != null ? G.currentUserInfo.status : "");
 
@@ -102,14 +144,14 @@ public class FragmentDrawer extends Fragment {
                 txtRemainDay.setText("نامحدود");
 //                txtRemainDay.setVisibility(View.GONE);
             } else {
-                txtRemainDay.setText("" + G.currentAccount.rDay + " " + "روز" + " ");
+                txtRemainDay.setText("شما تا اتمام سرویس اینترنتی خود" + G.currentAccount.rDay + " " + " روز " + "فاصله دارید ");
             }
         } else {
             if (G.currentAccount.rHour == -11111) {
                 txtRemainDay.setText("نامحدود");
 //                txtRemainDay.setVisibility(View.GONE);
             } else {
-                txtRemainDay.setText("" + G.currentAccount.rHour + " " + "ساعت" + " ");
+                txtRemainDay.setText("شما تا اتمام سرویس اینترنتی خود" + G.currentAccount.rHour + " " + " ساعت " + " \"فاصله دارید ");
             }
         }
 //        if (G.currentAccount.rTraffic == -11111) {
