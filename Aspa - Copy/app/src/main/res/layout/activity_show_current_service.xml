@@ -27,6 +27,7 @@
             <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                 android:id="@+id/tv_package_name"
                 android:layout_width="wrap_content"
+                
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:maxEms="1000"
