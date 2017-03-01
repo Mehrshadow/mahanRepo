@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/semi_dark_grey"
+        android:background="@color/back_drawer"
         android:orientation="vertical">
 
         <LinearLayout
@@ -84,7 +84,7 @@
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:text=""
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -99,6 +99,7 @@
 
 
         <LinearLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -115,37 +116,26 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".2"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
-                    android:id="@+id/txtRemainDay1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="0 روز"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/size_font_big" />
 
                 <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
+                    android:textDirection="rtl"
                     android:id="@+id/txtRemainDay2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="0 روز"
-                    android:textColor="@color/black"
+                    android:textColor="@color/back_drawer"
                     android:textSize="@dimen/size_font_big" />
 
                 <ir.aspacrm.my.app.mahan.component.PersianTextViewBold
                     android:id="@+id/txtRemainDay"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="0 روز"
-                    android:textColor="@color/black"
+                    android:textColor="@color/back_drawer"
                     android:textSize="@dimen/size_font_big" />
-
 
             </LinearLayout>
 

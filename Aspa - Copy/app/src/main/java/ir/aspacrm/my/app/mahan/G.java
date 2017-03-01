@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Select;
 
+import net.time4j.android.ApplicationStarter;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Calendar;
@@ -52,6 +54,7 @@ public class G extends Application {
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+        ApplicationStarter.initialize(this, true); // with prefetch on background thread
 
         /** initialize database*/
         ActiveAndroid.initialize(this);

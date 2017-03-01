@@ -44,4 +44,5 @@ dependencies {
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.3'
     compile 'me.leolin:ShortcutBadger:1.1.8'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
+    compile group: 'net.time4j', name: 'time4j-android', version: '3.29-2017a'
 }
