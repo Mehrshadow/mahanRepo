@@ -92,8 +92,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:orientation="horizontal">
+                            android:background="@color/back_items"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="0dp"
@@ -120,14 +121,13 @@
                                 android:layout_weight="0.3" />
 
                             <LinearLayout
-                                android:gravity="right"
-                                android:layout_gravity="right"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1">
+                                android:layout_gravity="right"
+                                android:layout_weight="1"
+                                android:gravity="right">
 
                                 <LinearLayout
-
                                     android:id="@+id/layBtnAaddi"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -174,6 +174,7 @@
                             android:id="@+id/layBashgah"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/back_items"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -194,14 +195,13 @@
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginBottom="3dp"
                                     android:clickable="true"
-                                    android:foreground="@drawable/ripple_list_item"
-                                    >
+                                    android:foreground="@drawable/ripple_list_item">
 
                                     <LinearLayout
-                                        android:gravity="right"
                                         android:layout_width="fill_parent"
                                         android:layout_height="fill_parent"
                                         android:layout_gravity="center"
+                                        android:gravity="right"
                                         android:orientation="horizontal">
 
                                         <TextView
@@ -231,10 +231,6 @@
                                 android:layout_weight="0.3" />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_marginBottom="12dp" />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
@@ -255,7 +251,8 @@
             android:layout_marginBottom="3dp"
             android:background="@color/back_loading_color"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <com.pnikosis.materialishprogress.ProgressWheel
                 android:layout_width="36dp"
