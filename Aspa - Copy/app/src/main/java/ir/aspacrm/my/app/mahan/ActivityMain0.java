@@ -246,7 +246,7 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
                     startActivity(new Intent(context, ActivityShowNotify.class));
                 else if (ct.closeMatch(Color.GREEN, touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowClubScores.class));
-                else if (ct.closeMatch(Color.BLACK, touchColor, tolerance))
+                else if (ct.closeMatch(Color.parseColor("#" + Integer.toHexString(context.getResources().getColor(R.color.purple))), touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowUserInfo.class));
                 else if (ct.closeMatch(Color.DKGRAY, touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowConnections.class));
