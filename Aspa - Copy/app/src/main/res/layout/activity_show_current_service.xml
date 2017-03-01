@@ -200,8 +200,8 @@
             </LinearLayout>
 
             <ImageView
+                android:padding="16dp"
                 android:id="@+id/imgDrawerToggle"
-                android:layout_margin="16dp"
                 android:layout_gravity="right"
                 android:src="@drawable/ic_toggle"
                 android:layout_width="wrap_content"
