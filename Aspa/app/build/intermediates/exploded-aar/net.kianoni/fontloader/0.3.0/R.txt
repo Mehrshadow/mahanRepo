@@ -1,0 +1,10 @@
+int attr fontFamily 0x7f010001
+int attr fontFile 0x7f010000
+int attr fontFilePattern 0x7f010003
+int attr fontVariant 0x7f010002
+int string app_name 0x7f020000
+int[] styleable TextView { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003 }
+int styleable TextView_fontFamily 1
+int styleable TextView_fontFile 0
+int styleable TextView_fontFilePattern 3
+int styleable TextView_fontVariant 2

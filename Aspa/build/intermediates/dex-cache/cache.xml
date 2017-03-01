@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.ctrlplusz.anytextview\library\1.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="50d2bfcc70f783a4af19c630566b9228ef038066">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.ctrlplusz.anytextview-library-1.2_008edfac7fd6d46b079b63167bf61774019541b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\AppData\Local\Android\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_f0e232feab07ef04ffbeae857209ebd545eae8b0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.0_b9fa1bf52aa2c74c2cecbffb7e24ad0ab9386311.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\.gradle\caches\modules-2\files-2.1\com.github.PhilJay\MPAndroidChart\v2.2.3\f474798fde03291398b1a016118b9809a79550b7\MPAndroidChart-v2.2.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f474798fde03291398b1a016118b9809a79550b7">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\MPAndroidChart-v2.2.3_1b51abee27f32661566f14f7a387968a276f006a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_3f4028bdd7bcf776c9af75aadc332dec18776555.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.1.0_7d6bcac33db05e22baed4dfbd66c07047a4356cc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\okio-1.6.0_a14a511a50c4e9adb6ebcddd5392d45a3439ec04.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.0_21b330ca5475d3dffd89b42c9aedd763d60019e5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\.gradle\caches\modules-2\files-2.1\de.greenrobot\eventbus\2.4.0\ddd166d01b3158d1c00576d29f7ed15c030df719\eventbus-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ddd166d01b3158d1c00576d29f7ed15c030df719">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\eventbus-2.4.0_31adc40f0a513b0ca560ca8da58b8d30603ecf2e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.0_543f9b630df6c3db341794ab2d852d7243315763.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\net.kianoni\fontloader\0.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6d518c473dd671979903fd4aa5d6b4cee0d00a2a">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\net.kianoni-fontloader-0.3.0_e47edeba20321b1a34ec20a74c33f97b4ba1fba8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7f2420506110902f033406b25697cf97ee8c38b2">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-25.1.0_8be73ce8b539febff0f25a47d2a4aad0d32a70fb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-alpha7\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="541a2ad68dc68aa49795821f8280b7624e6a0c9b">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support.constraint-constraint-layout-1.0.0-alpha7_e52eb97f0ee61b89edd0b1ae4b9ab6ca9d6ebc20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.1.0_ed631bd66677a55612b60370f536d8ba5ac24be0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.4\695b63d702f505b9b916e02272e3b6381bade7f\gson-2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\gson-2.4_28d0ee369b196f3d577b0e7154a074e50cb76d3b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.1.0_126f1bd29fe6672c45597d02dbc0e808fdca5b44.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_d89c1026d7c27376d5087fd0a88c926299d9fb50.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.0_12ad93718d9372d946f9729a9220e3143d658a27.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\AppData\Local\Android\AndroidSDK\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-alpha7\constraint-layout-solver-1.0.0-alpha7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="439eeb5ffd54cbd18db0a6aea471e8356f19fc36">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-alpha7_466cafba38a178bc3de940ffd17fbc7065048114.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.1.0_588d166322dc1a0297f90ea1cb3332a1a72dca47.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_f89215a129a44aefe42c4b65fa9d58df52a517db.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.0.1\b34c1f2d993044656e87f88970b6818e99e886ba\okhttp-3.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b34c1f2d993044656e87f88970b6818e99e886ba">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\okhttp-3.0.1_9e45fd64338e613a73b144d8a13a005a46480cac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\7.0.1\d5d13ea991eab0252e3710e5df3d6a9d4b21d461\butterknife-7.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\butterknife-7.0.1_26030fa1b4b8bf96b6d66a8527cb698fa6f01416.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.pnikosis\materialish-progress\1.7\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="41a4edf3c43fdbce6eba27da50b17ff9933987f1">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.pnikosis-materialish-progress-1.7_2105a705f0419e41f13fac65a618e9091943fda9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.0_9b8c481cfb3f5d9372705b872eb3566edb6cefbb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\.gradle\caches\modules-2\files-2.1\com.michaelpardo\activeandroid\3.1.0-SNAPSHOT\4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08\activeandroid-3.1.0-SNAPSHOT.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\activeandroid-3.1.0-SNAPSHOT_74efa99c265adc53f34984deac546ff4f8ce6809.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.1.0_e884481d41378f90ab26cdee88c3fa6573d7c2e3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\exploded-aar\me.leolin\ShortcutBadger\1.1.8\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="531c33d3697000a05e9493a2d0f09ba41fa114d3">
+        <dex dex="C:\Users\FCC\Desktop\repos\mahanRepo\Aspa\app\build\intermediates\pre-dexed\debug\me.leolin-ShortcutBadger-1.1.8_bcf6760905ded8b044620a1c58d7b23966c88f04.jar" />
+    </item>
+
+</items>

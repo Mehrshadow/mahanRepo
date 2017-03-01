@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="abc_action_bar_content_inset_material">24dp</dimen>
+    <dimen name="abc_action_bar_content_inset_with_nav">80dp</dimen>
+    <dimen name="abc_action_bar_default_height_material">64dp</dimen>
+    <dimen name="abc_action_bar_default_padding_end_material">8dp</dimen>
+    <dimen name="abc_action_bar_default_padding_start_material">8dp</dimen>
+    <dimen name="abc_config_prefDialogWidth">580dp</dimen>
+    <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
+    <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
+    <dimen name="design_navigation_max_width">320dp</dimen>
+    <dimen name="design_snackbar_action_inline_max_width">0dp</dimen>
+    <dimen name="design_snackbar_background_corner_radius">2dp</dimen>
+    <dimen name="design_snackbar_extra_spacing_horizontal">24dp</dimen>
+    <dimen name="design_snackbar_max_width">576dp</dimen>
+    <dimen name="design_snackbar_min_width">320dp</dimen>
+    <dimen name="design_snackbar_padding_vertical_2lines">@dimen/design_snackbar_padding_vertical</dimen>
+    <dimen name="design_tab_scrollable_min_width">160dp</dimen>
+    <dimen name="progress_bar_width">20dp</dimen>
+    <dimen name="size_back_image_main_menu">128dp</dimen>
+    <dimen name="size_font_big">22sp</dimen>
+    <dimen name="size_font_default">20sp</dimen>
+    <dimen name="size_font_small">18sp</dimen>
+    <dimen name="size_font_very_big">24sp</dimen>
+    <dimen name="size_font_very_small">16sp</dimen>
+    <dimen name="size_font_very_very_small">12sp</dimen>
+    <dimen name="size_font_very_very_very_small">10sp</dimen>
+    <dimen name="size_image_big">72dp</dimen>
+    <dimen name="size_image_default">64dp</dimen>
+    <dimen name="size_image_main_menu">96dp</dimen>
+    <dimen name="size_image_small">48dp</dimen>
+    <dimen name="size_image_very_big">96dp</dimen>
+    <dimen name="size_image_very_small">36dp</dimen>
+    <dimen name="size_layBack_notify_child_slide">28dp</dimen>
+    <dimen name="sv_image_size">22dp</dimen>
+    <integer name="design_snackbar_text_max_lines">1</integer>
+    <integer name="grid_columns">4</integer>
+    <integer name="grid_list_columns">2</integer>
+    <string name="values_folder">values_sw600</string>
+    <style name="Widget.Design.TabLayout" parent="Base.Widget.Design.TabLayout">
+        <item name="tabGravity">center</item>
+        <item name="tabMode">fixed</item>
+    </style>
+</resources>

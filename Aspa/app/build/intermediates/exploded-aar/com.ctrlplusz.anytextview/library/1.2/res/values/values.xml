@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AnyTextView"><attr format="string" name="typeface"/></declare-styleable>
+    <!-- From: file:/Users/hanspeide/Development/Projects/anytextview/library/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app">AnyTextView</string>
+    <string name="assets_fonts_folder">fonts/</string>
+    <string name="typeface_not_found">Typeface %s not found, or could not be loaded.
+        Showing default typeface.
+    </string>
+</resources>
