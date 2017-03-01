@@ -28,6 +28,7 @@ import ir.aspacrm.my.app.mahan.enums.EnumDownloadID;
 import ir.aspacrm.my.app.mahan.enums.EnumInternetErrorType;
 import ir.aspacrm.my.app.mahan.events.EventOnCanceledDialogUpdatingApplication;
 import ir.aspacrm.my.app.mahan.events.EventOnChangedDownloadPercent;
+import ir.aspacrm.my.app.mahan.events.EventOnClickedLogoutButton;
 import ir.aspacrm.my.app.mahan.events.EventOnDownloadedFileCompleted;
 import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetUserAccountInfo;
 import ir.aspacrm.my.app.mahan.events.EventOnGetErrorRegConnect;
@@ -40,6 +41,8 @@ import ir.aspacrm.my.app.mahan.events.EventOnShowDialogUpdatingApplicationReques
 import ir.aspacrm.my.app.mahan.model.Account;
 import ir.aspacrm.my.app.mahan.model.License;
 import ir.aspacrm.my.app.mahan.model.News;
+
+import static ir.aspacrm.my.app.mahan.G.context;
 
 public class ActivityShowCurrentService extends AppCompatActivity implements View.OnClickListener {
 
@@ -86,8 +89,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         setContentView(R.layout.activity_show_current_service);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
-        G.currentActivity = this;
-        G.context = this;
+
 
         initToolbar();
 
@@ -134,6 +136,8 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
     @Override
     protected void onResume() {
         super.onResume();
+        G.currentActivity = this;
+        G.context = this;
     }
 
     private void initToolbar() {
@@ -373,6 +377,14 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         if (dlgUpdate != null) {
             dlgUpdate.showInstallButton();
         }
+    }
+
+    public void onEventMainThread(EventOnClickedLogoutButton event) {
+        Logger.d("ActivityShowCurrentService : EventOnClickedLogoutButton is raised");
+        G.currentUser.isLogin = false;
+        G.currentUser.save();
+        startActivity(new Intent(context, ActivityLogin.class));
+        finish();
     }
 
     private void setOnClickListeners() {

@@ -142,7 +142,7 @@ public class ActivityLogin extends AppCompatActivity {
             /** dar surati ke az safhe search isp vared safhe login shavim.*/
             ispUrl = getIntent().getExtras().getString("ISP_URL");
             ispId = getIntent().getExtras().getLong("ISP_ID");
-            imgIspLogo.setImageResource(R.mipmap.ic_launcher);
+//            imgIspLogo.setImageResource(R.mipmap.ic_launcher);
             WebService.sendGetIspInfoLoginRequest(ispUrl);
         } else {
             /** dar surati ke karbar yakbar login karde bashad va mostaghiman az safheye login vared barname shavim.*/
@@ -373,10 +373,10 @@ public class ActivityLogin extends AppCompatActivity {
     public void onEventMainThread(EventOnGetIspInfoLoginResponse event) {
         Logger.d("ActivityLogin : EventOnGetIspInfo is raised.");
         ISPInfoLoginResponse ispInfo = event.getIspInfo();
-        Picasso.with(G.context)
-                .load(ispInfo.ImageURL)
-                .error(R.mipmap.ic_launcher)
-                .into(imgIspLogo);
+//        Picasso.with(G.context)
+//                .load(ispInfo.ImageURL)
+//                .error(R.mipmap.ic_launcher)
+//                .into(imgIspLogo);
         txtIspName.setText("" + ispInfo.Name);
         if (ispInfo.OnlineReg != 0)
             txtRegister.setVisibility(View.VISIBLE);
@@ -451,7 +451,7 @@ public class ActivityLogin extends AppCompatActivity {
 
     public void onEventMainThread(EventOnGetErrorGetIspInfo event) {
         Logger.d("ActivityLogin : EventOnGetErrorGetIspInfo is raised.");
-        imgIspLogo.setImageResource(R.mipmap.ic_launcher);
+//        imgIspLogo.setImageResource(R.mipmap.ic_launcher);
         txtIspName.setText("" + U.getApplicationName());
     }
 
