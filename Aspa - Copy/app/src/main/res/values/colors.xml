@@ -41,6 +41,7 @@
     <color name="brown">#42291c</color>
     <color name="dark_orange">#735042</color>
     <color name="back_transparent">#88ffffff</color>
+    <color name="back_logo_login">#f1f2f2</color>
     <color name="back_drawer">#818286</color>
     <color name="purple">#6006a5</color>
 

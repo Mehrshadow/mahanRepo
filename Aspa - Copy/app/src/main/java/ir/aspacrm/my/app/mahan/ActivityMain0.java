@@ -59,7 +59,7 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
         setContentView(R.layout.activity_main0);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
-        G.context = this;
+
         initToolbar();
 
         if (bgMain != null)
@@ -86,6 +86,7 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
         super.onResume();
         Logger.d("ActivityMain : onResume()");
         G.currentActivity = this;
+        G.context = this;
     }
 
 
