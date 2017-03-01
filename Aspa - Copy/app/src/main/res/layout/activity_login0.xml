@@ -43,6 +43,11 @@
                 android:visibility="visible" />
 
 
+            <!--<ImageView-->
+                <!--android:scaleType="fitXY"-->
+                <!--android:src="@drawable/toolbar"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="?attr/actionBarSize"/>-->
         </FrameLayout>
 
 
