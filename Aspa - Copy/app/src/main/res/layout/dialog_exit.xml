@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="تیکت با موفقیت ارسال شد"
+            android:text="آیا مطمئن هستید میخواهید از حساب کاربری خود خارج شوید؟"
             android:textColor="@color/txt_blue"
             android:textSize="@dimen/size_font_very_very_small"
             android:typeface="serif" />

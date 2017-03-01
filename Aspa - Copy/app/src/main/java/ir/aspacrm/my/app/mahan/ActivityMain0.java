@@ -4,7 +4,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -40,7 +45,17 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
     @Bind(R.id.bg_main)
     ImageView bgMain;
 
+
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
+
+    @Bind(R.id.imgDrawerToggle)
+    ImageView imgDrawerToggle;
+
     DialogClass dlgShowPoll;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle mActionBarDrawerToggle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +63,8 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
         setContentView(R.layout.activity_main0);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
+        G.context = this;
+        initToolbar();
 
         if (bgMain != null)
             bgMain.setOnTouchListener(this);
@@ -73,6 +90,58 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
         super.onResume();
         Logger.d("ActivityMain : onResume()");
         G.currentActivity = this;
+    }
+
+
+    private void initToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_down));
+        drawerLayout = (DrawerLayout) findViewById(R.id.main_navgdrawer);
+        setupDrawerToggleInActionBar();
+    }
+
+    private void setupDrawerToggleInActionBar() {
+        imgDrawerToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawerLayout.isDrawerOpen(Gravity.RIGHT)) {
+                    drawerLayout.closeDrawer(Gravity.RIGHT);
+                } else {
+                    drawerLayout.openDrawer(Gravity.RIGHT);
+                }
+            }
+        });
+
+        // setup the action bar properties that give us a hamburger menu
+        ActionBar actionBar = this.getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeButtonEnabled(true);
+        }
+
+        //  the toggle allows for the simplest of open/close handling
+        mActionBarDrawerToggle = new ActionBarDrawerToggle(this,
+                drawerLayout,
+                R.string.open,
+                R.string.close);
+        // drawerListener must be set before syncState is called
+        drawerLayout.setDrawerListener(mActionBarDrawerToggle);
+        mActionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+        mActionBarDrawerToggle.syncState();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawerLayout.isDrawerOpen(Gravity.RIGHT)) {
+                    drawerLayout.closeDrawer(Gravity.RIGHT);
+                } else {
+                    drawerLayout.openDrawer(Gravity.RIGHT);
+                }
+            }
+        });
+
     }
 
     public void onEventMainThread(EventOnNoAccessServerResponse event) {

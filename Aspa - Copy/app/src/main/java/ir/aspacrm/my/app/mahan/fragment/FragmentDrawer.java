@@ -22,6 +22,7 @@ import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.adapter.AdapterDrawerRecycler;
 import ir.aspacrm.my.app.mahan.classes.Logger;
+import ir.aspacrm.my.app.mahan.classes.WebService;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewBold;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewNormal;
 import ir.aspacrm.my.app.mahan.events.EventOnGetClubScoreResponse;
@@ -51,6 +52,7 @@ public class FragmentDrawer extends Fragment {
         view = inflater.inflate(R.layout.fragment_drawer, container, false);
         initView();
         EventBus.getDefault().register(this);
+        WebService.sendGetClubScoreRequest();
         return view;
     }
 
@@ -74,6 +76,7 @@ public class FragmentDrawer extends Fragment {
         title.add(getString(R.string.messages));
         title.add(getString(R.string.games));
         title.add(getString(R.string.spesioansuggestion));
+        title.add(getString(R.string.news));
         title.add(getString(R.string.exit));
 
         RecyDrawer = (RecyclerView) view.findViewById(R.id.RecyDrawer);

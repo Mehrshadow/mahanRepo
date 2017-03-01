@@ -19,6 +19,7 @@ import ir.aspacrm.my.app.mahan.ActivityShowClubScores;
 import ir.aspacrm.my.app.mahan.ActivityShowConnections;
 import ir.aspacrm.my.app.mahan.ActivityShowFeshfeshe;
 import ir.aspacrm.my.app.mahan.ActivityShowGraph;
+import ir.aspacrm.my.app.mahan.ActivityShowNews;
 import ir.aspacrm.my.app.mahan.ActivityShowNotify;
 import ir.aspacrm.my.app.mahan.ActivityShowTickets;
 import ir.aspacrm.my.app.mahan.ActivityShowUserInfo;
@@ -67,51 +68,51 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
             public void onClick(View v) {
                 switch (holder.getAdapterPosition()) {
                     case 0:
-                        G.context.startActivity(new Intent(context, ActivityShowUserInfo.class));
+                        G.context.startActivity(new Intent(context, ActivityShowUserInfo.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 1:
-                        G.context.startActivity(new Intent(context, ActivityShowConnections.class));
+                        G.context.startActivity(new Intent(context, ActivityShowConnections.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 2:
                         if (G.currentLicense != null) {
                             if (G.currentLicense.chargeOnline) {
-                                G.context.startActivity(new Intent(context, ActivityChargeOnline.class));
+                                G.context.startActivity(new Intent(context, ActivityChargeOnline.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                             } else {
                                 U.toast("امکان شارژ آنلاین برای شما فعال نمیباشد.");
                             }
                         }
                         break;
                     case 3:
-                        G.context.startActivity(new Intent(context, ActivityPayments.class));
+                        G.context.startActivity(new Intent(context, ActivityPayments.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 4:
-                        G.context.startActivity(new Intent(context, ActivityShowGraph.class));
+                        G.context.startActivity(new Intent(context, ActivityShowGraph.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 5:
                         // Teste SorAt
                         break;
 
                     case 6:
-                        G.context.startActivity(new Intent(context, ActivityShowTickets.class));
+                        G.context.startActivity(new Intent(context, ActivityShowTickets.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 7:
                         //Davate Dostan
                         break;
 
                     case 8:
-                        G.context.startActivity(new Intent(context, ActivityShowClubScores.class));
+                        G.context.startActivity(new Intent(context, ActivityShowClubScores.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 9:
-                        G.context.startActivity(new Intent(context, ActivityShowNotify.class));
+                        G.context.startActivity(new Intent(context, ActivityShowNotify.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 10:
                         //Baazi
                         break;
                     case 11:
-                        G.context.startActivity(new Intent(context, ActivityShowFeshfeshe.class));
+                        G.context.startActivity(new Intent(context, ActivityShowFeshfeshe.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 12:
-                        G.context.startActivity(new Intent(context, ActivityShowFeshfeshe.class));
+                        G.context.startActivity(new Intent(context, ActivityShowNews.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 13:
                         DialogClass dialogExit = new DialogClass();

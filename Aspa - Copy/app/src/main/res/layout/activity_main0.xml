@@ -8,6 +8,7 @@
     tools:context=".ActivityMain0">
 
     <android.support.v7.widget.Toolbar
+        android:visibility="gone"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize" />
@@ -26,6 +27,8 @@
             android:orientation="vertical"
             tools:context="ir.aspacrm.my.app.mahan.ActivityMain">
 
+
+
             <ImageView
                 android:id="@+id/mask_mainbg"
                 android:layout_width="match_parent"
@@ -41,12 +44,22 @@
                 android:adjustViewBounds="true"
                 android:src="@drawable/bg_main" />
 
+            <ImageView
+                android:id="@+id/imgDrawerToggle"
+                android:layout_margin="16dp"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+
         </FrameLayout>
 
         <fragment
             android:id="@+id/replace_fragment"
             android:name="ir.aspacrm.my.app.mahan.fragment.FragmentDrawer"
-            android:layout_width="400dp"
+            android:layout_width="260dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
             android:layout_weight="1" />

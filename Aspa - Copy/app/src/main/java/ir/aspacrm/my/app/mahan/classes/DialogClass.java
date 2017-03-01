@@ -14,6 +14,7 @@ import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.adapter.AdapterSpinnerPoll;
+import ir.aspacrm.my.app.mahan.component.PersianTextViewNormal;
 import ir.aspacrm.my.app.mahan.events.*;
 import ir.aspacrm.my.app.mahan.gson.FactorDetailResponse;
 import ir.aspacrm.my.app.mahan.gson.GetIspInfoResponse;
@@ -50,7 +51,7 @@ public class DialogClass {
 
         LinearLayout layBtnPositive = (LinearLayout) dialog.findViewById(R.id.layBtnOk);
         LinearLayout layBtnNegative = (LinearLayout) dialog.findViewById(R.id.layBtnCancel);
-        ImageView imgCloseDialog = (ImageView) dialog.findViewById(R.id.imgCloseDialog);
+        PersianTextViewNormal imgCloseDialog = (PersianTextViewNormal) dialog.findViewById(R.id.imgCloseDialog);
         TextView txtBtnOk = (TextView) layBtnPositive.findViewById(R.id.txtValue);
         TextView txtBtnCancel = (TextView) layBtnNegative.findViewById(R.id.txtValue);
 
