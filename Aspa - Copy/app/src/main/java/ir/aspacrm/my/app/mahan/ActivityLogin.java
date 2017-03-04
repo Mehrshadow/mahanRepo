@@ -378,8 +378,8 @@ public class ActivityLogin extends AppCompatActivity {
 //                .error(R.mipmap.ic_launcher)
 //                .into(imgIspLogo);
         txtIspName.setText("" + ispInfo.Name);
-        if (ispInfo.OnlineReg != 0)
-            txtRegister.setVisibility(View.VISIBLE);
+//        if (ispInfo.OnlineReg != 0)
+//            txtRegister.setVisibility(View.VISIBLE);
     }
 
     public void onEventMainThread(EventOnGetLoginResponse event) {

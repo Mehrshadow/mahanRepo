@@ -379,6 +379,14 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         }
     }
 
+    public void onEventMainThread(EventOnClickedLogoutButton event) {
+        Logger.d("ActivityMain : EventOnClickedLogoutButton is raised");
+        G.currentUser.isLogin = false;
+        G.currentUser.save();
+        startActivity(new Intent(context, ActivityLogin.class));
+        finish();
+    }
+
     private void setOnClickListeners() {
         btnTempConnection.setOnClickListener(this);
         btnEnter.setOnClickListener(this);
