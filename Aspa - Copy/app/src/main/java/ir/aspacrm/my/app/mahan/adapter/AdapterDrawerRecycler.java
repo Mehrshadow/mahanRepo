@@ -34,6 +34,8 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
 
     List<String> list;
     Context context;
+    private String link = "http://google.com";
+    private String txt = "این متن جهت ارسال به کاربران نوشته شده و کاربرد دیگری ندارد! از لینک زیر استفاده نمایید!";
 
 
     public AdapterDrawerRecycler(List<String> list, Context context) {
@@ -54,7 +56,6 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
             holder.imgImage.setBackgroundResource(R.drawable.ic_person_dark);
         } else {
             holder.imgImage.setBackgroundResource(R.drawable.ic_circle);
-
         }
 
         holder.txtText.setText(list.get(position));
@@ -90,8 +91,8 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
                     case 6:
                         G.context.startActivity(new Intent(context, ActivityShowTickets.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
-                    case 7:
-                        new DialogClass().showMessageDialog(context.getString(R.string.future), context.getString(R.string.item_available_in_future));
+                    case 7:// davat az doostan
+                        sendText();
                         break;
 
                     case 8:
@@ -138,5 +139,16 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
 
         }
 
+    }
+
+    private void sendText() {
+        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+        sendIntent.setType("text/plain");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, txt + "\n\n" + link);
+        try {
+            context.startActivity(Intent.createChooser(sendIntent, context.getString(R.string.choose_sender)));
+        } catch (android.content.ActivityNotFoundException ex) {
+            new DialogClass().showMessageDialog(context.getString(R.string.error), context.getString(R.string.send_failure));
+        }
     }
 }
