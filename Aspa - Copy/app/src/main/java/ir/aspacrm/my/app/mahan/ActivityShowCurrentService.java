@@ -89,6 +89,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         setContentView(R.layout.activity_show_current_service);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
+        WebService.sendGetUserAccountInfoRequest();
 
 
         initToolbar();
@@ -377,6 +378,14 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         if (dlgUpdate != null) {
             dlgUpdate.showInstallButton();
         }
+    }
+
+    public void onEventMainThread(EventOnClickedLogoutButton event) {
+        Logger.d("ActivityMain : EventOnClickedLogoutButton is raised");
+        G.currentUser.isLogin = false;
+        G.currentUser.save();
+        startActivity(new Intent(context, ActivityLogin.class));
+        finish();
     }
 
     private void setOnClickListeners() {
