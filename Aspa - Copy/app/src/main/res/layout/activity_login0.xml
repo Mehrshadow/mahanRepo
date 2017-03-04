@@ -27,8 +27,19 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/size_toolbar_height"
-            android:background="@color/white">
+            android:layout_height="@dimen/size_toolbar_height">
+
+
+            <ImageView
+                android:layout_gravity="right"
+                android:scaleType="fitCenter"
+                android:visibility="visible"
+                android:id="@+id/imgIspLogo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/login_toolbar" />
+
+
 
 
             <!--<ImageView-->

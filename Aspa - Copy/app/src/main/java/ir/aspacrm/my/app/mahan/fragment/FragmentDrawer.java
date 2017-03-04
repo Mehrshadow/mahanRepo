@@ -59,12 +59,13 @@ public class FragmentDrawer extends Fragment {
         initView();
         EventBus.getDefault().register(this);
         WebService.sendGetClubScoreRequest();
+        WebService.sendGetUserAccountInfoRequest();
         return view;
     }
 
     private void initView() {
-        txtRemainDay = (PersianTextViewBold) view.findViewById(R.id.txtRemainDay);
-        txtRemainDay2 = (PersianTextViewBold) view.findViewById(R.id.txtRemainDay2);
+        txtRemainDay = (TextView) view.findViewById(R.id.txtRemainDay);
+        txtRemainDay2 = (TextView) view.findViewById(R.id.txtRemainDay2);
 
         txtScore = (ir.aspacrm.my.app.mahan.component.PersianTextViewNormal) view.findViewById(R.id.txtScore);
 
