@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#7F0145</color>
-    <color name="colorPrimaryDark">#212121</color>
+    <color name="colorPrimary">#0089cf</color>
+    <color name="colorPrimaryDark">#1F4258</color>
     <color name="colorAccent">#f16521</color>
     <color name="circle_background_color">#00897B</color>
     <color name="progressbar_color">#00695C</color>

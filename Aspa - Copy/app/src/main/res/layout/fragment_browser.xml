@@ -73,7 +73,7 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_marginRight="5dp"
-                app:matProg_barColor="@color/white"
+                app:matProg_barColor="@color/black"
                 app:matProg_progressIndeterminate="true" />
 
             <ir.aspacrm.my.app.mahan.component.PersianTextViewThin

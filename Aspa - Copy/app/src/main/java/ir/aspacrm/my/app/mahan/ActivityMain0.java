@@ -52,7 +52,6 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle mActionBarDrawerToggle;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -31,26 +31,22 @@
             android:background="@color/white">
 
 
-            <ImageView
-                android:id="@+id/imgIspLogo"
-                android:layout_width="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_height="match_parent"
-                //
-                android:src="@drawable/login_toolbar" />
-
-
             <!--<ImageView-->
-                <!--android:scaleType="fitXY"-->
-                <!--android:src="@drawable/toolbar"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="?attr/actionBarSize"/>-->
+                <!--android:id="@+id/imgIspLogo"-->
+                <!--android:layout_width="150dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginStart="20dp"-->
+                <!--android:src="@drawable/login_toolbar" />-->
+
+            <ImageView
+            android:scaleType="fitXY"
+            android:src="@drawable/toolbar"
+            android:layout_width="match_parent"
+                android:layout_height="@dimen/size_toolbar_height"/>
         </FrameLayout>
 
-
         <View
-
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".2" />

@@ -113,7 +113,7 @@
             android:layout_gravity="bottom"
             android:layout_marginLeft="6dp"
             android:text="بازگشت"
-            android:textColor="@color/black" />
+            android:textColor="@color/txt_blue" />
 
     </LinearLayout>
 </RelativeLayout>

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:src="@drawable/ic_arrow_down" />
+            android:src="@drawable/ic_expand_more_purpule_36dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="بروزرسانی"
-            android:textColor="@color/text_color_items"
+            android:textColor="@color/back_orange_btn"
             android:textSize="@dimen/size_font_very_small"
             android:typeface="serif" />
     </LinearLayout>
