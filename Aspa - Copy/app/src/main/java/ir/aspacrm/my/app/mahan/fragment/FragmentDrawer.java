@@ -61,6 +61,7 @@ public class FragmentDrawer extends Fragment {
         initView();
         EventBus.getDefault().register(this);
         WebService.sendGetClubScoreRequest();
+        WebService.sendGetUserAccountInfoRequest();
         return view;
     }
 
