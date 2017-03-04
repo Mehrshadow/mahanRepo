@@ -27,7 +27,6 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-<<<<<<< HEAD
             android:layout_height="@dimen/size_toolbar_height">
 
 
@@ -39,10 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/login_toolbar" />
-=======
-            android:layout_height="@dimen/size_toolbar_height"
-            android:background="@color/white">
->>>>>>> new
+
+
 
 
             <!--<ImageView-->
