@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import net.time4j.format.DisplayMode;
 import net.time4j.format.expert.ChronoFormatter;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -85,7 +83,7 @@ public class FragmentDrawer extends Fragment {
         title.add(getString(R.string.pointReports));
         title.add(getString(R.string.messages));
         title.add(getString(R.string.games));
-        title.add(getString(R.string.spesioansuggestion));
+        title.add(getString(R.string.special_offer));
         title.add(getString(R.string.news));
         title.add(getString(R.string.exit));
 
