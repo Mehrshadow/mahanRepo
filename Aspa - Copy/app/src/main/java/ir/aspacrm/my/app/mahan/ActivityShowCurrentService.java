@@ -89,6 +89,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         setContentView(R.layout.activity_show_current_service);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
+        WebService.sendGetUserAccountInfoRequest();
 
 
         initToolbar();
