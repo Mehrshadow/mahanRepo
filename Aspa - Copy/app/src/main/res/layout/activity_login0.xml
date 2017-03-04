@@ -37,10 +37,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
-                android:visibility="visible" />
+                //
+                android:src="@drawable/login_toolbar" />
 
 
             <!--<ImageView-->
