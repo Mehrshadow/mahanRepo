@@ -24,7 +24,6 @@ import android.widget.TextView;
 import com.activeandroid.query.Select;
 import com.google.gson.Gson;
 import com.pnikosis.materialishprogress.ProgressWheel;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -378,8 +377,8 @@ public class ActivityLogin extends AppCompatActivity {
 //                .error(R.mipmap.ic_launcher)
 //                .into(imgIspLogo);
         txtIspName.setText("" + ispInfo.Name);
-        if (ispInfo.OnlineReg != 0)
-            txtRegister.setVisibility(View.VISIBLE);
+//        if (ispInfo.OnlineReg != 0)
+//            txtRegister.setVisibility(View.VISIBLE);
     }
 
     public void onEventMainThread(EventOnGetLoginResponse event) {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ارتباطات آرسین</string>
+    <string name="app_name">ماهان</string>
     <string name="values_folder">values</string>
     <string name="username">نام کاربری</string>
     <string name="password">رمز عبور</string>
@@ -7,7 +7,6 @@
     <string name="connectionReport">سوابق اتصال مشتری</string>
     <string name="onlineSharj">شارژ آنلاین</string>
     <string name="payReport">سوابق پرداخت</string>
-    <string name="consumثchart">نمودار مصرف</string>
     <string name="consumechart">نمودار مصرف</string>
     <string name="speedTest">تست سرعت</string>
     <string name="tickets">تیکت ها</string>

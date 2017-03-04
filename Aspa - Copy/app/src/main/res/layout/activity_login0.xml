@@ -211,6 +211,7 @@
                     android:layout_marginBottom="8dp"
                     android:text="ثبت نام مشترک جدید"
                     android:textColor="@color/white"
+                    android:visibility="gone"
                     android:textSize="@dimen/size_font_very_small"
                     android:typeface="sans" />
 
