@@ -108,7 +108,7 @@
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="6dp"
                 android:text="بازگشت"
-                android:textColor="@color/text_color_items" />
+                android:textColor="@color/txt_blue" />
 
         </LinearLayout>
 
