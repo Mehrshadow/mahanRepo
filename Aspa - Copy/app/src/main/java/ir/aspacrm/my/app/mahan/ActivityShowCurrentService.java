@@ -21,6 +21,7 @@ import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.Downloader;
+import ir.aspacrm.my.app.mahan.classes.GpsService;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.U;
 import ir.aspacrm.my.app.mahan.classes.WebService;
@@ -90,6 +91,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
         WebService.sendGetUserAccountInfoRequest();
+        startGpsService();
 
 
         initToolbar();
@@ -132,6 +134,22 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
                 }
             }).start();
         }
+    }
+
+    private void startGpsService() {
+        Intent i =new Intent(getApplicationContext(),GpsService.class);
+        startService(i);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopGpsService();
+    }
+
+    private void stopGpsService() {
+        Intent i = new Intent(getApplicationContext(),GpsService.class);
+        stopService(i);
     }
 
     @Override

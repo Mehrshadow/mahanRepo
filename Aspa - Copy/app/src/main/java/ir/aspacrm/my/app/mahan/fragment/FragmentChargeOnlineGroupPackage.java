@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.Bind;
@@ -38,6 +39,8 @@ public class FragmentChargeOnlineGroupPackage extends Fragment {
 
     @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
     @Bind(R.id.txtPageTitle) TextView txtPageTitle;
+    @Bind(R.id.imgToolbar)
+    ImageView imgToolbar;
 
     AdapterChargeOnlineGroupPackage adapterChargeOnlineGroupPackage;
     LinearLayoutManager linearLayoutManager;
@@ -79,6 +82,8 @@ public class FragmentChargeOnlineGroupPackage extends Fragment {
         groupCode = getArguments().getLong("GROUP_CODE");
 
         txtPageTitle.setText(U.getMenuItemName(whichMenuItem));
+        U.getMenuItemIcon(imgToolbar,whichMenuItem);
+
 
         adapterChargeOnlineGroupPackage = new AdapterChargeOnlineGroupPackage(packages,isClub);
         linearLayoutManager = new LinearLayoutManager(G.context);
