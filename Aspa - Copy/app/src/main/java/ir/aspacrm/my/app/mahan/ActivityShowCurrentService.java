@@ -253,12 +253,12 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
                 tvRemainingDays.setText("" + G.currentAccount.rHour + " " + "ساعت" + " ");
             }
         }
-        if (G.currentAccount.rTraffic == -11111) {
-            tvRemainingDays.setText("نامحدود");
-            lblRemainingDays.setVisibility(View.GONE);
-        } else {
-            tvRemainingDays.setText(G.currentAccount.rTraffic + " " + "مگابایت" + " ");
-        }
+//        if (G.currentAccount.rTraffic == -11111) {
+//            tvRemainingDays.setText("نامحدود");
+//            lblRemainingDays.setVisibility(View.GONE);
+//        } else {
+//            tvRemainingDays.setText(G.currentAccount.rTraffic + " " + "مگابایت" + " ");
+//        }
     }
 
     public void onEventMainThread(EventOnGetErrorRegConnect event) {

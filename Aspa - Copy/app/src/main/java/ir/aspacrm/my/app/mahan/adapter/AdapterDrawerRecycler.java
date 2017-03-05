@@ -138,7 +138,6 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
             layout = (LinearLayout) itemView.findViewById(R.id.lay);
 
         }
-
     }
 
     private void sendText() {
