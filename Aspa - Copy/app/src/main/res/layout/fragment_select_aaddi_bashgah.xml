@@ -37,17 +37,29 @@
                     android:src="@drawable/sv_arrows_white" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtPageTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
                 android:layout_gravity="center"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
-                android:text="شارژ آنلاین"
-                android:textColor="@color/text_color_items"
-                android:textSize="@dimen/size_font_very_small"
-                android:typeface="sans" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imgtoolbar"
+                    android:src="@drawable/ic_charge_online"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/txtPageTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="شارژ آنلاین"
+                    android:textColor="@color/text_color_items"
+                    android:textSize="@dimen/size_font_very_small"
+                    android:typeface="sans" />
+            </LinearLayout>
+
+
         </FrameLayout>
     </LinearLayout>
 

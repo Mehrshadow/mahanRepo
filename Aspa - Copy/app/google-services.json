@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "259111650524",
+    "firebase_url": "https://aspamahan-463a8.firebaseio.com",
+    "project_id": "aspamahan-463a8",
+    "storage_bucket": "aspamahan-463a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259111650524:android:e347386ca19ff70b",
+        "android_client_info": {
+          "package_name": "ir.aspacrm.my.app.mahan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259111650524-ns9jr1vmtdr6ujubic06jk0s0j2unebs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5W1LVB99tVLzQBZ53l6FWvdWqU8pOL6o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

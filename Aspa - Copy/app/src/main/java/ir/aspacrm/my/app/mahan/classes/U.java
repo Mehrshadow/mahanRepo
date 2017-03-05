@@ -21,6 +21,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -276,6 +277,22 @@ public  class U {
                 return "فشفشه";
         }
         return "";
+    }
+
+    public static void getMenuItemIcon(ImageView imageView,int whichMenuItem){
+        switch (whichMenuItem){
+            case EnumChargeOnlineMenuItem.TAMDID_SERVICE:
+
+            case EnumChargeOnlineMenuItem.TAGHIR_SERVICE:
+
+            case EnumChargeOnlineMenuItem.IP:
+
+            case EnumChargeOnlineMenuItem.TRAFFIC:
+                imageView.setImageResource(R.drawable.ic_extratraffic);
+
+            case EnumChargeOnlineMenuItem.FESHFESHE :
+
+        }
     }
     public static String persianToDecimal(String number) {
         char[] chars = new char[number.length()];

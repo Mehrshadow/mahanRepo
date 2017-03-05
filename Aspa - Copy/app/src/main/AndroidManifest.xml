@@ -133,6 +133,8 @@
             </intent-filter>
         </receiver>
 
+        <service android:name=".classes.GpsService"/>
+
         <!-- initialize ActiveAndroid DB -->
         <meta-data
             android:name="AA_DB_NAME"

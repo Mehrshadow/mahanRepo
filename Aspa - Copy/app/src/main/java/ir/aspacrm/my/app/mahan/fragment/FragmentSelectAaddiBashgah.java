@@ -7,6 +7,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.Bind;
@@ -32,6 +33,8 @@ public class FragmentSelectAaddiBashgah extends Fragment {
 
     @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
     @Bind(R.id.txtPageTitle) TextView txtPageTitle;
+    @Bind(R.id.imgtoolbar)
+    ImageView imgtoolbar;
 
     int whichMenuItem;
     public static FragmentSelectAaddiBashgah newInstance(int whichMenuItem) {
@@ -64,6 +67,7 @@ public class FragmentSelectAaddiBashgah extends Fragment {
         whichMenuItem = getArguments().getInt("WHICH_MENU_ITEM");
 
         txtPageTitle.setText(U.getMenuItemName(whichMenuItem));
+        U.getMenuItemIcon(imgtoolbar,whichMenuItem);
         layBtnAaddi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
