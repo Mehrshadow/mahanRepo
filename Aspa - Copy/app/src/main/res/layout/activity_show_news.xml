@@ -35,20 +35,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp">
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_news" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
                 android:text="اخبار"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color_items"
                 android:textSize="@dimen/size_font_very_small"
                 android:typeface="sans" />
+
 
         </LinearLayout>
 
@@ -57,13 +61,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
-            android:layout_above="@id/layBtnBack"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@id/layBtnBack"
             android:orientation="vertical">
 
             <android.support.v4.widget.SwipeRefreshLayout
