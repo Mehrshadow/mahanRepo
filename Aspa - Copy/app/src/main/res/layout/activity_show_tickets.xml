@@ -51,7 +51,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
-                android:text="تیکت ها"
+                android:text="پشتیبانی"
                 android:textColor="@color/text_color_items"
                 android:textSize="@dimen/size_font_very_small"
                 android:typeface="sans" />

@@ -53,7 +53,7 @@ public class AdapterTicket extends RecyclerView.Adapter<AdapterTicket.TicketView
         @Bind(R.id.txtTicketDate) TextView txtTicketDate;
         @Bind(R.id.txtTicketStatus) TextView txtTicketStatus;
         @Bind(R.id.txtTicketPriority) TextView txtTicketPriority;
-        @Bind(R.id.cardTicketMain) CardView cardTicketMain;
+//        @Bind(R.id.cardTicketMain) CardView cardTicketMain;
         @Bind(R.id.layMoreDetail) LinearLayout layMoreDetail;
         public TicketViewHolder(View itemView) {
             super(itemView);
