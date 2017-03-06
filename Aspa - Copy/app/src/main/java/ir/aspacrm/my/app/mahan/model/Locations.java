@@ -17,6 +17,50 @@ public class Locations extends Model {
     @Column(name = "Longitude")
     double Longitude;
 
+    @Column(name = "Des")
+    String Des;
+
+    @Column(name = "startDate")
+    String startDate;
+
+    @Column(name = "endDate")
+    String endDate;
+
+    @Column(name = "scoreTypeCode")
+    int scoreTypeCode;
+
+    public int getScoreTypeCode() {
+        return scoreTypeCode;
+    }
+
+    public void setScoreTypeCode(int scoreTypeCode) {
+        this.scoreTypeCode = scoreTypeCode;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getDes() {
+        return Des;
+    }
+
+    public void setDes(String des) {
+        Des = des;
+    }
+
     public double getLatitude() {
         return Latitude;
     }

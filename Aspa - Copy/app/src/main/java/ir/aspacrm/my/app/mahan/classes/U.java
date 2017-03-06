@@ -43,6 +43,7 @@ import ir.aspacrm.my.app.mahan.model.Connection;
 import ir.aspacrm.my.app.mahan.model.Factor;
 import ir.aspacrm.my.app.mahan.model.FactorDetail;
 import ir.aspacrm.my.app.mahan.model.Feshfeshe;
+import ir.aspacrm.my.app.mahan.model.Locations;
 import ir.aspacrm.my.app.mahan.model.Payment;
 import ir.aspacrm.my.app.mahan.model.Ticket;
 import ir.aspacrm.my.app.mahan.model.TicketDetail;
@@ -241,6 +242,9 @@ public  class U {
     }
     public static void deletePaymentTableItem(){
         new Delete().from(Payment.class).where("UserId = ?", G.currentUser.userId).execute();
+    }
+    public static void deleteLocationsItem(){
+        new Delete().from(Locations.class).execute();
     }
     public static void deleteFeshfesheTableItem(){
         new Delete().from(Feshfeshe.class).where("UserId = ?", G.currentUser.userId).execute();

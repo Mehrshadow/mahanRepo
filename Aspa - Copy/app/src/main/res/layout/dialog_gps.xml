@@ -11,20 +11,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-            android:id="@+id/imgCloseDialog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/imgBtnClose"
             android:layout_gravity="center"
-            android:layout_margin="3dp"
-            android:background="@color/back_orange_btn"
-            android:foreground="@drawable/ripple_list_item"
-            android:gravity="center"
-            android:minHeight="30dp"
-            android:minWidth="70dp"
-            android:padding="5dp"
-            android:text="@string/exit"
-            android:textColor="@color/white" />
+            android:src="@drawable/ic_expand_more_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout

@@ -34,6 +34,7 @@
                     android:layout_height="match_parent">
                     <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                         android:visibility="visible"
+                        android:textColor="@color/white"
                         android:layout_gravity="center"
                         android:id="@+id/txtScore"
                         android:layout_width="wrap_content"
@@ -55,6 +56,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
+                    android:textColor="@color/white"
+
                     android:text="در حال استفاده" />
 
 
@@ -82,6 +85,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
+                android:textColor="@color/white"
+
                 android:text=""
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -119,7 +124,7 @@
                 android:orientation="vertical">
 
 
-                <TextView
+                <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                     android:textDirection="rtl"
                     android:id="@+id/txtRemainDay2"
                     android:layout_width="match_parent"
@@ -128,7 +133,7 @@
                     android:textColor="@color/back_drawer"
                     android:textSize="@dimen/size_font_big" />
 
-                <TextView
+                <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                     android:id="@+id/txtRemainDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
