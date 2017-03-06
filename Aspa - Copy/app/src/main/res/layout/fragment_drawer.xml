@@ -20,45 +20,47 @@
 
 
             <LinearLayout
-                android:gravity="right"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:orientation="vertical">
 
 
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-                        android:visibility="visible"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center"
+
+                    <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                         android:id="@+id/txtScore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_margin="4dp"
+                        android:textSize="12sp"
+                        android:ellipsize="end"
                         android:maxLines="2"
-                        android:ellipsize="end" />
+                        android:textColor="@color/white"
+                        android:visibility="visible" />
+
                     <ProgressBar
                         android:id="@+id/prgLoadingScore"
-                        android:layout_gravity="center"
                         android:layout_width="24dp"
-                        android:layout_height="24dp" />
+                        android:layout_height="24dp"
+                        android:layout_gravity="center" />
                 </FrameLayout>
 
 
-
-                <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+                <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                     android:id="@+id/txtStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
+                    android:text="در حال استفاده"
                     android:textColor="@color/white"
-
-                    android:text="در حال استفاده" />
+                    android:textSize="12sp" />
 
 
             </LinearLayout>
@@ -79,15 +81,15 @@
             android:layout_gravity="right"
             android:orientation="horizontal">
 
-            <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                 android:id="@+id/txtName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:textColor="@color/white"
-
                 android:text=""
+
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -102,49 +104,48 @@
     </LinearLayout>
 
 
-        <LinearLayout
-            android:background="@color/white"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/RecyDrawer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight=".8">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/RecyDrawer"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".8">
-
-            </android.support.v7.widget.RecyclerView>
-
-            <LinearLayout
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                android:id="@+id/txtRemainDay2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:gravity="center"
+                android:textColor="@color/back_drawer"
+                android:textDirection="rtl"
+                android:textSize="@dimen/size_font_default" />
 
-
-                <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-                    android:textDirection="rtl"
-                    android:id="@+id/txtRemainDay2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textColor="@color/back_drawer"
-                    android:textSize="@dimen/size_font_big" />
-
-                <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-                    android:id="@+id/txtRemainDay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textColor="@color/back_drawer"
-                    android:textSize="@dimen/size_font_big" />
-
-            </LinearLayout>
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                android:id="@+id/txtRemainDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/back_drawer"
+                android:textSize="@dimen/size_font_default" />
 
         </LinearLayout>
 
+    </LinearLayout>
 
 
 </LinearLayout>

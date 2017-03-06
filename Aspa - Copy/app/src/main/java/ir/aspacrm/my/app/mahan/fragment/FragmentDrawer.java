@@ -31,6 +31,7 @@ import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.WebService;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewBold;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewNormal;
+import ir.aspacrm.my.app.mahan.component.PersianTextViewThin;
 import ir.aspacrm.my.app.mahan.events.EventOnGetClubScoreResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetUserAccountInfo;
 import ir.aspacrm.my.app.mahan.events.EventOnGetUserAccountInfoResponse;
@@ -46,8 +47,8 @@ public class FragmentDrawer extends Fragment {
     private View view;
     private RecyclerView RecyDrawer;
     List<String> title;
-    PersianTextViewNormal txtStatus, txtScore, txtName, txtRemainDay2;
-    PersianTextViewNormal txtRemainDay;
+    PersianTextViewThin txtStatus, txtScore, txtName, txtRemainDay2;
+    PersianTextViewThin txtRemainDay;
     LinearLayout layTotalClubScore;
     ProgressBar prgLoadingScore;
 
@@ -64,10 +65,10 @@ public class FragmentDrawer extends Fragment {
     }
 
     private void initView() {
-        txtRemainDay = (PersianTextViewNormal) view.findViewById(R.id.txtRemainDay);
-        txtRemainDay2 = (PersianTextViewNormal) view.findViewById(R.id.txtRemainDay2);
+        txtRemainDay = (PersianTextViewThin) view.findViewById(R.id.txtRemainDay);
+        txtRemainDay2 = (PersianTextViewThin) view.findViewById(R.id.txtRemainDay2);
 
-        txtScore = (ir.aspacrm.my.app.mahan.component.PersianTextViewNormal) view.findViewById(R.id.txtScore);
+        txtScore = (PersianTextViewThin) view.findViewById(R.id.txtScore);
 
         prgLoadingScore = (ProgressBar) view.findViewById(R.id.prgLoadingScore);
 
@@ -140,10 +141,10 @@ public class FragmentDrawer extends Fragment {
 //        int mDay = cc.get(Calendar.DAY_OF_MONTH);
 //        System.out.println("Date", year+":"+month+":"+mDay);
 
-        txtStatus = (PersianTextViewNormal) view.findViewById(R.id.txtStatus);
+        txtStatus = (PersianTextViewThin) view.findViewById(R.id.txtStatus);
         txtStatus.setText(G.currentUserInfo != null ? G.currentUserInfo.status : "");
 
-        txtName = (PersianTextViewNormal) view.findViewById(R.id.txtName);
+        txtName = (PersianTextViewThin) view.findViewById(R.id.txtName);
         txtName.setText(G.currentUserInfo != null ? G.currentUserInfo.fullName : "");
 
         if (G.currentAccount.rHour == -11111) {

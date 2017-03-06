@@ -35,7 +35,7 @@ public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnCli
     @Bind(R.id.layIP) LinearLayout layIP;
     @Bind(R.id.layBtnFeshfeshe) LinearLayout layBtnFeshfeshe;
     @Bind(R.id.layFeshfeshe) LinearLayout layFeshfeshe;
-    @Bind(R.id.layShowMenuItem) CardView layShowMenuItem;
+    @Bind(R.id.layShowMenuItem) LinearLayout layShowMenuItem;
     @Bind(R.id.layLoading) LinearLayout layLoading;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
 
