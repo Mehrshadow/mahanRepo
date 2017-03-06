@@ -12,14 +12,14 @@ import java.util.concurrent.TimeUnit;
 public class WebService {
 
     //جستجوی شرکت ها  http://mng.aspacrm.ir/service.aspx
-    public static void sendGetIspUrlRequest(long customerId){
+    public static void sendGetIspUrlRequest(long customerId) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
-                .add("rt","GetISPUrl")
+                .add("rt", "GetISPUrl")
                 .add("Id", "" + customerId)
                 .build();
         Request request = new Request.Builder().url(G.JMWS).post(body).build();
@@ -29,9 +29,10 @@ public class WebService {
                 EventBus.getDefault().post(new EventOnGetErrorIspUrl(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 //U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if (!response.isSuccessful()){
+                if (!response.isSuccessful()) {
                     EventBus.getDefault().post(new EventOnGetErrorIspUrl(EnumInternetErrorType.REQUEST_CODE_NOT_SUCCEEDED));
                     return;
                 }
@@ -39,16 +40,17 @@ public class WebService {
             }
         });
     }
+
     //جستجوی شرکت ها  http://mng.aspacrm.ir/service.aspx
-    public static void sendGetIspListRequest(String des){
+    public static void sendGetIspListRequest(String des) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
-                .add("rt","SearchISP")
-                .add("des",des)
+                .add("rt", "SearchISP")
+                .add("des", des)
                 .build();
         Request request = new Request.Builder().url(G.JMWS).post(body).build();
         client.newCall(request).enqueue(new Callback() {
@@ -57,37 +59,40 @@ public class WebService {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if (!response.isSuccessful()){
+                if (!response.isSuccessful()) {
                     EventBus.getDefault().post(new EventOnGetErrorIspList());
-                  return;
+                    return;
                 }
                 JsonParser.getIspListResponse(response.body().string());
             }
         });
     }
+
     //گرفتن اطلاعات شرکت برای نمایش دادن در صفحه لاگین
-    public static void sendGetIspInfoLoginRequest(String ispURL){
+    public static void sendGetIspInfoLoginRequest(String ispURL) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetIspInfoLogin")
-                .add("MyLink",ispURL)
+                .add("MyLink", ispURL)
                 .build();
-        Request request = new Request.Builder().url( ispURL + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(ispURL + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if (!response.isSuccessful()){
+                if (!response.isSuccessful()) {
                     EventBus.getDefault().post(new EventOnGetErrorIspInfo());
                     return;
                 }
@@ -95,17 +100,18 @@ public class WebService {
             }
         });
     }
+
     //لاکین کردن
-    public static void sendLoginRequest(final String ispURL, final long ispId,String username, String password){
+    public static void sendLoginRequest(final String ispURL, final long ispId, String username, String password) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
-                .add("rt","Authenticate")
+                .add("rt", "Authenticate")
                 .add("deviceName", "" + U.getDeviceName())
-                .add("DeviceModel", "" +  U.getDeviceModel())
+                .add("DeviceModel", "" + U.getDeviceModel())
                 .add("OsVer", "" + U.getOSVersion())
                 .add("ResW", "" + U.getDeviceWidth())
                 .add("ResH", "" + U.getDeviceHeight())
@@ -118,7 +124,7 @@ public class WebService {
         Logger.d("Webservice : username is " + U.persianToDecimal(username));
         Logger.d("Webservice : password is " + U.persianToDecimal(password));
 
-        Request request = new Request.Builder().url( ispURL + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(ispURL + G.WS_PAGE).post(body).build();
 //        Logger.d("WebService : rt is " + "Authenticate");
 //        Logger.d("WebService : deviceName is " + U.getDeviceName());
 //        Logger.d("WebService : DeviceModel is " +  U.getDeviceModel());
@@ -142,26 +148,27 @@ public class WebService {
                     EventBus.getDefault().post(new EventOnGetErrorLogin());
                     return;
                 }
-                JsonParser.getLoginResponse(response.body().string(),ispId,ispURL);
+                JsonParser.getLoginResponse(response.body().string(), ispId, ispURL);
             }
         });
     }
+
     //گرفتن لایسنس برای مشترکی که لاگین کرده است
-    public static void sendGetUserLicenseRequest(){
-        OkHttpClient client =new OkHttpClient.Builder()
+    public static void sendGetUserLicenseRequest() {
+        OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetLicence")
-                .add("UserID", "" + G.currentUser.userId )
-                .add("ExKey", "" +  G.currentUser.exKey )
+                .add("UserID", "" + G.currentUser.userId)
+                .add("ExKey", "" + G.currentUser.exKey)
                 .build();
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendGetUserLicenseRequest rt is " + "GetLicence");
         Logger.d("WebService : sendGetUserLicenseRequest UserID is " + G.currentUser.userId);
-        Logger.d("WebService : sendGetUserLicenseRequest ExKey is " +  G.currentUser.exKey);
+        Logger.d("WebService : sendGetUserLicenseRequest ExKey is " + G.currentUser.exKey);
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -179,29 +186,31 @@ public class WebService {
             }
         });
     }
+
     //گرفتن اطلاعات اکانت مشترک
     public static void sendGetUserAccountInfoRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetRemain")
-                .add("UserID", "" + G.currentUser.userId )
-                .add("ExKey", "" +  G.currentUser.exKey )
+                .add("UserID", "" + G.currentUser.userId)
+                .add("ExKey", "" + G.currentUser.exKey)
                 .build();
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendGetUserAccountInfoRequest url is " + G.currentUser.ispUrl + G.WS_PAGE);
         Logger.d("WebService : sendGetUserAccountInfoRequest rt is " + "GetRemain");
         Logger.d("WebService : sendGetUserAccountInfoRequest UserID is " + G.currentUser.userId);
-        Logger.d("WebService : sendGetUserAccountInfoRequest ExKey is " +  G.currentUser.exKey);
+        Logger.d("WebService : sendGetUserAccountInfoRequest ExKey is " + G.currentUser.exKey);
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorGetUserAccountInfo(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -212,22 +221,23 @@ public class WebService {
             }
         });
     }
+
     //گرفتن اطلاعات مشترکی که لاگین کرده است
-    public static void sendGetUserInfoRequest(){
+    public static void sendGetUserInfoRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetUserInfo")
-                .add("UserID", "" + G.currentUser.userId )
-                .add("ExKey", "" +  G.currentUser.exKey )
+                .add("UserID", "" + G.currentUser.userId)
+                .add("ExKey", "" + G.currentUser.exKey)
                 .build();
         Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendGetUserInfoRequest rt is " + "GetUserInfo");
         Logger.d("WebService : sendGetUserInfoRequest UserID is " + G.currentUser.userId);
-        Logger.d("WebService : sendGetUserInfoRequest ExKey is " +  G.currentUser.exKey);
+        Logger.d("WebService : sendGetUserInfoRequest ExKey is " + G.currentUser.exKey);
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -245,12 +255,13 @@ public class WebService {
             }
         });
     }
+
     //بازیابی رمز عبور توسط نام کاربری و شماره موبایل ذخیره در سیستم
-    public static void sendRememberPassRequest(String username, String mobile,String ispUrl){
+    public static void sendRememberPassRequest(String username, String mobile, String ispUrl) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "RememberPass")
@@ -261,13 +272,14 @@ public class WebService {
         Logger.d("WebService : sendRememberPassRequest Username is " + username);
         Logger.d("WebService : sendRememberPassRequest Mobile is " + mobile);
 
-        Request request = new Request.Builder().url( ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -278,12 +290,13 @@ public class WebService {
             }
         });
     }
+
     //تغییر رمز مشترک
-    public static void sendChangePasswordRequest(String currentPassword, String newPassword){
-        OkHttpClient client =new OkHttpClient.Builder()
+    public static void sendChangePasswordRequest(String currentPassword, String newPassword) {
+        OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "ChangePassword")
@@ -298,13 +311,14 @@ public class WebService {
         Logger.d("WebService : sendChangePasswordRequest LastPass is " + currentPassword);
         Logger.d("WebService : sendChangePasswordRequest NewPass is " + newPassword);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -315,13 +329,14 @@ public class WebService {
             }
         });
     }
+
     /* WebService for Payment*/
     //گرفتن همه پرداخت های مشترک بر اساس تعدادی که در مدیریت اجازه داده شده است
-    public static void sendGetPaymentRequest(){
+    public static void sendGetPaymentRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetPayments")
@@ -332,13 +347,14 @@ public class WebService {
         Logger.d("WebService : sendGetPaymentRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendGetPaymentRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -349,13 +365,14 @@ public class WebService {
             }
         });
     }
+
     /* WebService for Factor*/
     //گرفتن کلیه فاکتورهای مشترک بر اساس تعدادی که در قسمت مدیریت اجازه داده شده است`
-    public static void sendGetFactorRequest(){
+    public static void sendGetFactorRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetFactors")
@@ -366,13 +383,14 @@ public class WebService {
         Logger.d("WebService : sendGetFactorRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendGetFactorRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -383,47 +401,50 @@ public class WebService {
             }
         });
     }
+
     //گرفتن جزییات فاکتور
-    public static void sendGetFactorDetailRequest(final long factorCode){
-        OkHttpClient client =new OkHttpClient.Builder()
+    public static void sendGetFactorDetailRequest(final long factorCode) {
+        OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetFactorDetails")
                 .add("UserID", "" + G.currentUser.userId)
                 .add("ExKey", "" + G.currentUser.exKey)
-                .add("FactorCode", "" +factorCode)
+                .add("FactorCode", "" + factorCode)
                 .build();
         Logger.d("WebService : sendGetFactorDetailRequest rt is " + "GetFactorDetails");
         Logger.d("WebService : sendGetFactorDetailRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendGetFactorDetailRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendGetFactorDetailRequest FactorCode is " + factorCode);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                EventBus.getDefault().post(new EventOnGetErrorGetFactorDetail(EnumInternetErrorType.NO_INTERNET_ACCESS,factorCode));
+                EventBus.getDefault().post(new EventOnGetErrorGetFactorDetail(EnumInternetErrorType.NO_INTERNET_ACCESS, factorCode));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
-                    EventBus.getDefault().post(new EventOnGetErrorGetFactorDetail(EnumInternetErrorType.REQUEST_CODE_NOT_SUCCEEDED,factorCode));
+                    EventBus.getDefault().post(new EventOnGetErrorGetFactorDetail(EnumInternetErrorType.REQUEST_CODE_NOT_SUCCEEDED, factorCode));
                     return;
                 }
-                JsonParser.getFactorDetailResponse(response.body().string(),factorCode);
+                JsonParser.getFactorDetailResponse(response.body().string(), factorCode);
             }
         });
     }
+
     //شروع کردن فاکتور
-    public static void sendSelectFactorRequest(long factorCode){
-        OkHttpClient client =new OkHttpClient.Builder()
+    public static void sendSelectFactorRequest(long factorCode) {
+        OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "SelectFactor")
@@ -436,13 +457,14 @@ public class WebService {
         Logger.d("WebService : sendStartFactorRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendStartFactorRequest FactorCode is " + factorCode);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -453,12 +475,13 @@ public class WebService {
             }
         });
     }
+
     //انتخاب کردن فاکتور
-    public static void sendStartFactorRequest(long factorCode){
+    public static void sendStartFactorRequest(long factorCode) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "StartFactor")
@@ -471,13 +494,14 @@ public class WebService {
         Logger.d("WebService : sendStartFactorRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendStartFactorRequest FactorCode is " + factorCode);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorStartFactor(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 //U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -488,13 +512,14 @@ public class WebService {
             }
         });
     }
+
     /* WebService for Ticket*/
     //گرفتن واحد ها
-    public static void sendGetUnitsRequest(){
+    public static void sendGetUnitsRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetUnits")
@@ -505,13 +530,14 @@ public class WebService {
         Logger.d("WebService : sendGetUnitsRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendGetUnitsRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -522,12 +548,13 @@ public class WebService {
             }
         });
     }
+
     //اضافه کردن تیکت
-    public static void sendAddTicketRequest(String title, long unitCode, int priority, String des){
+    public static void sendAddTicketRequest(String title, long unitCode, int priority, String des) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "AddTicket")
@@ -546,13 +573,14 @@ public class WebService {
         Logger.d("WebService : sendAddTicketRequest Priority is " + priority);
         Logger.d("WebService : sendAddTicketRequest Des is " + des);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -563,12 +591,13 @@ public class WebService {
             }
         });
     }
+
     //ثبت جزییات تیکت
-    public static void sendAddTicketDetailRequest(long ticketCode, long unitCode, String des){
+    public static void sendAddTicketDetailRequest(long ticketCode, long unitCode, String des) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "AddTicketDetail")
@@ -586,13 +615,14 @@ public class WebService {
         Logger.d("WebService : sendAddTicketDetailRequest TicketCode is " + ticketCode);
         Logger.d("WebService : sendAddTicketDetailRequest Des is " + des);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -603,12 +633,13 @@ public class WebService {
             }
         });
     }
+
     //گرفتن همه تیکت های مشترک
-    public static void sendGetTicketsRequest(){
+    public static void sendGetTicketsRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetTickets")
@@ -620,13 +651,14 @@ public class WebService {
         Logger.d("WebService : sendGetTicketsRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendGetTicketsRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorGetTickets(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -637,12 +669,13 @@ public class WebService {
             }
         });
     }
+
     //گرفتن جزییات تیکت
-    public static void sendGetTicketDetailsRequest(final long ticketCode){
+    public static void sendGetTicketDetailsRequest(final long ticketCode) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetTicketDetails")
@@ -656,13 +689,14 @@ public class WebService {
         Logger.d("WebService : sendGetTicketDetailsRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendGetTicketDetailsRequest TicketCode is " + ticketCode);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -673,13 +707,14 @@ public class WebService {
             }
         });
     }
+
     /* WebService for Connect */
     //اجازه وصل موقت دارد یا نه
-    public static void sendRegConnectAllowRequest(){
+    public static void sendRegConnectAllowRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "RegConnectAllow")
@@ -691,13 +726,14 @@ public class WebService {
         Logger.d("WebService : sendRegConnectAllowRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendRegConnectAllowRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -708,12 +744,13 @@ public class WebService {
             }
         });
     }
+
     //وصل موقت
-    public static void sendRegConnectRequest(){
+    public static void sendRegConnectRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "RegConnect")
@@ -725,13 +762,14 @@ public class WebService {
         Logger.d("WebService : sendRegConnectRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendRegConnectRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorRegConnect(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 //U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -742,20 +780,21 @@ public class WebService {
             }
         });
     }
+
     /* WebService for Connections*/
     //گرفتن سوابق اتصال مشترک بر اساس تاریخ
-    public static void sendGetConnectionsRequest(){
+    public static void sendGetConnectionsRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetConnections")
                 .add("UserID", "" + G.currentUser.userId)
                 .add("ExKey", "" + G.currentUser.exKey)
-                .add("StartDate" , "" + U.getDate(-10))
-                .add("EndDate" , "" + U.getCurrentDate())
+                .add("StartDate", "" + U.getDate(-10))
+                .add("EndDate", "" + U.getCurrentDate())
                 .build();
 
         Logger.d("WebService : sendGetConnectionsRequest rt is " + "RegConnect");
@@ -764,13 +803,14 @@ public class WebService {
         Logger.d("WebService : sendGetConnectionsRequest StartDate is " + U.getDate(-10));
         Logger.d("WebService : sendGetConnectionsRequest EndDate is " + U.getCurrentDate());
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -781,19 +821,20 @@ public class WebService {
             }
         });
     }
+
     //گرفتن گراف مصرف مشترک بر اساس تاریخ ، بیش از یک ماه اجازه داده نمی شود
-    public static void sendGetGraphRequest(){
+    public static void sendGetGraphRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetGraph")
                 .add("UserID", "" + G.currentUser.userId)
                 .add("ExKey", "" + G.currentUser.exKey)
-                .add("StartDate" , "" + U.getDate(-10))
-                .add("EndDate" , "" + U.getCurrentDate())
+                .add("StartDate", "" + U.getDate(-10))
+                .add("EndDate", "" + U.getCurrentDate())
                 .build();
 
         Logger.d("WebService : sendGetGraphRequest rt is " + "GetGraph");
@@ -802,13 +843,14 @@ public class WebService {
         Logger.d("WebService : sendGetGraphRequest StartDate is " + U.getDate(-10));
         Logger.d("WebService : sendGetGraphRequest EndDate is " + U.getCurrentDate());
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorGetGraph(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -819,13 +861,14 @@ public class WebService {
             }
         });
     }
+
     /* WebService for Online*/
     //صدا زدن آدرس برای انتقال به صفحه شارژ آنلاین
-    public static void sendChargeOnlineRequest(){
+    public static void sendChargeOnlineRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "ChargeOnline")
@@ -837,13 +880,14 @@ public class WebService {
         Logger.d("WebService : sendChargeOnlineRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendChargeOnlineRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -854,12 +898,13 @@ public class WebService {
             }
         });
     }
+
     //صدا زدن آدرس برای انتقال به صفحه پرداخت آنلاین
-    public static void sendPayOnlineRequest(){
+    public static void sendPayOnlineRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "PayOnline")
@@ -871,13 +916,14 @@ public class WebService {
         Logger.d("WebService : sendPayOnlineRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendPayOnlineRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -888,12 +934,13 @@ public class WebService {
             }
         });
     }
+
     //ارسال درخواست گرفتن کد ussd برای شارژ آنلاین
-    public static void sendChargeOnlineForPayRequest(long factorCode){
+    public static void sendChargeOnlineForPayRequest(long factorCode) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "ChargeOnlineForPay")
@@ -906,13 +953,14 @@ public class WebService {
         Logger.d("WebService : sendChargeOnlineForPayRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendChargeOnlineForPayRequest FactorCode is " + factorCode);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorChargeOnlineForPayRequest(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -923,12 +971,13 @@ public class WebService {
             }
         });
     }
+
     //ارسال درخواست گرفتن کد ussd
-    public static void sendPayOnlineForPayRequest(int money){
+    public static void sendPayOnlineForPayRequest(int money) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "PayOnlineForPay")
@@ -941,13 +990,14 @@ public class WebService {
         Logger.d("WebService : sendPayOnlineForPayRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendPayOnlineForPayRequest Money is " + money);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorPayOnlineForPay(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -958,11 +1008,12 @@ public class WebService {
             }
         });
     }
-    public static void sendCheckOrderIdResultRequest(long orderId){
+
+    public static void sendCheckOrderIdResultRequest(long orderId) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "CheckOrderIdResult")
@@ -975,13 +1026,14 @@ public class WebService {
         Logger.d("WebService : sendCheckOrderIdResultRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendCheckOrderIdResultRequest OrderId is " + orderId);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorCheckOrderIdResult(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -992,12 +1044,13 @@ public class WebService {
             }
         });
     }
+
     // لود کردن لیست بانک ها
-    public static void sendGetBankList(){
+    public static void sendGetBankList() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "LoadBanks")
@@ -1007,13 +1060,14 @@ public class WebService {
         Logger.d("WebService : sendGetBankList rt is " + "LoadBanks");
         Logger.d("WebService : sendGetBankList ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorGetBankList(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1024,12 +1078,13 @@ public class WebService {
             }
         });
     }
+
     // چک کردن تراز مالی
-    public static void sendCheckTaraz(long factorCode){
+    public static void sendCheckTaraz(long factorCode) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "CheckTarazForPaymentThisFactor")
@@ -1043,13 +1098,14 @@ public class WebService {
         Logger.d("WebService : sendCheckTaraz ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendCheckTaraz FactorCode is " + factorCode);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorCheckTaraz(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1060,12 +1116,13 @@ public class WebService {
             }
         });
     }
+
     // صدا زدن صفحه بانک برای پرداخت
-    public static void sendCallBankPageForPayment(long factorCode,int bankCode,String money){
+    public static void sendCallBankPageForPayment(long factorCode, int bankCode, String money) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "CallBankPageForPayment")
@@ -1083,13 +1140,14 @@ public class WebService {
         Logger.d("WebService : sendCallBankPageForPayment BankCode is " + bankCode);
         Logger.d("WebService : sendCallBankPageForPayment Money is " + money);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorCallBankPage(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1100,12 +1158,14 @@ public class WebService {
             }
         });
     }
+
     // پرداخت توسط اعتبار
-    public static void sendPayFactorFromCredit(long factorCode){
-        OkHttpClient client = new OkHttpClient();new OkHttpClient.Builder()
+    public static void sendPayFactorFromCredit(long factorCode) {
+        OkHttpClient client = new OkHttpClient();
+        new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "PayFactorFromCredit")
@@ -1119,13 +1179,14 @@ public class WebService {
         Logger.d("WebService : sendPayFactorFromCredit ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendPayFactorFromCredit FactorCode is " + factorCode);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorPayFactorFromCredit(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1139,11 +1200,11 @@ public class WebService {
 
     /* WebService for Club*/
     //گرفتن کلیه امتیازهایی که مشترک گرفته است
-    public static void sendClubScoresRequest(){
+    public static void sendClubScoresRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "ClubScores")
@@ -1155,13 +1216,14 @@ public class WebService {
         Logger.d("WebService : sendClubScoresRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendClubScoresRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1172,12 +1234,13 @@ public class WebService {
             }
         });
     }
+
     //گرفتن کل امتیاز مشترک
-    public static void sendGetClubScoreRequest(){
+    public static void sendGetClubScoreRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetClubScore")
@@ -1189,13 +1252,14 @@ public class WebService {
         Logger.d("WebService : sendClubScoresRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendClubScoresRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1206,12 +1270,13 @@ public class WebService {
             }
         });
     }
+
     //گرفتن کلیه فشفشه های مشترک
-    public static void sendLoadFeshFeshesRequest(){
+    public static void sendLoadFeshFeshesRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "LoadFeshFeshes")
@@ -1223,13 +1288,14 @@ public class WebService {
         Logger.d("WebService : sendLoadFeshFeshesRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendLoadFeshFeshesRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1240,12 +1306,13 @@ public class WebService {
             }
         });
     }
+
     //شروع کردن فشفشه
-    public static void sendStartFeshFeshesRequest(long code){
+    public static void sendStartFeshFeshesRequest(long code) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "StartFeshFeshe")
@@ -1257,13 +1324,14 @@ public class WebService {
         Logger.d("WebService : sendStartFeshFeshesRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendStartFeshFeshesRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendStartFeshFeshesRequest Code is " + code);
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1274,12 +1342,13 @@ public class WebService {
             }
         });
     }
+
     //گرفتن اطلاعات فشفشه جاری
-    public static void sendGetCurrentFeshFeshesRequest(){
+    public static void sendGetCurrentFeshFeshesRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "CurrentFeshFeshe")
@@ -1291,13 +1360,14 @@ public class WebService {
         Logger.d("WebService : sendStartFeshFeshesRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendStartFeshFeshesRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1308,12 +1378,13 @@ public class WebService {
             }
         });
     }
+
     //پایان دادن به فشفشه
-    public static void sendGetEndFeshFeshesRequest(){
+    public static void sendGetEndFeshFeshesRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "EndFeshFeshe")
@@ -1325,13 +1396,14 @@ public class WebService {
         Logger.d("WebService : sendGetEndFeshFeshesRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendGetEndFeshFeshesRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1342,13 +1414,14 @@ public class WebService {
             }
         });
     }
+
     /* WebService for News*/
     //گرفتن همه اخبارها
-    public static void sendGetNewsRequest(long code){
+    public static void sendGetNewsRequest(long code) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetNews")
@@ -1361,12 +1434,13 @@ public class WebService {
         Logger.d("WebService : sendGetNewsRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendGetNewsRequest Code is " + code);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorGetNews(EnumInternetErrorType.NO_INTERNET_ACCESS));
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1377,12 +1451,13 @@ public class WebService {
             }
         });
     }
+
     //گرفتن پیام هشدار
-    public static void sendGetAlertRequest(long code){
+    public static void sendGetAlertRequest(long code) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetAlert")
@@ -1395,13 +1470,14 @@ public class WebService {
         Logger.d("WebService : sendGetAlertRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendGetAlertRequest Code is " + code);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1412,12 +1488,13 @@ public class WebService {
             }
         });
     }
+
     //گرفتن همه Notification ها
-    public static void sendGetNotifiesRequest(long code, final boolean showNotification){
+    public static void sendGetNotifiesRequest(long code, final boolean showNotification) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetNotifies")
@@ -1430,28 +1507,30 @@ public class WebService {
         Logger.d("WebService : sendGetNotifiesRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendGetNotifiesRequest Code is " + code);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorGetNotifies(EnumInternetErrorType.NO_INTERNET_ACCESS));
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
                     EventBus.getDefault().post(new EventOnGetErrorGetNotifies(EnumInternetErrorType.REQUEST_CODE_NOT_SUCCEEDED));
                     return;
                 }
-                JsonParser.getNotifiesResponse(response.body().string(),showNotification);
+                JsonParser.getNotifiesResponse(response.body().string(), showNotification);
             }
         });
     }
+
     //گرفتن نظرسنجی
-    public static void sendGetPollRequest(){
+    public static void sendGetPollRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetPoll")
@@ -1462,13 +1541,14 @@ public class WebService {
         Logger.d("WebService : sendGetNotifiesRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendGetNotifiesRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1479,12 +1559,13 @@ public class WebService {
             }
         });
     }
+
     //ثبت نظرسنجی
-    public static void sendSetPollRequest(long pollId, String optionId, String des){
+    public static void sendSetPollRequest(long pollId, String optionId, String des) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "SetPoll")
@@ -1501,13 +1582,14 @@ public class WebService {
         Logger.d("WebService : sendSetPollRequest OptionID is " + optionId);
         Logger.d("WebService : sendSetPollRequest Des is " + des);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1518,12 +1600,13 @@ public class WebService {
             }
         });
     }
+
     //گرفتن همه تبلیغات
-    public static void sendGetAdvsRequest(){
+    public static void sendGetAdvsRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetAdvs")
@@ -1534,13 +1617,14 @@ public class WebService {
         Logger.d("WebService : sendGetAdvsRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendGetAdvsRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1551,12 +1635,13 @@ public class WebService {
             }
         });
     }
+
     //ثبت ابنکه مشترک تبلیغ خاصی را مشاهده کرده است
-    public static void sendSetAdsRepRequest(long adsCode){
+    public static void sendSetAdsRepRequest(long adsCode) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "SetAdsRep")
@@ -1569,13 +1654,14 @@ public class WebService {
         Logger.d("WebService : sendGetAdvsRequest ExKey is " + G.currentUser.exKey);
         Logger.d("WebService : sendGetAdvsRequest AdsCode is " + adsCode);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1586,13 +1672,14 @@ public class WebService {
             }
         });
     }
+
     /* WebService for Other*/
     //گرفتن اطلاعات شرکت برای نمایش در صفحه دریاره ما
-    public static void sendGetIspInfoRequest(){
+    public static void sendGetIspInfoRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetIspInfo")
@@ -1603,13 +1690,14 @@ public class WebService {
         Logger.d("WebService : sendGetIspInfoRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendGetIspInfoRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1620,12 +1708,13 @@ public class WebService {
             }
         });
     }
+
     //ثبت اینکه مشترک به صفحه موبایل وارد شده است جهت آمار بازدید بعدی
-    public static void sendVisitMobileRequest(){
+    public static void sendVisitMobileRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "VisitMobile")
@@ -1636,13 +1725,14 @@ public class WebService {
         Logger.d("WebService : sendVisitMobileRequest UserID is " + G.currentUser.userId);
         Logger.d("WebService : sendVisitMobileRequest ExKey is " + G.currentUser.exKey);
 
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1653,24 +1743,26 @@ public class WebService {
             }
         });
     }
+
     //گرفتن آپدیت های احتمالی و انجام آنها ، این فقط مخصوص اندروید است
-    public static void getUpdateRequest(){
+    public static void getUpdateRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetUpdate")
                 .build();
         Logger.d("WebService : sendVisitMobileRequest rt is " + "GetUpdate");
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorGetUpdate(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 //U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1681,46 +1773,48 @@ public class WebService {
             }
         });
     }
-     /* WebService for ChargeOnline*/
-     //صدا زدن آیتم های صفحه اصلی شارژ انلاینست
-     public static void sendGetChargeOnlineMainItemsRequest(){
-         OkHttpClient client = new OkHttpClient.Builder()
-                 .connectTimeout(30, TimeUnit.SECONDS)
-                 .writeTimeout(30, TimeUnit.SECONDS)
-                 .readTimeout(30,TimeUnit.SECONDS)
-                 .build();
-         RequestBody body = new FormBody.Builder()
-                 .add("rt", "GetChargeOnlineMainItems")
-                 .add("UserID", "" + G.currentUser.userId )
-                 .add("ExKey", "" + G.currentUser.exKey)
-                 .build();
-         Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
-         Logger.d("WebService : sendGetChargeOnlineMainItemsRequest rt is " + "GetChargeOnlineMainItems");
-         Logger.d("WebService : sendGetChargeOnlineMainItemsRequest UserID is " + G.currentUser.userId);
-         Logger.d("WebService : sendGetChargeOnlineMainItemsRequest ExKey is " +  G.currentUser.exKey);
-         client.newCall(request).enqueue(new Callback() {
-             @Override
-             public void onFailure(Call call, IOException e) {
-                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
-                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
-             }
 
-             @Override
-             public void onResponse(Call call, Response response) throws IOException {
-                 if (!response.isSuccessful()) {
-                     EventBus.getDefault().post(new EventOnGetErrorGetChargeOnlineMainItems());
-                     return;
-                 }
-                 JsonParser.getChargeOnlineMainItemResponse(response.body().string());
-             }
-         });
-     }
-    //چک کردن اینکه باشگاه نمایش داده شود یا نه
-    public static void sendCheckChargeOnlineClubRequest(final int whichMenuItem){
+    /* WebService for ChargeOnline*/
+    //صدا زدن آیتم های صفحه اصلی شارژ انلاینست
+    public static void sendGetChargeOnlineMainItemsRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .build();
+        RequestBody body = new FormBody.Builder()
+                .add("rt", "GetChargeOnlineMainItems")
+                .add("UserID", "" + G.currentUser.userId)
+                .add("ExKey", "" + G.currentUser.exKey)
+                .build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Logger.d("WebService : sendGetChargeOnlineMainItemsRequest rt is " + "GetChargeOnlineMainItems");
+        Logger.d("WebService : sendGetChargeOnlineMainItemsRequest UserID is " + G.currentUser.userId);
+        Logger.d("WebService : sendGetChargeOnlineMainItemsRequest ExKey is " + G.currentUser.exKey);
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                EventBus.getDefault().post(new EventOnNoAccessServerResponse());
+                U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    EventBus.getDefault().post(new EventOnGetErrorGetChargeOnlineMainItems());
+                    return;
+                }
+                JsonParser.getChargeOnlineMainItemResponse(response.body().string());
+            }
+        });
+    }
+
+    //چک کردن اینکه باشگاه نمایش داده شود یا نه
+    public static void sendCheckChargeOnlineClubRequest(final int whichMenuItem) {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "CheckChargeOnlineClub")
@@ -1728,17 +1822,18 @@ public class WebService {
                 .add("ExKey", "" + G.currentUser.exKey)
                 .add("Select", "" + (whichMenuItem - 1))
                 .build();
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendCheckChargeOnlineClubRequest rt is " + "CheckChargeOnlineClub");
         Logger.d("WebService : sendCheckChargeOnlineClubRequest UserID is " + G.currentUser.userId);
-        Logger.d("WebService : sendCheckChargeOnlineClubRequest ExKey is " +  G.currentUser.exKey);
-        Logger.d("WebService : sendCheckChargeOnlineClubRequest Select is " +  (whichMenuItem - 1));
+        Logger.d("WebService : sendCheckChargeOnlineClubRequest ExKey is " + G.currentUser.exKey);
+        Logger.d("WebService : sendCheckChargeOnlineClubRequest Select is " + (whichMenuItem - 1));
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1749,12 +1844,13 @@ public class WebService {
             }
         });
     }
+
     //درخواست تمدید سرویس
-    public static void sendChargeOnlineForTamdidRequest(int isClub){
+    public static void sendChargeOnlineForTamdidRequest(int isClub) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "ChargeOnlineForTamdid")
@@ -1762,17 +1858,18 @@ public class WebService {
                 .add("ExKey", "" + G.currentUser.exKey)
                 .add("Club", "" + isClub)
                 .build();
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendChargeOnlineForTamdidRequest rt is " + "ChargeOnlineForTamdid");
         Logger.d("WebService : sendChargeOnlineForTamdidRequest UserID is " + G.currentUser.userId);
-        Logger.d("WebService : sendChargeOnlineForTamdidRequest ExKey is " +  G.currentUser.exKey);
-        Logger.d("WebService : sendChargeOnlineForTamdidRequest Club is " +  isClub);
+        Logger.d("WebService : sendChargeOnlineForTamdidRequest ExKey is " + G.currentUser.exKey);
+        Logger.d("WebService : sendChargeOnlineForTamdidRequest Club is " + isClub);
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1783,12 +1880,13 @@ public class WebService {
             }
         });
     }
+
     //بارگذاری گروه ها
-    public static void sendChargeOnlineForLoadGroupsRequest(int isClub){
+    public static void sendChargeOnlineForLoadGroupsRequest(int isClub) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "ChargeOnlineForLoadGroups")
@@ -1796,17 +1894,18 @@ public class WebService {
                 .add("ExKey", "" + G.currentUser.exKey)
                 .add("Club", "" + isClub)
                 .build();
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendChargeOnlineForLoadGroupsRequest rt is " + "ChargeOnlineForLoadGroups");
         Logger.d("WebService : sendChargeOnlineForLoadGroupsRequest UserID is " + G.currentUser.userId);
-        Logger.d("WebService : sendChargeOnlineForLoadGroupsRequest ExKey is " +  G.currentUser.exKey);
-        Logger.d("WebService : sendChargeOnlineForLoadGroupsRequest Club is " +  isClub);
+        Logger.d("WebService : sendChargeOnlineForLoadGroupsRequest ExKey is " + G.currentUser.exKey);
+        Logger.d("WebService : sendChargeOnlineForLoadGroupsRequest Club is " + isClub);
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1817,12 +1916,13 @@ public class WebService {
             }
         });
     }
+
     //بارگذاری پکیج ها
-    public static void sendChargeOnlineForLoadPackagesRequest(int isClub,long groupCode,final int whichMenuItem){
-        OkHttpClient client =new OkHttpClient.Builder()
+    public static void sendChargeOnlineForLoadPackagesRequest(int isClub, long groupCode, final int whichMenuItem) {
+        OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "ChargeOnlineForLoadPackages")
@@ -1832,19 +1932,20 @@ public class WebService {
                 .add("GroupCode", "" + groupCode)
                 .add("Select", "" + (whichMenuItem - 1))
                 .build();
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendChargeOnlineForLoadPackagesRequest rt is " + "ChargeOnlineForLoadPackages");
         Logger.d("WebService : sendChargeOnlineForLoadPackagesRequest UserID is " + G.currentUser.userId);
-        Logger.d("WebService : sendChargeOnlineForLoadPackagesRequest ExKey is " +  G.currentUser.exKey);
-        Logger.d("WebService : sendChargeOnlineForLoadPackagesRequest Club is " +  isClub);
-        Logger.d("WebService : sendChargeOnlineForLoadPackagesRequest GroupCode is " +  groupCode);
-        Logger.d("WebService : sendChargeOnlineForLoadPackagesRequest Select is " +  (whichMenuItem - 1));
+        Logger.d("WebService : sendChargeOnlineForLoadPackagesRequest ExKey is " + G.currentUser.exKey);
+        Logger.d("WebService : sendChargeOnlineForLoadPackagesRequest Club is " + isClub);
+        Logger.d("WebService : sendChargeOnlineForLoadPackagesRequest GroupCode is " + groupCode);
+        Logger.d("WebService : sendChargeOnlineForLoadPackagesRequest Select is " + (whichMenuItem - 1));
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1855,12 +1956,13 @@ public class WebService {
             }
         });
     }
+
     //بارگذاری پکیج ها
-    public static void sendChargeOnlineForSelectPackageRequest(int isClub,long packageCode){
+    public static void sendChargeOnlineForSelectPackageRequest(int isClub, long packageCode) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "ChargeOnlineForSelectPackage")
@@ -1869,18 +1971,19 @@ public class WebService {
                 .add("Club", "" + isClub)
                 .add("PackageCode", "" + packageCode)
                 .build();
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendChargeOnlineForSelectPackageRequest rt is " + "ChargeOnlineForSelectPackage");
         Logger.d("WebService : sendChargeOnlineForSelectPackageRequest UserID is " + G.currentUser.userId);
-        Logger.d("WebService : sendChargeOnlineForSelectPackageRequest ExKey is " +  G.currentUser.exKey);
-        Logger.d("WebService : sendChargeOnlineForSelectPackageRequest Club is " +  isClub);
-        Logger.d("WebService : sendChargeOnlineForSelectPackageRequest PackageCode is " +  packageCode);
+        Logger.d("WebService : sendChargeOnlineForSelectPackageRequest ExKey is " + G.currentUser.exKey);
+        Logger.d("WebService : sendChargeOnlineForSelectPackageRequest Club is " + isClub);
+        Logger.d("WebService : sendChargeOnlineForSelectPackageRequest PackageCode is " + packageCode);
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnNoAccessServerResponse());
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
@@ -1891,17 +1994,18 @@ public class WebService {
             }
         });
     }
+
     /* WebService for Register*/
-    public static void sendGetCityRequest(){
+    public static void sendGetCityRequest() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetCities")
                 .build();
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendGetCityRequest rt is " + "GetCities");
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -1920,17 +2024,18 @@ public class WebService {
             }
         });
     }
-    public static void sendGetCityGroupsRequest(int cityId){
+
+    public static void sendGetCityGroupsRequest(int cityId) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "GetCityGroups")
                 .add("CityId", "" + cityId)
                 .build();
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendGetCityGroupsRequest rt is " + "GetCityGroups");
         Logger.d("WebService : sendGetCityGroupsRequest CityId is " + cityId);
         client.newCall(request).enqueue(new Callback() {
@@ -1950,11 +2055,12 @@ public class WebService {
             }
         });
     }
-    public static void sendRegisterCustomerRequest(int cityId,int groupId,String name,String family,String birthday,String melli,String mobile, String phone,String address,String username,String password){
+
+    public static void sendRegisterCustomerRequest(int cityId, int groupId, String name, String family, String birthday, String melli, String mobile, String phone, String address, String username, String password) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         RequestBody body = new FormBody.Builder()
                 .add("rt", "RegisterCustomer")
@@ -1970,7 +2076,7 @@ public class WebService {
                 .add("UserName", "" + username)
                 .add("Pass", "" + password)
                 .build();
-        Request request = new Request.Builder().url( G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendRegisterCustomerRequest rt is " + "GetCityGroups");
         Logger.d("WebService : sendRegisterCustomerRequest CityId is " + cityId);
         Logger.d("WebService : sendRegisterCustomerRequest GroupId is " + groupId);
@@ -1997,6 +2103,69 @@ public class WebService {
                     return;
                 }
                 JsonParser.getRegisterCustomerResponse(response.body().string());
+            }
+        });
+    }
+
+    public static void sendGetLocationsRequest() {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .build();
+        RequestBody body = new FormBody.Builder()
+                .add("rt", "getgpspoints")
+                .add("UserID", "" + G.currentUser.userId)
+                .add("ExKey", "" + G.currentUser.exKey)
+                .build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Logger.d("WebService : sendGetLocationsRequest rt is " + "getgpspoints");
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                EventBus.getDefault().post(new EventOnGetErrorLocations(EnumInternetErrorType.NO_INTERNET_ACCESS));
+                U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    EventBus.getDefault().post(new EventOnGetErrorLocations(EnumInternetErrorType.REQUEST_CODE_NOT_SUCCEEDED));
+                    return;
+                }
+                JsonParser.getLocations(response.body().string());
+            }
+        });
+    }
+
+    public static void sendAddScoreRequest(int type){
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .build();
+        RequestBody body = new FormBody.Builder()
+                .add("rt", "addscore")
+                .add("UserID", "" + G.currentUser.userId)
+                .add("ExKey", "" + G.currentUser.exKey)
+                .add("type", "" + type)
+                .build();
+        Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
+        Logger.d("WebService : sendGetLocationsRequest rt is " + "addscore");
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                EventBus.getDefault().post(new EventOnGetErrorGetCities(EnumInternetErrorType.NO_INTERNET_ACCESS));
+                U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    EventBus.getDefault().post(new EventOnGetErrorGetCities(EnumInternetErrorType.REQUEST_CODE_NOT_SUCCEEDED));
+                    return;
+                }
+                JsonParser.addScoreResponse(response.body().string());
             }
         });
     }

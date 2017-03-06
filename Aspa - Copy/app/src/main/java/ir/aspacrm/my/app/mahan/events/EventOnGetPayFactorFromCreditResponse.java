@@ -7,9 +7,11 @@ import ir.aspacrm.my.app.mahan.gson.PayFactorFromCreditResponse;
  */
 public class EventOnGetPayFactorFromCreditResponse {
     PayFactorFromCreditResponse response;
+
     public EventOnGetPayFactorFromCreditResponse(PayFactorFromCreditResponse response) {
         this.response = response;
     }
+
     public PayFactorFromCreditResponse getResponse() {
         return response;
     }

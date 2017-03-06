@@ -46,8 +46,8 @@ public class FragmentDrawer extends Fragment {
     private View view;
     private RecyclerView RecyDrawer;
     List<String> title;
-    TextView txtStatus, txtScore, txtName, txtRemainDay2;
-    TextView txtRemainDay;
+    PersianTextViewNormal txtStatus, txtScore, txtName, txtRemainDay2;
+    PersianTextViewNormal txtRemainDay;
     LinearLayout layTotalClubScore;
     ProgressBar prgLoadingScore;
 
@@ -64,8 +64,8 @@ public class FragmentDrawer extends Fragment {
     }
 
     private void initView() {
-        txtRemainDay = (TextView) view.findViewById(R.id.txtRemainDay);
-        txtRemainDay2 = (TextView) view.findViewById(R.id.txtRemainDay2);
+        txtRemainDay = (PersianTextViewNormal) view.findViewById(R.id.txtRemainDay);
+        txtRemainDay2 = (PersianTextViewNormal) view.findViewById(R.id.txtRemainDay2);
 
         txtScore = (ir.aspacrm.my.app.mahan.component.PersianTextViewNormal) view.findViewById(R.id.txtScore);
 
@@ -102,24 +102,32 @@ public class FragmentDrawer extends Fragment {
 
         // current date
         PersianCalendar jalali = SystemClock.inLocalView().now(PersianCalendar.axis());
-        System.out.println(jalali); // AP-1394-08-04
+        String fDate = jalali.toString();// AP-1394-08-04
 
-        // localized format of tomorrow (English and Farsi)
-        ChronoFormatter<PersianCalendar> f =
-                ChronoFormatter.ofStyle(DisplayMode.FULL, Locale.ENGLISH, PersianCalendar.axis());
-        Locale farsi = new Locale("fa");
-        String da = f.with(farsi).format(jalali);
+//        // localized format of tomorrow (English and Farsi)
+//        ChronoFormatter<PersianCalendar> f =
+//                ChronoFormatter.ofStyle(DisplayMode.FULL, Locale.ENGLISH, PersianCalendar.axis());
+//        Locale farsi = new Locale("fa");
+//        String da = f.with(farsi).format(jalali);
+//
+//        String[] separated0 = da.split(",");
+//        String date = separated0[0];
+//        String dayOfWeek = separated0[1];
+//
+//        String[] separated = date.split(" ");
+//        String day = separated[3];
+//        String month= separated[2];
+//        String year= separated[1];
+//
+//        String farsiDate = dayOfWeek+","+day +" "+ month+" "+year;
 
-        String[] separated0 = da.split(",");
-        String date = separated0[0];
-        String dayOfWeek = separated0[1];
-
-        String[] separated = date.split(" ");
+        String[] separated = fDate.split("-");
         String day = separated[3];
         String month= separated[2];
         String year= separated[1];
+        String farsiDate = year +" /"+ month+" /"+day;
 
-        String farsiDate = dayOfWeek+","+day +" "+ month+" "+year;
+
 
 
 
@@ -132,7 +140,7 @@ public class FragmentDrawer extends Fragment {
 //        int mDay = cc.get(Calendar.DAY_OF_MONTH);
 //        System.out.println("Date", year+":"+month+":"+mDay);
 
-        txtStatus = (TextView) view.findViewById(R.id.txtStatus);
+        txtStatus = (PersianTextViewNormal) view.findViewById(R.id.txtStatus);
         txtStatus.setText(G.currentUserInfo != null ? G.currentUserInfo.status : "");
 
         txtName = (PersianTextViewNormal) view.findViewById(R.id.txtName);

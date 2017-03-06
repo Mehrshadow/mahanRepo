@@ -19,10 +19,12 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import de.greenrobot.event.EventBus;
+import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.U;
 import ir.aspacrm.my.app.mahan.classes.WebService;
 import ir.aspacrm.my.app.mahan.enums.EnumInternetErrorType;
+import ir.aspacrm.my.app.mahan.events.EventOnAddScoreResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetGraph;
 import ir.aspacrm.my.app.mahan.events.EventOnGetGraphResponse;
 import ir.aspacrm.my.app.mahan.model.Graph;
@@ -178,6 +180,25 @@ public class ActivityShowGraph extends AppCompatActivity {
         }else{
             txtShowMessage.setVisibility(View.VISIBLE);
             txtShowMessage.setText("خطا در دریافت اطلاعات از سرور لطفا دوباره تلاش کنید.");
+        }
+    }
+    public void onEventMainThread(EventOnAddScoreResponse event) {
+        DialogClass showMessage = new DialogClass();
+
+        if (event.getResponse().isResult()) {
+            switch (event.getResponse().getErr()) {
+                case 0:
+                    showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رخداد" + event.getResponse().getName() + " قبلا ثبت شده است ");
+                    break;
+                case 1:
+                    showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رخداد" + event.getResponse().getName() + " با موفقیت ثبت شد");
+                    break;
+
+                case -1:
+                    showMessage.showMessageDialog("امتیاز جدید", "فرصت امتیاز گیری برای رخداد" + event.getResponse().getName() + "به چایان رسیده است ");
+                    break;
+            }
+
         }
     }
     @Override

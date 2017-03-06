@@ -12,9 +12,11 @@ import com.activeandroid.query.Select;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
+import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.WebService;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewNormal;
+import ir.aspacrm.my.app.mahan.events.EventOnAddScoreResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetUserInfo;
 import ir.aspacrm.my.app.mahan.events.EventOnGetUserInfoResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnNoAccessServerResponse;
@@ -89,6 +91,25 @@ public class ActivityShowUserInfo extends AppCompatActivity {
         Logger.d("ActivityShowUserInfo : EventOnNoAccessServerResponse is raised.");
         layLoading.setVisibility(View.GONE);
         getUserInfoFromDB();
+    }
+    public void onEventMainThread(EventOnAddScoreResponse event) {
+        DialogClass showMessage = new DialogClass();
+
+        if (event.getResponse().isResult()) {
+            switch (event.getResponse().getErr()) {
+                case 0:
+                    showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رخداد" + event.getResponse().getName() + " قبلا ثبت شده است ");
+                    break;
+                case 1:
+                    showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رخداد" + event.getResponse().getName() + " با موفقیت ثبت شد");
+                    break;
+
+                case -1:
+                    showMessage.showMessageDialog("امتیاز جدید", "فرصت امتیاز گیری برای رخداد" + event.getResponse().getName() + "به چایان رسیده است ");
+                    break;
+            }
+
+        }
     }
     private void getUserInfoFromDB() {
         Info info = new Select().from(Info.class).where("userId = ? " , G.currentUser.userId).executeSingle();

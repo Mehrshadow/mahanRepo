@@ -1,9 +1,13 @@
 package ir.aspacrm.my.app.mahan.classes;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.location.LocationManager;
+import android.provider.Settings;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.CardView;
 import android.text.Html;
@@ -35,6 +39,8 @@ import ir.aspacrm.my.app.mahan.gson.FactorDetailResponse;
 import ir.aspacrm.my.app.mahan.gson.GetIspInfoResponse;
 import ir.aspacrm.my.app.mahan.gson.GetPollResponse;
 
+import static android.content.Context.LOCATION_SERVICE;
+
 /**
  * Created by Microsoft on 3/9/2016.
  */
@@ -45,6 +51,9 @@ public class DialogClass {
     Dialog dialogPayMessage;
     AdapterSpinnerPoll adapterSpinnerPoll;
     Dialog dlgWaitingWithBackground;
+    protected LocationManager locationManager;
+    boolean isGPSEnabled = false;
+
 
     public void DialogWaiting() {
         dlgWaiting = new Dialog(G.currentActivity, android.R.style.Theme_Black_NoTitleBar);

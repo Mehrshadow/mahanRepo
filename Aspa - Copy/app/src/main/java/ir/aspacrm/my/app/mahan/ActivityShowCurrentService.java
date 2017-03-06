@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,6 +28,7 @@ import ir.aspacrm.my.app.mahan.classes.U;
 import ir.aspacrm.my.app.mahan.classes.WebService;
 import ir.aspacrm.my.app.mahan.enums.EnumDownloadID;
 import ir.aspacrm.my.app.mahan.enums.EnumInternetErrorType;
+import ir.aspacrm.my.app.mahan.events.EventOnAddScoreResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnCanceledDialogUpdatingApplication;
 import ir.aspacrm.my.app.mahan.events.EventOnChangedDownloadPercent;
 import ir.aspacrm.my.app.mahan.events.EventOnClickedLogoutButton;
@@ -80,17 +82,24 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
     DialogClass dlgWaiting;
     DialogClass dlgUpdate;
     Downloader downloader = null;
+    DialogClass gpsDialog;
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle mActionBarDrawerToggle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_current_service);
         ButterKnife.bind(this);
+        G.currentActivity = this;
+        G.context = this;
         EventBus.getDefault().register(this);
+
         WebService.sendGetUserAccountInfoRequest();
+        WebService.sendGetLocationsRequest();
+
         startGpsService();
 
 
@@ -134,22 +143,28 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
                 }
             }).start();
         }
+
     }
 
     private void startGpsService() {
-        Intent i =new Intent(getApplicationContext(),GpsService.class);
-        startService(i);
+        try {
+            Intent i = new Intent(getApplicationContext(), GpsService.class);
+            startService(i);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        stopGpsService();
-    }
 
     private void stopGpsService() {
-        Intent i = new Intent(getApplicationContext(),GpsService.class);
-        stopService(i);
+        try {
+            Intent i = new Intent(getApplicationContext(), GpsService.class);
+            stopService(i);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -157,6 +172,13 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         super.onResume();
         G.currentActivity = this;
         G.context = this;
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopGpsService();
     }
 
     private void initToolbar() {
@@ -406,6 +428,27 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         finish();
     }
 
+    public void onEventMainThread(EventOnAddScoreResponse event) {
+        DialogClass showMessage = new DialogClass();
+
+        if (event.getResponse().isResult()) {
+            switch (event.getResponse().getErr()) {
+                case 0:
+                    showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رخداد " + event.getResponse().getName() + " قبلا ثبت شده است ");
+//                    showMessage.showMessageDialog("امتیاز جدید", Html.fromHtml("<font color='#ff0000'>text</font>")+"");
+                    break;
+                case 1:
+                    showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رخداد " + event.getResponse().getName() + " با موفقیت ثبت شد");
+                    break;
+
+                case -1:
+                    showMessage.showMessageDialog("امتیاز جدید", "فرصت امتیاز گیری برای رخداد " + event.getResponse().getName() + "به چایان رسیده است ");
+                    break;
+            }
+
+        }
+    }
+
     private void setOnClickListeners() {
         btnTempConnection.setOnClickListener(this);
         btnEnter.setOnClickListener(this);
@@ -432,5 +475,12 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         super.onDestroy();
         Logger.d("ActivityMain : onDestroy()");
         EventBus.getDefault().unregister(this);
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
     }
 }
