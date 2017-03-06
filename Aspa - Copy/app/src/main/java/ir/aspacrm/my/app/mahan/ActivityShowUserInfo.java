@@ -38,7 +38,7 @@ public class ActivityShowUserInfo extends AppCompatActivity {
     @Bind(R.id.txtStatus) net.kianoni.fontloader.TextView txtStatus;
     @Bind(R.id.txtNamayandeForush) net.kianoni.fontloader.TextView txtNamayandeForush;
     @Bind(R.id.layLoading) LinearLayout layLoading;
-    @Bind(R.id.card_view) CardView cardView;
+    @Bind(R.id.card_view) LinearLayout cardView;
     @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
 
     @Override

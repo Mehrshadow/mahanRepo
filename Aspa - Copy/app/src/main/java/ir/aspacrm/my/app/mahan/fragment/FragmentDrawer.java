@@ -151,14 +151,14 @@ public class FragmentDrawer extends Fragment {
                 txtRemainDay.setText("نامحدود");
 //                txtRemainDay.setVisibility(View.GONE);
             } else {
-                txtRemainDay.setText("شما تا اتمام سرویس اینترنتی خود" + G.currentAccount.rDay + " " + " روز " + "فاصله دارید ");
+                txtRemainDay.setText("شما تا اتمام سرویس اینترنتی خود " + G.currentAccount.rDay + " " + " روز " + "فرصت دارید ");
             }
         } else {
             if (G.currentAccount.rHour == -11111) {
                 txtRemainDay.setText("نامحدود");
 //                txtRemainDay.setVisibility(View.GONE);
             } else {
-                txtRemainDay.setText("شما تا اتمام سرویس اینترنتی خود" + G.currentAccount.rHour + " " + " ساعت " + " \"فاصله دارید ");
+                txtRemainDay.setText("شما تا اتمام سرویس اینترنتی خود " + G.currentAccount.rHour + " " + " ساعت " + " فرصت دارید ");
             }
         }
 //        if (G.currentAccount.rTraffic == -11111) {
