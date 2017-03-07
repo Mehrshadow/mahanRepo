@@ -1,14 +1,16 @@
 package ir.aspacrm.my.app.mahan.adapter;
 
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import com.squareup.picasso.Picasso;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.squareup.picasso.Picasso;
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
@@ -58,7 +60,8 @@ public class AdapterBank extends RecyclerView.Adapter<AdapterBank.GroupViewHolde
     public class GroupViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.txtBankName)  PersianTextViewThin txtBankName;
         @Bind(R.id.imgBankLogo) ImageView imgBankLogo;
-        @Bind(R.id.layMainBank) CardView layMainBank;
+        @Bind(R.id.layMainBank)
+        LinearLayout layMainBank;
         public GroupViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

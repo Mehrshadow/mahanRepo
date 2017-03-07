@@ -110,15 +110,17 @@
                             android:orientation="horizontal"
                             android:padding="6dp">
 
-                            <TextView
+                            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="8dp"
                                 android:layout_marginTop="8dp"
                                 android:layout_weight="1"
+                                android:ems="100"
+                                android:maxLines="1"
                                 android:text="یکی از گزینه های زیر را انتخاب کنید."
                                 android:textColor="@color/text_color_items"
-                                android:textSize="@dimen/size_font_default"
+                                android:textSize="@dimen/size_font_small"
                                 android:typeface="sans" />
 
                         </LinearLayout>
@@ -143,9 +145,9 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="right"
                                     android:layout_marginBottom="3dp"
+                                    android:background="@color/back_items"
                                     android:clickable="true"
-                                    android:foreground="@drawable/ripple_list_item"
-                                    android:background="@color/back_items">
+                                    android:foreground="@drawable/ripple_list_item">
 
                                     <LinearLayout
                                         android:layout_width="fill_parent"
@@ -248,8 +250,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginBottom="3dp"
-                                    android:clickable="true"
-                                   android:background="@color/back_items">
+                                    android:background="@color/back_items"
+                                    android:clickable="true">
 
                                     <LinearLayout
                                         android:layout_width="fill_parent"
@@ -353,8 +355,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginBottom="3dp"
-                                    android:clickable="true"
-                                   android:background="@color/back_items">
+                                    android:background="@color/back_items"
+                                    android:clickable="true">
 
                                     <LinearLayout
                                         android:layout_width="fill_parent"

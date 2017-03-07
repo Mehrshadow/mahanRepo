@@ -31,10 +31,14 @@ import ir.aspacrm.my.app.mahan.events.EventOnGetNewsResponse;
 import ir.aspacrm.my.app.mahan.model.News;
 
 public class ActivityShowNews extends AppCompatActivity {
-    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
-    @Bind(R.id.lstNews) RecyclerView lstNews;
-    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
-    @Bind(R.id.txtShowMessage) TextView txtShowMessage;
+    @Bind(R.id.layBtnBack)
+    LinearLayout layBtnBack;
+    @Bind(R.id.lstNews)
+    RecyclerView lstNews;
+    @Bind(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
+    @Bind(R.id.txtShowMessage)
+    TextView txtShowMessage;
 
     AdapterNews adapterNews;
     LinearLayoutManager linearLayoutManager;
@@ -81,34 +85,38 @@ public class ActivityShowNews extends AppCompatActivity {
             }
         });
     }
+
     private void sendRequestGetNewNews() {
         News lastNews = new Select()
                 .from(News.class)
-                .where("UserId = ? " , G.currentUser.userId)
+                .where("UserId = ? ", G.currentUser.userId)
                 .orderBy("NewsID desc")
                 .limit(1)
                 .executeSingle();
-        if(lastNews == null) {
+        if (lastNews == null) {
             WebService.sendGetNewsRequest(0);
-        }else{
+        } else {
             WebService.sendGetNewsRequest(lastNews.newsID);
         }
     }
-    public void onEventMainThread(EventOnGetNewsResponse event){
+
+    public void onEventMainThread(EventOnGetNewsResponse event) {
         Logger.d("ActivityShowNews : EventOnGetNewsResponse is raised.");
         getNewsFromDB();
         swipeRefreshLayout.setRefreshing(false);
     }
-    public void onEventMainThread(EventOnGetErrorGetNews event){
+
+    public void onEventMainThread(EventOnGetErrorGetNews event) {
         Logger.d("ActivityShowNews : EventOnGetErrorGetNews is raised.");
         getNewsFromDB();
         swipeRefreshLayout.setRefreshing(false);
 
-        if(event.getErrorType() == EnumInternetErrorType.NO_INTERNET_ACCESS){
+        if (event.getErrorType() == EnumInternetErrorType.NO_INTERNET_ACCESS) {
             U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
         }
 
     }
+
     public void onEventMainThread(EventOnAddScoreResponse event) {
         DialogClass showMessage = new DialogClass();
 
@@ -128,6 +136,7 @@ public class ActivityShowNews extends AppCompatActivity {
 
         }
     }
+
     private void getNewsFromDB() {
         newses = new Select()
                 .from(News.class)
@@ -136,6 +145,7 @@ public class ActivityShowNews extends AppCompatActivity {
                 .execute();
         adapterNews.updateList(newses);
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

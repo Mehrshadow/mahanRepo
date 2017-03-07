@@ -50,7 +50,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
-                android:text="مجموع امتیازات"
+                android:text="سوابق امتیازها"
                 android:textColor="@color/text_color_items"
                 android:textSize="@dimen/size_font_very_small"
                 android:typeface="sans" />
@@ -64,8 +64,8 @@
         android:layout_height="@dimen/size_toolbar_height"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="2dp"
-        android:background="@color/back_items"
         android:gravity="center"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <ir.aspacrm.my.app.mahan.component.PersianTextViewThin

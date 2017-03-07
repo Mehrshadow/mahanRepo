@@ -43,6 +43,7 @@
     <string name="gpsmessage">برای دسترسی به موقعیت شما و گرفتن امتیاز، لازم است GPS  خودرا روشن کنید</string>
     <string name="turnon">روشن کردن</string>
     <string name="cancel">انصراف</string>
+    <string name="read_news">خواندن خبر</string>
     <string-array name="sp_olaviat_items">
         <item>کم</item>
         <item>متوسط</item>
