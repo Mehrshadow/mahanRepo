@@ -87,6 +87,7 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
         Logger.d("ActivityMain : onResume()");
         G.currentActivity = this;
         G.context = this;
+        G.startGpsService();
     }
 
 
@@ -232,6 +233,7 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
         super.onDestroy();
         Logger.d("ActivityMain : onDestroy()");
         EventBus.getDefault().unregister(this);
+        G.stopGpsService();
     }
 
     public boolean onTouch(View v, MotionEvent ev) {

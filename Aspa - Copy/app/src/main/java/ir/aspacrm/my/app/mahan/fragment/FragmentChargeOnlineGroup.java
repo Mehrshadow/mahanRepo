@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class FragmentChargeOnlineGroup extends Fragment {
     @Bind(R.id.lstGroup) RecyclerView lstGroup;
     @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
     @Bind(R.id.txtShowMessage) TextView txtShowMessage;
+    @Bind(R.id.imgToolbar)
+    ImageView imgToolbar;
 
 //    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
     @Bind(R.id.txtPageTitle) TextView txtPageTitle;
@@ -83,6 +86,7 @@ public class FragmentChargeOnlineGroup extends Fragment {
 
 
         txtPageTitle.setText(U.getMenuItemName(whichMenuItem));
+        U.getMenuItemIcon(imgToolbar,whichMenuItem);
 
         adapterChargeOnlineGroup = new AdapterChargeOnlineGroup(groups,isClub,whichMenuItem);
         /** baraye anke moshakhas konim grid

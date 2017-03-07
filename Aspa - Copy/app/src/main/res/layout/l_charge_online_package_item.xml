@@ -160,7 +160,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="2.5dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_marginTop="2.5dp">
 
                             <LinearLayout
@@ -192,6 +192,7 @@
                                     android:text="تخفیف"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/size_font_very_very_small"
+
                                     android:typeface="sans" />
                             </LinearLayout>
                         </LinearLayout>
@@ -243,16 +244,15 @@
         <android.support.v7.widget.CardView
             android:id="@+id/layBtnBuy"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="-20dp"
             android:clickable="true"
             android:foreground="@drawable/ripple_list_item"
-            android:minWidth="120dp"
-            app:cardBackgroundColor="@color/back_orange_btn"
-            app:cardElevation="5dp">
+            android:minWidth="90dp"
+            app:cardBackgroundColor="@color/back_orange_btn">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -266,7 +266,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:minHeight="36dp"
+                    android:minHeight="24dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:singleLine="true"
