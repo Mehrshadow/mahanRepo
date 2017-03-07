@@ -3,16 +3,13 @@ package ir.aspacrm.my.app.mahan.classes;
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
-import com.google.gson.Gson;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Stack;
 
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.G;
@@ -103,7 +100,6 @@ import ir.aspacrm.my.app.mahan.gson.ISPInfoLoginResponse;
 import ir.aspacrm.my.app.mahan.gson.LicenseInfoResponse;
 import ir.aspacrm.my.app.mahan.gson.LoadBanksResponse;
 import ir.aspacrm.my.app.mahan.gson.LoadFeshFeshesResponse;
-
 import ir.aspacrm.my.app.mahan.gson.LocationsResponse;
 import ir.aspacrm.my.app.mahan.gson.LoginResponse;
 import ir.aspacrm.my.app.mahan.gson.NewsResponse;
@@ -134,13 +130,15 @@ import ir.aspacrm.my.app.mahan.model.TicketDetail;
 import ir.aspacrm.my.app.mahan.model.Unit;
 import me.leolin.shortcutbadger.ShortcutBadger;
 
+import static ir.aspacrm.my.app.mahan.G.gson;
+
 public class JsonParser {
 
     //    private static String adsRepResponse;
     public static void getIspListResponse(String json) {
         Logger.d("JsonParser : getIspListResponse json is  " + json);
         try {
-            SearchISPResponse[] isps = new Gson().fromJson(json, SearchISPResponse[].class);
+            SearchISPResponse[] isps = gson.fromJson(json, SearchISPResponse[].class);
             EventBus.getDefault().post(new EventOnGetIspListResponse(Arrays.asList(isps)));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getIspListResponse() " + e.getMessage());
@@ -150,7 +148,7 @@ public class JsonParser {
     public static void getIspInfoResponse(String json) {
         Logger.d("JsonParser : getIspInfoResponse json is  " + json);
         try {
-            ISPInfoLoginResponse[] ispInfo = new Gson().fromJson(json, ISPInfoLoginResponse[].class);
+            ISPInfoLoginResponse[] ispInfo = gson.fromJson(json, ISPInfoLoginResponse[].class);
             EventBus.getDefault().post(new EventOnGetIspInfoLoginResponse(ispInfo[0]));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getIspInfoResponse() " + e.getMessage());
@@ -160,7 +158,7 @@ public class JsonParser {
     public static void getLoginResponse(String json, long ispId, String ispUrl) {
         Logger.d("JsonParser : getLoginResponse json is  " + json);
         try {
-            LoginResponse[] response = new Gson().fromJson(json, LoginResponse[].class);
+            LoginResponse[] response = gson.fromJson(json, LoginResponse[].class);
             /** be dalil inke ma meghdar ispUrl ra nadarim mabaghi amaliat ra dar safheye login anjam midahim.**/
             EventBus.getDefault().post(new EventOnGetLoginResponse(response[0], ispId, ispUrl));
         } catch (Exception e) {
@@ -171,7 +169,7 @@ public class JsonParser {
     public static void getUserLicenseResponse(String json) {
         Logger.d("JsonParser : getUserLicenseResponse json is  " + json);
         try {
-            LicenseInfoResponse[] response = new Gson().fromJson(json, LicenseInfoResponse[].class);
+            LicenseInfoResponse[] response = gson.fromJson(json, LicenseInfoResponse[].class);
             if (response[0].Result) {
                 License existLicenseCurrentUser = new Select().from(License.class).where("userId = ? ", G.currentUser.userId).executeSingle();
                 if (existLicenseCurrentUser == null) {
@@ -211,7 +209,7 @@ public class JsonParser {
     public static void getUserAccountInfoResponse(String json) {
         Logger.d("JsonParser : getUserAccountInfoResponse json is  " + json);
         try {
-            AccountInfoResponse[] response = new Gson().fromJson(json, AccountInfoResponse[].class);
+            AccountInfoResponse[] response = gson.fromJson(json, AccountInfoResponse[].class);
             if (response[0].Result) {
                 Account existAccountCurrentUser = new Select().from(Account.class).where("userId = ?", G.currentUser.userId).executeSingle();
                 if (existAccountCurrentUser == null) {
@@ -268,7 +266,7 @@ public class JsonParser {
     public static void getGetUserInfoResponse(String json) {
         Logger.d("JsonParser : getGetUserInfoResponse json is  " + json);
         try {
-            UserInfoResponse[] response = new Gson().fromJson(json, UserInfoResponse[].class);
+            UserInfoResponse[] response = gson.fromJson(json, UserInfoResponse[].class);
             if (response[0].result) {
                 Info info = new Select().from(Info.class).where("userId = ? ", G.currentUser.userId).executeSingle();
                 if (info == null) {
@@ -350,7 +348,7 @@ public class JsonParser {
     public static void getPaymentResponse(String json) {
         Logger.d("JsonParser : getPaymentResponse json is  " + json);
         try {
-            PaymentResponse[] payments = new Gson().fromJson(json, PaymentResponse[].class);
+            PaymentResponse[] payments = gson.fromJson(json, PaymentResponse[].class);
             List<Payment> paymentList = new ArrayList<>();
             U.deletePaymentTableItem();
             for (PaymentResponse payment : payments) {
@@ -372,7 +370,7 @@ public class JsonParser {
     public static void getFactorResponse(String json) {
         Logger.d("JsonParser : getFactorResponse json is  " + json);
         try {
-            FactorResponse[] response = new Gson().fromJson(json, FactorResponse[].class);
+            FactorResponse[] response = gson.fromJson(json, FactorResponse[].class);
             /** delete all item in Factor table and save new factor on it.*/
             U.deleteTicketTableItem();
             List<Factor> factors = new ArrayList<>();
@@ -401,7 +399,7 @@ public class JsonParser {
     public static void getFactorDetailResponse(String json, long factorCode) {
         Logger.d("JsonParser : getFactorDetailResponse json is  " + json);
         try {
-            FactorDetailResponse[] response = new Gson().fromJson(json, FactorDetailResponse[].class);
+            FactorDetailResponse[] response = gson.fromJson(json, FactorDetailResponse[].class);
             /** delete all item in FactorDetail table and save new FactorDetail on it.*/
             U.deleteFactorDetailTableItem(factorCode);
             for (FactorDetailResponse factorDetail : response) {
@@ -436,7 +434,7 @@ public class JsonParser {
     public static void getUnitsResponse(String json) {
         Logger.d("JsonParser : getUnitsResponse json is  " + json);
         try {
-            GetUnitsResponse[] response = new Gson().fromJson(json, GetUnitsResponse[].class);
+            GetUnitsResponse[] response = gson.fromJson(json, GetUnitsResponse[].class);
             /** delete all item in unit table and save new unit on it.*/
             U.deleteUnitTableItem();
             for (GetUnitsResponse unit : response) {
@@ -481,7 +479,7 @@ public class JsonParser {
     public static void getTicketsResponse(String json) {
         Logger.d("JsonParser : getTicketsResponse json is  " + json);
         try {
-            TicketResponse[] response = new Gson().fromJson(json, TicketResponse[].class);
+            TicketResponse[] response = gson.fromJson(json, TicketResponse[].class);
             /** delete all item in ticket table and save new tickets on it.*/
             U.deleteTicketTableItem();
             for (TicketResponse ticket : response) {
@@ -504,7 +502,7 @@ public class JsonParser {
     public static void getTicketDetailsResponse(String json, long ticketCode) {
         Logger.d("JsonParser : getTicketDetailsResponse json is  " + json);
         try {
-            TicketDetailsResponse[] response = new Gson().fromJson(json, TicketDetailsResponse[].class);
+            TicketDetailsResponse[] response = gson.fromJson(json, TicketDetailsResponse[].class);
             /** delete all item in ticketDetail table with special parentCode and save new ticketDetails on it.*/
             U.deleteTicketDetailTableItem(ticketCode);
             for (TicketDetailsResponse ticketDetail : response) {
@@ -539,7 +537,7 @@ public class JsonParser {
     public static void getRegConnectResponse(String json) {
         Logger.d("JsonParser : getRegConnectResponse json is  " + json);
         try {
-            RegConnectResponse[] response = new Gson().fromJson(json, RegConnectResponse[].class);
+            RegConnectResponse[] response = gson.fromJson(json, RegConnectResponse[].class);
             EventBus.getDefault().post(new EventOnGetRegConnectionResponse(Arrays.asList(response)));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getRegConnectResponse() " + e.getMessage());
@@ -549,7 +547,7 @@ public class JsonParser {
     public static void getConnectionsResponse(String json) {
         Logger.d("JsonParser : getConnectionsResponse json is  " + json);
         try {
-            GetConnectionsResponse[] response = new Gson().fromJson(json, GetConnectionsResponse[].class);
+            GetConnectionsResponse[] response = gson.fromJson(json, GetConnectionsResponse[].class);
             List<Connection> connections = new ArrayList<>();
             U.deleteConnectionTableItem();
             for (GetConnectionsResponse connection : response) {
@@ -573,7 +571,7 @@ public class JsonParser {
     public static void getGraphResponse(String json) {
         Logger.d("JsonParser : getGraphResponse json is  " + json);
         try {
-            GetGraphResponse[] response = new Gson().fromJson(json, GetGraphResponse[].class);
+            GetGraphResponse[] response = gson.fromJson(json, GetGraphResponse[].class);
             Graph newGraph = new Graph();
             if (response.length > 0) {
                 new Delete().from(Graph.class).where("UserId = ? ").execute();
@@ -622,7 +620,7 @@ public class JsonParser {
     public static void getClubScoresResponse(String json) {
         Logger.d("JsonParser : getClubScoresResponse json is  " + json);
         try {
-            ClubScoresResponse[] response = new Gson().fromJson(json, ClubScoresResponse[].class);
+            ClubScoresResponse[] response = gson.fromJson(json, ClubScoresResponse[].class);
             List<ClubScore> clubScores = new ArrayList<>();
             /** delete all item in ticketDetail table with special parentCode and save new ticketDetails on it.*/
             U.deleteClubScoreTableItem();
@@ -644,7 +642,7 @@ public class JsonParser {
     public static void getLoadFeshFeshesResponse(String json) {
         Logger.d("JsonParser : getLoadFeshFeshesResponse json is  " + json);
         try {
-            LoadFeshFeshesResponse[] response = new Gson().fromJson(json, LoadFeshFeshesResponse[].class);
+            LoadFeshFeshesResponse[] response = gson.fromJson(json, LoadFeshFeshesResponse[].class);
             List<Feshfeshe> feshfesheList = new ArrayList<>();
             /** delete all item in ticketDetail table with special parentCode and save new ticketDetails on it.*/
             U.deleteFeshfesheTableItem();
@@ -679,7 +677,7 @@ public class JsonParser {
     public static void getCurrentFeshFeshesResponse(String json) {
         Logger.d("JsonParser : getCurrentFeshFeshesResponse json is  " + json);
         try {
-            CurrentFeshFesheResponse[] response = new Gson().fromJson(json, CurrentFeshFesheResponse[].class);
+            CurrentFeshFesheResponse[] response = gson.fromJson(json, CurrentFeshFesheResponse[].class);
             EventBus.getDefault().post(new EventOnGetCurrentFeshFesheResponse(Arrays.asList(response)));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getCurrentFeshFeshesResponse() " + e.getMessage());
@@ -702,7 +700,7 @@ public class JsonParser {
     public static void getNewsResponse(String json) {
         Logger.d("JsonParser : getNewsResponse json is  " + json);
         try {
-            NewsResponse[] response = new Gson().fromJson(json, NewsResponse[].class);
+            NewsResponse[] response = gson.fromJson(json, NewsResponse[].class);
             for (NewsResponse news : response) {
                 News existNews = new Select().from(News.class).where("UserId = ? AND NewsID = ? ", G.currentUser.userId, news.NewsID).executeSingle();
                 if (existNews == null) {
@@ -744,7 +742,7 @@ public class JsonParser {
     public static void getNotifiesResponse(String json, boolean showNotification) {
         Logger.d("JsonParser : getNotifiesResponse json is  " + json);
         try {
-            NotifyResponse[] response = new Gson().fromJson(json, NotifyResponse[].class);
+            NotifyResponse[] response = gson.fromJson(json, NotifyResponse[].class);
             int countNewNotify = 0;
             for (NotifyResponse notify : response) {
                 Notify existNotify = new Select().from(Notify.class).where("UserId = ? AND NotifyCode = ? ", G.currentUser.userId, notify.Code).executeSingle();
@@ -794,7 +792,7 @@ public class JsonParser {
     public static void getPollResponse(String json) {
         Logger.d("JsonParser : getPollResponse json is  " + json);
         try {
-            GetPollResponse[] response = new Gson().fromJson(json, GetPollResponse[].class);
+            GetPollResponse[] response = gson.fromJson(json, GetPollResponse[].class);
             EventBus.getDefault().post(new EventOnGetPollResponse(response[0]));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getPollResponse() " + e.getMessage());
@@ -816,7 +814,7 @@ public class JsonParser {
     public static void GetAdvsResponse(String json) {
         Logger.d("JsonParser : GetAdvsResponse json is  " + json);
         try {
-            GetAdvsResponse[] response = new Gson().fromJson(json, GetAdvsResponse[].class);
+            GetAdvsResponse[] response = gson.fromJson(json, GetAdvsResponse[].class);
             EventBus.getDefault().post(new EventOnGetAdvsResponse(Arrays.asList(response)));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on GetAdvsResponse() " + e.getMessage());
@@ -838,7 +836,7 @@ public class JsonParser {
     public static void GetIspInfoResponse(String json) {
         Logger.d("JsonParser : GetIspInfoResponse json is  " + json);
         try {
-            GetIspInfoResponse[] response = new Gson().fromJson(json, GetIspInfoResponse[].class);
+            GetIspInfoResponse[] response = gson.fromJson(json, GetIspInfoResponse[].class);
             EventBus.getDefault().post(new EventOnGetIspInfoResponse(response[0]));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on GetIspInfoResponse() " + e.getMessage());
@@ -860,7 +858,7 @@ public class JsonParser {
     public static void getUpdateResponse(String json) {
         Logger.d("JsonParser : getUpdateResponse json is  " + json);
         try {
-            GetUpdateResponse[] response = new Gson().fromJson(json, GetUpdateResponse[].class);
+            GetUpdateResponse[] response = gson.fromJson(json, GetUpdateResponse[].class);
             EventBus.getDefault().post(new EventOnGetUpdateResponse(response[0]));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getUpdateResponse() " + e.getMessage());
@@ -870,7 +868,7 @@ public class JsonParser {
     public static void getChargeOnlineMainItemResponse(String json) {
         Logger.d("JsonParser : getChargeOnlineMainItemResponse json is  " + json);
         try {
-            ChargeOnlineMainItemResponse[] response = new Gson().fromJson(json, ChargeOnlineMainItemResponse[].class);
+            ChargeOnlineMainItemResponse[] response = gson.fromJson(json, ChargeOnlineMainItemResponse[].class);
             EventBus.getDefault().post(new EventOnGetChargeOnlineMainItem(response[0]));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getChargeOnlineMainItemResponse() " + e.getMessage());
@@ -925,7 +923,7 @@ public class JsonParser {
     public static void getSelectFactorResponse(String json) {
         Logger.d("JsonParser : getSelectFactorResponse json is  " + json);
         try {
-            SelectFactorResponse[] response = new Gson().fromJson(json, SelectFactorResponse[].class);
+            SelectFactorResponse[] response = gson.fromJson(json, SelectFactorResponse[].class);
             EventBus.getDefault().post(new EventOnGetSelectFactorResponse(response[0]));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getSelectFactorResponse() " + e.getMessage());
@@ -935,7 +933,7 @@ public class JsonParser {
     public static void getChargeOnlineForLoadGroups(String json) {
         Logger.d("JsonParser : getChargeOnlineForLoadGroups json is  " + json);
         try {
-            ChargeOnlineGroup[] response = new Gson().fromJson(json, ChargeOnlineGroup[].class);
+            ChargeOnlineGroup[] response = gson.fromJson(json, ChargeOnlineGroup[].class);
             EventBus.getDefault().post(new EventOnGetChargeOnlineForLoadGroups(Arrays.asList(response)));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getChargeOnlineForLoadGroups() " + e.getMessage());
@@ -945,7 +943,7 @@ public class JsonParser {
     public static void getChargeOnlineForLoadPackages(String json) {
         Logger.d("JsonParser : getChargeOnlineForLoadPackages json is  " + json);
         try {
-            ChargeOnlineGroupPackage[] response = new Gson().fromJson(json, ChargeOnlineGroupPackage[].class);
+            ChargeOnlineGroupPackage[] response = gson.fromJson(json, ChargeOnlineGroupPackage[].class);
             EventBus.getDefault().post(new EventOnGetChargeOnlineForLoadPackages(Arrays.asList(response)));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getChargeOnlineForLoadPackages() " + e.getMessage());
@@ -1037,7 +1035,7 @@ public class JsonParser {
     public static void getCityResponse(String json) {
         Logger.d("JsonParser : getCityResponse json is  " + json);
         try {
-            CityResponse[] response = new Gson().fromJson(json, CityResponse[].class);
+            CityResponse[] response = gson.fromJson(json, CityResponse[].class);
             EventBus.getDefault().post(new EventOnGetCityResponse(response));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getCityResponse() " + e.getMessage());
@@ -1047,7 +1045,7 @@ public class JsonParser {
     public static void getCityGroupsResponse(String json) {
         Logger.d("JsonParser : getCityGroupsResponse json is  " + json);
         try {
-            CityGroupResponse[] response = new Gson().fromJson(json, CityGroupResponse[].class);
+            CityGroupResponse[] response = gson.fromJson(json, CityGroupResponse[].class);
             EventBus.getDefault().post(new EventOnGetCityGroupsResponse(response));
         } catch (Exception e) {
             Logger.e("JsonParser : Error on getCityGroupsResponse() " + e.getMessage());
@@ -1070,7 +1068,7 @@ public class JsonParser {
     public static void getBankListRequest(String json) {
         Logger.d("JsonParser : getBankListRequest json is  " + json);
         try {
-            LoadBanksResponse[] response = new Gson().fromJson(json, LoadBanksResponse[].class);
+            LoadBanksResponse[] response = gson.fromJson(json, LoadBanksResponse[].class);
 //            /** delete all item in FactorDetail table and save new FactorDetail on it.*/
             //U.deleteFactorDetailTableItem(factorCode);
             EventBus.getDefault().post(new EventOnGetBankListResponse(response));
@@ -1106,7 +1104,7 @@ public class JsonParser {
     public static void getPayFactorFromCreditRequest(String json) {
         Logger.d("JsonParser : getPayFactorFromCreditRequest json is  " + json);
         try {
-            PayFactorFromCreditResponse[] response = new Gson().fromJson(json, PayFactorFromCreditResponse[].class);
+            PayFactorFromCreditResponse[] response = gson.fromJson(json, PayFactorFromCreditResponse[].class);
 
             EventBus.getDefault().post(new EventOnGetPayFactorFromCreditResponse(response[0]));
         } catch (Exception e) {
@@ -1118,7 +1116,7 @@ public class JsonParser {
     public static void getLocations(String json) {
         Logger.d("JsonParser : getLocations json is  " + json);
         try {
-            LocationsResponse[] response = new Gson().fromJson(json, LocationsResponse[].class);
+            LocationsResponse[] response = gson.fromJson(json, LocationsResponse[].class);
             U.deleteLocationsItem();
             for (int i = 0; i < response.length; i++) {
                 ActiveAndroid.beginTransaction();
@@ -1146,7 +1144,7 @@ public class JsonParser {
     public static void addScoreResponse(String json) {
         Logger.d("JsonParser : addScoreResponse json is  " + json);
         if (!json.equals("") && json != null) {
-            AddScoreResponse[] addScoreResponses = new Gson().fromJson(json, AddScoreResponse[].class);
+            AddScoreResponse[] addScoreResponses = gson.fromJson(json, AddScoreResponse[].class);
             EventBus.getDefault().post(new EventOnAddScoreResponse(addScoreResponses[0]));
         }
 //        1 sabt

@@ -10,9 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Select;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import net.time4j.android.ApplicationStarter;
 
+import java.lang.reflect.Modifier;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Calendar;
@@ -51,6 +54,7 @@ public class G extends Application {
     public static final String JMWS = "http://mng.aspacrm.ir/service.aspx"; // WebService Jahanmir
     public static final String WS_PAGE = "/aspamobile.aspx";
     public static final NumberFormat formatterPrice = new DecimalFormat("#,###,###,###");
+    public static Gson gson;
 
     @Override
     public void onCreate() {
@@ -94,6 +98,14 @@ public class G extends Application {
         checkNotification = new CheckNotification();
         checkNotification.SetRepeatAlarm(69, Calendar.getInstance().getTimeInMillis() + NOTIFICATION_CHECKER_TIME, NOTIFICATION_CHECKER_TIME);
 
+
+        buildGSON();
+    }
+
+    private void buildGSON() {
+        GsonBuilder builder = new GsonBuilder();
+        builder.excludeFieldsWithModifiers(Modifier.FINAL, Modifier.TRANSIENT, Modifier.STATIC);
+        gson = builder.create();
     }
 
     public static void startGpsService() {
