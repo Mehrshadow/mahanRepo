@@ -1,6 +1,5 @@
 package ir.aspacrm.my.app.mahan.adapter;
 
-import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -12,24 +11,23 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import ir.aspacrm.my.app.mahan.ActivityShowSingleNews;
 import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewNormal;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewThin;
 import ir.aspacrm.my.app.mahan.model.News;
 
-public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder> {
+public class AdapterSingleNews extends RecyclerView.Adapter<AdapterSingleNews.NewsViewHolder> {
 
     List<News> newses;
 
-    public AdapterNews(List<News> newses) {
+    public AdapterSingleNews(List<News> newses) {
         this.newses = newses;
     }
 
     @Override
     public NewsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(G.context).inflate(R.layout.l_news_item0, parent, false);
+        View view = LayoutInflater.from(G.context).inflate(R.layout.l_news_item, parent, false);
         return new NewsViewHolder(view);
     }
 
@@ -47,16 +45,6 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
 //            holder.newsCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.dark_grey));
         }
 //        holder.txtNewsImportant.setText("" + news.Title);
-        holder.newsCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent showSingleNews = new Intent(G.currentActivity, ActivityShowSingleNews.class);
-                showSingleNews.putExtra("title", "" + news.title);
-                showSingleNews.putExtra("body", "" + Html.fromHtml(news.bodyText));
-                showSingleNews.putExtra("date", "" + news.newsDate);
-                G.currentActivity.startActivity(showSingleNews);
-            }
-        });
     }
 
     @Override
@@ -79,12 +67,6 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
             super(itemView);
             ButterKnife.bind(this, itemView);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
         }
     }
 

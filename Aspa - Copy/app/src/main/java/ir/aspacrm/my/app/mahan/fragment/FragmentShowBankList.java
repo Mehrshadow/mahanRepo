@@ -193,10 +193,11 @@ public class FragmentShowBankList extends Fragment {
                 + "&Money=" + money);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .add(R.id.layFragment, FragmentBrowser.newInstance(G.currentUser.ispUrl + G.WS_PAGE
-                        + "?rt=CallBankPageForPayment&UserID=" + G.currentUser.userId
-                        + "&ExKey=" + G.currentUser.exKey
-                        + "&FactorCode=" + factorCode + "&BankCode=" + event.getCode()
-                        + "&Money=" + money))
+                                + "?rt=CallBankPageForPayment&UserID=" + G.currentUser.userId
+                                + "&ExKey=" + G.currentUser.exKey
+                                + "&FactorCode=" + factorCode + "&BankCode=" + event.getCode()
+                                + "&Money=" + money
+                        , event.getBankName()))
                 .addToBackStack("FragmentBrowser")
                 .commit();
     }

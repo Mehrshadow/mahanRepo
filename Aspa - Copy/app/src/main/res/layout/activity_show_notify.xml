@@ -51,7 +51,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="اعلان ها"
+                    android:text="پیغام ها"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_font_very_small"
                     android:typeface="sans" />

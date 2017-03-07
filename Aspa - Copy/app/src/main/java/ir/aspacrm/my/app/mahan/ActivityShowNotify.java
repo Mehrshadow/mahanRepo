@@ -153,7 +153,7 @@ public class ActivityShowNotify extends AppCompatActivity {
         }
     }
 
-    private void getNotifyFromDB() {
+    public void getNotifyFromDB() {
         notifies = new Select()
                 .from(Notify.class)
                 .where("UserId = ?", G.currentUser.userId)

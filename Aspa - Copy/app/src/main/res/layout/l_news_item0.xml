@@ -55,7 +55,8 @@
                                 android:layout_marginBottom="3dp"
                                 android:ellipsize="end"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/size_font_very_very_small" />
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -69,8 +70,9 @@
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
                                 android:gravity="start"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/size_font_very_very_small" />
+                                android:textColor="@color/txt_blue"
+                                android:textSize="@dimen/size_font_very_very_small"
+                                android:visibility="gone" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -78,7 +80,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2.5dp"
-                        android:layout_marginTop="2.5dp">
+                        android:layout_marginTop="2.5dp"
+                        android:gravity="right">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -96,6 +99,19 @@
                                 android:typeface="sans" />
                         </LinearLayout>
                     </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/read_news"
+                        android:textColor="@color/back_orange_btn" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

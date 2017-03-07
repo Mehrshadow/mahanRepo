@@ -5,10 +5,19 @@ package ir.aspacrm.my.app.mahan.events;
  */
 public class EventOnBankSelected {
     int code;
-    public EventOnBankSelected(int code) {
+    String bankName;
+
+    public EventOnBankSelected(int code, String bankName) {
         this.code = code;
+        this.bankName = bankName;
     }
+
     public int getCode() {
         return code;
     }
+
+    public String getBankName() {
+        return bankName;
+    }
+
 }

@@ -1,16 +1,26 @@
 package ir.aspacrm.my.app.mahan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.LinearLayout;
+
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.events.EventOnAddScoreResponse;
 import ir.aspacrm.my.app.mahan.fragment.FragmentShowPaymentList;
 
-public class ActivityPayments extends AppCompatActivity{
+public class ActivityPayments extends AppCompatActivity {
 
+    @Bind(R.id.layBtnBack)
+    LinearLayout layBtnBack;
+
+    public static boolean isReturnedFromBrowser = false;
+    public static boolean isParent = false;
 
     private FragmentManager supportFragmentManager;
 
@@ -18,6 +28,7 @@ public class ActivityPayments extends AppCompatActivity{
     public FragmentManager getSupportFragmentManager() {
         return supportFragmentManager;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +36,26 @@ public class ActivityPayments extends AppCompatActivity{
         ButterKnife.bind(this);
 //        EventBus.getDefault().register(this);
 
+        isParent = true;
+
         supportFragmentManager = super.getSupportFragmentManager();
         supportFragmentManager
                 .beginTransaction()
-                .add(R.id.layFragment,new FragmentShowPaymentList())
+                .add(R.id.layFragment, new FragmentShowPaymentList())
                 .addToBackStack("FragmentShowPaymentList")
                 .commit();
+
+        layBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isReturnedFromBrowser) {
+                    isReturnedFromBrowser = false;
+                    startActivity(new Intent(G.currentActivity, ActivityMain0.class));
+                    finish();
+                } else
+                    onBackPressed();
+            }
+        });
     }
 
     public void onEventMainThread(EventOnAddScoreResponse event) {
@@ -54,7 +79,6 @@ public class ActivityPayments extends AppCompatActivity{
     }
 
 
-
 //    public void onEventMainThread(EventOnGetBankPageResponse event){
 //        Logger.d("ActivityChargeOnline : EventOnGetBankPageResponse is raised");
 //        supportFragmentManager.beginTransaction()
@@ -75,7 +99,6 @@ public class ActivityPayments extends AppCompatActivity{
 //    }
 
 
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -83,19 +106,27 @@ public class ActivityPayments extends AppCompatActivity{
         G.currentActivity = this;
 
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
 //        EventBus.getDefault().unregister(this);
     }
+
     @Override
     public void onBackPressed() {
         Logger.d("ActivityChargeOnline : onBackPressed()");
-        if(supportFragmentManager.getBackStackEntryCount() == 1)
+        if (supportFragmentManager.getBackStackEntryCount() == 1)
             finish();
         else
             super.onBackPressed();
     }
     /*-------------------------------------------------------------------------------------------------------------*/
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        isParent = false;
+    }
 }

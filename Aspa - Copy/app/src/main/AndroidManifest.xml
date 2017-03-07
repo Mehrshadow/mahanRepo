@@ -17,8 +17,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="false"
         android:largeHeap="true"
+        android:supportsRtl="false"
         android:theme="@style/AppTheme">
         <activity
             android:name=".ActivitySplash"
@@ -30,7 +30,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".classes.GpsService"/>
+        <service android:name=".classes.GpsService" />
+
         <activity
             android:name=".ActivitySearchISP"
             android:screenOrientation="portrait"
@@ -46,8 +47,6 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-
-
             android:name=".ActivityMain0"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -116,6 +115,10 @@
             android:name=".ActivityShowCurrentService"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ActivityShowSingleNews"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
         <!-- Receiver -->
         <receiver
@@ -135,7 +138,6 @@
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
-
 
 
         <!-- initialize ActiveAndroid DB -->
