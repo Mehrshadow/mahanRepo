@@ -1128,9 +1128,12 @@ public class JsonParser {
                 locations.setLongitude(response[i].positionY);
                 locations.setStartDate(response[i].startDate);
                 locations.setEndDate(response[i].endDate);
+                locations.setScoreTypeCode(response[i].scoreTypeCode);
+                locations.setHasConditions(false);
                 locations.save();
                 ActiveAndroid.setTransactionSuccessful();
                 ActiveAndroid.endTransaction();
+
             }
             EventBus.getDefault().post(new EventOnGetLocations());
         } catch (Exception e) {

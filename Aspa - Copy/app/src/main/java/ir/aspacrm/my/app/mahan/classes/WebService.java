@@ -1,9 +1,12 @@
 package ir.aspacrm.my.app.mahan.classes;
 
+import com.activeandroid.query.Update;
+
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.enums.EnumInternetErrorType;
 import ir.aspacrm.my.app.mahan.events.*;
+import ir.aspacrm.my.app.mahan.model.Locations;
 import okhttp3.*;
 
 import java.io.IOException;
@@ -2138,7 +2141,7 @@ public class WebService {
         });
     }
 
-    public static void sendAddScoreRequest(int type){
+    public static void sendAddScoreRequest(int type, final long id){
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
@@ -2157,6 +2160,11 @@ public class WebService {
             public void onFailure(Call call, IOException e) {
                 EventBus.getDefault().post(new EventOnGetErrorGetCities(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
+
+                new Update(Locations.class)
+                        .set("hasConditions = true")
+                        .where("id = ?", id)
+                        .execute();
             }
 
             @Override
