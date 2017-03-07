@@ -5,15 +5,15 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
+    <LinearLayout
+        android:background="@color/back_items"
         android:id="@+id/cardTicketMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2.5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="2.5dp"
-        app:cardBackgroundColor="@color/back_items">
+        android:layout_marginTop="2.5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -235,13 +235,13 @@
                     android:layout_gravity="center"
                     android:layout_margin="1dp"
                     android:text="مشاهده جزییات"
-                    android:textColor="@color/text_color_items"
+                    android:textColor="@color/orange"
 
                     android:textSize="@dimen/size_font_very_small"
                     app:fontFile="fonts/iransans_bold.ttf" />
             </LinearLayout>
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </LinearLayout>
 
 </LinearLayout>

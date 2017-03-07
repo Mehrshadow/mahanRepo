@@ -69,16 +69,14 @@
             android:layout_height="match_parent"
             android:layout_above="@id/layBtnBack">
 
-            <android.support.v7.widget.CardView
+            <LinearLayout
                 android:id="@+id/card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-
-                app:cardCornerRadius="10dp">
+                android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -150,7 +148,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <TextView
+                                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical|right"
@@ -190,7 +188,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <TextView
+                                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical|right"
@@ -231,7 +229,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <TextView
+                                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical|right"
@@ -272,7 +270,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <TextView
+                                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical|right"
@@ -314,7 +312,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <TextView
+                                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical|right"
@@ -355,7 +353,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <TextView
+                                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical|right"
@@ -397,7 +395,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <TextView
+                                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical|right"
@@ -440,7 +438,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <TextView
+                                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical|right"
@@ -482,7 +480,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <TextView
+                                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical|right"
@@ -524,7 +522,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <TextView
+                                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical|right"
@@ -544,7 +542,7 @@
 
                     </LinearLayout>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </LinearLayout>
         </ScrollView>
 
         <LinearLayout

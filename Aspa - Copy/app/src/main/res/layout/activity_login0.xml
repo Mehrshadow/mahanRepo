@@ -81,16 +81,9 @@
         <FrameLayout
             android:id="@+id/layContent"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="?attr/actionBarSize"
-                android:layout_weight="0.02" />
-
 
             <LinearLayout
                 android:id="@+id/layLogin"
@@ -100,7 +93,7 @@
                 android:padding="30dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -251,7 +244,7 @@
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -367,25 +360,16 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="?attr/actionBarSize"
-                android:layout_weight="0.02" />
 
 
         </FrameLayout>
 
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".2" />
-
         <LinearLayout
+            android:layout_weight="1"
             android:id="@+id/layLoading"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="3dp"
             android:gravity="center"

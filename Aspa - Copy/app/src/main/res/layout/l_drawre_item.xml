@@ -18,7 +18,8 @@
         android:text="TextView" />
 
     <ImageView
-        android:alpha=".8"
+        android:background="@drawable/ic_circle"
+        android:alpha=".6"
         android:layout_marginRight="16dp"
         android:id="@+id/imgImage"
         android:layout_width="wrap_content"

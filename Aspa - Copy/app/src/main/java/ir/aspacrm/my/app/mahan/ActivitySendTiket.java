@@ -93,10 +93,14 @@ public class ActivitySendTiket extends AppCompatActivity {
                 R.layout.s_item_white,
                 R.id.txtName,
                 getResources().getStringArray(R.array.sp_olaviat_items));
+
         adapterOlaviat.setDropDownViewResource(R.layout.s_item_black);
         spOlaviat.setAdapter(adapterOlaviat);
+
         adapterSpinnerVahed = new AdapterSpinnerVahed(units);
         spVahed.setAdapter(adapterSpinnerVahed);
+
+
         /** get vahed item from webService*/
         WebService.sendGetUnitsRequest();
 
