@@ -1120,7 +1120,7 @@ public class JsonParser {
         try {
             LocationsResponse[] response = new Gson().fromJson(json, LocationsResponse[].class);
             U.deleteLocationsItem();
-            for (int i = 0; i <response.length ; i++) {
+            for (int i = 0; i < response.length; i++) {
                 ActiveAndroid.beginTransaction();
                 Locations locations = new Locations();
                 locations.setLatitude(response[i].positionX);
@@ -1140,29 +1140,14 @@ public class JsonParser {
 
     }
 
-    public static void addScoreResponse(String json){
+    public static void addScoreResponse(String json) {
         Logger.d("JsonParser : addScoreResponse json is  " + json);
-        AddScoreResponse[] addScoreResponses = new Gson().fromJson(json,AddScoreResponse[].class);
-        EventBus.getDefault().post(new EventOnAddScoreResponse(addScoreResponses[0]));
-
-//        try {
-//            JSONArray jsonArray = new JSONArray(json);
-//            JSONObject object = jsonArray.getJSONObject(0);
-//            boolean Result = object.getBoolean("Result");
-//            int Err = object.getInt("Err");
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-
-
+        if (!json.equals("") && json != null) {
+            AddScoreResponse[] addScoreResponses = new Gson().fromJson(json, AddScoreResponse[].class);
+            EventBus.getDefault().post(new EventOnAddScoreResponse(addScoreResponses[0]));
+        }
 //        1 sabt
-//                0 ghbl
-//                -1 tarikh
-
-
-
-
-
+//        0 ghbl
+//       -1 tarikh
     }
 }

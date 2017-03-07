@@ -2,6 +2,7 @@ package ir.aspacrm.my.app.mahan;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import java.text.NumberFormat;
 import java.util.Calendar;
 
 import ir.aspacrm.my.app.mahan.classes.CheckNotification;
+import ir.aspacrm.my.app.mahan.classes.GpsService;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.U;
 import ir.aspacrm.my.app.mahan.model.Account;
@@ -91,6 +93,26 @@ public class G extends Application {
 
         checkNotification = new CheckNotification();
         checkNotification.SetRepeatAlarm(69, Calendar.getInstance().getTimeInMillis() + NOTIFICATION_CHECKER_TIME, NOTIFICATION_CHECKER_TIME);
+
+    }
+
+    public static void startGpsService() {
+        try {
+            Intent i = new Intent( G.context, GpsService.class);
+            G.context.startService(i);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void stopGpsService() {
+        try {
+            Intent i = new Intent(G.context, GpsService.class);
+            G.context.stopService(i);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

@@ -100,7 +100,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         WebService.sendGetUserAccountInfoRequest();
         WebService.sendGetLocationsRequest();
 
-        startGpsService();
+        G.startGpsService();
 
 
         initToolbar();
@@ -146,26 +146,6 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
 
     }
 
-    private void startGpsService() {
-        try {
-            Intent i = new Intent(getApplicationContext(), GpsService.class);
-            startService(i);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
-    private void stopGpsService() {
-        try {
-            Intent i = new Intent(getApplicationContext(), GpsService.class);
-            stopService(i);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
 
     @Override
     protected void onResume() {
@@ -178,8 +158,9 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
     @Override
     protected void onStop() {
         super.onStop();
-        stopGpsService();
+
     }
+
 
     private void initToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -475,6 +456,7 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         super.onDestroy();
         Logger.d("ActivityMain : onDestroy()");
         EventBus.getDefault().unregister(this);
+        G.stopGpsService();
     }
 
 

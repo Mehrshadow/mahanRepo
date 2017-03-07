@@ -49,8 +49,8 @@ import ir.aspacrm.my.app.mahan.model.Ticket;
 import ir.aspacrm.my.app.mahan.model.TicketDetail;
 import ir.aspacrm.my.app.mahan.model.Unit;
 
-public  class U {
-    public static void toast(String message){
+public class U {
+    public static void toast(String message) {
         Toast toast = Toast.makeText(G.context, message, Toast.LENGTH_SHORT);
         LinearLayout toastLayout = (LinearLayout) toast.getView();
         TextView toastTV = (TextView) toastLayout.getChildAt(0);
@@ -59,7 +59,8 @@ public  class U {
         toastTV.setTypeface(Typeface.SANS_SERIF);
         toast.show();
     }
-    public static void toastOnMainThread(final String message){
+
+    public static void toastOnMainThread(final String message) {
         G.handler.post(new Runnable() {
             @Override
             public void run() {
@@ -72,6 +73,7 @@ public  class U {
             }
         });
     }
+
     public static void overrideFont(Context context, String defaultFontNameToOverride, String customFontFileNameInAssets) {
         try {
             final Typeface customFontTypeface = Typeface.createFromAsset(context.getAssets(), customFontFileNameInAssets);
@@ -82,16 +84,19 @@ public  class U {
 
         }
     }
-    public static String getIMEI(){
+
+    public static String getIMEI() {
         TelephonyManager telephonyManager = (TelephonyManager) G.context.getSystemService(Context.TELEPHONY_SERVICE);
         String imei = telephonyManager.getDeviceId();
         return imei;
     }
+
     public static String getApplicationName() {
         int stringId = G.context.getApplicationInfo().labelRes;
         return G.context.getString(stringId);
     }
-    public static String getAppVersionName(){
+
+    public static String getAppVersionName() {
         try {
             PackageInfo pInfo = G.context.getPackageManager().getPackageInfo(G.context.getPackageName(), 0);
             return pInfo.versionName;
@@ -100,34 +105,41 @@ public  class U {
             return "";
         }
     }
-    public static String getDeviceName(){
+
+    public static String getDeviceName() {
         String deviceName = Build.BRAND + " " + Build.MANUFACTURER;
         return deviceName;
     }
-    public static String getDeviceModel(){
+
+    public static String getDeviceModel() {
         String deviceModel = Build.PRODUCT + "(" + Build.MODEL + ")";
         return deviceModel;
     }
-    public static String getOSVersion(){
+
+    public static String getOSVersion() {
         return android.os.Build.VERSION.RELEASE;
     }
-    public static int getDeviceWidth(){
+
+    public static int getDeviceWidth() {
         DisplayMetrics metrics = G.context.getResources().getDisplayMetrics();
         int width = metrics.widthPixels;
         return width;
     }
-    public static int getDeviceHeight(){
+
+    public static int getDeviceHeight() {
         DisplayMetrics metrics = G.context.getResources().getDisplayMetrics();
         int height = metrics.heightPixels;
         return height;
     }
-    public static float getDeviceDensity(){
+
+    public static float getDeviceDensity() {
         return G.context.getResources().getDisplayMetrics().density;
     }
-    public static void setStatusBarColor(View statusBar,int color){
+
+    public static void setStatusBarColor(View statusBar, int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = G.currentActivity.getWindow();
-            w.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            w.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             //status bar height
             int actionBarHeight = getActionBarHeight();
             int statusBarHeight = getStatusBarHeight();
@@ -136,7 +148,8 @@ public  class U {
             statusBar.setBackgroundColor(color);
         }
     }
-    public static void sendNotification(final String message){
+
+    public static void sendNotification(final String message) {
         Intent intent = new Intent(G.context, ActivityShowNotify.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(G.context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -150,18 +163,19 @@ public  class U {
                 .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS)
                 .setAutoCancel(true);
         Notification notification = builder.build();
-        NotificationManager manager = (NotificationManager)G.context. getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager manager = (NotificationManager) G.context.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(1367, notification);
     }
+
     public static int getActionBarHeight() {
         int actionBarHeight = 0;
         TypedValue tv = new TypedValue();
-        if (G.currentActivity.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
-        {
-            actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data,G.context.getResources().getDisplayMetrics());
+        if (G.currentActivity.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+            actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, G.context.getResources().getDisplayMetrics());
         }
         return actionBarHeight;
     }
+
     public static int getStatusBarHeight() {
         int result = 0;
         int resourceId = G.context.getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -170,60 +184,64 @@ public  class U {
         }
         return result;
     }
+
     public static void expand(final View v) {
         v.measure(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         final int targetHeight = v.getMeasuredHeight();
         // Older versions of android (pre API 21) cancel animations for views with a height of 0.
         v.getLayoutParams().height = 1;
         v.setVisibility(View.VISIBLE);
-        Animation a = new Animation()
-        {
+        Animation a = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
                 v.getLayoutParams().height = interpolatedTime == 1
                         ? LinearLayout.LayoutParams.WRAP_CONTENT
-                        : (int)(targetHeight * interpolatedTime);
+                        : (int) (targetHeight * interpolatedTime);
                 v.requestLayout();
             }
+
             @Override
             public boolean willChangeBounds() {
                 return true;
             }
         };
         // 1dp/ms
-        a.setDuration((int)(targetHeight / v.getContext().getResources().getDisplayMetrics().density));
+        a.setDuration((int) (targetHeight / v.getContext().getResources().getDisplayMetrics().density));
         v.startAnimation(a);
     }
+
     public static void collapse(final View v) {
         final int initialHeight = v.getMeasuredHeight();
-        Animation a = new Animation()
-        {
+        Animation a = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
-                if(interpolatedTime == 1){
+                if (interpolatedTime == 1) {
                     v.setVisibility(View.GONE);
-                }else{
-                    v.getLayoutParams().height = initialHeight - (int)(initialHeight * interpolatedTime);
+                } else {
+                    v.getLayoutParams().height = initialHeight - (int) (initialHeight * interpolatedTime);
                     v.requestLayout();
                 }
             }
+
             @Override
             public boolean willChangeBounds() {
                 return true;
             }
         };
         // 1dp/ms
-        a.setDuration((int)(initialHeight / v.getContext().getResources().getDisplayMetrics().density));
+        a.setDuration((int) (initialHeight / v.getContext().getResources().getDisplayMetrics().density));
         v.startAnimation(a);
     }
-    public static String getCurrentDate(){
+
+    public static String getCurrentDate() {
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",Locale.ENGLISH);
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
         String formattedDate;
         formattedDate = df.format(cal.getTime());
         return formattedDate;
     }
-    public static String getDate(int minus){
+
+    public static String getDate(int minus) {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
         cal.add(Calendar.DATE, minus);
@@ -231,44 +249,56 @@ public  class U {
         formattedDate = df.format(cal.getTime());
         return formattedDate;
     }
-    public static void deleteUnitTableItem(){
+
+    public static void deleteUnitTableItem() {
         new Delete().from(Unit.class).execute();
     }
-    public static void deleteTicketTableItem(){
+
+    public static void deleteTicketTableItem() {
         new Delete().from(Ticket.class).where("userId = ?", G.currentUser.userId).execute();
     }
-    public static void deleteTicketDetailTableItem(long ticketCode){
+
+    public static void deleteTicketDetailTableItem(long ticketCode) {
         new Delete().from(TicketDetail.class).where("ParentCode = ?", ticketCode).execute();
     }
-    public static void deletePaymentTableItem(){
+
+    public static void deletePaymentTableItem() {
         new Delete().from(Payment.class).where("UserId = ?", G.currentUser.userId).execute();
     }
-    public static void deleteLocationsItem(){
+
+    public static void deleteLocationsItem() {
         new Delete().from(Locations.class).execute();
     }
-    public static void deleteFeshfesheTableItem(){
+
+    public static void deleteFeshfesheTableItem() {
         new Delete().from(Feshfeshe.class).where("UserId = ?", G.currentUser.userId).execute();
     }
-    public static void deleteClubScoreTableItem(){
+
+    public static void deleteClubScoreTableItem() {
         new Delete().from(ClubScore.class).where("UserId = ?", G.currentUser.userId).execute();
     }
-    public static void deleteFactorTableItem(){
+
+    public static void deleteFactorTableItem() {
         new Delete().from(Factor.class).where("UserId = ?", G.currentUser.userId).execute();
     }
-    public static void deleteConnectionTableItem(){
+
+    public static void deleteConnectionTableItem() {
         new Delete().from(Connection.class).where("UserId = ?", G.currentUser.userId).execute();
     }
-    public static void deleteFactorDetailTableItem(long factorCode){
-        new Delete().from(FactorDetail.class).where("userId = ? AND parentId = ? ", G.currentUser.userId,factorCode).execute();
+
+    public static void deleteFactorDetailTableItem(long factorCode) {
+        new Delete().from(FactorDetail.class).where("userId = ? AND parentId = ? ", G.currentUser.userId, factorCode).execute();
     }
-    public static void installUpdateApp(){
+
+    public static void installUpdateApp() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setDataAndType(Uri.fromFile(new File(G.DIR_APP_DOWNLOAD_FOLDER + "/UpdateApp.apk")), "application/vnd.android.package-archive");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         G.context.startActivity(intent);
     }
-    public static String getMenuItemName(int whichMenuItem){
-        switch (whichMenuItem){
+
+    public static String getMenuItemName(int whichMenuItem) {
+        switch (whichMenuItem) {
             case EnumChargeOnlineMenuItem.TAMDID_SERVICE:
                 return "تمدید سرویس";
             case EnumChargeOnlineMenuItem.TAGHIR_SERVICE:
@@ -277,30 +307,35 @@ public  class U {
                 return "خرید آی پی";
             case EnumChargeOnlineMenuItem.TRAFFIC:
                 return "ترافیک اضافه";
-            case EnumChargeOnlineMenuItem.FESHFESHE :
+            case EnumChargeOnlineMenuItem.FESHFESHE:
                 return "فشفشه";
         }
         return "";
     }
 
-    public static void getMenuItemIcon(ImageView imageView,int whichMenuItem){
-        switch (whichMenuItem){
+    public static void getMenuItemIcon(ImageView imageView, int whichMenuItem) {
+        switch (whichMenuItem) {
             case EnumChargeOnlineMenuItem.TAMDID_SERVICE:
-
+                imageView.setImageResource(R.drawable.ic_change_service);
+                break;
             case EnumChargeOnlineMenuItem.TAGHIR_SERVICE:
-
+                imageView.setImageResource(R.drawable.ic_change_service);
+                break;
             case EnumChargeOnlineMenuItem.IP:
-
+                imageView.setImageResource(R.drawable.ic_change_service);
+                break;
             case EnumChargeOnlineMenuItem.TRAFFIC:
                 imageView.setImageResource(R.drawable.ic_extratraffic);
-
-            case EnumChargeOnlineMenuItem.FESHFESHE :
-
+                break;
+            case EnumChargeOnlineMenuItem.FESHFESHE:
+                imageView.setImageResource(R.drawable.ic_feshfeshe);
+                break;
         }
     }
+
     public static String persianToDecimal(String number) {
         char[] chars = new char[number.length()];
-        for(int i=0;i<number.length();i++) {
+        for (int i = 0; i < number.length(); i++) {
             char ch = number.charAt(i);
             if (ch >= 0x0660 && ch <= 0x0669)
                 ch -= 0x0660 - '0';
@@ -310,6 +345,7 @@ public  class U {
         }
         return new String(chars);
     }
+
     public static void cancelNotification(int notifyId) {
         String ns = Context.NOTIFICATION_SERVICE;
         NotificationManager nMgr = (NotificationManager) G.context.getSystemService(ns);

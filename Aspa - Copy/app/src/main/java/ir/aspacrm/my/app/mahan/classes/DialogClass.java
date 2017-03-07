@@ -70,6 +70,7 @@ public class DialogClass {
     }
 
     public void showExitDialog() {
+
         final Dialog dialog = new Dialog(G.currentActivity, R.style.DialogSlideAnim);
         dialog.setContentView(R.layout.dialog_exit);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -78,7 +79,7 @@ public class DialogClass {
 
         LinearLayout layBtnPositive = (LinearLayout) dialog.findViewById(R.id.layBtnOk);
         LinearLayout layBtnNegative = (LinearLayout) dialog.findViewById(R.id.layBtnCancel);
-        PersianTextViewNormal imgCloseDialog = (PersianTextViewNormal) dialog.findViewById(R.id.imgCloseDialog);
+        ImageView imgCloseDialog = (ImageView) dialog.findViewById(R.id.imgCloseDialog);
         TextView txtBtnOk = (TextView) layBtnPositive.findViewById(R.id.txtValue);
         TextView txtBtnCancel = (TextView) layBtnNegative.findViewById(R.id.txtValue);
 
