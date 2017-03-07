@@ -173,16 +173,16 @@ public class GpsService extends Service implements LocationListener {
             locationses = readLocationsFromDb();
             for (int i = 0; i < locationses.size(); i++) {
                 distance = getDistanceInM(sLat, sLon, locationses.get(i).getLatitude(), locationses.get(i).getLongitude());
-                if (distance < 500) {
+                if (distance < 100) {
 
                     // do something
                     addScore(locationses.get(i));
 
-                    new Delete()
-                            .from(Locations.class)
-                            .where("Latitude = ?", locationses.get(i).getLatitude())
-                            .where("Longitude = ?", locationses.get(i).getLongitude())
-                            .execute();
+//                    new Delete()
+//                            .from(Locations.class)
+//                            .where("Latitude = ?", locationses.get(i).getLatitude())
+//                            .where("Longitude = ?", locationses.get(i).getLongitude())
+//                            .execute();
                 }
             }
         } catch (Exception e) {
@@ -195,6 +195,7 @@ public class GpsService extends Service implements LocationListener {
         String startDate = locations.getStartDate();
         String endDate = locations.getEndDate();
         int type = locations.getScoreTypeCode();
+        long id = locations.getId();
 
 
         try {
@@ -222,11 +223,11 @@ public class GpsService extends Service implements LocationListener {
                 case 0:
 
                     if (campareHour > 0)
-                        WebService.sendAddScoreRequest(type);
+                        WebService.sendAddScoreRequest(type, id);
 
                     break;
                 case 1:
-                    WebService.sendAddScoreRequest(type);
+                    WebService.sendAddScoreRequest(type, id);
                     break;
             }
 

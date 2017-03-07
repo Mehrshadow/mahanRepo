@@ -29,6 +29,17 @@ public class Locations extends Model {
     @Column(name = "scoreTypeCode")
     int scoreTypeCode;
 
+    @Column(name = "hasConditions")
+    boolean hasConditions;
+
+    public boolean isHasConditions() {
+        return hasConditions;
+    }
+
+    public void setHasConditions(boolean hasConditions) {
+        this.hasConditions = hasConditions;
+    }
+
     public int getScoreTypeCode() {
         return scoreTypeCode;
     }
