@@ -31,12 +31,16 @@ import ir.aspacrm.my.app.mahan.gson.ChargeOnlineGroup;
 
 public class FragmentChargeOnlineGroup extends Fragment {
 
-    @Bind(R.id.lstGroup) RecyclerView lstGroup;
-    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
-    @Bind(R.id.txtShowMessage) TextView txtShowMessage;
+    @Bind(R.id.lstGroup)
+    RecyclerView lstGroup;
+    @Bind(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
+    @Bind(R.id.txtShowMessage)
+    TextView txtShowMessage;
 
-//    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
-    @Bind(R.id.txtPageTitle) TextView txtPageTitle;
+    //    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
+    @Bind(R.id.txtPageTitle)
+    TextView txtPageTitle;
 
     AdapterChargeOnlineGroup adapterChargeOnlineGroup;
     LinearLayoutManager linearLayoutManager;
@@ -47,10 +51,10 @@ public class FragmentChargeOnlineGroup extends Fragment {
     int columnsOfGrid = 2;
     int typeOfGrid = 1;
 
-    public static FragmentChargeOnlineGroup newInstance(int isClub,int whichMenuItem) {
+    public static FragmentChargeOnlineGroup newInstance(int isClub, int whichMenuItem) {
         Bundle args = new Bundle();
-        args.putInt("IS_CLUB",isClub);
-        args.putInt("WHICH_MENU_ITEM",whichMenuItem);
+        args.putInt("IS_CLUB", isClub);
+        args.putInt("WHICH_MENU_ITEM", whichMenuItem);
         FragmentChargeOnlineGroup fragment = new FragmentChargeOnlineGroup();
         fragment.setArguments(args);
         return fragment;
@@ -84,16 +88,16 @@ public class FragmentChargeOnlineGroup extends Fragment {
 
         txtPageTitle.setText(U.getMenuItemName(whichMenuItem));
 
-        adapterChargeOnlineGroup = new AdapterChargeOnlineGroup(groups,isClub,whichMenuItem);
+        adapterChargeOnlineGroup = new AdapterChargeOnlineGroup(groups, isClub, whichMenuItem);
         /** baraye anke moshakhas konim grid
          * ma be surate list namayesh dade sahvad ya grid chand setune*/
-        typeOfGrid = G.localMemory.getInt("GRID_TYPE",1);
-        if(typeOfGrid == EnumGridType.GRID){
+        typeOfGrid = G.localMemory.getInt("GRID_TYPE", 1);
+        if (typeOfGrid == EnumGridType.GRID) {
             columnsOfGrid = getResources().getInteger(R.integer.grid_columns);
-        }else{
+        } else {
             columnsOfGrid = getResources().getInteger(R.integer.grid_list_columns);
         }
-        linearLayoutManager = new GridLayoutManager(G.context,columnsOfGrid);
+        linearLayoutManager = new GridLayoutManager(G.context, columnsOfGrid);
         lstGroup.setLayoutManager(linearLayoutManager);
         lstGroup.setHasFixedSize(true);
         lstGroup.setAdapter(adapterChargeOnlineGroup);
@@ -128,18 +132,20 @@ public class FragmentChargeOnlineGroup extends Fragment {
 //
 
     }
-    public void onEventMainThread(EventOnGetChargeOnlineForLoadGroups event){
+
+    public void onEventMainThread(EventOnGetChargeOnlineForLoadGroups event) {
         Logger.d("FragmentChargeOnlineGroup : EventOnGetChargeOnlineForLoadGroups is raised");
         swipeRefreshLayout.setRefreshing(false);
         groups = event.getChargeOnlineGroups();
-        if(groups.size() == 0 ){
+        if (groups.size() == 0) {
             txtShowMessage.setVisibility(View.VISIBLE);
             txtShowMessage.setText("موردی یافت نشد.");
-        }else{
+        } else {
             adapterChargeOnlineGroup.updateList(groups);
         }
     }
-    public void onEventMainThread(EventOnGetErrorChargeOnlineForLoadGroups  event){
+
+    public void onEventMainThread(EventOnGetErrorChargeOnlineForLoadGroups event) {
         Logger.d("FragmentChargeOnlineGroup : EventOnGetErrorChargeOnlineForLoadGroups is raised");
         swipeRefreshLayout.setRefreshing(false);
         groups = new ArrayList<>();
@@ -147,15 +153,18 @@ public class FragmentChargeOnlineGroup extends Fragment {
         txtShowMessage.setVisibility(View.VISIBLE);
         txtShowMessage.setText("خطا در دریافت اطلاعات از سرور لطفا دوباره تلاش کنید.");
     }
+
     @Override
     public void onResume() {
         super.onResume();
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

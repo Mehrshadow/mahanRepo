@@ -1,20 +1,20 @@
 package ir.aspacrm.my.app.mahan;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class ActivitySplash extends AppCompatActivity {
 
-    ImageView img_mahan,img_rss, img_wifi, img_mobile, img_lte, img_computer, img_ngn, img_cloud,img_4g,img_adsl,img_voip,img_wireless;
+    ImageView img_mahan, img_rss, img_wifi, img_mobile, img_lte, img_computer, img_ngn, img_cloud, img_4g, img_adsl, img_voip, img_wireless;
 
     Animation Animation, Animation1,
             Animation2, Animation3, Animation4,
             Animation5, Animation6, Animation7,
-            Animation8, Animation9,Animation10,
+            Animation8, Animation9, Animation10,
             Animation11;
 
     @Override
@@ -27,18 +27,18 @@ public class ActivitySplash extends AppCompatActivity {
 
     private void initView() {
         loadAnim();
-        img_wifi = (ImageView)findViewById(R.id.img_wifi);
-        img_mahan = (ImageView)findViewById(R.id.img_mahan);
-        img_mobile = (ImageView)findViewById(R.id.img_mobile);
-        img_lte = (ImageView)findViewById(R.id.img_lte);
-        img_computer = (ImageView)findViewById(R.id.img_computer);
-        img_ngn = (ImageView)findViewById(R.id.img_ngn);
-        img_cloud = (ImageView)findViewById(R.id.img_cloud);
-        img_4g = (ImageView)findViewById(R.id.img_4g);
-        img_adsl = (ImageView)findViewById(R.id.img_adsl);
-        img_voip = (ImageView)findViewById(R.id.img_voip);
-        img_wireless = (ImageView)findViewById(R.id.img_wireless);
-        img_rss = (ImageView)findViewById(R.id.img_rss);
+        img_wifi = (ImageView) findViewById(R.id.img_wifi);
+        img_mahan = (ImageView) findViewById(R.id.img_mahan);
+        img_mobile = (ImageView) findViewById(R.id.img_mobile);
+        img_lte = (ImageView) findViewById(R.id.img_lte);
+        img_computer = (ImageView) findViewById(R.id.img_computer);
+        img_ngn = (ImageView) findViewById(R.id.img_ngn);
+        img_cloud = (ImageView) findViewById(R.id.img_cloud);
+        img_4g = (ImageView) findViewById(R.id.img_4g);
+        img_adsl = (ImageView) findViewById(R.id.img_adsl);
+        img_voip = (ImageView) findViewById(R.id.img_voip);
+        img_wireless = (ImageView) findViewById(R.id.img_wireless);
+        img_rss = (ImageView) findViewById(R.id.img_rss);
 
 
         img_wifi.startAnimation(Animation);
@@ -77,7 +77,7 @@ public class ActivitySplash extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                startActivity(new Intent(G.context,ActivityStarter.class));
+                startActivity(new Intent(G.context, ActivityStarter.class));
                 finish();
             }
 

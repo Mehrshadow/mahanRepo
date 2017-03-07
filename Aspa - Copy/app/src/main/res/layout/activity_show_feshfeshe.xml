@@ -49,7 +49,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/special_offer"
+                android:text="فشفشه"
                 android:textColor="@color/black"
                 android:textSize="@dimen/size_font_very_small"
                 android:typeface="sans" />
@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="5dp"
                 android:gravity="center"
-                android:text="زمان پایان : "
+                android:text="زمان انقضا : "
                 android:textColor="@color/black"
                 android:textSize="@dimen/size_font_very_very_small" />
 
@@ -130,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="5dp"
                 android:gravity="center"
-                android:text="ترافیک باقیمانده : "
+                android:text="حجم باقیمانده : "
                 android:textColor="@color/black"
                 android:textSize="@dimen/size_font_very_very_small" />
         </LinearLayout>

@@ -42,13 +42,13 @@ public class AdapterBank extends RecyclerView.Adapter<AdapterBank.GroupViewHolde
         holder.layMainBank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventBus.getDefault().post(new EventOnBankSelected(bank.code));
+                EventBus.getDefault().post(new EventOnBankSelected(bank.code, bank.name));
             }
         });
 
         Picasso.with(G.context)
                 .load(bank.logo)
-                .error(R.drawable.ic_aspa)
+                .error(R.drawable.img_bank)
                 .into(holder.imgBankLogo);
     }
 
@@ -58,15 +58,19 @@ public class AdapterBank extends RecyclerView.Adapter<AdapterBank.GroupViewHolde
     }
 
     public class GroupViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.txtBankName)  PersianTextViewThin txtBankName;
-        @Bind(R.id.imgBankLogo) ImageView imgBankLogo;
+        @Bind(R.id.txtBankName)
+        PersianTextViewThin txtBankName;
+        @Bind(R.id.imgBankLogo)
+        ImageView imgBankLogo;
         @Bind(R.id.layMainBank)
         LinearLayout layMainBank;
+
         public GroupViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
     }
+
     public void updateList(LoadBanksResponse[] data) {
         banks = data;
         notifyDataSetChanged();
