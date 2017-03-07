@@ -432,7 +432,6 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="3dp"
         android:background="@color/back_loading_color"
         android:gravity="center"
         android:orientation="vertical">
