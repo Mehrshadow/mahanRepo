@@ -1,5 +1,6 @@
 package ir.aspacrm.my.app.mahan.classes;
 
+import com.activeandroid.query.Delete;
 import com.activeandroid.query.Update;
 
 import de.greenrobot.event.EventBus;
@@ -10,6 +11,13 @@ import ir.aspacrm.my.app.mahan.model.Locations;
 import okhttp3.*;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class WebService {
@@ -2141,7 +2149,8 @@ public class WebService {
         });
     }
 
-    public static void sendAddScoreRequest(int type, final long id){
+    public static void sendAddScoreRequest(final Locations locations) {
+
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
@@ -2151,7 +2160,7 @@ public class WebService {
                 .add("rt", "addscore")
                 .add("UserID", "" + G.currentUser.userId)
                 .add("ExKey", "" + G.currentUser.exKey)
-                .add("type", "" + type)
+                .add("type", "" + locations.getScoreTypeCode())
                 .build();
         Request request = new Request.Builder().url(G.currentUser.ispUrl + G.WS_PAGE).post(body).build();
         Logger.d("WebService : sendGetLocationsRequest rt is " + "addscore");
@@ -2161,20 +2170,60 @@ public class WebService {
                 EventBus.getDefault().post(new EventOnGetErrorGetCities(EnumInternetErrorType.NO_INTERNET_ACCESS));
                 U.toastOnMainThread("ارتباط اینترنتی خود را چک کنید.");
 
-                new Update(Locations.class)
-                        .set("hasConditions = true")
-                        .where("id = ?", id)
-                        .execute();
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
                     EventBus.getDefault().post(new EventOnGetErrorGetCities(EnumInternetErrorType.REQUEST_CODE_NOT_SUCCEEDED));
+
                     return;
                 }
-                JsonParser.addScoreResponse(response.body().string());
+                JsonParser.addScoreResponse(response.body().string(),locations);
             }
         });
+    }
+
+    public static void addLocationScore(Locations locations) {
+        String startDate = locations.getStartDate();
+        String endDate = locations.getEndDate();
+
+        try {
+            DateFormat currentDay = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+            DateFormat currentHour = new SimpleDateFormat("hh:mm:ss ", Locale.ENGLISH);
+            String nDay = currentDay.format(Calendar.getInstance().getTime());
+            String nHour = currentHour.format(Calendar.getInstance().getTime());
+
+
+            SimpleDateFormat Datee = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+            SimpleDateFormat houre = new SimpleDateFormat("hh:mm:ss", Locale.ENGLISH);
+            String[] startDay = startDate.split("T");
+            String[] endDay = endDate.split("T");
+
+
+            Date sDay = Datee.parse(nDay);
+            Date sHour = houre.parse(nHour);
+
+            Date eDay = Datee.parse(endDay[0]);
+            Date eHour = houre.parse(endDay[1]);
+            int campareDay = eDay.compareTo(sDay);
+            int campareHour = eHour.compareTo(sHour);
+
+            switch (campareDay) {
+                case 0:
+
+                    if (campareHour > 0)
+                        WebService.sendAddScoreRequest(locations);
+
+                    break;
+                case 1:
+                    WebService.sendAddScoreRequest(locations);
+                    break;
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 }

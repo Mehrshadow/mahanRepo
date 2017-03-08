@@ -6,7 +6,7 @@ package ir.aspacrm.my.app.mahan.gson;
 
 public class LocationsResponse {
 
-
+    public int code;
     public String name;
     public double positionX;  //Latitude
     public double positionY;  //Longitude

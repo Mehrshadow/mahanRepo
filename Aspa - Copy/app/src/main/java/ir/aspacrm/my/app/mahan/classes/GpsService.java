@@ -1,7 +1,6 @@
 package ir.aspacrm.my.app.mahan.classes;
 
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
@@ -9,23 +8,12 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.widget.Toast;
 
-import com.activeandroid.query.Delete;
-import com.activeandroid.query.Select;
+import com.activeandroid.query.Update;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.logging.*;
 
 import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.model.Locations;
@@ -59,21 +47,18 @@ public class GpsService extends Service implements LocationListener {
     static final double _eQuatorialEarthRadius = 6378.1370D;
     static final double _d2r = (Math.PI / 180D);
     int distance;
-    List<Locations> locationses;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
-
+        G.updateLocations();
         try {
-            locationses = readLocationsFromDb();
-            gpsParams = new GpsParams[locationses.size()];
-
-            for (int i = 0; i < locationses.size(); i++) {
+            gpsParams = new GpsParams[G.locations.size()];
+            for (int i = 0; i < G.locations.size(); i++) {
                 GpsParams gpsParam = new GpsParams();
-                gpsParam.longitude = locationses.get(i).getLongitude();
-                gpsParam.latitude = locationses.get(i).getLatitude();
+                gpsParam.longitude = G.locations.get(i).getLongitude();
+                gpsParam.latitude = G.locations.get(i).getLatitude();
                 gpsParams[i] = gpsParam;
             }
         } catch (Exception e) {
@@ -164,25 +149,22 @@ public class GpsService extends Service implements LocationListener {
     }
 
     private void checkLocation(double sLat, double sLon) {
-        Locations locations7 = new Locations();
-        locations7.setEndDate("2017-02-02T12:23:10");
-        locations7.setStartDate("2017-02-01T13:23:10");
-        locations7.setScoreTypeCode(-2);
-        addScore(locations7);
+        DialogClass showMessage = new DialogClass();
         try {
-            locationses = readLocationsFromDb();
-            for (int i = 0; i < locationses.size(); i++) {
-                distance = getDistanceInM(sLat, sLon, locationses.get(i).getLatitude(), locationses.get(i).getLongitude());
+            G.updateLocations();
+            for (int i = 0; i < G.locations.size(); i++) {
+                distance = getDistanceInM(sLat, sLon, G.locations.get(i).getLatitude(), G.locations.get(i).getLongitude());
                 if (distance < 100) {
 
-                    // do something
-                    addScore(locationses.get(i));
 
-//                    new Delete()
-//                            .from(Locations.class)
-//                            .where("Latitude = ?", locationses.get(i).getLatitude())
-//                            .where("Longitude = ?", locationses.get(i).getLongitude())
-//                            .execute();
+                    if (!G.locations.get(i).isHasConditions()) {
+                        showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رویداد " + G.locations.get(i).getDes() + " به شما تعلق گرفت");
+                    }
+
+                    new Update(Locations.class)
+                            .set("hasConditions = ?", 1)
+                            .where("id = ?", G.locations.get(i).getId())
+                            .execute();
                 }
             }
         } catch (Exception e) {
@@ -191,57 +173,22 @@ public class GpsService extends Service implements LocationListener {
 
     }
 
-    private void addScore(Locations locations) {
-        String startDate = locations.getStartDate();
-        String endDate = locations.getEndDate();
-        int type = locations.getScoreTypeCode();
-        long id = locations.getId();
-
-
-        try {
-            DateFormat currentDay = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-            DateFormat currentHour = new SimpleDateFormat("hh:mm:ss ", Locale.ENGLISH);
-            String nDay = currentDay.format(Calendar.getInstance().getTime());
-            String nHour = currentHour.format(Calendar.getInstance().getTime());
-
-
-            SimpleDateFormat Datee = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-            SimpleDateFormat houre = new SimpleDateFormat("hh:mm:ss", Locale.ENGLISH);
-            String[] startDay = startDate.split("T");
-            String[] endDay = endDate.split("T");
-
-
-            Date sDay = Datee.parse(startDay[0]);
-            Date sHour = houre.parse(startDay[1]);
-
-            Date eDay = Datee.parse(endDay[0]);
-            Date eHour = houre.parse(endDay[1]);
-            int campareDay = eDay.compareTo(sDay);
-            int campareHour = eHour.compareTo(sHour);
-
-            switch (campareDay) {
-                case 0:
-
-                    if (campareHour > 0)
-                        WebService.sendAddScoreRequest(type, id);
-
-                    break;
-                case 1:
-                    WebService.sendAddScoreRequest(type, id);
-                    break;
+    private void sendLocations() {
+        if (G.locations != null && G.locations.size() != 0) {
+            for (int i = 0; i < G.locations.size(); i++) {
+                if (G.locations.get(i).isHasConditions()) {
+                    WebService.addLocationScore(G.locations.get(i));
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
 
-//
-//        Date strDate = sdf.parse(valid_until);
-//        if (new Date().after(strDate)) {
-//            catalog_outdated = 1;
-//        }
-
     }
+
 
     public static int getDistanceInM(double lat1, double long1, double lat2, double long2) {
         return (int) (1000D * getDistanceInKM(lat1, long1, lat2, long2));
@@ -258,21 +205,12 @@ public class GpsService extends Service implements LocationListener {
         return d;
     }
 
-    private List<Locations> readLocationsFromDb() {
-        try {
-            return new Select(new String[]{"Id,Latitude,Longitude"}).from(Locations.class).execute();
-        } catch (Exception e) {
-            e.printStackTrace();
-            List<Locations> list = new ArrayList<>();
-            return list;
-        }
-
-    }
 
     @Override
     public void onLocationChanged(Location location) {
         Toast.makeText(getApplicationContext(), "Latitude>>" + location.getLatitude() + "\nLongitude>>" + location.getLongitude() + "\n<<Sent To>>\n" + URL, Toast.LENGTH_LONG).show();
         checkLocation(location.getLatitude(), location.getLongitude());
+        sendLocations();
     }
 
     @Override

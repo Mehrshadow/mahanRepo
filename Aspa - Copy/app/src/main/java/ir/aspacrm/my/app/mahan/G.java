@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.activeandroid.ActiveAndroid;
+import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -18,15 +19,21 @@ import net.time4j.android.ApplicationStarter;
 import java.lang.reflect.Modifier;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
+import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.classes.CheckNotification;
+import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.GpsService;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.U;
+import ir.aspacrm.my.app.mahan.events.EventOnAddScoreResponse;
 import ir.aspacrm.my.app.mahan.model.Account;
 import ir.aspacrm.my.app.mahan.model.Info;
 import ir.aspacrm.my.app.mahan.model.License;
+import ir.aspacrm.my.app.mahan.model.Locations;
 import ir.aspacrm.my.app.mahan.model.User;
 
 /**
@@ -43,6 +50,7 @@ public class G extends Application {
     public static SharedPreferences localMemory;
     public static CheckNotification checkNotification;
     public static long customerId;
+    public static List<Locations> locations;
 
 
     /**
@@ -65,6 +73,9 @@ public class G extends Application {
         /** initialize database*/
         ActiveAndroid.initialize(this);
 
+        EventBus.getDefault().register(this);
+        updateLocations();
+
         /** set SharedPreferences*/
         localMemory = getSharedPreferences("LOCAL", MODE_PRIVATE);
 
@@ -78,6 +89,7 @@ public class G extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
         /** get customerId */
         customerId = getResources().getInteger(R.integer.customer_id);
@@ -110,7 +122,7 @@ public class G extends Application {
 
     public static void startGpsService() {
         try {
-            Intent i = new Intent( G.context, GpsService.class);
+            Intent i = new Intent(G.context, GpsService.class);
             G.context.startService(i);
         } catch (Exception e) {
             e.printStackTrace();
@@ -126,5 +138,47 @@ public class G extends Application {
             e.printStackTrace();
         }
 
+    }
+
+    public static void updateLocations() {
+        try {
+
+            locations = new Select(new String[]{"Id,Code,Latitude,Longitude,startDate,endDate,scoreTypeCode,hasConditions"}).from(Locations.class).execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onEventMainThread(EventOnAddScoreResponse event) {
+        DialogClass showMessage = new DialogClass();
+
+        if (event.getResponse().isResult()) {
+            switch (event.getResponse().getErr()) {
+                case 0:
+                    showMessage.showMessageDialog(" ", "امتیاز مربوط به رویداد " + event.getResponse().getName() + " قبلا تعلق گرفته است ");
+                    new Delete().from(Locations.class)
+                            .where("code = ?", event.getLocations().getCode())
+                            .execute();
+                    G.updateLocations();
+                    break;
+
+                case 1:
+//                    showMessage.showMessageDialog("تبریک", "امتیاز مربوط به رویداد " + event.getResponse().getName() + " به شما تعلق گرفت");
+                    new Delete().from(Locations.class)
+                            .where("code = ?", event.getLocations().getCode())
+                            .execute();
+                    G.updateLocations();
+                    break;
+
+                case -1:
+//                    showMessage.showMessageDialog("تبریک", "فرصت امتیاز گیری برای رویداد " + event.getResponse().getName() + " به شما تعلق گرفت ");
+                    break;
+
+                case 2:
+//                    showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رویداد " + event.getResponse().getName() + " با موفقیت ثبت شد");
+                    break;
+            }
+
+        }
     }
 }
