@@ -1,13 +1,10 @@
 package ir.aspacrm.my.app.mahan.classes;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.location.LocationManager;
-import android.provider.Settings;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.CardView;
 import android.text.Html;
@@ -27,7 +24,6 @@ import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.adapter.AdapterSpinnerPoll;
-import ir.aspacrm.my.app.mahan.component.PersianTextViewNormal;
 import ir.aspacrm.my.app.mahan.events.EventOnCanceledDialogUpdatingApplication;
 import ir.aspacrm.my.app.mahan.events.EventOnCheckGetPollRequest;
 import ir.aspacrm.my.app.mahan.events.EventOnClickedEndFeshfeshe;
@@ -38,8 +34,6 @@ import ir.aspacrm.my.app.mahan.events.EventOnShowDialogUpdatingApplicationReques
 import ir.aspacrm.my.app.mahan.gson.FactorDetailResponse;
 import ir.aspacrm.my.app.mahan.gson.GetIspInfoResponse;
 import ir.aspacrm.my.app.mahan.gson.GetPollResponse;
-
-import static android.content.Context.LOCATION_SERVICE;
 
 /**
  * Created by Microsoft on 3/9/2016.
@@ -83,7 +77,7 @@ public class DialogClass {
         TextView txtBtnOk = (TextView) layBtnPositive.findViewById(R.id.txtValue);
         TextView txtBtnCancel = (TextView) layBtnNegative.findViewById(R.id.txtValue);
 
-        txtBtnOk.setText("بلی");
+        txtBtnOk.setText("بله");
         txtBtnCancel.setText("خیر");
 
         layBtnPositive.setOnClickListener(new View.OnClickListener() {
@@ -269,17 +263,16 @@ public class DialogClass {
 
         LinearLayout layBtnPositive = (LinearLayout) dialog.findViewById(R.id.layBtnOk);
         LinearLayout layBtnNegative = (LinearLayout) dialog.findViewById(R.id.layBtnCancel);
-        ImageView imgCloseDialog = (ImageView) dialog.findViewById(R.id.imgCloseDialog);
         TextView txtBtnOk = (TextView) layBtnPositive.findViewById(R.id.txtValue);
+        ImageView imgCloseDialog = (ImageView) dialog.findViewById(R.id.imgCloseDialog);
         TextView txtBtnCancel = (TextView) layBtnNegative.findViewById(R.id.txtValue);
         TextView txtDialogTitle = (TextView) dialog.findViewById(R.id.txtDialogTitle);
         TextView txtDialogDescription = (TextView) dialog.findViewById(R.id.txtDialogDescription);
 
-
         txtDialogTitle.setText("هشدار");
         txtDialogDescription.setText("آیا مطمئن هستید میخواهید فشفشه جاری را خاتمه دهید؟");
 
-        txtBtnOk.setText("بلی");
+        txtBtnOk.setText("بله");
         txtBtnCancel.setText("خیر");
 
         layBtnPositive.setOnClickListener(new View.OnClickListener() {

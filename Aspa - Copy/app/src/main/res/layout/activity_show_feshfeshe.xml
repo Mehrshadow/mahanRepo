@@ -62,24 +62,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="@color/back_items"
         android:gravity="right|center_vertical"
-        android:orientation="horizontal"
-        android:padding="2dp">
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                android:id="@+id/txtCurrentFeshfesheExpireDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="زمان انقضا : "
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_font_very_small" />
+
+            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
+                android:id="@+id/txtCurrentFeshfesheTraffic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="حجم باقیمانده : "
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_font_very_small" />
+        </LinearLayout>
 
         <android.support.v7.widget.CardView
             android:id="@+id/imgEndCurrentFeshfesheRequest"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|center"
-            android:layout_margin="5dp"
+            android:layout_height="35dp"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="-17dp"
             android:clickable="true"
+            android:layout_marginLeft="10dp"
             android:foreground="@drawable/ripple_list_item"
             android:minWidth="100dp"
             app:cardBackgroundColor="@color/back_orange_btn"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="5dp">
+            app:cardElevation="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -105,35 +137,6 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:orientation="vertical">
-
-            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
-                android:id="@+id/txtCurrentFeshfesheExpireDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:gravity="center"
-                android:text="زمان انقضا : "
-                android:textColor="@color/black"
-                android:textSize="@dimen/size_font_very_very_small" />
-
-            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
-                android:id="@+id/txtCurrentFeshfesheTraffic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:gravity="center"
-                android:text="حجم باقیمانده : "
-                android:textColor="@color/black"
-                android:textSize="@dimen/size_font_very_very_small" />
-        </LinearLayout>
 
     </LinearLayout>
 
