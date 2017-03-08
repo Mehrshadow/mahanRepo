@@ -90,9 +90,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="30dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
+                android:padding="30dp"
                 android:visibility="visible">
 
                 <LinearLayout
@@ -109,6 +109,7 @@
                         android:layout_weight="1"
                         android:text="ورود به سیستم"
                         android:textColor="@color/back_items"
+                        android:textStyle="bold"
                         android:typeface="sans" />
 
                 </LinearLayout>
@@ -207,6 +208,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
+                    android:layout_marginTop="40dp"
                     android:text="کلمه عبور خود را فراموش کرده اید؟"
                     android:textColor="@color/white"
                     android:textSize="@dimen/size_font_very_small"
@@ -236,13 +238,13 @@
             </LinearLayout>
 
             <LinearLayout
-                android:padding="30dp"
                 android:id="@+id/layForgetPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
+                android:padding="30dp"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -251,14 +253,33 @@
                     android:layout_margin="10dp"
                     android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:text="فراموشی رمز عبور"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:typeface="sans" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:text="در صورت فراموش کردن رمز عبور خود میتوانید با وارد کردن نام کاربری و شماره موبایل خود رمز عبور جدید را دریافت کنید. "
+                        android:text="لطفا نام کاربری و شماره تلفن همراه خود را وارد نمایید"
                         android:textColor="@color/white"
                         android:textSize="@dimen/size_font_very_small"
                         android:typeface="sans" />
@@ -271,30 +292,28 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:padding="8dp"
                     android:background="@color/back_edt_login"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
 
-                        <ir.aspacrm.my.app.mahan.component.CustomEditText
-                            android:id="@+id/edtUsernameForget"
-                            style="@style/Widget.AppCompat.EditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:background="@android:color/transparent"
-                            android:drawableLeft="@drawable/ic_person_white_24dp"
-                            android:drawablePadding="5dp"
-                            android:hint="نام کاربری"
-                            android:textColorHint="@color/back_items"
-                            android:imeOptions="actionNext"
-                            android:singleLine="true"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/size_font_very_small"
-                            android:typeface="sans" />
+                    <ir.aspacrm.my.app.mahan.component.CustomEditText
+                        android:id="@+id/edtUsernameForget"
+                        style="@style/Widget.AppCompat.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:drawableLeft="@drawable/ic_person_white_24dp"
+                        android:drawablePadding="5dp"
+                        android:hint="نام کاربری"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/back_items"
+                        android:textSize="@dimen/size_font_very_small"
+                        android:typeface="sans" />
 
                 </LinearLayout>
 
@@ -304,31 +323,29 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:padding="8dp"
                     android:background="@color/back_edt_login"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
-                        <ir.aspacrm.my.app.mahan.component.CustomEditText
-                            android:id="@+id/edtMobileNumberForget"
-                            style="@style/Widget.AppCompat.EditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_phone_android_white_24dp"
-                            android:drawablePadding="5dp"
-                            android:hint="9XXXXXXXXX"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:background="@android:color/transparent"
-                            android:imeOptions="actionGo"
-                            android:inputType="numberDecimal"
-                            android:maxLength="10"
-                            android:singleLine="true"
-                            android:textColor="@color/white"
-                            android:textColorHint="@color/back_items"
-                            android:textSize="@dimen/size_font_very_small"
-                            android:typeface="sans" />
+                    <ir.aspacrm.my.app.mahan.component.CustomEditText
+                        android:id="@+id/edtMobileNumberForget"
+                        style="@style/Widget.AppCompat.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:drawableLeft="@drawable/ic_phone_android_white_24dp"
+                        android:drawablePadding="5dp"
+                        android:hint="9XXXXXXXXX"
+                        android:imeOptions="actionGo"
+                        android:inputType="numberDecimal"
+                        android:maxLength="10"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/back_items"
+                        android:textSize="@dimen/size_font_very_small"
+                        android:typeface="sans" />
 
                 </LinearLayout>
 
@@ -352,6 +369,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
+                    android:layout_marginTop="40dp"
                     android:text="بازگشت"
                     android:textColor="@color/white"
                     android:textSize="@dimen/size_font_very_small"
@@ -360,17 +378,16 @@
             </LinearLayout>
 
 
-
         </FrameLayout>
 
 
         <LinearLayout
-            android:layout_weight="1"
             android:id="@+id/layLoading"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="3dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -389,6 +406,7 @@
                 android:id="@+id/progress_wheel"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:layout_gravity="bottom"
                 android:layout_marginRight="5dp"
                 app:matProg_barColor="@color/white"
                 app:matProg_progressIndeterminate="true" />

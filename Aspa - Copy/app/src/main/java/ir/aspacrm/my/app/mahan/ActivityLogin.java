@@ -125,7 +125,7 @@ public class ActivityLogin extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 21)
             getWindow().setStatusBarColor(ContextCompat.getColor(G.context, R.color.dark_dark_grey));
 
-        ((TextView) (layBtnForgetPassword.findViewById(R.id.txtValue))).setText("درخواست رمز عبور جدید");
+        ((TextView) (layBtnForgetPassword.findViewById(R.id.txtValue))).setText("بازیابی رمز عبور");
         ((TextView) (layBtnLogin.findViewById(R.id.txtValue))).setText("ورود");
 
         /** draw line other textview */
