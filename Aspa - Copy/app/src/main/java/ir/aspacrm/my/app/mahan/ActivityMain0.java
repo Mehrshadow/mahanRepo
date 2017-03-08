@@ -206,7 +206,17 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
         Logger.d("ActivityMain : EventOnGetNewsResponse is raised");
     }
 
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(Gravity.RIGHT)){
+            drawerLayout.closeDrawer(Gravity.RIGHT);
+        }else {
+//            super.onBackPressed();
+            startActivity(new Intent(ActivityMain0.this,ActivityShowCurrentService.class));
+            finish();
+        }
 
+    }
 
     @Override
     protected void onDestroy() {

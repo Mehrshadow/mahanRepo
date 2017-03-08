@@ -179,11 +179,11 @@ public class FragmentDrawer extends Fragment {
 //            layTotalClubScore.setVisibility(View.VISIBLE);
             int score = event.getScore();
             if (score == 0)
-                txtScore.setText("مجموع امتیازات : " + "0");
+                txtScore.setText("میزان امتیازات : " + "0");
             else if (score > 0)
-                txtScore.setText("مجموع امتیازات : " + score + "+");
+                txtScore.setText("میزان امتیازات : " + score + "");
             else
-                txtScore.setText("مجموع امتیازات : " + score);
+                txtScore.setText("میزان امتیازات : " + score);
         } else {
 //            layTotalClubScore.setVisibility(View.GONE);
         }
