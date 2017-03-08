@@ -3,6 +3,7 @@ package ir.aspacrm.my.app.mahan.classes;
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
+import com.activeandroid.query.Update;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -1117,20 +1118,37 @@ public class JsonParser {
         Logger.d("JsonParser : getLocations json is  " + json);
         try {
             LocationsResponse[] response = gson.fromJson(json, LocationsResponse[].class);
-            U.deleteLocationsItem();
+//            U.deleteLocationsItem();
             for (int i = 0; i < response.length; i++) {
-                ActiveAndroid.beginTransaction();
-                Locations locations = new Locations();
-                locations.setLatitude(response[i].positionX);
-                locations.setDes(response[i].name);
-                locations.setLongitude(response[i].positionY);
-                locations.setStartDate(response[i].startDate);
-                locations.setEndDate(response[i].endDate);
-                locations.setScoreTypeCode(response[i].scoreTypeCode);
-                locations.setHasConditions(false);
-                locations.save();
-                ActiveAndroid.setTransactionSuccessful();
-                ActiveAndroid.endTransaction();
+                Locations l = new Select().from(Locations.class).where("code = ?", response[i].code).executeSingle();
+                if (l == null) {
+                    ActiveAndroid.beginTransaction();
+                    Locations locations = new Locations();
+                    locations.setCode(response[i].code);
+                    locations.setLatitude(response[i].positionX);
+                    locations.setDes(response[i].name);
+                    locations.setLongitude(response[i].positionY);
+                    locations.setStartDate(response[i].startDate);
+                    locations.setEndDate(response[i].endDate);
+                    locations.setScoreTypeCode(response[i].scoreTypeCode);
+                    locations.setHasConditions(false);
+                    locations.save();
+                    ActiveAndroid.setTransactionSuccessful();
+                    ActiveAndroid.endTransaction();
+                    G.updateLocations();
+                } else if (l != null) {
+                    String update = "Latitude = " + response[i].positionX +
+                            ",Des = " + response[i].name +
+                            ",Longitude = " + response[i].positionY +
+                            ",StartDate = " + response[i].startDate +
+                            ",EndDate = " + response[i].endDate +
+                            ",ScoreTypeCode = " + response[i].scoreTypeCode;
+                    new Update(Locations.class)
+                            .set(update)
+                            .where("code = ?", G.locations.get(i).getCode())
+                            .execute();
+                }
+
 
             }
             EventBus.getDefault().post(new EventOnGetLocations());
@@ -1141,11 +1159,12 @@ public class JsonParser {
 
     }
 
-    public static void addScoreResponse(String json) {
+    public static void addScoreResponse(String json, Locations locations) {
         Logger.d("JsonParser : addScoreResponse json is  " + json);
         if (!json.equals("") && json != null) {
             AddScoreResponse[] addScoreResponses = gson.fromJson(json, AddScoreResponse[].class);
-            EventBus.getDefault().post(new EventOnAddScoreResponse(addScoreResponses[0]));
+            EventBus.getDefault().post(new EventOnAddScoreResponse(addScoreResponses[0],locations));
+
         }
 //        1 sabt
 //        0 ghbl

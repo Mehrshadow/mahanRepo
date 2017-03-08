@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 
 import butterknife.Bind;
@@ -43,6 +44,7 @@ import ir.aspacrm.my.app.mahan.events.EventOnGetUserLicenseResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnShowDialogUpdatingApplicationRequest;
 import ir.aspacrm.my.app.mahan.model.Account;
 import ir.aspacrm.my.app.mahan.model.License;
+import ir.aspacrm.my.app.mahan.model.Locations;
 import ir.aspacrm.my.app.mahan.model.News;
 
 import static ir.aspacrm.my.app.mahan.G.context;
@@ -409,26 +411,6 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         finish();
     }
 
-    public void onEventMainThread(EventOnAddScoreResponse event) {
-        DialogClass showMessage = new DialogClass();
-
-        if (event.getResponse().isResult()) {
-            switch (event.getResponse().getErr()) {
-                case 0:
-                    showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رخداد " + event.getResponse().getName() + " قبلا ثبت شده است ");
-//                    showMessage.showMessageDialog("امتیاز جدید", Html.fromHtml("<font color='#ff0000'>text</font>")+"");
-                    break;
-                case 1:
-                    showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رخداد " + event.getResponse().getName() + " با موفقیت ثبت شد");
-                    break;
-
-                case -1:
-                    showMessage.showMessageDialog("امتیاز جدید", "فرصت امتیاز گیری برای رخداد " + event.getResponse().getName() + "به چایان رسیده است ");
-                    break;
-            }
-
-        }
-    }
 
     private void setOnClickListeners() {
         btnTempConnection.setOnClickListener(this);

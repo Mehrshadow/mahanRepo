@@ -3,6 +3,10 @@ package ir.aspacrm.my.app.mahan.model;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by HaMiD on 3/4/2017.
@@ -13,6 +17,8 @@ public class Locations extends Model {
     @Column(name = "Latitude")
     double Latitude;
 
+    @Column(name = "code")
+    int code;
 
     @Column(name = "Longitude")
     double Longitude;
@@ -31,6 +37,14 @@ public class Locations extends Model {
 
     @Column(name = "hasConditions")
     boolean hasConditions;
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
 
     public boolean isHasConditions() {
         return hasConditions;
@@ -87,4 +101,5 @@ public class Locations extends Model {
     public void setLongitude(double longitude) {
         Longitude = longitude;
     }
+
 }

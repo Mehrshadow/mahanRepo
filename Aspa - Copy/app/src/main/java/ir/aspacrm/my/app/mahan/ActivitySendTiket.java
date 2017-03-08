@@ -177,25 +177,6 @@ public class ActivitySendTiket extends AppCompatActivity {
         Logger.d("FragmentSendTicket : EventOnGetErrorAddTicket is raised.");
         txtShowErrorMessage.setText("عملیات ارسال تیکت با خطا مواجه شده است دوباره تلاش کنید.");
     }
-    public void onEventMainThread(EventOnAddScoreResponse event) {
-        DialogClass showMessage = new DialogClass();
-
-        if (event.getResponse().isResult()) {
-            switch (event.getResponse().getErr()) {
-                case 0:
-                    showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رخداد" + event.getResponse().getName() + " قبلا ثبت شده است ");
-                    break;
-                case 1:
-                    showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رخداد" + event.getResponse().getName() + " با موفقیت ثبت شد");
-                    break;
-
-                case -1:
-                    showMessage.showMessageDialog("امتیاز جدید", "فرصت امتیاز گیری برای رخداد" + event.getResponse().getName() + "به چایان رسیده است ");
-                    break;
-            }
-
-        }
-    }
     private void getUnitsFromDB() {
         units = new Select().from(Unit.class).where("userId = ?", G.currentUser.userId).execute();
         if( units.size() > 0 )
