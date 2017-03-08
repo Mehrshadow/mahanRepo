@@ -65,7 +65,7 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:orientation="horizontal">
-                    //
+
 
                     <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
                         android:id="@+id/lbl_remaining_days"
@@ -76,14 +76,35 @@
                         android:textColor="@color/white"
                         android:textSize="14sp" />
 
-                    <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
-                        android:id="@+id/tv_remaining_days"
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:textColor="@color/back_orange_btn"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:layout_height="wrap_content">
+
+                        <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+                            android:id="@+id/txtDay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:text="روز "
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+                            android:id="@+id/tv_remaining_days"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:textColor="@color/back_orange_btn"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+
+
+
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 

@@ -74,9 +74,13 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
     @Bind(R.id.layLoading)
     LinearLayout layLoading;
 
+    @Bind(R.id.txtDay)
+    TextView txtDay;
+
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
+
 
     @Bind(R.id.imgDrawerToggle)
     ImageView imgDrawerToggle;
@@ -154,6 +158,17 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
         super.onResume();
         G.currentActivity = this;
         G.context = this;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(Gravity.RIGHT)) {
+            drawerLayout.closeDrawer(Gravity.RIGHT);
+        } else {
+            super.onBackPressed();
+
+        }
+
     }
 
 
@@ -266,14 +281,17 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
                 tvRemainingDays.setText("نامحدود");
                 lblRemainingDays.setVisibility(View.GONE);
             } else {
-                tvRemainingDays.setText("" + G.currentAccount.rDay + " " + "روز" + " ");
+                tvRemainingDays.setText(G.currentAccount.rDay + "");
+                txtDay.setText(" روز ");
             }
         } else {
             if (G.currentAccount.rHour == -11111) {
                 tvRemainingDays.setText("نامحدود");
                 lblRemainingDays.setVisibility(View.GONE);
             } else {
-                tvRemainingDays.setText("" + G.currentAccount.rHour + " " + "ساعت" + " ");
+                tvRemainingDays.setText(G.currentAccount.rHour + "");
+                txtDay.setText(" ساعت ");
+
             }
         }
 //        if (G.currentAccount.rTraffic == -11111) {
