@@ -3,7 +3,6 @@ package ir.aspacrm.my.app.mahan.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,24 +22,36 @@ import ir.aspacrm.my.app.mahan.events.EventOnGetErrorChargeOnline;
 import ir.aspacrm.my.app.mahan.events.EventOnNoAccessServerResponse;
 import ir.aspacrm.my.app.mahan.gson.ChargeOnlineMainItemResponse;
 
-public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnClickListener{
+public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnClickListener {
 
-    @Bind(R.id.layBtnTamdidService) LinearLayout layBtnTamdidService;
-    @Bind(R.id.layTamdidService) LinearLayout layTamdidService;
-    @Bind(R.id.layBtnTaghirService) LinearLayout layBtnTaghirService;
-    @Bind(R.id.layTaghirService) LinearLayout layTaghirService;
-    @Bind(R.id.layBtnTraffic) LinearLayout layBtnTraffic;
-    @Bind(R.id.layTraffic) LinearLayout layTraffic;
-    @Bind(R.id.layBtnIP) LinearLayout layBtnIP;
-    @Bind(R.id.layIP) LinearLayout layIP;
-    @Bind(R.id.layBtnFeshfeshe) LinearLayout layBtnFeshfeshe;
-    @Bind(R.id.layFeshfeshe) LinearLayout layFeshfeshe;
-    @Bind(R.id.layShowMenuItem) LinearLayout layShowMenuItem;
-    @Bind(R.id.layLoading) LinearLayout layLoading;
-    @Bind(R.id.txtShowMessage) TextView txtShowMessage;
-
-
-    @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
+    @Bind(R.id.layBtnTamdidService)
+    LinearLayout layBtnTamdidService;
+    @Bind(R.id.layTamdidService)
+    LinearLayout layTamdidService;
+    @Bind(R.id.layBtnTaghirService)
+    LinearLayout layBtnTaghirService;
+    @Bind(R.id.layTaghirService)
+    LinearLayout layTaghirService;
+    @Bind(R.id.layBtnTraffic)
+    LinearLayout layBtnTraffic;
+    @Bind(R.id.layTraffic)
+    LinearLayout layTraffic;
+    @Bind(R.id.layBtnIP)
+    LinearLayout layBtnIP;
+    @Bind(R.id.layIP)
+    LinearLayout layIP;
+    @Bind(R.id.layBtnFeshfeshe)
+    LinearLayout layBtnFeshfeshe;
+    @Bind(R.id.layFeshfeshe)
+    LinearLayout layFeshfeshe;
+    @Bind(R.id.layShowMenuItem)
+    LinearLayout layShowMenuItem;
+    @Bind(R.id.layLoading)
+    LinearLayout layLoading;
+    @Bind(R.id.txtShowMessage)
+    TextView txtShowMessage;
+    @Bind(R.id.layBtnClose)
+    LinearLayout layBtnClose;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,11 +59,13 @@ public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnCli
         Logger.d("FragmentChargeOnlineMainMenu : onCreate()");
         EventBus.getDefault().register(this);
     }
+
     @Override
     public void onStart() {
         super.onStart();
         Logger.d("FragmentChargeOnlineMainMenu : onStart()");
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,11 +74,13 @@ public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnCli
         ButterKnife.bind(this, view);
         return view;
     }
+
     @Override
     public void onResume() {
         super.onResume();
         Logger.d("FragmentChargeOnlineMainMenu : onResume()");
     }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -83,8 +98,8 @@ public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnCli
                 getActivity().onBackPressed();
             }
         });
-
     }
+
     public void onEventMainThread(EventOnGetChargeOnlineMainItem event) {
         Logger.d("FragmentChargeOnlineMainMenu : EventOnGetChargeOnlineMainItem is raised.");
         layLoading.setVisibility(View.GONE);
@@ -106,16 +121,17 @@ public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnCli
             txtShowMessage.setText(response.Msg);
         }
     }
+
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.layBtnTamdidService:
                 EventBus.getDefault().post(new EventOnChargeOnlineMenuItemClicked(EnumChargeOnlineMenuItem.TAMDID_SERVICE));
                 break;
             case R.id.layBtnTaghirService:
                 EventBus.getDefault().post(new EventOnChargeOnlineMenuItemClicked(EnumChargeOnlineMenuItem.TAGHIR_SERVICE));
                 break;
-            case R.id.layBtnTraffic :
+            case R.id.layBtnTraffic:
                 EventBus.getDefault().post(new EventOnChargeOnlineMenuItemClicked(EnumChargeOnlineMenuItem.TRAFFIC));
                 break;
             case R.id.layBtnIP:
@@ -126,27 +142,32 @@ public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnCli
                 break;
         }
     }
-    public void onEventMainThread(EventOnGetErrorChargeOnline event){
+
+    public void onEventMainThread(EventOnGetErrorChargeOnline event) {
         Logger.d("FragmentChargeOnlineMainMenu : EventOnGetErrorChargeOnline is raised");
         layLoading.setVisibility(View.GONE);
         txtShowMessage.setVisibility(View.VISIBLE);
         txtShowMessage.setText("خطا در دریافت اطلاعات از سرور لطفا دوباره تلاش کنید.");
     }
+
     public void onEventMainThread(EventOnNoAccessServerResponse event) {
         Logger.d("FragmentChargeOnlineMainMenu : EventOnNoAccessServerResponse is raised");
         /** use this event to hide loading */
         layLoading.setVisibility(View.GONE);
     }
+
     @Override
     public void onPause() {
         super.onPause();
         Logger.d("FragmentChargeOnlineMainMenu : onPause()");
     }
+
     @Override
     public void onStop() {
         super.onStop();
         Logger.d("FragmentChargeOnlineMainMenu : onStop()");
     }
+
     @Override
     public void onDestroyView() {
 //        if (view.getParent() != null) {
@@ -156,6 +177,7 @@ public class FragmentChargeOnlineMainMenu extends Fragment implements View.OnCli
         ButterKnife.unbind(this);
         Logger.d("FragmentChargeOnlineMainMenu : onDestroyView()");
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

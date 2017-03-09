@@ -3,13 +3,13 @@ package ir.aspacrm.my.app.mahan.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
@@ -24,19 +24,28 @@ import ir.aspacrm.my.app.mahan.events.EventOnShowFragmentChargeOnlinePackageRequ
 
 public class FragmentSelectAaddiBashgah extends Fragment {
 
-    @Bind(R.id.layBtnAaddi) LinearLayout layBtnAaddi;
-    @Bind(R.id.layAaddi) LinearLayout layAaddi;
-    @Bind(R.id.layBtnBashgah) LinearLayout layBtnBashgah;
-    @Bind(R.id.layBashgah) LinearLayout layBashgah;
-    @Bind(R.id.layLoading) LinearLayout layLoading;
-    @Bind(R.id.txtShowMessage) TextView txtShowMessage;
+    @Bind(R.id.layBtnAaddi)
+    LinearLayout layBtnAaddi;
+    @Bind(R.id.layAaddi)
+    LinearLayout layAaddi;
+    @Bind(R.id.layBtnBashgah)
+    LinearLayout layBtnBashgah;
+    @Bind(R.id.layBashgah)
+    LinearLayout layBashgah;
+    @Bind(R.id.layLoading)
+    LinearLayout layLoading;
+    @Bind(R.id.txtShowMessage)
+    TextView txtShowMessage;
 
-    @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
-    @Bind(R.id.txtPageTitle) TextView txtPageTitle;
+    @Bind(R.id.layBtnClose)
+    LinearLayout layBtnClose;
+    @Bind(R.id.txtPageTitle)
+    TextView txtPageTitle;
     @Bind(R.id.imgtoolbar)
     ImageView imgtoolbar;
 
     int whichMenuItem;
+
     public static FragmentSelectAaddiBashgah newInstance(int whichMenuItem) {
         Bundle args = new Bundle();
         args.putInt("WHICH_MENU_ITEM", whichMenuItem);
@@ -67,31 +76,36 @@ public class FragmentSelectAaddiBashgah extends Fragment {
         whichMenuItem = getArguments().getInt("WHICH_MENU_ITEM");
 
         txtPageTitle.setText(U.getMenuItemName(whichMenuItem));
-        U.getMenuItemIcon(imgtoolbar,whichMenuItem);
-        layBtnAaddi.setOnClickListener(new View.OnClickListener() {
+        U.getMenuItemIcon(imgtoolbar, whichMenuItem);
+        layAaddi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 layLoading.setVisibility(View.VISIBLE);
                 switch (whichMenuItem) {
                     case EnumChargeOnlineMenuItem.TAMDID_SERVICE:
+                        Logger.e("TAMDID_SERVICE");
                         WebService.sendChargeOnlineForTamdidRequest(0);
                         break;
                     case EnumChargeOnlineMenuItem.TAGHIR_SERVICE:
+                        Logger.e("TAGHIR_SERVICE");
                         EventBus.getDefault().post(new EventOnShowFragmentChargeOnlineGroupRequest(0, EnumChargeOnlineMenuItem.TAGHIR_SERVICE));
                         break;
                     case EnumChargeOnlineMenuItem.TRAFFIC:
+                        Logger.e("TRAFFIC");
                         EventBus.getDefault().post(new EventOnShowFragmentChargeOnlinePackageRequest(0, EnumChargeOnlineMenuItem.TRAFFIC));
                         break;
                     case EnumChargeOnlineMenuItem.IP:
+                        Logger.e("IP");
                         EventBus.getDefault().post(new EventOnShowFragmentChargeOnlinePackageRequest(0, EnumChargeOnlineMenuItem.IP));
                         break;
                     case EnumChargeOnlineMenuItem.FESHFESHE:
+                        Logger.e("FESHFESHE");
                         EventBus.getDefault().post(new EventOnShowFragmentChargeOnlinePackageRequest(0, EnumChargeOnlineMenuItem.FESHFESHE));
                         break;
                 }
             }
         });
-        layBtnBashgah.setOnClickListener(new View.OnClickListener() {
+        layBashgah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 layLoading.setVisibility(View.VISIBLE);
@@ -122,16 +136,19 @@ public class FragmentSelectAaddiBashgah extends Fragment {
             }
         });
     }
-    public void onEventMainThread(EventOnGetChargeOnlineForTamdid event){
+
+    public void onEventMainThread(EventOnGetChargeOnlineForTamdid event) {
         Logger.d("FragmentSelectAaddiBashgah : EventOnGetChargeOnlineForTamdid is raised");
         /** use this event to hide loading */
         layLoading.setVisibility(View.GONE);
     }
+
     public void onEventMainThread(EventOnShowFragmentChargeOnlineGroupRequest event) {
         Logger.d("FragmentSelectAaddiBashgah : EventOnShowFragmentChargeOnlineGroup is raised");
         /** use this event to hide loading */
         layLoading.setVisibility(View.GONE);
     }
+
     public void onEventMainThread(EventOnShowFragmentChargeOnlinePackageRequest event) {
         Logger.d("FragmentSelectAaddiBashgah : EventOnShowFragmentChargeOnlinePackageRequest is raised");
         /** use this event to hide loading */

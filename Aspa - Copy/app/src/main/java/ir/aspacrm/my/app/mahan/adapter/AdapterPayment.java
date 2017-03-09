@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ir.aspacrm.my.app.mahan.G;
@@ -12,8 +15,6 @@ import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.enums.EnumPaymentType;
 import ir.aspacrm.my.app.mahan.model.Payment;
-
-import java.util.List;
 public class AdapterPayment extends RecyclerView.Adapter<AdapterPayment.PaymentViewHolder> {
 
     List<Payment> payments;

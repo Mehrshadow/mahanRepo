@@ -122,6 +122,7 @@
                     android:layout_marginRight="20dp"
                     android:background="@color/back_edt_login"
                     android:gravity="center"
+                    android:padding="10dp"
                     android:orientation="horizontal">
 
                     <!--<android.support.design.widget.TextInputLayout-->
@@ -140,7 +141,6 @@
                         android:drawablePadding="5dp"
                         android:hint="@string/username"
                         android:imeOptions="actionNext"
-                        android:padding="10dp"
                         android:singleLine="true"
                         android:textColor="@color/back_items"
                         android:textColorHint="@color/back_items"
@@ -159,6 +159,7 @@
                     android:layout_marginRight="20dp"
                     android:background="@color/back_edt_login"
                     android:gravity="end"
+                    android:padding="14dp"
                     android:orientation="horizontal">
 
                     <!--<android.support.design.widget.TextInputLayout-->
@@ -177,9 +178,8 @@
                         android:drawablePadding="5dp"
                         android:gravity="end"
                         android:hint="@string/password"
-                        android:imeOptions="actionNext"
+                        android:imeOptions="actionGo"
                         android:inputType="textPassword"
-                        android:padding="15dp"
                         android:singleLine="true"
                         android:textColor="@color/back_items"
                         android:textColorHint="@color/back_items"
@@ -326,7 +326,7 @@
                     android:background="@color/back_edt_login"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="10dp">
+                    android:padding="13dp">
 
                     <ir.aspacrm.my.app.mahan.component.CustomEditText
                         android:id="@+id/edtMobileNumberForget"

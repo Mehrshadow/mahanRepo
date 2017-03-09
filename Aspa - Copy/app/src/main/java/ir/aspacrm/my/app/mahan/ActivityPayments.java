@@ -9,9 +9,7 @@ import android.widget.LinearLayout;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.Logger;
-import ir.aspacrm.my.app.mahan.events.EventOnAddScoreResponse;
 import ir.aspacrm.my.app.mahan.fragment.FragmentShowPaymentList;
 
 public class ActivityPayments extends AppCompatActivity {
@@ -50,14 +48,13 @@ public class ActivityPayments extends AppCompatActivity {
             public void onClick(View v) {
                 if (isReturnedFromBrowser) {
                     isReturnedFromBrowser = false;
-                    startActivity(new Intent(G.currentActivity, ActivityMain0.class));
+                    startActivity(new Intent(G.currentActivity, ActivityShowCurrentService.class));
                     finish();
                 } else
                     onBackPressed();
             }
         });
     }
-
 
 
 //    public void onEventMainThread(EventOnGetBankPageResponse event){

@@ -23,7 +23,6 @@ import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.adapter.AdapterChargeOnlineGroup;
 import ir.aspacrm.my.app.mahan.classes.Logger;
-import ir.aspacrm.my.app.mahan.classes.U;
 import ir.aspacrm.my.app.mahan.classes.WebService;
 import ir.aspacrm.my.app.mahan.enums.EnumGridType;
 import ir.aspacrm.my.app.mahan.events.EventOnGetChargeOnlineForLoadGroups;
@@ -32,9 +31,12 @@ import ir.aspacrm.my.app.mahan.gson.ChargeOnlineGroup;
 
 public class FragmentChargeOnlineGroup extends Fragment {
 
-    @Bind(R.id.lstGroup) RecyclerView lstGroup;
-    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
-    @Bind(R.id.txtShowMessage) TextView txtShowMessage;
+    @Bind(R.id.lstGroup)
+    RecyclerView lstGroup;
+    @Bind(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
+    @Bind(R.id.txtShowMessage)
+    TextView txtShowMessage;
     @Bind(R.id.imgToolbar)
     ImageView imgToolbar;
 
@@ -86,8 +88,10 @@ public class FragmentChargeOnlineGroup extends Fragment {
         whichMenuItem = getArguments().getInt("WHICH_MENU_ITEM");
 
 
-        txtPageTitle.setText(U.getMenuItemName(whichMenuItem));
-        U.getMenuItemIcon(imgToolbar,whichMenuItem);
+//        txtPageTitle.setText(U.getMenuItemName(whichMenuItem));
+        txtPageTitle.setText("پکیج ها");
+//        U.getMenuItemIcon(imgToolbar,whichMenuItem);
+        imgToolbar.setImageResource(R.drawable.ic_factor_detail_toolbar);
 
         adapterChargeOnlineGroup = new AdapterChargeOnlineGroup(groups, isClub, whichMenuItem);
         /** baraye anke moshakhas konim grid

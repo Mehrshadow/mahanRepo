@@ -114,6 +114,7 @@
                 android:layout_margin="16dp"
                 android:background="@drawable/ripple_list_item"
                 android:gravity="bottom"
+                android:visibility="gone"
                 android:orientation="horizontal"
                 android:padding="5dp">
 

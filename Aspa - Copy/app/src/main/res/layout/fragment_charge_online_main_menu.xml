@@ -115,7 +115,7 @@
                                 android:layout_marginBottom="10dp"
                                 android:background="@color/back_items"
                                 android:orientation="horizontal"
-                                android:padding="6dp">
+                                android:padding="3dp">
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -123,13 +123,12 @@
                                     android:layout_marginBottom="8dp"
                                     android:layout_marginTop="8dp"
                                     android:layout_weight="1"
+                                    android:ems="1000"
                                     android:text="یکی از گزینه های زیر را انتخاب کنید."
                                     android:textColor="@color/text_color_items"
-                                    android:textSize="@dimen/size_font_default"
                                     android:typeface="sans" />
 
                             </LinearLayout>
-
 
                             <!-- layBtnTamdid Service  -->
                             <LinearLayout

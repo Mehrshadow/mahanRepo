@@ -326,7 +326,7 @@ public class ActivityChargeOnline extends AppCompatActivity {
             finish();
         else if (isReturnedFromBrowser) {
             isReturnedFromBrowser = false;
-            startActivity(new Intent(G.currentActivity, ActivityMain0.class));
+            startActivity(new Intent(G.currentActivity, ActivityShowCurrentService.class));
             finish();
         } else
             super.onBackPressed();

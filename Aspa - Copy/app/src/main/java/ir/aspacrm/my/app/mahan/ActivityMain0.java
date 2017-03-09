@@ -208,11 +208,11 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(Gravity.RIGHT)){
+        if (drawerLayout.isDrawerOpen(Gravity.RIGHT)) {
             drawerLayout.closeDrawer(Gravity.RIGHT);
-        }else {
+        } else {
 //            super.onBackPressed();
-            startActivity(new Intent(ActivityMain0.this,ActivityShowCurrentService.class));
+            startActivity(new Intent(ActivityMain0.this, ActivityShowCurrentService.class));
             finish();
         }
 
@@ -267,13 +267,13 @@ public class ActivityMain0 extends AppCompatActivity implements View.OnTouchList
                 else if (ct.closeMatch(Color.CYAN, touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowGraph.class));
                 else if (ct.closeMatch(Color.GRAY, touchColor, tolerance))
-                    new DialogClass().showMessageDialog(getString(R.string.future), getString(R.string.item_available_in_future));
+                    new DialogClass().showMessageDialog(getString(R.string.alert), getString(R.string.item_available_in_future));
                 else if (ct.closeMatch(Color.parseColor("#" + Integer.toHexString(context.getResources().getColor(R.color.orange))), touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowTickets.class));
                 else if (ct.closeMatch(Color.WHITE, touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowFactors.class));
                 else if (ct.closeMatch(Color.MAGENTA, touchColor, tolerance))
-                    new DialogClass().showMessageDialog(getString(R.string.future), getString(R.string.item_available_in_future));
+                    new DialogClass().showMessageDialog(getString(R.string.alert), getString(R.string.item_available_in_future));
 //                    startActivity(new Intent(context, ActivityShowNews.class));
                 else if (ct.closeMatch(Color.RED, touchColor, tolerance))
                     startActivity(new Intent(context, ActivityShowFeshfeshe.class));

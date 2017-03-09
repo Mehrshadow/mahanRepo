@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
@@ -14,8 +17,6 @@ import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.events.EventOnClickedChargeOnlineGroupPackage;
 import ir.aspacrm.my.app.mahan.gson.ChargeOnlineGroupPackage;
-
-import java.util.List;
 
 public class AdapterChargeOnlineGroupPackage extends RecyclerView.Adapter<AdapterChargeOnlineGroupPackage.PackageViewHolder> {
 
@@ -34,7 +35,7 @@ public class AdapterChargeOnlineGroupPackage extends RecyclerView.Adapter<Adapte
     public void onBindViewHolder(PackageViewHolder holder, int position) {
         final ChargeOnlineGroupPackage pack = packages.get(position);
         holder.txtPackageName.setText("" + pack.name);
-        holder.txtPackageScore.setText("+" + pack.score);
+        holder.txtPackageScore.setText(" " + pack.score);
         holder.txtPackagePrice.setText("" + G.formatterPrice.format(pack.price) + " تومان");
         if(isClub == 1){
             holder.txtPackageTakhfif.setText("" + G.formatterPrice.format(pack.discount) + " تومان");

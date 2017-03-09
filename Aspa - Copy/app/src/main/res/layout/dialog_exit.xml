@@ -20,8 +20,6 @@
             android:background="@drawable/ic_expand_more_black_24dp"
             android:foreground="@drawable/ripple_list_item"
             android:gravity="center"
-            android:minHeight="30dp"
-            android:minWidth="70dp"
             android:padding="5dp"
             android:text="@string/exit"
             android:textColor="@color/white" />

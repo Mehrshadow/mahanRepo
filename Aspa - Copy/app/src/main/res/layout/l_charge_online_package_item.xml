@@ -62,7 +62,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center_vertical"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/txt_blue"
                                     android:textSize="@dimen/size_font_very_small" />
                             </LinearLayout>
 
@@ -77,7 +77,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center_vertical|right"
                                     android:text="نام پکیج"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/txt_blue"
                                     android:textSize="@dimen/size_font_very_very_small"
                                     android:typeface="sans" />
                             </LinearLayout>
@@ -100,7 +100,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center_vertical"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/txt_blue"
                                     android:textSize="@dimen/size_font_very_small" />
                             </LinearLayout>
 
@@ -115,7 +115,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center_vertical|right"
                                     android:text="امتیاز هدیه"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/txt_blue"
                                     android:textSize="@dimen/size_font_very_very_small"
                                     android:typeface="sans" />
                             </LinearLayout>
@@ -139,7 +139,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center_vertical"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/txt_blue"
                                     android:textSize="@dimen/size_font_very_small" />
                             </LinearLayout>
 
@@ -154,7 +154,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center_vertical|right"
                                     android:text="امتیاز مورد نیاز"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/txt_blue"
                                     android:textSize="@dimen/size_font_very_very_small"
                                     android:typeface="sans" />
                             </LinearLayout>
@@ -177,7 +177,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center_vertical"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/txt_blue"
                                     android:textSize="@dimen/size_font_very_small" />
                             </LinearLayout>
 
@@ -193,7 +193,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center_vertical|right"
                                     android:text="تخفیف"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/txt_blue"
                                     android:textSize="@dimen/size_font_very_very_small"
 
                                     android:typeface="sans" />

@@ -450,7 +450,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                android:background="@color/back_orange_btn"
                 android:foreground="@drawable/ripple_list_item"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -463,7 +462,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="1dp"
                     android:text="مشاهده جزییات"
-                    android:textColor="@color/white"
+                    android:textColor="@color/back_orange_btn"
                     android:textSize="@dimen/size_font_very_small"
                     app:fontFile="fonts/iransans_bold.ttf" />
             </LinearLayout>

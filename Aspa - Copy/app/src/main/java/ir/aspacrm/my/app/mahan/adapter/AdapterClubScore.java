@@ -6,13 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.model.ClubScore;
-
-import java.util.List;
 
 public class AdapterClubScore extends RecyclerView.Adapter<AdapterClubScore.ClubScoreViewHolder> {
 
@@ -32,7 +33,7 @@ public class AdapterClubScore extends RecyclerView.Adapter<AdapterClubScore.Club
     public void onBindViewHolder(ClubScoreViewHolder holder, int position) {
         ClubScore clubScore = scores.get(position);
         holder.txtClubScoreTitle.setText("" + clubScore.title);
-        holder.txtClubScore.setText("+" + clubScore.score);
+        holder.txtClubScore.setText(" " + clubScore.score);
         if(clubScore.des.length() == 0)
             holder.layDescription.setVisibility(View.GONE);
         else

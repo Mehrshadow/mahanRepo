@@ -17,8 +17,8 @@
     <style name="factorDetailBackCardVeiw">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="cardCornerRadius">5dp</item>
         <item name="cardBackgroundColor">@color/back_items</item>
+        <item name="cardElevation">0dp</item>
         <item name="android:layout_marginBottom">3dp</item>
         <item name="android:layout_marginLeft">5dp</item>
         <item name="android:layout_marginRight">5dp</item>
@@ -28,6 +28,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="cardCornerRadius">5dp</item>
+        <item name="cardElevation">0dp</item>
         <item name="cardBackgroundColor">@color/white</item>
         <item name="android:layout_marginBottom">3dp</item>
         <item name="android:layout_marginLeft">5dp</item>
@@ -59,6 +60,7 @@
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
     </style>
+
     <style name="DialogSlideAnimAppCompact" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
         <item name="android:windowBackground">@null</item>

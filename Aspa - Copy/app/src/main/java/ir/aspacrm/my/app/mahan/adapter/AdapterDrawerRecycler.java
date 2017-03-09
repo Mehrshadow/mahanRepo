@@ -85,7 +85,7 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
                         G.context.startActivity(new Intent(context, ActivityShowGraph.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 5:
-                        new DialogClass().showMessageDialog(context.getString(R.string.future), context.getString(R.string.item_available_in_future));
+                        new DialogClass().showMessageDialog(context.getString(R.string.alert), context.getString(R.string.item_available_in_future));
                         break;
 
                     case 6:
@@ -102,7 +102,7 @@ public class AdapterDrawerRecycler extends RecyclerView.Adapter<AdapterDrawerRec
                         G.context.startActivity(new Intent(context, ActivityShowNotify.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 10:
-                        new DialogClass().showMessageDialog(context.getString(R.string.future), context.getString(R.string.item_available_in_future));
+                        new DialogClass().showMessageDialog(context.getString(R.string.alert), context.getString(R.string.item_available_in_future));
                         break;
                     case 11:
                         G.context.startActivity(new Intent(context, ActivityShowFeshfeshe.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));

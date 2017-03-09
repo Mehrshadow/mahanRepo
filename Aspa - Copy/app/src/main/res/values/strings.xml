@@ -37,7 +37,7 @@
     <string name="error">خطا</string>
     <string name="input_incorrect_error">لطفا مقدار صحیحی برای مبلغ وارد کنید</string>
     <string name="item_available_in_future">این آیتم به زودی در دسترس قرار خواهد گرفت</string>
-    <string name="future">به زودی</string>
+    <string name="alert">پیغام</string>
     <string name="send_failure">در ارسال پیام مشکلی به وجود آمد</string>
     <string name="choose_sender">اشتراک گذاری با</string>
     <string name="gpsmessage">برای دسترسی به موقعیت شما و گرفتن امتیاز، لازم است GPS  خودرا روشن کنید</string>

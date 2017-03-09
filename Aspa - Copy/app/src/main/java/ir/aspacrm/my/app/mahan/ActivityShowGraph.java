@@ -8,8 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import butterknife.Bind;
-import butterknife.ButterKnife;
+
 import com.activeandroid.query.Select;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -18,26 +17,32 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+
+import java.util.ArrayList;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
-import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.U;
 import ir.aspacrm.my.app.mahan.classes.WebService;
 import ir.aspacrm.my.app.mahan.enums.EnumInternetErrorType;
-import ir.aspacrm.my.app.mahan.events.EventOnAddScoreResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetGraph;
 import ir.aspacrm.my.app.mahan.events.EventOnGetGraphResponse;
 import ir.aspacrm.my.app.mahan.model.Graph;
 
-import java.util.ArrayList;
-
 public class ActivityShowGraph extends AppCompatActivity {
 
-    @Bind(R.id.chart1) HorizontalBarChart mChart;
-    @Bind(R.id.layBtnClose) LinearLayout layBtnClose;
-    @Bind(R.id.layBtnBack) LinearLayout layBtnBack;
-    @Bind(R.id.txtShowMessage) TextView txtShowMessage;
-    @Bind(R.id.layLoading) LinearLayout layLoading;
+    @Bind(R.id.chart1)
+    HorizontalBarChart mChart;
+    @Bind(R.id.layBtnClose)
+    LinearLayout layBtnClose;
+    @Bind(R.id.layBtnBack)
+    LinearLayout layBtnBack;
+    @Bind(R.id.txtShowMessage)
+    TextView txtShowMessage;
+    @Bind(R.id.layLoading)
+    LinearLayout layLoading;
     Graph graph;
 
     @Override
@@ -80,20 +85,19 @@ public class ActivityShowGraph extends AppCompatActivity {
         mChart.zoom(0, 5, 0, U.getDeviceHeight(), YAxis.AxisDependency.RIGHT);
         // draw shadows for each bar that show the maximum value
 //         mChart.setDrawBarShadow(true);
-//         mChart.setDrawXLabels(false);
+//        mChart.setDrawXLabels(false);
         mChart.setDrawGridBackground(false);
         mChart.setBackgroundColor(ContextCompat.getColor(G.context, R.color.trans));
 
         XAxis xl = mChart.getXAxis();
         xl.setPosition(XAxis.XAxisPosition.BOTTOM);
         xl.setAvoidFirstLastClipping(true);
-        xl.setDrawAxisLine(true);
+//        xl.setDrawAxisLine(true);
         xl.setTextColor(ContextCompat.getColor(G.currentActivity, R.color.text_color_items));//نوشته سمت چپ نمودار
         xl.setTypeface(Typeface.MONOSPACE);
         xl.setTextSize(getResources().getDimension(R.dimen.size_font_very_small));
         xl.setDrawGridLines(false);
         xl.setGridLineWidth(0.3f);
-
 
         /** in ghesmat marbute be khate balaye nemudar ast*/
         YAxis yl = mChart.getAxisLeft();
@@ -118,31 +122,33 @@ public class ActivityShowGraph extends AppCompatActivity {
         mChart.animateY(2500);
 
     }
-    public void onEventMainThread(EventOnGetGraphResponse event){
+
+    public void onEventMainThread(EventOnGetGraphResponse event) {
         Logger.d("ActivityShowGraph : EventOnGetGraphResponse is raised");
         layLoading.setVisibility(View.GONE);
         graph = event.getGraph();
-        if ( graph.userId == 0 ){
+        if (graph.userId == 0) {
             /** yani graaphi baraaye eon sabt nashode ast*/
             mChart.setVisibility(View.GONE);
             txtShowMessage.setVisibility(View.VISIBLE);
             txtShowMessage.setText("موردی یافت نشد.");
-        }else {
+        } else {
             txtShowMessage.setVisibility(View.GONE);
             initializeGraph();
         }
     }
+
     private void initializeGraph() {
         ArrayList<BarEntry> yVals1 = new ArrayList<>();
         ArrayList<String> xVals = new ArrayList<>();
         String[] mLabels = graph.xData.split(",");
         String[] mValues = graph.yData.split(",");
-        if(mLabels.length == 1){
+        if (mLabels.length == 1) {
             /** yani hich graphi sabt nashode ast*/
             mChart.setVisibility(View.GONE);
             txtShowMessage.setVisibility(View.VISIBLE);
             txtShowMessage.setText("موردی یافت نشد.");
-        }else {
+        } else {
             int i = 0;
             for (String value : mValues) {
                 xVals.add("" + mLabels[i]);
@@ -167,26 +173,29 @@ public class ActivityShowGraph extends AppCompatActivity {
             mChart.setVisibility(View.VISIBLE);
         }
     }
-    public void onEventMainThread(EventOnGetErrorGetGraph event){
+
+    public void onEventMainThread(EventOnGetErrorGetGraph event) {
         Logger.d("ActivityShowGraph : EventOnGetErrorGetGraph is raised");
         layLoading.setVisibility(View.GONE);
-        if(event.getErrorType() == EnumInternetErrorType.NO_INTERNET_ACCESS){
-            graph = new Select().from(Graph.class).where("UserId = ? ",G.currentUser.userId).executeSingle();
-            if(graph != null){
+        if (event.getErrorType() == EnumInternetErrorType.NO_INTERNET_ACCESS) {
+            graph = new Select().from(Graph.class).where("UserId = ? ", G.currentUser.userId).executeSingle();
+            if (graph != null) {
                 initializeGraph();
-            }else{
+            } else {
                 mChart.setVisibility(View.GONE);
             }
-        }else{
+        } else {
             txtShowMessage.setVisibility(View.VISIBLE);
             txtShowMessage.setText("خطا در دریافت اطلاعات از سرور لطفا دوباره تلاش کنید.");
         }
     }
+
     @Override
     protected void onResume() {
         super.onResume();
         G.currentActivity = this;
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
