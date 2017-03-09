@@ -148,7 +148,7 @@
                                         android:id="@+id/layBtnTamdidService"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_gravity="right"
+                                        android:layout_gravity="center|right"
                                         android:layout_marginBottom="3dp"
                                         android:background="@color/back_items"
                                         android:clickable="true"
@@ -158,7 +158,7 @@
                                             android:layout_width="fill_parent"
                                             android:layout_height="fill_parent"
                                             android:layout_gravity="center"
-                                            android:gravity="right"
+                                            android:gravity="center|right"
                                             android:orientation="horizontal">
 
                                             <TextView
@@ -188,6 +188,7 @@
                                 android:id="@+id/layTaghirService"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="center|right"
                                 android:orientation="horizontal">
 
 
@@ -208,7 +209,7 @@
                                             android:layout_width="fill_parent"
                                             android:layout_height="fill_parent"
                                             android:layout_gravity="center"
-                                            android:gravity="right"
+                                            android:gravity="center|right"
                                             android:orientation="horizontal">
 
                                             <TextView
@@ -235,8 +236,6 @@
                             </LinearLayout>
 
                             <!-- layBtnTraffic -->
-
-
                             <LinearLayout
                                 android:id="@+id/layTraffic"
                                 android:layout_width="match_parent"
@@ -262,7 +261,7 @@
                                             android:layout_width="fill_parent"
                                             android:layout_height="fill_parent"
                                             android:layout_gravity="center"
-                                            android:gravity="right"
+                                            android:gravity="center|right"
                                             android:orientation="horizontal">
 
                                             <TextView
@@ -289,7 +288,6 @@
 
                             </LinearLayout>
 
-
                             <!-- layBtnFeshfeshe -->
                             <LinearLayout
                                 android:id="@+id/layFeshfeshe"
@@ -315,7 +313,7 @@
                                             android:layout_width="fill_parent"
                                             android:layout_height="fill_parent"
                                             android:layout_gravity="center"
-                                            android:gravity="right"
+                                            android:gravity="center|right"
                                             android:orientation="horizontal">
 
                                             <TextView
@@ -367,7 +365,7 @@
                                             android:layout_width="fill_parent"
                                             android:layout_height="fill_parent"
                                             android:layout_gravity="center"
-                                            android:gravity="right"
+                                            android:gravity="center|right"
                                             android:orientation="horizontal">
 
                                             <TextView

@@ -9,14 +9,13 @@
         android:id="@+id/notifyCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:layout_marginBottom="2.5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="2.5dp"
-        app:cardBackgroundColor="@color/back_items"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="0dp">
+        android:elevation="0dp"
+        app:cardBackgroundColor="@color/back_items">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@drawable/background"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,16 +51,15 @@
             android:id="@+id/layFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="60dp"
             android:layout_marginTop="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="60dp">
 
         </FrameLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:visibility="gone"
         android:id="@+id/layLoading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -69,7 +68,8 @@
         android:layout_marginBottom="3dp"
         android:background="@color/back_loading_color"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <com.pnikosis.materialishprogress.ProgressWheel
             android:layout_width="36dp"

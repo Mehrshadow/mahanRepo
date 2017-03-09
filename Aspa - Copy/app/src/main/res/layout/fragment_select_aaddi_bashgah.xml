@@ -176,8 +176,8 @@
                                                 android:typeface="serif" />
 
                                             <ImageView
-                                                android:layout_width="@dimen/size_image_very_small"
-                                                android:layout_height="@dimen/size_image_small"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
                                                 android:src="@drawable/ic_circle" />
                                         </LinearLayout>
                                     </LinearLayout>
@@ -236,8 +236,8 @@
                                                 android:typeface="serif" />
 
                                             <ImageView
-                                                android:layout_width="@dimen/size_image_very_small"
-                                                android:layout_height="@dimen/size_image_small"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
                                                 android:src="@drawable/ic_circle" />
                                         </LinearLayout>
                                     </LinearLayout>
