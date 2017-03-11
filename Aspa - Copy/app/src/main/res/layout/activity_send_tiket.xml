@@ -93,30 +93,74 @@
 
         </LinearLayout>
 
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@color/back_items"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="3dp">
 
-            <EditText
-                android:id="@+id/edtTicketSubject"
+
+
+            <FrameLayout
+                android:layout_margin="8dp"
+                android:background="@color/back_items"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/edtTicketSubject"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/trans"
+                    android:hint="موضوع تیکت ارسالی"
+                    android:imeOptions="actionGo"
+                    android:minHeight="40dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/light_light_grey"
+                    android:textSize="@dimen/size_font_very_very_small"
+                    android:typeface="serif" />
+
+
+                    <Spinner
+                        android:visibility="gone"
+                        android:id="@+id/spVahed0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/background_spinner"
+                        tools:listitem="@layout/s_item_white" />
+
+
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@color/back_items"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+            <Spinner
+                android:visibility="visible"
+                android:id="@+id/spVahed0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/trans"
-                android:hint="موضوع تیکت ارسالی"
-                android:imeOptions="actionGo"
-                android:minHeight="40dp"
-                android:singleLine="true"
-                android:textColor="@color/text_color_items"
-                android:textColorHint="@color/light_light_grey"
-                android:textSize="@dimen/size_font_very_very_small"
-                android:typeface="serif" />
+                android:layout_margin="5dp"
+                android:background="@drawable/background_spinner"
+                tools:listitem="@layout/s_item_white" />
+
+            </FrameLayout>
+
+
         </LinearLayout>
 
         <LinearLayout

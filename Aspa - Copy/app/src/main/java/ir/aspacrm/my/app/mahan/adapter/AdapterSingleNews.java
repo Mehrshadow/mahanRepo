@@ -64,10 +64,11 @@ public class AdapterSingleNews extends RecyclerView.Adapter<AdapterSingleNews.Ne
         @Bind(R.id.webView)
         WebView webView;
 
+
         //        @Bind(R.id.txtNewsImportant) PersianTextViewThin txtNewsImportant;
         public NewsViewHolder(final View itemView) {
             super(itemView);
-            ButterKnife.bind(G.currentActivity, itemView);
+            ButterKnife.bind(this, itemView);
             webView.getSettings().setJavaScriptEnabled(true);
         }
     }
