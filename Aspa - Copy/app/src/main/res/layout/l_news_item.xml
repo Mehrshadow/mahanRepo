@@ -14,7 +14,6 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="2.5dp"
-        app:cardBackgroundColor="@color/back_items"
         app:cardElevation="0dp">
 
         <LinearLayout
@@ -63,14 +62,10 @@
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
-                            <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
-                                android:id="@+id/txtNewsBodyText"
+                            <WebView
+                                android:id="@+id/web"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:gravity="start"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/size_font_very_very_small" />
+                                android:layout_height="wrap_content" />
                         </LinearLayout>
                     </LinearLayout>
 

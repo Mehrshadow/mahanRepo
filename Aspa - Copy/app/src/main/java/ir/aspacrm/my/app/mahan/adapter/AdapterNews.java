@@ -3,7 +3,6 @@ package ir.aspacrm.my.app.mahan.adapter;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +51,7 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
             public void onClick(View v) {
                 Intent showSingleNews = new Intent(G.currentActivity, ActivityShowSingleNews.class);
                 showSingleNews.putExtra("title", "" + news.title);
-                showSingleNews.putExtra("body", "" + Html.fromHtml(news.bodyText));
+                showSingleNews.putExtra("body", "" + news.bodyText);
                 showSingleNews.putExtra("date", "" + news.newsDate);
                 G.currentActivity.startActivity(showSingleNews);
             }

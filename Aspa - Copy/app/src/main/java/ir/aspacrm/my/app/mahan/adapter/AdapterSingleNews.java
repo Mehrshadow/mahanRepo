@@ -9,8 +9,6 @@ import android.webkit.WebView;
 
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewNormal;
@@ -53,21 +51,25 @@ public class AdapterSingleNews extends RecyclerView.Adapter<AdapterSingleNews.Ne
     }
 
     public class NewsViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.txtNewsTitle)
+        //        @Bind(R.id.txtNewsTitle)
         PersianTextViewNormal txtNewsTitle;
-        @Bind(R.id.txtNewsBodyText)
-        PersianTextViewThin txtNewsBodyText;
-        @Bind(R.id.txtNewsDate)
+        //        @Bind(R.id.txtNewsDate)
         PersianTextViewThin txtNewsDate;
-        @Bind(R.id.newsCardView)
+        //        @Bind(R.id.newsCardView)
         CardView newsCardView;
-        @Bind(R.id.webView)
+        //        @Bind(R.id.web)
         WebView webView;
 
         //        @Bind(R.id.txtNewsImportant) PersianTextViewThin txtNewsImportant;
         public NewsViewHolder(final View itemView) {
             super(itemView);
-            ButterKnife.bind(G.currentActivity, itemView);
+//            ButterKnife.bind(G.currentActivity, itemView);
+
+            txtNewsTitle = (PersianTextViewNormal)itemView.findViewById(R.id.txtNewsTitle);
+            txtNewsDate = (PersianTextViewThin) itemView.findViewById(R.id.txtNewsDate);
+            newsCardView = (CardView) itemView.findViewById(R.id.newsCardView);
+            webView = (WebView) itemView.findViewById(R.id.web);
+
             webView.getSettings().setJavaScriptEnabled(true);
         }
     }
