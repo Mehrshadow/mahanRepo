@@ -38,8 +38,8 @@ public class GpsService extends Service implements LocationListener {
     double lastLatitude = 0;               // last-latitude
     double lastLongitude = 0;               // last-longitude
 
-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 1;              // 30 meters
-    private static final long MIN_TIME_BW_UPDATES = 10 * 1000;   // 1 minute
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 50;              // 30 meters
+    private static final long MIN_TIME_BW_UPDATES = 60 * 1000;   // 1 minute
 
 
     private LocationManager locationManager;
@@ -163,7 +163,7 @@ public class GpsService extends Service implements LocationListener {
 
 
                     if (!G.locations.get(i).isHasConditions()) {
-                        showMessage.showMessageDialog("امتیاز جدید", "امتیاز مربوط به رویداد " + G.locations.get(i).getDes() + " به شما تعلق گرفت");
+                        showMessage.showMessageDialog("تبریک", "امتیاز مربوط به رویداد " + G.locations.get(i).getDes() + " به شما تعلق گرفت");
                     }
 
                     new Update(Locations.class)
@@ -213,7 +213,7 @@ public class GpsService extends Service implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-        Toast.makeText(getApplicationContext(), "Latitude>>" + location.getLatitude() + "\nLongitude>>" + location.getLongitude() + "\n<<Sent To>>\n" + URL, Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), "Latitude>>" + location.getLatitude() + "\nLongitude>>" + location.getLongitude() + "\n<<Sent To>>\n" + URL, Toast.LENGTH_LONG).show();
         checkLocation(location.getLatitude(), location.getLongitude());
         sendLocations();
     }

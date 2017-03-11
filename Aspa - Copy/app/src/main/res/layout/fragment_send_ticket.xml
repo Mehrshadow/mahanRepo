@@ -71,6 +71,8 @@
                 android:orientation="horizontal"
                 android:padding="3dp">
 
+
+
                 <EditText
                     android:id="@+id/edtTicketSubject"
                     android:layout_width="match_parent"

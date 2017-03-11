@@ -60,9 +60,11 @@ public class AdapterSingleNews extends RecyclerView.Adapter<AdapterSingleNews.Ne
         //        @Bind(R.id.web)
         WebView webView;
 
+
         //        @Bind(R.id.txtNewsImportant) PersianTextViewThin txtNewsImportant;
         public NewsViewHolder(final View itemView) {
             super(itemView);
+<<<<<<< HEAD
 //            ButterKnife.bind(G.currentActivity, itemView);
 
             txtNewsTitle = (PersianTextViewNormal)itemView.findViewById(R.id.txtNewsTitle);
@@ -70,6 +72,9 @@ public class AdapterSingleNews extends RecyclerView.Adapter<AdapterSingleNews.Ne
             newsCardView = (CardView) itemView.findViewById(R.id.newsCardView);
             webView = (WebView) itemView.findViewById(R.id.web);
 
+=======
+            ButterKnife.bind(this, itemView);
+>>>>>>> new
             webView.getSettings().setJavaScriptEnabled(true);
         }
     }

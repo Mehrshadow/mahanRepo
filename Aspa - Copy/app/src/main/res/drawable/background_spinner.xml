@@ -12,7 +12,7 @@
             <item>
                 <bitmap
                         android:gravity="left"
-                        android:src="@drawable/ic_keyboard_arrow_down_white_24dp"/>
+                        android:src="@drawable/ic_expand_more_purpule_36dp"/>
             </item>
         </layer-list>
     </item>

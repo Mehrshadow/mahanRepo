@@ -37,6 +37,7 @@ public class ActivityShowSingleNews extends AppCompatActivity {
         setContentView(R.layout.activity_show_news);
 
         G.currentActivity = this;
+        G.context = this;
 
         ButterKnife.bind(G.currentActivity);
 
