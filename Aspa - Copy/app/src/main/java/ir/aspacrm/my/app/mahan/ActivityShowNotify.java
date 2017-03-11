@@ -20,12 +20,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 import ir.aspacrm.my.app.mahan.adapter.AdapterNotify;
-import ir.aspacrm.my.app.mahan.classes.DialogClass;
 import ir.aspacrm.my.app.mahan.classes.Logger;
 import ir.aspacrm.my.app.mahan.classes.U;
 import ir.aspacrm.my.app.mahan.classes.WebService;
 import ir.aspacrm.my.app.mahan.enums.EnumInternetErrorType;
-import ir.aspacrm.my.app.mahan.events.EventOnAddScoreResponse;
 import ir.aspacrm.my.app.mahan.events.EventOnGetErrorGetNotifies;
 import ir.aspacrm.my.app.mahan.events.EventOnGetNotifiesResponse;
 import ir.aspacrm.my.app.mahan.model.Notify;
@@ -137,10 +135,15 @@ public class ActivityShowNotify extends AppCompatActivity {
     public void getNotifyFromDB() {
         notifies = new Select()
                 .from(Notify.class)
-                .where("UserId = ?", G.currentUser.userId)
+                .where("UserId = ? AND IsSeen = 0", G.currentUser.userId)
                 .orderBy("NotifyCode desc")
                 .execute();
         adapterNotify.updateList(notifies);
+
+        if (notifies.size() == 0) {
+            txtShowMessage.setText(R.string.no_new_notifies);
+            txtShowMessage.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

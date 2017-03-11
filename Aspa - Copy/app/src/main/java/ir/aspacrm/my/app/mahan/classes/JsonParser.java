@@ -754,6 +754,7 @@ public class JsonParser {
                     newNotify.message = notify.Msg;
                     newNotify.isSeen = false;
                     newNotify.save();
+
                     countNewNotify++;
                 } else {
                     existNotify.message = notify.Msg;
@@ -1163,7 +1164,7 @@ public class JsonParser {
         Logger.d("JsonParser : addScoreResponse json is  " + json);
         if (!json.equals("") && json != null) {
             AddScoreResponse[] addScoreResponses = gson.fromJson(json, AddScoreResponse[].class);
-            EventBus.getDefault().post(new EventOnAddScoreResponse(addScoreResponses[0],locations));
+            EventBus.getDefault().post(new EventOnAddScoreResponse(addScoreResponses[0], locations));
 
         }
 //        1 sabt

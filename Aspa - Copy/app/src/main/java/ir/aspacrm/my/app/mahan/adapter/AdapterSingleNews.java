@@ -2,10 +2,10 @@ package ir.aspacrm.my.app.mahan.adapter;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class AdapterSingleNews extends RecyclerView.Adapter<AdapterSingleNews.Ne
 
     @Override
     public NewsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(G.context).inflate(R.layout.l_news_item, parent, false);
+        View view = LayoutInflater.from(G.currentActivity).inflate(R.layout.l_news_item, parent, false);
         return new NewsViewHolder(view);
     }
 
@@ -35,7 +35,7 @@ public class AdapterSingleNews extends RecyclerView.Adapter<AdapterSingleNews.Ne
     public void onBindViewHolder(final NewsViewHolder holder, int position) {
         final News news = newses.get(position);
         holder.txtNewsTitle.setText("" + news.title);
-        holder.txtNewsBodyText.setText("" + Html.fromHtml(news.bodyText));
+        holder.webView.loadDataWithBaseURL("", news.bodyText, "text/html", "utf-8", "");
         holder.txtNewsDate.setText("" + news.newsDate);
         if (!news.isSeen) {
 //            holder.newsCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.circle_background_color));
@@ -61,12 +61,14 @@ public class AdapterSingleNews extends RecyclerView.Adapter<AdapterSingleNews.Ne
         PersianTextViewThin txtNewsDate;
         @Bind(R.id.newsCardView)
         CardView newsCardView;
+        @Bind(R.id.webView)
+        WebView webView;
 
         //        @Bind(R.id.txtNewsImportant) PersianTextViewThin txtNewsImportant;
         public NewsViewHolder(final View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
-
+            ButterKnife.bind(G.currentActivity, itemView);
+            webView.getSettings().setJavaScriptEnabled(true);
         }
     }
 

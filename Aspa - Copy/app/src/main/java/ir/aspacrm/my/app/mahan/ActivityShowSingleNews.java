@@ -35,7 +35,10 @@ public class ActivityShowSingleNews extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_news);
-        ButterKnife.bind(this);
+
+        G.currentActivity = this;
+
+        ButterKnife.bind(G.currentActivity);
 
         Intent i = getIntent();
 
@@ -50,7 +53,7 @@ public class ActivityShowSingleNews extends AppCompatActivity {
             getWindow().setStatusBarColor(ContextCompat.getColor(G.context, R.color.dark_dark_grey));
 
         adapterNews = new AdapterSingleNews(newses);
-        linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager = new LinearLayoutManager(G.currentActivity);
         lstNews.setLayoutManager(linearLayoutManager);
         lstNews.setAdapter(adapterNews);
 

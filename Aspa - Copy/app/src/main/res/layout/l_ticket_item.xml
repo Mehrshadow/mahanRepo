@@ -6,14 +6,14 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:background="@color/back_items"
         android:id="@+id/cardTicketMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2.5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="2.5dp">
+        android:layout_marginTop="2.5dp"
+        android:background="@color/back_items">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -218,7 +218,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
                 android:background="@color/light_grey"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical" />
 
             <LinearLayout
                 android:id="@+id/layMoreDetail"
@@ -236,11 +236,9 @@
                     android:layout_margin="1dp"
                     android:text="مشاهده جزییات"
                     android:textColor="@color/orange"
-
                     android:textSize="@dimen/size_font_very_small"
                     app:fontFile="fonts/iransans_bold.ttf" />
             </LinearLayout>
-
         </LinearLayout>
     </LinearLayout>
 

@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
+import com.activeandroid.query.Update;
 
 import java.util.List;
 
@@ -34,24 +34,29 @@ public class AdapterNotify extends RecyclerView.Adapter<AdapterNotify.NewsViewHo
     }
 
     @Override
-    public void onBindViewHolder(NewsViewHolder holder, int position) {
+    public void onBindViewHolder(final NewsViewHolder holder, int position) {
         final Notify notify = notifies.get(position);
-        if (!notify.isSeen) {
+//        if (!notify.isSeen) {
 //            holder.notifyCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.circle_background_color));
-            notify.isSeen = true;
-            notify.save();
-        } else {
+//            notify.isSeen = true;
+//            notify.save();
+//        } else {
 //            holder.notifyCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.dark_grey));
-        }
+//        }
         holder.txtNotifyMessage.setText("" + notify.message);
         holder.btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    new Delete()
-                            .from(Notify.class)
+                    new Update(Notify.class)
+                            .set("IsSeen = 1")
                             .where("UserId = ? AND NotifyCode = ?", G.currentUser.userId, "" + notify.notifyCode)
                             .execute();
+
+//                    new Delete()
+//                            .from(Notify.class)
+//                            .where("UserId = ? AND NotifyCode = ?", G.currentUser.userId, "" + notify.notifyCode)
+//                            .execute();
 
                     getNotifyFromDB();
                 } catch (Exception e) {
@@ -88,7 +93,7 @@ public class AdapterNotify extends RecyclerView.Adapter<AdapterNotify.NewsViewHo
     private void getNotifyFromDB() {
         notifies = new Select()
                 .from(Notify.class)
-                .where("UserId = ?", G.currentUser.userId)
+                .where("UserId = ? AND IsSeen = 0", G.currentUser.userId)
                 .orderBy("NotifyCode desc")
                 .execute();
         updateList(notifies);

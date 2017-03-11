@@ -37,7 +37,7 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
     public void onBindViewHolder(final NewsViewHolder holder, int position) {
         final News news = newses.get(position);
         holder.txtNewsTitle.setText("" + news.title);
-        holder.txtNewsBodyText.setText("" + Html.fromHtml(news.bodyText));
+//        holder.txtNewsBodyText.setText("" + Html.fromHtml(news.bodyText));
         holder.txtNewsDate.setText("" + news.newsDate);
         if (!news.isSeen) {
 //            holder.newsCardView.setCardBackgroundColor(ContextCompat.getColor(G.context,R.color.circle_background_color));
@@ -74,7 +74,6 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
         @Bind(R.id.newsCardView)
         CardView newsCardView;
 
-        //        @Bind(R.id.txtNewsImportant) PersianTextViewThin txtNewsImportant;
         public NewsViewHolder(final View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
