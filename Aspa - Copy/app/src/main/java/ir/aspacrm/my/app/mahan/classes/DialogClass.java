@@ -3,6 +3,7 @@ package ir.aspacrm.my.app.mahan.classes;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.location.LocationManager;
 import android.support.v7.widget.AppCompatSpinner;
@@ -279,6 +280,51 @@ public class DialogClass {
             @Override
             public void onClick(View view) {
                 EventBus.getDefault().post(new EventOnClickedEndFeshfeshe());
+                dialog.dismiss();
+            }
+        });
+        imgCloseDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        layBtnNegative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    public void enableGps() {
+        final Dialog dialog = new Dialog(G.currentActivity, R.style.DialogSlideAnim);
+        dialog.setContentView(R.layout.dialog_question);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        LinearLayout layBtnPositive = (LinearLayout) dialog.findViewById(R.id.layBtnOk);
+        LinearLayout layBtnNegative = (LinearLayout) dialog.findViewById(R.id.layBtnCancel);
+        TextView txtBtnOk = (TextView) layBtnPositive.findViewById(R.id.txtValue);
+        ImageView imgCloseDialog = (ImageView) dialog.findViewById(R.id.imgCloseDialog);
+        TextView txtBtnCancel = (TextView) layBtnNegative.findViewById(R.id.txtValue);
+        TextView txtDialogTitle = (TextView) dialog.findViewById(R.id.txtDialogTitle);
+        TextView txtDialogDescription = (TextView) dialog.findViewById(R.id.txtDialogDescription);
+
+        txtDialogTitle.setText("هشدار");
+        txtDialogDescription.setText(" برای امتیاز گیری از رویدادها،نیاز است GPS خود را روشن کنید ");
+
+        txtBtnOk.setText("روشن کردن");
+        txtBtnCancel.setText("انصراف");
+
+        layBtnPositive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gpsOptionsIntent = new Intent(
+                        android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                G.context.startActivity(gpsOptionsIntent);
                 dialog.dismiss();
             }
         });

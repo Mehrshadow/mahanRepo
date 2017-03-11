@@ -256,20 +256,23 @@ public class ActivityShowCurrentService extends AppCompatActivity implements Vie
             G.currentAccount = new Select().from(Account.class).where("userId = ? ", G.currentUser.userId).executeSingle();
 
         if (G.currentAccount.regConnect) {
-            /** namayesh halate vasl movaghat.*/
             lay_remaining_days.setVisibility(View.GONE);
             layExpired.setVisibility(View.VISIBLE);
             layLoading.setVisibility(View.INVISIBLE);
             layTempConnection.setVisibility(View.VISIBLE);
-            tvConnectionStatus.setText(R.string.offline);
             tvTarazeMali.setText(" " + G.currentAccount.balance + "");
         } else {
             lay_remaining_days.setVisibility(View.VISIBLE);
             layLoading.setVisibility(View.INVISIBLE);
             layTempConnection.setVisibility(View.GONE);
             layExpired.setVisibility(View.GONE);
-            tvConnectionStatus.setText(" " + getString(R.string.online));
             tvTarazeMali.setText(" " + G.currentAccount.balance + "");
+        }
+
+        if (G.currentAccount.online) {
+            tvConnectionStatus.setText(getString(R.string.online));
+        } else {
+            tvConnectionStatus.setText(getString(R.string.offline));
         }
 
         tvPackageName.setText(G.currentAccount.pkgName.trim().length() < 10 ?

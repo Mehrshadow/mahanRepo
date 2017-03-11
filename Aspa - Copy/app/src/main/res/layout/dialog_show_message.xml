@@ -4,7 +4,7 @@
     android:id="@+id/layMainDialog"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/back_items"
+    android:background="@color/back_alerts"
     android:orientation="vertical">
 
     <LinearLayout
@@ -38,7 +38,7 @@
             android:minWidth="70dp"
             android:padding="5dp"
             android:text="پیغام"
-            android:textColor="@color/back_orange_btn"
+            android:textColor="@color/back_orange_btn2"
             android:textSize="@dimen/size_font_very_small"
             android:typeface="serif" />
     </LinearLayout>
