@@ -9,6 +9,7 @@ import android.webkit.WebView;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
 import ir.aspacrm.my.app.mahan.G;
 import ir.aspacrm.my.app.mahan.R;
 import ir.aspacrm.my.app.mahan.component.PersianTextViewNormal;
