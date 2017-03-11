@@ -95,7 +95,7 @@ public class ActivityShowGraph extends AppCompatActivity {
 //        xl.setDrawAxisLine(true);
         xl.setTextColor(ContextCompat.getColor(G.currentActivity, R.color.text_color_items));//نوشته سمت چپ نمودار
         xl.setTypeface(Typeface.MONOSPACE);
-        xl.setTextSize(getResources().getDimension(R.dimen.size_font_very_small));
+        xl.setTextSize(getResources().getDimension(R.dimen.size_font_very_very_very_small));
         xl.setDrawGridLines(false);
         xl.setGridLineWidth(0.3f);
 
@@ -107,7 +107,7 @@ public class ActivityShowGraph extends AppCompatActivity {
         yl.setAxisMinValue(0f); // this replaces setStartAtZero(true)
         yl.setTextColor(ContextCompat.getColor(G.currentActivity, R.color.text_color_items));
         yl.setTypeface(Typeface.MONOSPACE);
-        yl.setTextSize(getResources().getDimension(R.dimen.size_font_small));
+        yl.setTextSize(getResources().getDimension(R.dimen.size_font_very_very_very_small));
 //        yl.setInverted(true);
 
         // مقادیر پایین نمودار
@@ -117,7 +117,7 @@ public class ActivityShowGraph extends AppCompatActivity {
         yr.setAxisMinValue(0f); // this replaces setStartAtZero(true)
         yr.setTextColor(ContextCompat.getColor(G.currentActivity, R.color.text_color_items));
         yr.setTypeface(Typeface.MONOSPACE);
-        yr.setTextSize(getResources().getDimension(R.dimen.size_font_very_very_small));
+        yr.setTextSize(getResources().getDimension(R.dimen.size_font_very_very_very_small));
 //        yr.setInverted(true);
         mChart.animateY(2500);
 
@@ -155,19 +155,20 @@ public class ActivityShowGraph extends AppCompatActivity {
                 yVals1.add(new BarEntry(Float.parseFloat(value), i));
                 i++;
             }
-            BarDataSet set1 = new BarDataSet(yVals1, "مقدار بر حسب مگابایت");
+            BarDataSet set1 = new BarDataSet(yVals1, "حجم مصرف شده به مگابایت");
             set1.setColor(ContextCompat.getColor(G.currentActivity, R.color.orange));
-            set1.setValueTextColor(ContextCompat.getColor(G.currentActivity, R.color.white));
-            mChart.getLegend().setTextColor(ContextCompat.getColor(G.currentActivity, R.color.white));
+            set1.setValueTextColor(ContextCompat.getColor(G.currentActivity, R.color.back_orange_btn));
+            mChart.getLegend().setTextColor(ContextCompat.getColor(G.currentActivity, R.color.back_orange_btn));
             mChart.getLegend().setTypeface(Typeface.SANS_SERIF);
             set1.setValueTypeface(Typeface.MONOSPACE);
-            set1.setValueTextSize(getResources().getDimension(R.dimen.size_font_small));
+            set1.setBarSpacePercent(50);
+            set1.setValueTextSize(getResources().getDimension(R.dimen.size_font_very_very_very_small));
 
             ArrayList<IBarDataSet> dataSets = new ArrayList<>();
             dataSets.add(set1);
 
             BarData data = new BarData(xVals, dataSets);
-            data.setValueTextSize(getResources().getDimension(R.dimen.size_font_very_very_small)); // size of text of useage traffic
+            data.setValueTextSize(10); // size of text of useage traffic
             data.setValueTextColor(ContextCompat.getColor(G.currentActivity, R.color.text_color_items));
             mChart.setData(data);
             mChart.setVisibility(View.VISIBLE);
