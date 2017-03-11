@@ -122,7 +122,7 @@ public class ActivityShowNews extends AppCompatActivity {
         newses = new Select()
                 .from(News.class)
                 .where("UserId = ?", G.currentUser.userId)
-                .orderBy("NewsID desc")
+                .orderBy("NewsDate desc")
                 .execute();
         adapterNews.updateList(newses);
     }

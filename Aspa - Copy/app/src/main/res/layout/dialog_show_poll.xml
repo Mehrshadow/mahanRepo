@@ -5,7 +5,7 @@
     android:id="@+id/layMainDialog"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/back_items"
+    android:background="@color/back_alerts"
     android:orientation="vertical"
     android:padding="5dp">
 

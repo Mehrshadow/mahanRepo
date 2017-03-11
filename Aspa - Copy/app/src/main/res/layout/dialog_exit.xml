@@ -3,7 +3,7 @@
     android:id="@+id/layMainDialog"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/back_items"
+    android:background="@color/back_alerts"
     android:orientation="vertical">
 
     <LinearLayout
@@ -17,12 +17,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:background="@drawable/ic_expand_more_black_24dp"
             android:foreground="@drawable/ripple_list_item"
             android:gravity="center"
             android:padding="5dp"
             android:text="@string/exit"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:src="@drawable/ic_expand_more_purpule_36dp" />
+
     </LinearLayout>
 
     <LinearLayout

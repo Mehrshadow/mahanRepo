@@ -100,7 +100,7 @@ public class ActivityShowClubScores extends AppCompatActivity {
             if( score == 0 )
                 txtTotalClubScore.setText("مجموع امتیازات : " + "0");
             else if ( score > 0 )
-                txtTotalClubScore.setText("مجموع امتیازات : " + score + "+");
+                txtTotalClubScore.setText("مجموع امتیازات : " + score + "");
             else
                 txtTotalClubScore.setText("مجموع امتیازات : " + score);
         }else{
