@@ -47,7 +47,7 @@ public class GpsService extends Service implements LocationListener {
     static final double _eQuatorialEarthRadius = 6378.1370D;
     static final double _d2r = (Math.PI / 180D);
     int distance;
-DialogClass dialogClass;
+    DialogClass dialogClass;
 
     @Override
     public void onCreate() {
@@ -78,7 +78,10 @@ DialogClass dialogClass;
             isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
             if (!isGPSEnabled && !isNetworkEnabled) {
-                dialogClass.enableGps();
+                if (!G.isFirstCheckGps) {
+                    dialogClass.enableGps();
+                    G.isFirstCheckGps = true;
+                }
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
             } else {
                 this.canGetLocation = true;

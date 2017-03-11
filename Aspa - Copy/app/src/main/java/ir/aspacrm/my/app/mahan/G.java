@@ -51,6 +51,7 @@ public class G extends Application {
     public static CheckNotification checkNotification;
     public static long customerId;
     public static List<Locations> locations;
+    public static boolean isFirstCheckGps =false;
 
 
     /**

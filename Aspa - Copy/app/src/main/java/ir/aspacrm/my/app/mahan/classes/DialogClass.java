@@ -343,8 +343,6 @@ public class DialogClass {
         dialog.show();
     }
 
-
-
     public void showUpdateApplicationDialog(final String newVersion, final boolean isForce, final String url) {
         final Dialog dialog = new Dialog(G.currentActivity, R.style.DialogSlideAnim);
         dialog.setCancelable(false);
