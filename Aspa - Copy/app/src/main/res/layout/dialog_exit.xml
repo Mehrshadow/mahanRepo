@@ -39,6 +39,15 @@
         android:orientation="vertical">
 
         <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="خروج"
+            android:textColor="@color/back_orange_btn2"
+            android:textSize="@dimen/size_font_small"
+            android:typeface="serif" />
+
+        <ir.aspacrm.my.app.mahan.component.PersianTextViewNormal
             android:id="@+id/txtMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

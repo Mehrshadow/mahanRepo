@@ -80,7 +80,6 @@
         <!--</android.support.v4.widget.SwipeRefreshLayout>-->
 
 
-
         <TextView
             android:id="@+id/txtShowMessage"
             android:layout_width="wrap_content"
@@ -128,11 +127,11 @@
 
     <ir.aspacrm.my.app.mahan.component.PersianTextViewThin
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/chart1"
         android:text="حجم مصرف شده به مگابایت"
-        android:textSize="@dimen/size_font_very_very_small"
         android:textColor="@color/back_orange_btn"
-        android:layout_height="wrap_content" />
+        android:textSize="@dimen/size_font_very_very_small" />
 
     <LinearLayout
         android:id="@+id/layBtnBack"

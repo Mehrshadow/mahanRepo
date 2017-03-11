@@ -444,7 +444,7 @@ public class ActivityLogin extends AppCompatActivity {
             dlg.showMessageDialog("تایید", event.getMessage());
         } else {
             Logger.d("ActivityLogin : EventOnRememberPasswordResponse status is false");
-            txtShowErrorMessage.setText(event.getMessage());
+            txtShowErrorMessageForgetPassword.setText(event.getMessage());
         }
     }
 

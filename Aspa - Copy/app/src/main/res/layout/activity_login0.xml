@@ -122,8 +122,8 @@
                     android:layout_marginRight="20dp"
                     android:background="@color/back_edt_login"
                     android:gravity="center"
-                    android:padding="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
                     <!--<android.support.design.widget.TextInputLayout-->
                     <!--android:layout_width="match_parent"-->
@@ -139,6 +139,7 @@
                         android:background="@android:color/transparent"
                         android:drawableLeft="@drawable/ic_person_white_24dp"
                         android:drawablePadding="5dp"
+                        android:gravity="right|center"
                         android:hint="@string/username"
                         android:imeOptions="actionNext"
                         android:singleLine="true"
@@ -159,8 +160,8 @@
                     android:layout_marginRight="20dp"
                     android:background="@color/back_edt_login"
                     android:gravity="end"
-                    android:padding="14dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="14dp">
 
                     <!--<android.support.design.widget.TextInputLayout-->
                     <!--android:layout_width="match_parent"-->
@@ -176,7 +177,7 @@
                         android:background="@android:color/transparent"
                         android:drawableLeft="@drawable/ic_lock"
                         android:drawablePadding="5dp"
-                        android:gravity="end"
+                        android:gravity="right|center"
                         android:hint="@string/password"
                         android:imeOptions="actionGo"
                         android:inputType="textPassword"
@@ -307,6 +308,7 @@
                         android:background="@android:color/transparent"
                         android:drawableLeft="@drawable/ic_person_white_24dp"
                         android:drawablePadding="5dp"
+                        android:gravity="right|center"
                         android:hint="نام کاربری"
                         android:imeOptions="actionNext"
                         android:singleLine="true"
@@ -337,6 +339,7 @@
                         android:background="@android:color/transparent"
                         android:drawableLeft="@drawable/ic_phone_android_white_24dp"
                         android:drawablePadding="5dp"
+                        android:gravity="right|center"
                         android:hint="9XXXXXXXXX"
                         android:imeOptions="actionGo"
                         android:inputType="numberDecimal"
